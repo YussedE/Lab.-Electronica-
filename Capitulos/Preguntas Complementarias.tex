@@ -1,0 +1,275 @@
+\section{Preguntas Complementarias}
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+
+\item \textbf{¿Qué papel desempeña el núcleo en el transformador?}
+
+El núcleo de hierro acerado cumple dos funciones fundamentales. En primer lugar, concentra las líneas de flujo magnético generadas por el devanado primario, incrementando la intensidad del campo magnético. En segundo lugar, proporciona un medio de alta permeabilidad magnética que favorece el acoplamiento entre los devanados, permitiendo que la mayor parte del flujo magnético producido por el primario atraviese el devanado secundario y maximice la inducción electromagnética.
+
+\item \textbf{¿Qué condiciones deben cumplirse para que $V_s/V_p \approx N_s/N_p$ sea válido?}
+
+La relación entre voltajes y número de espiras es estrictamente válida únicamente para un transformador ideal. Para ello deben cumplirse las siguientes condiciones:
+
+\begin{itemize}
+    \item Ausencia de pérdidas resistivas en los devanados.
+    \item Igual variación temporal del flujo magnético en ambos devanados.
+    \item Ausencia de pérdidas en el núcleo por histéresis magnética y corrientes parásitas.
+    \item Acoplamiento magnético perfecto entre los devanados.
+\end{itemize}
+
+\item \textbf{De acuerdo con la gráfica $V_s$ vs. $V_p$ y sus pendientes, ¿qué puede concluirse sobre el funcionamiento del transformador cuando $R=\infty$?}
+
+Cuando el secundario se encuentra en circuito abierto $(R=\infty)$, la corriente secundaria es nula $(I_s=0)$. Bajo esta condición el transformador opera en vacío, permitiendo evaluar directamente la relación de transformación sin la influencia de caídas de tensión asociadas a una carga externa. En consecuencia, la pendiente de la gráfica $V_s$ en función de $V_p$ representa experimentalmente la constante de transformación del dispositivo.
+
+\item \textbf{De acuerdo con los resultados obtenidos, ¿se induce completamente el voltaje del primario en el secundario? ¿Por qué?}
+
+Los resultados experimentales muestran que el voltaje inducido en el secundario no corresponde exactamente al valor predicho por el modelo ideal. Esto se debe a la presencia de pérdidas asociadas a la resistencia de los devanados, al flujo magnético disperso y a las pérdidas en el núcleo. Como consecuencia, la transferencia de energía no es perfecta y la eficiencia del transformador es menor que la unidad.
+
+\item \textbf{¿Por qué el transformador no opera en corriente continua (DC)? Relación con $d\Phi/dt$.}
+
+De acuerdo con la Ley de Faraday, la fuerza electromotriz inducida depende de la variación temporal del flujo magnético:
+
+\begin{equation}
+\varepsilon = -N\frac{d\Phi}{dt}
+\end{equation}
+
+La corriente continua genera un flujo magnético prácticamente constante. Por tanto, al cumplirse que
+
+\begin{equation}
+\frac{d\Phi}{dt}=0,
+\end{equation}
+
+no se induce voltaje en el devanado secundario. Por esta razón, los transformadores requieren corriente alterna para su funcionamiento.
+
+\item \textbf{¿Cómo afecta la frecuencia a $B_0$ y a la saturación del núcleo para un $V_p$ dado?}
+
+La amplitud máxima del campo magnético puede relacionarse con el voltaje aplicado mediante
+
+\begin{equation}
+V_0=N_s\omega B_0A.
+\end{equation}
+
+De esta expresión se deduce que
+
+\begin{equation}
+B_0\propto \frac{1}{f}.
+\end{equation}
+
+Por lo tanto, para un voltaje constante, una disminución de la frecuencia provoca un incremento del campo magnético máximo. Si este incremento supera el límite de operación lineal del material, el núcleo entra en saturación, aumentando las pérdidas y el calentamiento del transformador.
+
+\item \textbf{A partir de la gráfica de potencia de salida $P_s$ en función de la potencia de entrada $P_p$, reporte el valor de la pendiente.}
+
+La pendiente de la recta obtenida al representar $P_s$ en función de $P_p$ corresponde a la eficiencia energética del transformador:
+
+\begin{equation}
+\eta=\frac{P_s}{P_p}.
+\end{equation}
+
+Por tanto, el valor numérico de la pendiente debe determinarse mediante el ajuste lineal realizado sobre los datos experimentales.
+
+\item \textbf{Encuentre la eficiencia del transformador.}
+
+La eficiencia del transformador se determina mediante la relación entre la potencia de salida y la potencia de entrada:
+
+\begin{equation}
+\eta=\frac{P_s}{P_p}
+=\frac{V_sI_s}{V_pI_p}.
+\end{equation}
+
+Generalmente, la eficiencia se expresa como porcentaje:
+
+\begin{equation}
+\eta(\%)=
+\frac{P_s}{P_p}\times100.
+\end{equation}
+
+\item \textbf{¿Es este transformador eficiente? ¿Qué se necesitaría para aumentar la eficiencia?}
+
+La eficiencia del transformador depende de los resultados experimentales obtenidos. En transformadores convencionales, los valores suelen encontrarse entre el 80\% y el 95\%. Para incrementar la eficiencia pueden implementarse las siguientes mejoras:
+
+\begin{itemize}
+    \item Emplear núcleos laminados para reducir las corrientes parásitas.
+    \item Utilizar conductores de menor resistencia eléctrica.
+    \item Optimizar el acoplamiento magnético mediante diseños que minimicen la dispersión del flujo.
+    \item Emplear materiales magnéticos con menores pérdidas por histéresis.
+\end{itemize}
+
+\end{enumerate}
+\subsection{Problema 1}
+
+ Un transformador tiene $N_p = 400$ espiras en el primario y $N_s = 100$ espiras en el secundario. Si al primario se le aplica una tensión de $120\,\mathrm{V_{rms}}$:
+
+\begin{enumerate}
+    \item Calcular el voltaje secundario en vacío.
+    \item Si la carga conectada al secundario es de $10\,\Omega$, determinar la corriente secundaria.
+\end{enumerate}
+
+\textbf{Datos:}
+
+\begin{itemize}
+    \item Número de espiras del primario: $N_p = 400$.
+    \item Número de espiras del secundario: $N_s = 100$.
+    \item Voltaje del primario: $V_p = 120\,\mathrm{V}$.
+    \item Resistencia de carga: $R = 10\,\Omega$.
+\end{itemize}
+
+\textbf{Solución}
+
+La relación de transformación para un transformador ideal está dada por
+
+\begin{equation}
+\frac{V_s}{V_p}=\frac{N_s}{N_p}.
+\end{equation}
+
+Despejando el voltaje secundario:
+
+\begin{equation}
+V_s = V_p\left(\frac{N_s}{N_p}\right).
+\end{equation}
+
+Sustituyendo los valores:
+
+\begin{equation}
+V_s = 120\left(\frac{100}{400}\right)
+=120(0.25)
+=30\,\mathrm{V}.
+\end{equation}
+
+Por tanto,
+
+\begin{equation}
+\boxed{V_s = 30\,\mathrm{V}}
+\end{equation}
+
+La corriente secundaria se obtiene mediante la Ley de Ohm:
+
+\begin{equation}
+I_s=\frac{V_s}{R}.
+\end{equation}
+
+Sustituyendo:
+
+\begin{equation}
+I_s=\frac{30\,\mathrm{V}}{10\,\Omega}
+=3\,\mathrm{A}.
+\end{equation}
+
+
+\begin{equation}
+\boxed{I_s = 3\,\mathrm{A}}
+\end{equation}
+
+\subsection{Problema 2}
+
+Con los mismos datos del problema anterior, determinar la corriente en el devanado primario suponiendo un transformador ideal.
+
+\textbf{Solución}
+
+En un transformador ideal se conserva la potencia:
+
+\begin{equation}
+P_p=P_s,
+\end{equation}
+
+por lo que
+
+\begin{equation}
+V_pI_p=V_sI_s.
+\end{equation}
+
+Despejando la corriente primaria:
+
+\begin{equation}
+I_p=\frac{V_sI_s}{V_p}.
+\end{equation}
+
+Sustituyendo los valores obtenidos anteriormente:
+
+\begin{equation}
+I_p=\frac{(30)(3)}{120}
+=\frac{90}{120}
+=0.75\,\mathrm{A}.
+\end{equation}
+
+\begin{equation}
+\boxed{I_p = 0.75\,\mathrm{A}}
+\end{equation}
+
+\subsection{Problema 3}
+
+Un transformador tiene una potencia de entrada de $220\,\mathrm{W}$ y entrega una potencia de salida de $200\,\mathrm{W}$. Determinar la eficiencia del dispositivo.
+
+\textbf{Solución}
+
+La eficiencia se define como:
+
+\begin{equation}
+\eta=\frac{P_s}{P_p}.
+\end{equation}
+
+Sustituyendo:
+
+\begin{equation}
+\eta=\frac{200}{220}=0.9091.
+\end{equation}
+
+Expresando el resultado en porcentaje:
+
+\begin{equation}
+\eta(\%)=0.9091\times100=90.9\%.
+\end{equation}
+
+\begin{equation}
+\boxed{\eta = 90.9\%}
+\end{equation}
+
+\subsection{Problema 4}
+
+\textbf{Enunciado:} Un transformador entrega una potencia de salida de $400\,\mathrm{W}$ con una corriente secundaria de $10\,\mathrm{A}$. La resistencia del devanado secundario es de $0.25\,\Omega$.
+
+\begin{enumerate}
+    \item Calcular la caída de tensión en el devanado secundario.
+    \item Determinar la potencia disipada en el devanado.
+\end{enumerate}
+
+\textbf{Solución}
+
+La caída de tensión se determina mediante la Ley de Ohm:
+
+\begin{equation}
+\Delta V = I_sR.
+\end{equation}
+
+Sustituyendo los valores:
+
+\begin{equation}
+\Delta V=(10\,\mathrm{A})(0.25\,\Omega)
+=2.5\,\mathrm{V}.
+\end{equation}
+
+Por tanto,
+
+\begin{equation}
+\boxed{\Delta V = 2.5\,\mathrm{V}}
+\end{equation}
+
+La potencia perdida por efecto Joule está dada por
+
+\begin{equation}
+P_{\text{perdida}}=I_s^2R.
+\end{equation}
+
+Sustituyendo:
+
+\begin{equation}
+P_{\text{perdida}}
+=(10\,\mathrm{A})^2(0.25\,\Omega)
+=100(0.25)
+=25\,\mathrm{W}.
+\end{equation}
+
+\begin{equation}
+\boxed{P_{\text{perdida}} = 25\,\mathrm{W}}
+\end{equation}
+\nocite{*}
