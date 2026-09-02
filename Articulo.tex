@@ -1,0 +1,528 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{graphicx}
+\usepackage{circuitikz}
+\usepackage{amsmath}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{subcaption}
+\usepackage[hidelinks]{hyperref}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{caption}
+\captionsetup[figure]{justification=centering}
+\usepackage[version=4]{mhchem}
+\usepackage{float} 
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{setspace}
+\graphicspath{{Imagenes/}}
+% Márgenes normales del documento
+\geometry{
+left=2.5cm,
+right=2.5cm,
+top=2.5cm,
+bottom=2.5cm
+}
+
+\setlength{\parskip}{0.5\baselineskip}
+
+\begin{document}
+
+% MÁRGENES SOLO PARA PRIMERA HOJA
+
+\newgeometry{
+left=2.5cm,
+right=2.5cm,
+top=0.5cm,
+bottom=2.5cm
+}
+
+\begin{titlepage}
+
+\begin{center}
+
+% para recortar el logo
+\includegraphics[
+width=\textwidth,
+trim=0cm 1.9cm 0cm 1.9cm,
+clip
+]{Logo.png}
+
+\vspace{-0.35cm}
+
+\rule{\textwidth}{0.4pt}
+
+\vspace{-0.1cm}
+
+{\small \textbf{Practica No.10}}
+
+\vspace{0.1cm}
+
+{\LARGE \textbf{Ley de Induccion de Faraday: \\ El Transformador}}
+
+\vspace{0.1cm}
+
+{\itshape Botina Wilmar, Erazo Hayber, Tarapuez Juan y Castillo Camilo}
+
+\vspace{-0.2cm}
+
+\href{mailto:botinajojoa3@gmail.com}{botinajojoa3@gmail.com} /
+\href{mailto:adrianerhayber06@gmail.com}{adrianerhayber06@gmail.com}\\
+\href{mailto:juandatara89ljfj@gmail.com}{juandatara89ljfj@gmail.com} /
+\href{mailto:camiloanndres26@gmail.com}{camiloanndres26@gmail.com}
+
+\vspace{-0.2cm}
+
+\textbf{Laboratorio de Física III, Física, Universidad de Nariño, 05/junio/26}
+
+\vspace{-0.3cm}
+
+\rule{\textwidth}{0.4pt}
+
+\end{center}
+
+\vspace{-1cm}
+
+
+
+\begin{abstract}
+Se comprobó experimentalmente el funcionamiento de un transformador mediante la validación de la relación de transformación entre los devanados primario y secundario y el cálculo de su eficiencia energética bajo diferentes condiciones de carga. Asimismo, se analizó la influencia del núcleo de hierro en la conducción del flujo magnético, contrastando los resultados experimentales con las predicciones teóricas y evaluando las incertidumbres asociadas mediante la Teoría de Errores.
+\end{abstract}
+
+\section{Introducción}
+
+La inducción electromagnética constituye uno de los principios fundamentales del electromagnetismo y de la ingeniería eléctrica moderna. Este fenómeno, descubierto por Michael Faraday en 1831, establece que una variación temporal del flujo magnético a través de un circuito conductor induce una fuerza electromotriz en dicho circuito. La formulación de este principio permitió el desarrollo de numerosos dispositivos eléctricos, entre ellos el transformador, ampliamente utilizado en los sistemas de generación, transmisión y distribución de energía eléctrica.
+
+Un transformador es un dispositivo electromagnético estático que transfiere energía eléctrica entre dos circuitos mediante un campo magnético variable. Su estructura básica está compuesta por un devanado primario y un devanado secundario enrollados sobre un núcleo ferromagnético. Cuando una corriente alterna circula por el devanado primario, se genera un flujo magnético variable en el núcleo que induce una fuerza electromotriz en el devanado secundario, permitiendo elevar o reducir el nivel de tensión de acuerdo con la relación entre el número de espiras de ambos devanados.
+
+El estudio experimental de los transformadores resulta de gran importancia debido a su papel fundamental en los sistemas eléctricos de potencia. La caracterización de parámetros como la relación de transformación, las pérdidas energéticas y la eficiencia permite comprender el comportamiento de estos dispositivos bajo condiciones reales de operación y comparar los resultados experimentales con las predicciones del modelo ideal.
+\end{titlepage}
+\restoregeometry
+En la presente práctica se analiza el funcionamiento de un transformador  a partir de la Ley de Inducción de Faraday. Para ello, se determina experimentalmente la relación entre los voltajes del devanado primario y secundario, se evalúa la influencia del número de espiras en la transformación de tensión y se calcula la eficiencia energética del sistema bajo diferentes condiciones de carga. Adicionalmente, se estudia el papel del núcleo ferromagnético en la conducción del flujo magnético y su influencia en el desempeño del transformador.
+
+\section{Marco Teórico}
+
+El funcionamiento de un transformador se fundamenta en los principios de la inducción electromagnética y en la interacción entre corrientes variables y campos magnéticos dentro de un circuito magnético cerrado. La transferencia de energía eléctrica entre dos devanados ocurre mediante un flujo magnético variable generado en un núcleo ferromagnético común.
+
+\subsection{Ley de Inducción de Faraday}
+
+La Ley de Inducción de Faraday establece que la fuerza electromotriz inducida ($\varepsilon$) en una bobina es proporcional al número de espiras ($N$) y a la rapidez de variación temporal del flujo magnético ($\Phi_B$) que atraviesa la superficie delimitada por la bobina. Matemáticamente se expresa como
+
+\begin{equation}
+\varepsilon = -N \frac{d\Phi_B}{dt},
+\end{equation}
+
+donde el signo negativo corresponde a la Ley de Lenz, la cual indica que la fuerza electromotriz inducida se opone a la variación del flujo que la produce.
+
+En un transformador, una corriente alterna aplicada al devanado primario genera un flujo magnético variable en el núcleo. Dicho flujo induce una fuerza electromotriz tanto en el devanado primario como en el secundario, permitiendo la transferencia de energía eléctrica sin contacto directo entre los circuitos.
+
+\subsection{Relación de Transformación}
+
+Para un transformador ideal, en el que se consideran despreciables las pérdidas eléctricas y magnéticas, la relación entre los voltajes eficaces de los devanados es proporcional a la relación entre sus números de espiras:
+
+\begin{equation}
+\frac{V_s}{V_p}
+=
+\frac{N_s}{N_p}
+=
+K,
+\end{equation}
+
+donde $V_p$ y $V_s$ corresponden a los voltajes eficaces en el primario y secundario, respectivamente, y $K$ es la constante de transformación.
+
+Dependiendo de la relación entre el número de espiras de ambos devanados, los transformadores pueden clasificarse como:
+
+\begin{itemize}
+    \item \textbf{Transformador elevador}: cuando $N_s > N_p$, de modo que $V_s > V_p$.
+    
+    \item \textbf{Transformador reductor}: cuando $N_s < N_p$, de modo que $V_s < V_p$.
+\end{itemize}
+
+\subsection{Eficiencia Energética}
+
+En un transformador real existen pérdidas asociadas al efecto Joule en los devanados, corrientes parásitas (corrientes de Foucault) y pérdidas por histéresis en el núcleo magnético. Por esta razón, la potencia entregada en el secundario es menor que la potencia suministrada al primario.
+
+La eficiencia energética ($\eta$) se define como la relación entre la potencia de salida y la potencia de entrada:
+
+\begin{equation}
+\eta
+=
+\frac{P_s}{P_p}\times100\%,
+\end{equation}
+
+o equivalentemente,
+
+\begin{equation}
+\eta
+=
+\frac{V_s I_s}{V_p I_p}
+\times100\%.
+\end{equation}
+
+Un transformador ideal presenta una eficiencia del $100\%$, mientras que en dispositivos reales este valor suele encontrarse entre el $80\%$ y el $98\%$, dependiendo de sus características constructivas y condiciones de operación.
+
+\subsection{Permeabilidad Magnética del Núcleo}
+
+El núcleo ferromagnético tiene la función de concentrar y guiar el flujo magnético generado por el devanado primario, mejorando el acoplamiento magnético entre los devanados y aumentando la eficiencia del transformador.
+
+La densidad de flujo magnético ($B$) en un material está relacionada con la intensidad del campo magnético ($H$) mediante la permeabilidad absoluta del material ($\mu$):
+
+\begin{equation}
+B=\mu H,
+\end{equation}
+
+donde
+
+\begin{equation}
+\mu=\mu_r\mu_0.
+\end{equation}
+
+Aquí, $\mu_0$ representa la permeabilidad magnética del vacío,
+
+\begin{equation}
+\mu_0 = 4\pi \times 10^{-7}\ \mathrm{T\cdot m/A},
+\end{equation}
+
+y $\mu_r$ es la permeabilidad relativa del material.
+
+Para un devanado de $N_p$ espiras recorrido por una corriente $I_p$, el campo magnético puede aproximarse mediante
+
+\begin{equation}
+H=\frac{N_p I_p}{l},
+\end{equation}
+
+donde $l$ es la longitud efectiva del circuito magnético.
+
+Por tanto, la densidad de flujo magnético queda expresada como
+
+\begin{equation}
+B=\mu\frac{N_p I_p}{l}.
+\end{equation}
+
+Materiales ferromagnéticos como el hierro presentan valores elevados de permeabilidad relativa, favoreciendo un acoplamiento magnético eficiente y reduciendo las pérdidas por dispersión del flujo magnético.
+
+\section{Metodología Experimental}
+
+Se ensambló un transformador utilizando un núcleo de hierro acerado y un juego de bobinas de 300 y 600 espiras. El sistema se conectó a una fuente de voltaje alterno variable $(0 - 250\,\mathrm{V})$, empleando multímetros digitales para la medición directa de las variables eléctricas.
+
+\subsection{Caracterización en Circuito Abierto (Relación de Transformación)}
+
+\begin{enumerate}
+    \item \textbf{Configuración:} Se estableció el circuito con el secundario abierto $(R=\infty)$, utilizando inicialmente una relación de vueltas de $N_p = 600$ y $N_s = 300$.
+    
+    \item \textbf{Toma de datos:} Se varió el voltaje del primario $(V_p)$ de forma gradual. Para cada incremento, se midieron directamente el voltaje inducido en el secundario $(V_s)$ y la corriente de vacío en el primario $(I_p)$.
+    
+    \item \textbf{Repetición:} El procedimiento se repitió modificando el número de espiras en el secundario para observar el cambio en la constante de transformación:
+    
+    \begin{equation}
+        K=\frac{N_s}{N_p}
+    \end{equation}
+\end{enumerate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\linewidth]{montaje.jpeg}
+    \caption{Montaje Experimental}
+    \label{fig:Montaje}
+\end{figure}
+\subsection{Ensayo con Carga (Análisis de Eficiencia)}
+
+\begin{enumerate}
+    \item \textbf{Conexión de carga:} Se integró un reóstato de $1440\,\Omega$ en el circuito del secundario para actuar como carga resistiva variable.
+    
+    \item \textbf{Estabilización del voltaje:} Se fijó un voltaje constante en el devanado primario.
+    
+    \item \textbf{Medición de potencia:} Al variar la resistencia del reóstato, se registraron simultáneamente los voltajes eficaces $(V_p, V_s)$ y las corrientes $(I_p, I_s)$. A partir de estas mediciones se calcularon indirectamente la potencia de entrada $(P_p)$, la potencia de salida $(P_s)$ y la eficiencia energética $(\eta)$ del transformador.
+\end{enumerate}
+
+\subsection{Análisis de Datos y Limitaciones}
+
+El análisis experimental se fundamentó en la aplicación de técnicas de regresión lineal para verificar la proporcionalidad entre los voltajes del devanado primario y secundario, así como para evaluar la transferencia de potencia en el transformador. Las principales fuentes de incertidumbre identificadas correspondieron a la resistencia interna de los conductores, las pérdidas propias del núcleo magnético y la precisión instrumental de los multímetros utilizados. Estas contribuciones fueron consideradas mediante la Teoría de Propagación de errores con el fin de estimar la confiabilidad de los resultados obtenidos.
+
+\section{Resultados}
+Acontinuacion se precentan los datos obtenidos en la practica de laboratorio:
+
+\section{Análisis y Discusión de Resultados}
+
+
+\section{Conclusiones}
+
+
+\section{Preguntas Complementarias}
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+
+\item \textbf{¿Qué papel desempeña el núcleo en el transformador?}
+
+El núcleo de hierro acerado cumple dos funciones fundamentales. En primer lugar, concentra las líneas de flujo magnético generadas por el devanado primario, incrementando la intensidad del campo magnético. En segundo lugar, proporciona un medio de alta permeabilidad magnética que favorece el acoplamiento entre los devanados, permitiendo que la mayor parte del flujo magnético producido por el primario atraviese el devanado secundario y maximice la inducción electromagnética.
+
+\item \textbf{¿Qué condiciones deben cumplirse para que $V_s/V_p \approx N_s/N_p$ sea válido?}
+
+La relación entre voltajes y número de espiras es estrictamente válida únicamente para un transformador ideal. Para ello deben cumplirse las siguientes condiciones:
+
+\begin{itemize}
+    \item Ausencia de pérdidas resistivas en los devanados.
+    \item Igual variación temporal del flujo magnético en ambos devanados.
+    \item Ausencia de pérdidas en el núcleo por histéresis magnética y corrientes parásitas.
+    \item Acoplamiento magnético perfecto entre los devanados.
+\end{itemize}
+
+\item \textbf{De acuerdo con la gráfica $V_s$ vs. $V_p$ y sus pendientes, ¿qué puede concluirse sobre el funcionamiento del transformador cuando $R=\infty$?}
+
+Cuando el secundario se encuentra en circuito abierto $(R=\infty)$, la corriente secundaria es nula $(I_s=0)$. Bajo esta condición el transformador opera en vacío, permitiendo evaluar directamente la relación de transformación sin la influencia de caídas de tensión asociadas a una carga externa. En consecuencia, la pendiente de la gráfica $V_s$ en función de $V_p$ representa experimentalmente la constante de transformación del dispositivo.
+
+\item \textbf{De acuerdo con los resultados obtenidos, ¿se induce completamente el voltaje del primario en el secundario? ¿Por qué?}
+
+Los resultados experimentales muestran que el voltaje inducido en el secundario no corresponde exactamente al valor predicho por el modelo ideal. Esto se debe a la presencia de pérdidas asociadas a la resistencia de los devanados, al flujo magnético disperso y a las pérdidas en el núcleo. Como consecuencia, la transferencia de energía no es perfecta y la eficiencia del transformador es menor que la unidad.
+
+\item \textbf{¿Por qué el transformador no opera en corriente continua (DC)? Relación con $d\Phi/dt$.}
+
+De acuerdo con la Ley de Faraday, la fuerza electromotriz inducida depende de la variación temporal del flujo magnético:
+
+\begin{equation}
+\varepsilon = -N\frac{d\Phi}{dt}
+\end{equation}
+
+La corriente continua genera un flujo magnético prácticamente constante. Por tanto, al cumplirse que
+
+\begin{equation}
+\frac{d\Phi}{dt}=0,
+\end{equation}
+
+no se induce voltaje en el devanado secundario. Por esta razón, los transformadores requieren corriente alterna para su funcionamiento.
+
+\item \textbf{¿Cómo afecta la frecuencia a $B_0$ y a la saturación del núcleo para un $V_p$ dado?}
+
+La amplitud máxima del campo magnético puede relacionarse con el voltaje aplicado mediante
+
+\begin{equation}
+V_0=N_s\omega B_0A.
+\end{equation}
+
+De esta expresión se deduce que
+
+\begin{equation}
+B_0\propto \frac{1}{f}.
+\end{equation}
+
+Por lo tanto, para un voltaje constante, una disminución de la frecuencia provoca un incremento del campo magnético máximo. Si este incremento supera el límite de operación lineal del material, el núcleo entra en saturación, aumentando las pérdidas y el calentamiento del transformador.
+
+\item \textbf{A partir de la gráfica de potencia de salida $P_s$ en función de la potencia de entrada $P_p$, reporte el valor de la pendiente.}
+
+La pendiente de la recta obtenida al representar $P_s$ en función de $P_p$ corresponde a la eficiencia energética del transformador:
+
+\begin{equation}
+\eta=\frac{P_s}{P_p}.
+\end{equation}
+
+Por tanto, el valor numérico de la pendiente debe determinarse mediante el ajuste lineal realizado sobre los datos experimentales.
+
+\item \textbf{Encuentre la eficiencia del transformador.}
+
+La eficiencia del transformador se determina mediante la relación entre la potencia de salida y la potencia de entrada:
+
+\begin{equation}
+\eta=\frac{P_s}{P_p}
+=\frac{V_sI_s}{V_pI_p}.
+\end{equation}
+
+Generalmente, la eficiencia se expresa como porcentaje:
+
+\begin{equation}
+\eta(\%)=
+\frac{P_s}{P_p}\times100.
+\end{equation}
+
+\item \textbf{¿Es este transformador eficiente? ¿Qué se necesitaría para aumentar la eficiencia?}
+
+La eficiencia del transformador depende de los resultados experimentales obtenidos. En transformadores convencionales, los valores suelen encontrarse entre el 80\% y el 95\%. Para incrementar la eficiencia pueden implementarse las siguientes mejoras:
+
+\begin{itemize}
+    \item Emplear núcleos laminados para reducir las corrientes parásitas.
+    \item Utilizar conductores de menor resistencia eléctrica.
+    \item Optimizar el acoplamiento magnético mediante diseños que minimicen la dispersión del flujo.
+    \item Emplear materiales magnéticos con menores pérdidas por histéresis.
+\end{itemize}
+
+\end{enumerate}
+\subsection{Problema 1}
+
+ Un transformador tiene $N_p = 400$ espiras en el primario y $N_s = 100$ espiras en el secundario. Si al primario se le aplica una tensión de $120\,\mathrm{V_{rms}}$:
+
+\begin{enumerate}
+    \item Calcular el voltaje secundario en vacío.
+    \item Si la carga conectada al secundario es de $10\,\Omega$, determinar la corriente secundaria.
+\end{enumerate}
+
+\textbf{Datos:}
+
+\begin{itemize}
+    \item Número de espiras del primario: $N_p = 400$.
+    \item Número de espiras del secundario: $N_s = 100$.
+    \item Voltaje del primario: $V_p = 120\,\mathrm{V}$.
+    \item Resistencia de carga: $R = 10\,\Omega$.
+\end{itemize}
+
+\textbf{Solución}
+
+La relación de transformación para un transformador ideal está dada por
+
+\begin{equation}
+\frac{V_s}{V_p}=\frac{N_s}{N_p}.
+\end{equation}
+
+Despejando el voltaje secundario:
+
+\begin{equation}
+V_s = V_p\left(\frac{N_s}{N_p}\right).
+\end{equation}
+
+Sustituyendo los valores:
+
+\begin{equation}
+V_s = 120\left(\frac{100}{400}\right)
+=120(0.25)
+=30\,\mathrm{V}.
+\end{equation}
+
+Por tanto,
+
+\begin{equation}
+\boxed{V_s = 30\,\mathrm{V}}
+\end{equation}
+
+La corriente secundaria se obtiene mediante la Ley de Ohm:
+
+\begin{equation}
+I_s=\frac{V_s}{R}.
+\end{equation}
+
+Sustituyendo:
+
+\begin{equation}
+I_s=\frac{30\,\mathrm{V}}{10\,\Omega}
+=3\,\mathrm{A}.
+\end{equation}
+
+
+\begin{equation}
+\boxed{I_s = 3\,\mathrm{A}}
+\end{equation}
+
+\subsection{Problema 2}
+
+Con los mismos datos del problema anterior, determinar la corriente en el devanado primario suponiendo un transformador ideal.
+
+\textbf{Solución}
+
+En un transformador ideal se conserva la potencia:
+
+\begin{equation}
+P_p=P_s,
+\end{equation}
+
+por lo que
+
+\begin{equation}
+V_pI_p=V_sI_s.
+\end{equation}
+
+Despejando la corriente primaria:
+
+\begin{equation}
+I_p=\frac{V_sI_s}{V_p}.
+\end{equation}
+
+Sustituyendo los valores obtenidos anteriormente:
+
+\begin{equation}
+I_p=\frac{(30)(3)}{120}
+=\frac{90}{120}
+=0.75\,\mathrm{A}.
+\end{equation}
+
+\begin{equation}
+\boxed{I_p = 0.75\,\mathrm{A}}
+\end{equation}
+
+\subsection{Problema 3}
+
+Un transformador tiene una potencia de entrada de $220\,\mathrm{W}$ y entrega una potencia de salida de $200\,\mathrm{W}$. Determinar la eficiencia del dispositivo.
+
+\textbf{Solución}
+
+La eficiencia se define como:
+
+\begin{equation}
+\eta=\frac{P_s}{P_p}.
+\end{equation}
+
+Sustituyendo:
+
+\begin{equation}
+\eta=\frac{200}{220}=0.9091.
+\end{equation}
+
+Expresando el resultado en porcentaje:
+
+\begin{equation}
+\eta(\%)=0.9091\times100=90.9\%.
+\end{equation}
+
+\begin{equation}
+\boxed{\eta = 90.9\%}
+\end{equation}
+
+\subsection{Problema 4}
+
+\textbf{Enunciado:} Un transformador entrega una potencia de salida de $400\,\mathrm{W}$ con una corriente secundaria de $10\,\mathrm{A}$. La resistencia del devanado secundario es de $0.25\,\Omega$.
+
+\begin{enumerate}
+    \item Calcular la caída de tensión en el devanado secundario.
+    \item Determinar la potencia disipada en el devanado.
+\end{enumerate}
+
+\textbf{Solución}
+
+La caída de tensión se determina mediante la Ley de Ohm:
+
+\begin{equation}
+\Delta V = I_sR.
+\end{equation}
+
+Sustituyendo los valores:
+
+\begin{equation}
+\Delta V=(10\,\mathrm{A})(0.25\,\Omega)
+=2.5\,\mathrm{V}.
+\end{equation}
+
+Por tanto,
+
+\begin{equation}
+\boxed{\Delta V = 2.5\,\mathrm{V}}
+\end{equation}
+
+La potencia perdida por efecto Joule está dada por
+
+\begin{equation}
+P_{\text{perdida}}=I_s^2R.
+\end{equation}
+
+Sustituyendo:
+
+\begin{equation}
+P_{\text{perdida}}
+=(10\,\mathrm{A})^2(0.25\,\Omega)
+=100(0.25)
+=25\,\mathrm{W}.
+\end{equation}
+
+\begin{equation}
+\boxed{P_{\text{perdida}} = 25\,\mathrm{W}}
+\end{equation}
+\nocite{*}
+\bibliographystyle{IEEEtran}
+\bibliography{biblio}
+\end{document}
