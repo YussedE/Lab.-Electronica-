@@ -1,0 +1,100 @@
+\section{Marco Teórico}
+
+El funcionamiento de un transformador se fundamenta en los principios de la inducción electromagnética y en la interacción entre corrientes variables y campos magnéticos dentro de un circuito magnético cerrado. La transferencia de energía eléctrica entre dos devanados ocurre mediante un flujo magnético variable generado en un núcleo ferromagnético común.
+
+\subsection{Ley de Inducción de Faraday}
+
+La Ley de Inducción de Faraday establece que la fuerza electromotriz inducida ($\varepsilon$) en una bobina es proporcional al número de espiras ($N$) y a la rapidez de variación temporal del flujo magnético ($\Phi_B$) que atraviesa la superficie delimitada por la bobina. Matemáticamente se expresa como
+
+\begin{equation}
+\varepsilon = -N \frac{d\Phi_B}{dt},
+\end{equation}
+
+donde el signo negativo corresponde a la Ley de Lenz, la cual indica que la fuerza electromotriz inducida se opone a la variación del flujo que la produce.
+
+En un transformador, una corriente alterna aplicada al devanado primario genera un flujo magnético variable en el núcleo. Dicho flujo induce una fuerza electromotriz tanto en el devanado primario como en el secundario, permitiendo la transferencia de energía eléctrica sin contacto directo entre los circuitos.
+
+\subsection{Relación de Transformación}
+
+Para un transformador ideal, en el que se consideran despreciables las pérdidas eléctricas y magnéticas, la relación entre los voltajes eficaces de los devanados es proporcional a la relación entre sus números de espiras:
+
+\begin{equation}
+\frac{V_s}{V_p}
+=
+\frac{N_s}{N_p}
+=
+K,
+\end{equation}
+
+donde $V_p$ y $V_s$ corresponden a los voltajes eficaces en el primario y secundario, respectivamente, y $K$ es la constante de transformación.
+
+Dependiendo de la relación entre el número de espiras de ambos devanados, los transformadores pueden clasificarse como:
+
+\begin{itemize}
+    \item \textbf{Transformador elevador}: cuando $N_s > N_p$, de modo que $V_s > V_p$.
+    
+    \item \textbf{Transformador reductor}: cuando $N_s < N_p$, de modo que $V_s < V_p$.
+\end{itemize}
+
+\subsection{Eficiencia Energética}
+
+En un transformador real existen pérdidas asociadas al efecto Joule en los devanados, corrientes parásitas (corrientes de Foucault) y pérdidas por histéresis en el núcleo magnético. Por esta razón, la potencia entregada en el secundario es menor que la potencia suministrada al primario.
+
+La eficiencia energética ($\eta$) se define como la relación entre la potencia de salida y la potencia de entrada:
+
+\begin{equation}
+\eta
+=
+\frac{P_s}{P_p}\times100\%,
+\end{equation}
+
+o equivalentemente,
+
+\begin{equation}
+\eta
+=
+\frac{V_s I_s}{V_p I_p}
+\times100\%.
+\end{equation}
+
+Un transformador ideal presenta una eficiencia del $100\%$, mientras que en dispositivos reales este valor suele encontrarse entre el $80\%$ y el $98\%$, dependiendo de sus características constructivas y condiciones de operación.
+
+\subsection{Permeabilidad Magnética del Núcleo}
+
+El núcleo ferromagnético tiene la función de concentrar y guiar el flujo magnético generado por el devanado primario, mejorando el acoplamiento magnético entre los devanados y aumentando la eficiencia del transformador.
+
+La densidad de flujo magnético ($B$) en un material está relacionada con la intensidad del campo magnético ($H$) mediante la permeabilidad absoluta del material ($\mu$):
+
+\begin{equation}
+B=\mu H,
+\end{equation}
+
+donde
+
+\begin{equation}
+\mu=\mu_r\mu_0.
+\end{equation}
+
+Aquí, $\mu_0$ representa la permeabilidad magnética del vacío,
+
+\begin{equation}
+\mu_0 = 4\pi \times 10^{-7}\ \mathrm{T\cdot m/A},
+\end{equation}
+
+y $\mu_r$ es la permeabilidad relativa del material.
+
+Para un devanado de $N_p$ espiras recorrido por una corriente $I_p$, el campo magnético puede aproximarse mediante
+
+\begin{equation}
+H=\frac{N_p I_p}{l},
+\end{equation}
+
+donde $l$ es la longitud efectiva del circuito magnético.
+
+Por tanto, la densidad de flujo magnético queda expresada como
+
+\begin{equation}
+B=\mu\frac{N_p I_p}{l}.
+\end{equation}
+
+Materiales ferromagnéticos como el hierro presentan valores elevados de permeabilidad relativa, favoreciendo un acoplamiento magnético eficiente y reduciendo las pérdidas por dispersión del flujo magnético.
