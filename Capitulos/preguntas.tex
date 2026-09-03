@@ -1,0 +1,36 @@
+\section{Preguntas complementarias}
+
+\begin{enumerate}
+    \item \textbf{¿Por qué es importante conocer la tolerancia de una resistencia y cómo afecta el valor de $R_{min}$ y $R_{max}$?}
+    
+    La tolerancia indica el porcentaje máximo de desviación permitido entre el valor real de la resistencia y su valor nominal, debido a variaciones en el proceso de fabricación. Es importante conocerla porque define el rango dentro del cual se considera que la resistencia funciona correctamente, calculado como:
+    \[
+    R_{min} = R_{nom}(1 - tol), \qquad R_{max} = R_{nom}(1 + tol)
+    \]
+    Si el valor medido se encuentra fuera de este rango, la resistencia se considera defectuosa o mal identificada.
+
+    \item \textbf{¿Qué relación existe entre la potencia nominal de una resistencia y la corriente máxima que puede soportar ($I_{max}$)?}
+    
+    La potencia nominal indica la máxima energía que la resistencia puede disipar en forma de calor sin dañarse. A partir de la ley de Joule, $P = I^2 R$, se obtiene:
+    \[
+    I_{max} = \sqrt{\dfrac{P}{R}}
+    \]
+    Por lo tanto, a mayor potencia nominal, mayor es la corriente máxima que la resistencia puede soportar sin sobrecalentarse.
+
+    \item \textbf{¿Por qué los condensadores electrolíticos tienen polaridad y qué ocurre si se conectan invertidos?}
+    
+    Los condensadores electrolíticos utilizan una capa de óxido como dieléctrico, formada mediante un proceso electroquímico que solo es estable si se respeta la polaridad indicada. Si se conectan invertidos, esta capa de óxido se destruye, lo que puede generar un cortocircuito interno, calentamiento excesivo e incluso la explosión del componente.
+
+    \item \textbf{¿Por qué al medir el diodo con el multímetro se obtienen dos valores de resistencia distintos al permutar las puntas de prueba?}
+    
+    El diodo está formado por una unión P-N que permite el paso de corriente preferentemente en un solo sentido (polarización directa) y la bloquea en el sentido contrario (polarización inversa). Al conectar el multímetro en polarización directa, la resistencia medida es baja; al invertir las puntas (polarización inversa), la resistencia medida es considerablemente mayor. Esta asimetría evidencia el comportamiento unidireccional característico de la unión semiconductora.
+
+    \item \textbf{¿Por qué la fotorresistencia (LDR) disminuye su resistencia al aumentar la iluminación?}
+    
+    La fotorresistencia está fabricada con un material semiconductor sensible a la luz (efecto fotoconductivo). Al incidir fotones con suficiente energía sobre el material, se generan pares electrón-hueco adicionales, aumentando el número de portadores de carga libres. Esto incrementa la conductividad del material y, en consecuencia, disminuye su resistencia eléctrica a mayor intensidad de luz.
+
+    \item \textbf{¿Qué función cumple un fusible en un circuito y qué sucede si se selecciona un valor de corriente inadecuado?}
+    
+    El fusible protege el circuito interrumpiendo el paso de corriente cuando esta supera un valor límite, evitando daños por sobrecorriente en los demás componentes. Si se selecciona un fusible con una corriente nominal demasiado alta, este no actuará a tiempo y no protegerá el circuito; si se selecciona uno con un valor demasiado bajo, se fundirá innecesariamente incluso bajo condiciones normales de operación, interrumpiendo el funcionamiento del circuito.
+
+\end{enumerate}
