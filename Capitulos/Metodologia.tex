@@ -1,3 +1,4 @@
+
 \section{Metodología Experimental}
 
 Se suministraron los siguientes componentes electrónicos para su análisis y caracterización:
@@ -229,3 +230,144 @@ A continuación se muestran los principales componentes utilizados, con su símb
 
 \textbf{Resto de componentes:} el multímetro digital permite medir voltaje, corriente y resistencia; el transformador se utilizó para transferir energía entre devanados mediante inducción electromagnética; los potenciómetros y los condensadores facilitaron el control y la estabilización del circuito; y la fotoresistencia, junto con el diodo y el LED, fueron usados para caracterizar el comportamiento de la luz y la conducción eléctrica.\newline
 
+
+\subsection{Procedimiento general}
+
+La práctica se desarrolló en grupos de trabajo de cuatro estudiantes, distribuyendo las tareas de manera que dos integrantes se encargaran de realizar las mediciones directas con el multímetro digital, mientras los dos restantes registraban los datos obtenidos en las tablas correspondientes. Esta división permitió agilizar el reconocimiento de los distintos componentes electrónicos dispuestos sobre la mesa de trabajo y optimizar el tiempo destinado a cada etapa de la práctica.
+
+El reconocimiento e identificación de los componentes se realizó de manera práctica, agrupando y verificando cada elemento disponible sobre la mesa de trabajo, sin seguir estrictamente el orden secuencial propuesto en la guía, con el fin de aprovechar la disponibilidad simultánea de los distintos componentes entre los integrantes del grupo.
+
+Para todas las mediciones se empleó un único multímetro digital, seleccionando en cada caso la función y la escala correspondiente a la magnitud a medir (VDC, VAC, $\Omega$).
+
+\subsection{Identificación de fuentes de voltaje}
+
+Se identificó y midió el voltaje de una pila de 6~V y de una fuente de voltaje directo, ubicando el selector del multímetro en la escala de voltaje de corriente directa (VDC) y conectando las puntas de prueba en paralelo con los terminales de cada fuente, respetando la polaridad indicada. Para la pila se obtuvo un valor medido de $6.19~V$, mientras que para la fuente de voltaje directo se registraron lecturas en un rango de $0.02~V$ a $0.95~V$, muy por debajo de su capacidad nominal de $9~V$.
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.45\textwidth]{fuente_voltaje.jpg}
+%     \caption{Fuente de voltaje directa y pila de 6~V utilizadas en la práctica.}
+%     \label{fig:fuente_voltaje}
+% \end{figure}
+
+\subsection{Identificación de resistencias}
+
+Se dispuso de diez resistencias de carbón de diferente valor nominal y potencia. Para cada una de ellas se determinó, en primer lugar, el valor nominal mediante la lectura del código de bandas de colores, apoyándose en la tabla de valores normalizados y en el código de colores estándar suministrados como anexo de la guía. Posteriormente, se ubicó el selector del multímetro en la escala de resistencia ($\Omega$) apropiada para cada rango de valores y se midió el valor real de cada resistencia, registrando los resultados en la Tabla No.~1 de la hoja de datos.
+
+A partir del valor nominal y la tolerancia indicada por la cuarta banda de color, se calcularon los límites $R_{min}$ y $R_{max}$ del rango admisible, y se comparó el valor medido con el valor nominal para determinar el porcentaje de error asociado a cada resistencia.
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.45\textwidth]{resistencias_carbon.jpg}
+%     \caption{Conjunto de las diez resistencias de carbón identificadas y medidas.}
+%     \label{fig:resistencias}
+% \end{figure}
+
+\subsection{Identificación de condensadores}
+
+Se identificó un condensador electrolítico de $10~\mu F$ a $25~V$, registrando su valor de capacitancia y su tensión máxima de trabajo, ambos impresos sobre el cuerpo del componente, y se reconoció su símbolo esquemático característico, que indica la polaridad de conexión propia de este tipo de condensadores.
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.4\textwidth]{condensador_electrolitico.jpg}
+%     \caption{Condensador electrolítico de 10~$\mu$F a 25~V.}
+%     \label{fig:condensador}
+% \end{figure}
+
+\subsection{Identificación de bobinas}
+
+Se identificó una bobina disponible sobre la mesa de trabajo, reconociendo su símbolo esquemático y estableciendo su unidad de medida característica, el henrio (H). La bobina contaba con dos devanados: uno de 0 a 125 vueltas, para el cual se midió una resistencia de $0.3~\Omega$, y otro de 0 a 250 vueltas, con una resistencia medida de $11.2~k\Omega$. No se contó con un relay para esta sección de la práctica, por lo que no fue posible realizar la verificación de continuidad de sus contactos ni observar su accionamiento electromagnético.
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.4\textwidth]{bobina.jpg}
+%     \caption{Bobina utilizada en la identificación de elementos inductivos.}
+%     \label{fig:bobina}
+% \end{figure}
+
+\subsection{Identificación de potenciómetro}
+
+Se conectó el multímetro, en la escala de resistencia, entre el terminal central (cursor) y uno de los terminales extremos del potenciómetro. Se giró gradualmente el eje del potenciómetro desde uno de sus extremos hasta el otro, observando la variación continua del valor de resistencia indicado por el multímetro, registrando un valor máximo de $20.8~k\Omega$, correspondiente al rango de operación del componente.
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.4\textwidth]{potenciometro.jpg}
+%     \caption{Potenciómetro utilizado para la medición del rango de resistencia variable.}
+%     \label{fig:potenciometro}
+% \end{figure}
+
+\subsection{Identificación de interruptores y pulsador}
+
+Se identificó un switch (interruptor) y un pulsador, verificando su funcionamiento mediante la escala de continuidad del multímetro, al accionar manualmente cada uno de ellos y observar el cambio de estado (abierto/cerrado) entre sus terminales.
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.45\textwidth]{switch_pulsador.jpg}
+%     \caption{Switch y pulsador utilizados en la verificación de continuidad.}
+%     \label{fig:switch_pulsador}
+% \end{figure}
+
+\subsection{Identificación de fusible}
+
+Se identificó el fusible disponible, reconociendo la información de corriente máxima admisible impresa sobre su cuerpo, la cual determina el valor a utilizar según la corriente que debe soportar el circuito que se desea proteger.
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.35\textwidth]{fusible.jpg}
+%     \caption{Fusible identificado durante la práctica.}
+%     \label{fig:fusible}
+% \end{figure}
+
+\subsection{Identificación de diodo y LED}
+
+Se identificaron un diodo rectificador y un LED. Para cada uno, se ubicó el multímetro en la escala de resistencia y se midió la resistencia eléctrica del componente en un sentido de conexión; posteriormente, se permutaron las puntas de prueba en los terminales del componente y se repitió la medición, con el fin de evidenciar el comportamiento asimétrico (unidireccional) característico de la unión semiconductora.
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.45\textwidth]{diodo_led.jpg}
+%     \caption{Diodo rectificador y LED utilizados en la verificación de polaridad.}
+%     \label{fig:diodo_led}
+% \end{figure}
+
+\subsection{Identificación de fotorresistencia}
+
+Se midió la resistencia de la fotorresistencia en dos condiciones distintas: en primer lugar, expuesta directamente a la luz ambiente del laboratorio, obteniéndose un valor de $11.60~k\Omega$; y en segundo lugar, cubierta completamente con la mano para bloquear la incidencia de luz, registrándose un valor de $49.6~k\Omega$. Estos resultados evidencian el aumento característico de la resistencia de este componente al disminuir la intensidad de luz incidente.
+
+\subsection{Variables medidas directamente}
+
+Las siguientes magnitudes se obtuvieron por lectura directa del multímetro digital:
+\begin{itemize}
+    \item Voltaje en corriente directa (VDC) de la pila de 6~V y de la fuente de voltaje directo.
+    \item Resistencia eléctrica ($\Omega$) de cada una de las diez resistencias de carbón.
+    \item Resistencia ($\Omega$) del potenciómetro para distintas posiciones del eje.
+    \item Continuidad eléctrica del switch y del pulsador en sus estados de accionamiento.
+    \item Resistencia ($\Omega$) del diodo y del LED en ambos sentidos de conexión.
+    \item Resistencia ($\Omega$) de la fotorresistencia, con y sin incidencia de luz.
+\end{itemize}
+
+\subsection{Variables obtenidas indirectamente}
+
+A partir de los datos medidos y de la información suministrada por el fabricante (código de colores), se calcularon las siguientes magnitudes:
+\begin{itemize}
+    \item Valor nominal de cada resistencia, a partir de la lectura del código de bandas de colores.
+    \item Límites de tolerancia $R_{min}$ y $R_{max}$ de cada resistencia, calculados a partir del valor nominal y el porcentaje de tolerancia indicado por la cuarta banda de color.
+    \item Porcentaje de error de cada resistencia, obtenido de la comparación entre el valor medido y el valor nominal.
+\end{itemize}
+
+\subsection{Datos asumidos conocidos}
+
+Para el desarrollo de la práctica se tomaron como datos de referencia conocidos:
+\begin{itemize}
+    \item La tabla de valores normalizados para resistores (serie E-12/E-24) suministrada como anexo de la guía.
+    \item El código de colores estándar (EIA) para la determinación del valor nominal y la tolerancia de las resistencias.
+\end{itemize}
+
+\subsection{Limitaciones del diseño experimental}
+
+Al disponer de un único ejemplar de la mayoría de los componentes (pila, condensador, bobina, potenciómetro, switch, pulsador, fusible, diodo, LED y fotorresistencia), no fue posible contrastar el comportamiento de distintas unidades de un mismo tipo de componente, lo cual habría permitido evaluar la dispersión propia de cada tipo de dispositivo. Adicionalmente, la ausencia de un relay y de un transformador en la mesa de trabajo impidió completar la caracterización experimental de estos dos elementos, quedando su análisis limitado a la descripción teórica solicitada en la guía.
+
+\subsection{Fuentes de error más críticas}
+
+La principal fuente de error identificada durante la práctica se presentó al medir la fuente de voltaje directo: a pesar de que esta tenía una capacidad nominal de hasta 9~V, la lectura obtenida en el multímetro no superó los 0.9~V. Dado que previamente se habían obtenido mediciones de voltaje correctas con el mismo multímetro (en la pila de 6~V), y según lo indicado por el profesor, la causa más probable de esta discrepancia corresponde a un posible daño o desajuste interno de la fuente de voltaje, más que a un error en el manejo del instrumento de medición.
+
+Otras fuentes de error asociadas al procedimiento incluyen el contacto imperfecto entre las puntas de prueba del multímetro y los terminales de los componentes, así como la lectura del código de colores en resistencias cuyas bandas presentaban bajo contraste o desgaste visual, lo cual puede inducir errores en la identificación del valor nominal previo a la medición.

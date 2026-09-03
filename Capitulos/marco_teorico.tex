@@ -1,5 +1,12 @@
 ﻿\section{Marco Teórico}
 
+Las resistencias eléctricas se identifican principalmente mediante bandas de color
+que indican su valor nominal y su tolerancia. Esta codificación permite interpretar
+fácilmente la resistencia sin necesidad de un multímetro, siempre que se conozca el
+orden correcto de las bandas, como se describe en la convención estándar de los
+manuales de laboratorio y textos de circuitos \\cite{serway, horowitz, guiaR}. La siguiente tabla resume los códigos de colores más
+utilizados en resistencias de carbono y metal film.
+
 \begin{table}[!htbp]
     \centering
     \renewcommand{\arraystretch}{1.5}
@@ -49,4 +56,101 @@
     \label{tab:codigos_colores}
 \end{table}
 
-\noindent\textit{Nota: esta tabla fue diseñada y elaborada por Juan David Tarapuez.}
+Además del código de colores, la potencia nominal de una resistencia, usualmente
+de \SI{0.25}{\watt}, \SI{0.5}{\watt} o \SI{1}{\watt} en resistencias de carbón,
+determina la potencia máxima que puede disipar sin sufrir daños térmicos. La
+potencia disipada se puede calcular mediante cualquiera de las siguientes
+relaciones:
+
+\begin{equation}
+    P = I^2R = VI = \frac{V^2}{R},
+    \label{eq:potencia_resistencia}
+\end{equation}
+
+\noindent donde $P$ es la potencia en vatios (W), $I$ es la corriente en amperios
+(A), $V$ es el voltaje en voltios (V) y $R$ es la resistencia en ohmios ($\Omega$).
+Por lo tanto, la corriente máxima aproximada que puede circular por una
+resistencia de valor $R$ y potencia nominal $P_{\mathrm{nom}}$ es:
+
+\begin{equation}
+    I_{\mathrm{max}} = \sqrt{\frac{P_{\mathrm{nom}}}{R}}.
+    \label{eq:corriente_maxima_resistencia}
+\end{equation}
+
+\subsection{Capacitores}
+
+Un capacitor almacena energía en forma de campo eléctrico entre dos placas
+conductoras separadas por un dieléctrico. Su capacidad de almacenamiento se
+mide en faradios (F), aunque en la práctica se emplean submúltiplos como el
+microfaradio ($\mu$F) y el picofaradio (pF). La relación entre la carga
+almacenada y el voltaje aplicado es:
+
+\begin{equation}
+    Q = CV,
+    \label{eq:capacitor}
+\end{equation}
+
+\noindent donde $Q$ es la carga eléctrica en culombios (C), $C$ es la capacitancia
+en faradios y $V$ es el voltaje aplicado. Los capacitores electrolíticos poseen
+polaridad definida, mientras que los cerámicos y de poliéster no tienen
+polaridad y se usan típicamente para valores pequeños.
+
+\subsection{Bobinas e inductancia}
+
+Una bobina almacena energía en forma de campo magnético cuando circula corriente
+a través de ella. Su magnitud característica es la inductancia, medida en
+henrios (H), y se opone a los cambios bruscos de corriente según la ley de
+Lenz. El voltaje en una bobina ideal se expresa como:
+
+\begin{equation}
+    V_L = L\frac{dI}{dt},
+    \label{eq:inductor}
+\end{equation}
+
+\noindent donde $L$ es la inductancia e $I$ es la corriente que circula por la
+bobina.
+
+\subsection{Diodos}
+
+Un diodo es un dispositivo semiconductor que permite el paso de corriente en
+un solo sentido, denominado polarización directa, y la bloquea en sentido
+contrario, denominado polarización inversa. Esta propiedad se debe a la unión
+P--N formada en su interior y permite su uso como rectificador de señales de
+corriente alterna.
+
+\subsection{Transistores}
+
+El transistor es un dispositivo semiconductor de tres terminales: base,
+colector y emisor en las configuraciones NPN o PNP. Puede operar como
+interruptor electrónico o como amplificador de señal, dependiendo de la
+corriente aplicada en la base.
+
+\subsection{Relés e interruptores}
+
+Un relé es un interruptor electromecánico accionado por una bobina. Al
+energizarse, la bobina genera un campo magnético que atrae una armadura y
+cambia el estado de sus contactos, que pueden ser normalmente abiertos o
+normalmente cerrados. Los interruptores SPST (\textit{single pole, single throw})
+y DPDT (\textit{double pole, double throw}) se diferencian en el número de
+polos y posiciones que pueden controlar dentro de un circuito.
+
+\subsection{Fusibles}
+
+El fusible es un elemento de protección que interrumpe el circuito al fundirse
+su filamento interno cuando la corriente supera un valor límite, evitando así
+daños en los demás componentes del sistema.
+
+\subsection{Fotorresistencias (LDR)}
+
+Una fotorresistencia es un componente cuya resistencia eléctrica varía de forma
+inversamente proporcional a la intensidad de luz incidente sobre su superficie,
+debido al efecto fotoconductivo del material semiconductor con el que está
+fabricada.
+
+\subsection{El multímetro digital}
+
+El multímetro digital es un instrumento de medición que permite determinar
+magnitudes eléctricas como voltaje (VDC/VAC), corriente (mA/A) y resistencia
+($\Omega$), seleccionando la escala adecuada según el rango esperado del valor
+a medir. Su uso correcto es fundamental para evitar daños al instrumento o al
+circuito bajo prueba.
