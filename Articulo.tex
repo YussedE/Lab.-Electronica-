@@ -16,6 +16,7 @@
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{setspace}
+\usepackage{needspace}
 \graphicspath{{Imagenes/}}
 % Márgenes normales del documento
 \geometry{
@@ -25,7 +26,7 @@ top=2.5cm,
 bottom=2.5cm
 }
 
-\setlength{\parskip}{0.5\baselineskip}
+\setlength{\parskip}{0.2\baselineskip}
 
 \begin{document}
 
@@ -68,9 +69,9 @@ clip
 \vspace{-0.2cm}
 
 \href{mailto:acenriquez24b@udener.edu}{asenriquez24b@udener.edu} /
-\href{mailto:adrianerhayber06@gmail.com}{adrianerhayber06@gmail.com}\\
+\href{mailto:ayes0317@gmail.com}{ayes0317@gmail.com}\\
 \href{mailto:juandatara89ljfj@gmail.com}{juandatara89ljfj@gmail.com} /
-\href{mailto:camiloanndres26@gmail.com}{camiloanndres26@gmail.com}
+\href{mailto:edisongtarapues04@gmail.com}{edisongtarapues04@gmail.com}
 
 \vspace{-0.2cm}
 
@@ -85,7 +86,6 @@ clip
 \vspace{-1cm}
 
 
-
 \begin{abstract}
 Se comprobó experimentalmente el funcionamiento de un transformador mediante la validación de la relación de transformación entre los devanados primario y secundario y el cálculo de su eficiencia energética bajo diferentes condiciones de carga. Asimismo, se analizó la influencia del núcleo de hierro en la conducción del flujo magnético, contrastando los resultados experimentales con las predicciones teóricas y evaluando las incertidumbres asociadas mediante la Teoría de Errores.
 \end{abstract}
@@ -94,10 +94,9 @@ Se comprobó experimentalmente el funcionamiento de un transformador mediante la
 \restoregeometry
 
 
-\input{Capitulos/introduccion.tex}
+\input{Capitulos/Introduccion.tex}
 
-\vspace{0.5cm}
-
+\Needspace{0.55\textheight}
 \input{Capitulos/marco_teorico.tex}
 
 \vspace{0.5cm}
@@ -118,7 +117,7 @@ Se comprobó experimentalmente el funcionamiento de un transformador mediante la
 
 \vspace{0.1cm}
 
-\input{Capitulos/anexos.tex}
+\input{Capitulos/Anexos.tex}
 
 \bibliographystyle{IEEEtran}
 \bibliography{biblio}

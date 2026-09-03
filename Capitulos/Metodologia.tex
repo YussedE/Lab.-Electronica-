@@ -22,100 +22,208 @@ A continuación se muestran los principales componentes utilizados, con su símb
 
 \begin{figure}[H]
     \centering
-    \begin{circuitikz}[american]
-        \draw (0,0) to[battery1, l=Pila] (0,2);
-    \end{circuitikz}
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \includegraphics[height=3cm,keepaspectratio]{Bateria.jpeg}
+        \caption{Componente real}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \begin{circuitikz}[american]
+            \draw (0,0) to[battery1, l=Pila] (0,2);
+        \end{circuitikz}
+        \caption{Representación eléctrica}
+    \end{subfigure}
     \caption{Pila. Suministra la energía eléctrica necesaria para alimentar el circuito.}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \begin{circuitikz}[american]
-        \draw (0,0) to[potentiometer, l=Potenci\'ometro] (3,0);
-    \end{circuitikz}
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \includegraphics[height=3cm,keepaspectratio]{Potenciometro.jpeg}
+        \caption{Componente real}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \begin{circuitikz}[american]
+            \draw (0,0) to[potentiometer, l=Potenci\'ometro] (3,0);
+        \end{circuitikz}
+        \caption{Representación eléctrica}
+    \end{subfigure}
     \caption{Potenciómetro. Permite ajustar la resistencia y, por tanto, la corriente o el voltaje del circuito.}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \begin{circuitikz}[american]
-        \draw (0,0) to[L, l=Bobina] (3,0);
-    \end{circuitikz}
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \includegraphics[height=3cm,keepaspectratio]{Bobina.jpeg}
+        \caption{Componente real}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \begin{circuitikz}[american]
+            \draw (0,0) to[L, l=Bobina] (3,0);
+        \end{circuitikz}
+        \caption{Representación eléctrica}
+    \end{subfigure}
     \caption{Bobina. Almacena energía en su campo magnético y presenta oposición a cambios de corriente.}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \begin{circuitikz}[american]
-        \draw (0,0) to[switch, l=Interruptor] (3,0);
-    \end{circuitikz}
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \includegraphics[height=3cm,keepaspectratio]{Conmutadores.jpeg}
+        \caption{Componente real}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \begin{circuitikz}[american]
+            \draw (0,0) to[switch, l=Interruptor] (3,0);
+        \end{circuitikz}
+        \caption{Representación eléctrica}
+    \end{subfigure}
     \caption{Interruptor. Abre o cierra el circuito para controlar el flujo de corriente.}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \begin{circuitikz}[american]
-        \draw (0,0) to[fuse, l=Fusible] (3,0);
-    \end{circuitikz}
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \includegraphics[height=3cm,keepaspectratio]{Fusible.jpeg}
+        \caption{Componente real}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \begin{circuitikz}[american]
+            \draw (0,0) to[fuse, l=Fusible] (3,0);
+        \end{circuitikz}
+        \caption{Representación eléctrica}
+    \end{subfigure}
     \caption{Fusible. Interrumpe el circuito cuando la corriente supera un valor de seguridad.}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \begin{circuitikz}[american]
-        \draw (0,0) to[led, l=LED] (2,0);
-    \end{circuitikz}
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \includegraphics[height=3cm,keepaspectratio]{Led.jpeg}
+        \caption{Componente real}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \begin{circuitikz}[american]
+            \draw (0,0) to[led, l=LED] (2,0);
+        \end{circuitikz}
+        \caption{Representación eléctrica}
+    \end{subfigure}
     \caption{LED. Emite luz cuando se polariza directamente y es utilizado como indicador o fuente de iluminación.}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \begin{circuitikz}[american]
-        \draw (0,0) to[R, l=Resistencia] (3,0);
-    \end{circuitikz}
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \includegraphics[height=3cm,keepaspectratio]{Resistencia.jpeg}
+        \caption{Componente real}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \begin{circuitikz}[american]
+            \draw (0,0) to[R, l=Resistencia] (3,0);
+        \end{circuitikz}
+        \caption{Representación eléctrica}
+    \end{subfigure}
     \caption{Resistencia. Limita la corriente y disipa energía en forma de calor.}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \begin{circuitikz}[american]
-        \draw (0,0) to[C, l=Condensador] (3,0);
-    \end{circuitikz}
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \includegraphics[height=3cm,keepaspectratio]{Capacitor.jpeg}
+        \caption{Componente real}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \begin{circuitikz}[american]
+            \draw (0,0) to[C, l=Condensador] (3,0);
+        \end{circuitikz}
+        \caption{Representación eléctrica}
+    \end{subfigure}
     \caption{Condensador. Almacena carga eléctrica y se utiliza para filtrar, desacoplar y almacenar energía temporalmente.}
 \end{figure}
 
 \begin{figure}[H]
     \centering
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \textit{Fotografía no disponible}
+        \caption{Componente real}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
     \begin{circuitikz}[american]
         \draw (0,0) to[Do, l=Diodo] (3,0);
     \end{circuitikz}
+        \caption{Representación eléctrica}
+    \end{subfigure}
     \caption{Diodo rectificador. Permite el paso de corriente en una sola dirección y sirve para rectificar señales.}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \begin{circuitikz}[american]
-        \draw (0,0) to[photoresistor, l=Fotoresistencia] (3,0);
-    \end{circuitikz}
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \includegraphics[height=3cm,keepaspectratio]{FotoCelda.jpeg}
+        \caption{Componente real}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \begin{circuitikz}[american]
+            \draw (0,0) to[photoresistor, l=Fotoresistencia] (3,0);
+        \end{circuitikz}
+        \caption{Representación eléctrica}
+    \end{subfigure}
     \caption{Fotoresistencia. Su resistencia disminuye al aumentar la intensidad de luz incidente.}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \begin{circuitikz}[american]
-        \draw (0,0) node[npn, anchor=B](Q1){};
-        \draw (Q1.B) -- ++(-1,0) node[left]{Base};
-        \draw (Q1.E) -- ++(0,-1.2) node[ground]{};
-        \draw (Q1.C) -- ++(0,1.2) node[above]{Colector};
-    \end{circuitikz}
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \includegraphics[height=3cm,keepaspectratio]{Transistor.jpeg}
+        \caption{Componente real}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \begin{circuitikz}[american]
+            \draw (0,0) node[npn, anchor=B](Q1){};
+            \draw (Q1.B) -- ++(-1,0) node[left]{Base};
+            \draw (Q1.E) -- ++(0,-1.2) node[ground]{};
+            \draw (Q1.C) -- ++(0,1.2) node[above]{Colector};
+        \end{circuitikz}
+        \caption{Representación eléctrica}
+    \end{subfigure}
     \caption{Transistor NPN. Actúa como interruptor o amplificador controlado por la señal aplicada a la base.}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \begin{circuitikz}[american]
-        \draw (0,0) to[switch, l=Pulsador NC] (3,0);
-    \end{circuitikz}
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \includegraphics[height=3cm,keepaspectratio]{Pulsador.jpeg}
+        \caption{Componente real}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.42\textwidth}
+        \centering
+        \begin{circuitikz}[american]
+            \draw (0,0) to[switch, l=Pulsador NC] (3,0);
+        \end{circuitikz}
+        \caption{Representación eléctrica}
+    \end{subfigure}
     \caption{Pulsador NC. Permanece cerrado en estado normal y abre al accionarse.}
 \end{figure}
 
