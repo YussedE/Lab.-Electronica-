@@ -1,0 +1,123 @@
+\section{Metodología Experimental}
+
+Se suministraron los siguientes componentes electrónicos para su análisis y caracterización:
+\begin{itemize}
+    \item Pilas
+    \item Potenciómetros
+    \item Bobinas
+    \item Interruptores SPST, DPST y DPDT
+    \item Fusibles
+    \item Diodo rectificador de 1 \si{A}
+    \item Transistores
+    \item Multímetro digital
+    \item Resistencias de carbón (220 \si{\ohm}, 330 \si{\ohm}, 1 \si{k\ohm}, 4.7 \si{k\ohm}, 4.7 \si{k\ohm})
+    \item Resistencias de alambre
+    \item Condensadores (10 \si{\micro\farad}, 100 \si{\pico\farad}, 0.1 \si{\micro\farad})
+    \item Pulsador NC (normalmente cerrado)
+    \item Transformador de 110/6 \si{\volt}
+    \item LEDs
+    \item Fotoresistencias
+\end{itemize}
+A continuación se muestran los principales componentes utilizados, con su símbolo eléctrico cuando es representable con \texttt{circuitikz} y una breve descripción del principio de funcionamiento. Los elementos que no cuentan con un símbolo estándar claro en el paquete se omiten para evitar representaciones ambiguas.
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[american]
+        \draw (0,0) to[battery1, l=Pila] (0,2);
+    \end{circuitikz}
+    \caption{Pila. Suministra la energía eléctrica necesaria para alimentar el circuito.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[american]
+        \draw (0,0) to[potentiometer, l=Potenci\'ometro] (3,0);
+    \end{circuitikz}
+    \caption{Potenciómetro. Permite ajustar la resistencia y, por tanto, la corriente o el voltaje del circuito.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[american]
+        \draw (0,0) to[L, l=Bobina] (3,0);
+    \end{circuitikz}
+    \caption{Bobina. Almacena energía en su campo magnético y presenta oposición a cambios de corriente.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[american]
+        \draw (0,0) to[switch, l=Interruptor] (3,0);
+    \end{circuitikz}
+    \caption{Interruptor. Abre o cierra el circuito para controlar el flujo de corriente.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[american]
+        \draw (0,0) to[fuse, l=Fusible] (3,0);
+    \end{circuitikz}
+    \caption{Fusible. Interrumpe el circuito cuando la corriente supera un valor de seguridad.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[american]
+        \draw (0,0) to[led, l=LED] (2,0);
+    \end{circuitikz}
+    \caption{LED. Emite luz cuando se polariza directamente y es utilizado como indicador o fuente de iluminación.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[american]
+        \draw (0,0) to[R, l=Resistencia] (3,0);
+    \end{circuitikz}
+    \caption{Resistencia. Limita la corriente y disipa energía en forma de calor.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[american]
+        \draw (0,0) to[C, l=Condensador] (3,0);
+    \end{circuitikz}
+    \caption{Condensador. Almacena carga eléctrica y se utiliza para filtrar, desacoplar y almacenar energía temporalmente.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[american]
+        \draw (0,0) to[Do, l=Diodo] (3,0);
+    \end{circuitikz}
+    \caption{Diodo rectificador. Permite el paso de corriente en una sola dirección y sirve para rectificar señales.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[american]
+        \draw (0,0) to[photoresistor, l=Fotoresistencia] (3,0);
+    \end{circuitikz}
+    \caption{Fotoresistencia. Su resistencia disminuye al aumentar la intensidad de luz incidente.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[american]
+        \draw (0,0) node[npn, anchor=B](Q1){};
+        \draw (Q1.B) -- ++(-1,0) node[left]{Base};
+        \draw (Q1.E) -- ++(0,-1.2) node[ground]{};
+        \draw (Q1.C) -- ++(0,1.2) node[above]{Colector};
+    \end{circuitikz}
+    \caption{Transistor NPN. Actúa como interruptor o amplificador controlado por la señal aplicada a la base.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[american]
+        \draw (0,0) to[switch, l=Pulsador NC] (3,0);
+    \end{circuitikz}
+    \caption{Pulsador NC. Permanece cerrado en estado normal y abre al accionarse.}
+\end{figure}
+
+\textbf{Resto de componentes:} el multímetro digital permite medir voltaje, corriente y resistencia; el transformador se utilizó para transferir energía entre devanados mediante inducción electromagnética; los potenciómetros y los condensadores facilitaron el control y la estabilización del circuito; y la fotoresistencia, junto con el diodo y el LED, fueron usados para caracterizar el comportamiento de la luz y la conducción eléctrica.\newline
+

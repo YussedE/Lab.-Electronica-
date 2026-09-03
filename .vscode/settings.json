@@ -1,0 +1,17 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\Articulo.aux": true,
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\Articulo.log": true,
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\Articulo.gz": true,
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\Articulo.out": true,
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\Capitulos\\Metodologia.aux": true,
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\Capitulos\\Metodologia.log": true,
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\Capitulos\\Metodologia.gz": true,
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\Capitulos\\Metodologia.out": true
+    }
+}
