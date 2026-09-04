@@ -1,19 +1,21 @@
 ﻿\section{Marco Teórico}
 
-Las resistencias eléctricas se identifican principalmente mediante bandas de color
+Las resistencias eléctricas se identifican principalmente mediante bandas de color \cite{vishay_color_code_calculator},
 que indican su valor nominal y su tolerancia. Esta codificación permite interpretar
 fácilmente la resistencia sin necesidad de un multímetro, siempre que se conozca el
-orden correcto de las bandas, como se describe en la convención estándar de los
-manuales de laboratorio y textos de circuitos \\cite{serway, horowitz, guiaR}. La siguiente tabla resume los códigos de colores más
+orden correcto de las bandas, según la convención estándar descrita en materiales
+de laboratorio y guías de uso práctico \cite{loscomponenteselectronicos}. La siguiente tabla resume los códigos de colores más
 utilizados en resistencias de carbono y metal film.
 
 \begin{table}[!htbp]
     \centering
-    \renewcommand{\arraystretch}{1.5}
-    \begin{tabular}{|>{\columncolor{gray!30}}p{2.2cm}|>{\columncolor{gray!15}}p{2.2cm}|>{\columncolor{gray!25}}p{2.2cm}|>{\columncolor{gray!10}}p{2.2cm}|>{\columncolor{gray!20}}p{2.2cm}|>{\columncolor{gray!15}}p{2.2cm}|}
+    \renewcommand{\arraystretch}{1.35}
+    \setlength{\tabcolsep}{5pt}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|>{\centering\arraybackslash\columncolor{gray!30}}m{1.8cm}|>{\centering\arraybackslash\columncolor{gray!15}}m{1.8cm}|>{\centering\arraybackslash\columncolor{gray!25}}m{1.8cm}|>{\centering\arraybackslash\columncolor{gray!10}}m{1.8cm}|>{\centering\arraybackslash\columncolor{gray!20}}m{2.2cm}|>{\centering\arraybackslash\columncolor{gray!15}}m{2.0cm}|}
         \hline
         \rowcolor{gray!40}
-        Color & Banda 1 & Banda 2 & Banda 3 & Multiplicador & Tolerancia \\
+        \textbf{Color} & \textbf{Banda 1} & \textbf{Banda 2} & \textbf{Banda 3} & \textbf{Multiplicador} & \textbf{Tolerancia} \\
         \hline
         \rowcolor{black!90}
         \textcolor{white}{Negro} & \textcolor{white}{0} & \textcolor{white}{0} & \textcolor{white}{0} & \textcolor{white}{1} & \textcolor{white}{20\%} \\
@@ -51,7 +53,8 @@ utilizados en resistencias de carbono y metal film.
         \rowcolor{yellow!60}
         Dorado & - & - & - & 0.1 & 5\% \\
         \hline
-    \end{tabular}
+    \end{tabular}%
+    }
     \caption{Tabla de códigos de colores de resistencias. Elaborada por Juan David Tarapuez.}
     \label{tab:codigos_colores}
 \end{table}

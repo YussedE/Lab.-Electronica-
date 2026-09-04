@@ -32,6 +32,39 @@
         "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\Capitulos\\analisis.aux": true,
         "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\Capitulos\\analisis.log": true,
         "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\Capitulos\\analisis.gz": true,
-        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\Capitulos\\analisis.out": true
-    }
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\Capitulos\\analisis.out": true,
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\main.aux": true,
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\main.log": true,
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\main.gz": true,
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\main.out": true,
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\articulo.aux": true,
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\articulo.log": true,
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\articulo.gz": true,
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\articulo.out": true,
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\Capitulos\\anexos.aux": true,
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\Capitulos\\anexos.log": true,
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\Capitulos\\anexos.gz": true,
+        "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\Capitulos\\anexos.out": true
+    },
+    "latex-workshop.latex.tools": [
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-interaction=nonstopmode",
+                "-halt-on-error",
+                "%DOC%"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "pdflatex",
+            "tools": [
+                "pdflatex"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipe.default": "pdflatex",
+    "latex-workshop.latex.build.forceRecipeUsage": true
 }
