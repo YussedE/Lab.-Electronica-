@@ -17,6 +17,16 @@
 \usepackage{geometry}
 \usepackage{setspace}
 \usepackage{needspace}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\definecolor{algorithmblue}{HTML}{175676}
+\definecolor{algorithmgray}{HTML}{68737D}
+\floatstyle{ruled}
+\restylefloat{algorithm}
+\captionsetup[algorithm]{labelfont={bf,color=algorithmblue},textfont=it,skip=6pt}
+\algrenewcommand{\algorithmicprocedure}{\textbf{\color{algorithmblue}Procedimiento}}
+\algrenewcommand{\algorithmicdo}{\textbf{hacer}}
+\algrenewcommand{\alglinenumber}[1]{\tiny\color{algorithmgray}\makebox[1.8em][r]{#1}}
 \graphicspath{{Imagenes/}}
 % Márgenes normales del documento
 \geometry{

@@ -49,3 +49,127 @@ Este circuito equivalente consta de solo dos componentes conectados en serie:
     \item \textbf{Resistencia de Thévenin ($R_{\mathrm{th}}$):} Es la resistencia equivalente vista desde los terminales $A$ y $B$ cuando todas las fuentes independientes de energía han sido desactivadas (fuentes de voltaje cortocircuitadas y fuentes de corriente abiertas).
 \end{itemize}
 
+Para encontrar el circuito equivalente de \texttt{Thévenin} respecto a una "carga" (una resistencia o componente de interés), sigue este algoritmo:
+
+\begin{algorithm}
+\caption{Algoritmo para encontrar circuito equivalente de \texttt{Thévenin}}
+\label{alg:Thévenin}
+
+\begin{algorithmic}[1] % El [1] numera cada línea
+
+\Procedure{EncontrarCircuitoThévenin}{}
+    \Statex \textbf{Entrada:} circuito con una carga conectada entre $a$ y $b$
+    \Statex \textbf{Salida:} $V_{th}$, $R_{th}$ y circuito equivalente
+    \State \textbf{Aislar:} retirar la carga para dejar abiertos los terminales $a$ y $b$.
+    \State \textbf{Hallar $V_{th}$:} analizar el circuito sin carga y calcular el voltaje entre $a$ y $b$.
+    \State \textbf{Hallar $R_{th}$:} apagar todas las fuentes independientes.
+    \Statex \hspace{\algorithmicindent}\textcolor{algorithmgray}{\scriptsize\textbullet\;} Calcular la resistencia equivalente vista desde $a$ y $b$.
+    \Statex \hspace{\algorithmicindent}\textcolor{algorithmgray}{\scriptsize\textbullet\;} Reducir el circuito hacia adelante, como en el ejemplo \cite{ig:reduccion_thevenin_completa}.
+    \State \textbf{Construir:} conectar $V_{th}$ en serie con $R_{th}$.
+\EndProcedure
+
+\end{algorithmic}
+\end{algorithm}
+
+\begin{figure}[htbp]
+    \centering
+    
+    % --- SUBFIGURA A: RED RESISTIVA ORIGINAL CON FUENTE ---
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \begin{circuitikz}[scale=0.52, transform shape]
+            % Fuente de voltaje usando simbología americana pura
+            \draw (-2,4) to[american voltage source, l=$V_s$] (-2,0)
+                  to[short] (0,0);
+            \draw (-2,4) to[short] (0,4);
+
+            % Barra superior (Terminal a)
+            \draw (0,4) node[ocirc, label=above:$a$] {}
+                  to[R, l=$R_1$, *-*] (4,4)
+                  to[R, l=$R_2$, *-*] (8,4)
+                  to[R, l=$R_3$, *-*] (12,4);
+                  
+            % Barra inferior (Terminal b)
+            \draw (0,0) node[ocirc, label=below:$b$] {}
+                  to[R, l=$R_4$, *-*] (4,0)
+                  to[short, *-*] (8,0)
+                  to[short, -*] (12,0);
+
+            % Ramas verticales y diagonales
+            \draw (4,4) to[R, l=$R_5$] (4,0);
+            \draw (8,4) to[R, l=$R_6$] (8,0);
+            \draw (12,4) to[short] (12,0);
+
+            \draw (8,4) to[R, l=$R_7$] (4,0);
+            \draw (8,4) to[R, l=$R_8$] (12,0);
+        \end{circuitikz}
+        \caption{Red resistiva original con fuente $V_s$.}
+        \label{fig:circuito_original}
+    \end{subfigure}
+    \hfill
+    % --- SUBFIGURA B: PRIMERA REDUCCIÓN (LADO DERECHO) ---
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \begin{circuitikz}[scale=0.52, transform shape]
+            \draw (-2,4) to[american voltage source, l=$V_s$] (-2,0) -- (0,0);
+            \draw (-2,4) -- (0,4);
+
+            \draw (0,4) node[ocirc, label=above:$a$] {}
+                  to[R, l=$R_1$, *-*] (4,4)
+                  to[R, l=$R_2$, *-*] (8,4);
+                  
+            \draw (0,0) node[ocirc, label=below:$b$] {}
+                  to[R, l=$R_4$, *-*] (4,0)
+                  to[short, *-*] (8,0);
+
+            \draw (4,4) to[R, l=$R_5$] (4,0);
+            \draw (8,4) to[R, l=$R_7$] (4,0);
+            \draw (8,4) to[R, l=$R_{\mathrm{eq1}}$] (8,0);
+        \end{circuitikz}
+        \caption{Paso 1: Simplificación del bloque derecho ($R_{\mathrm{eq1}}$).}
+        \label{fig:circuito_paso1}
+    \end{subfigure}
+
+    \vspace{0.4cm}
+
+    % --- SUBFIGURA C: SEGUNDA REDUCCIÓN (BLOQUE CENTRAL) ---
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \begin{circuitikz}[scale=0.55, transform shape]
+            \draw (-2,4) to[american voltage source, l=$V_s$] (-2,0) -- (0,0);
+            \draw (-2,4) -- (0,4);
+
+            \draw (0,4) node[ocirc, label=above:$a$] {}
+                  to[R, l=$R_1$, *-*] (4,4);
+                  
+            \draw (0,0) node[ocirc, label=below:$b$] {}
+                  to[R, l=$R_4$, *-*] (4,0);
+
+            \draw (4,4) to[R, l=$R_{\mathrm{eq2}}$] (4,0);
+        \end{circuitikz}
+        \caption{Paso 2: Simplificación del bloque central ($R_{\mathrm{eq2}}$).}
+        \label{fig:circuito_paso2}
+    \end{subfigure}
+    \hfill
+    % --- SUBFIGURA D: CIRCUITO EQUIVALENTE DE THÉVENIN FINAL ---
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \begin{circuitikz}[scale=0.60, transform shape]
+            \draw (0,0) to[american voltage source, l=$V_{\mathrm{th}}$] (0,3)
+                  to[R, l=$R_{\mathrm{th}}$] (4,3)
+                  to[short] (5,3)
+                  node[ocirc, label=above:$a$] {};
+            \draw (0,0) -- (5,0)
+                  node[ocirc, label=below:$b$] {};
+        \end{circuitikz}
+        \caption{Circuito equivalente de Thévenin final.}
+        \label{fig:circuito_thevenin}
+    \end{subfigure}
+
+    \caption{Proceso de reducción progresiva 1 a 1 hasta obtener el equivalente de Thévenin.}
+    \label{fig:reduccion_thevenin_completa}
+\end{figure}
+
+
+
+
