@@ -44,40 +44,14 @@ $R_3$--$R_4$.
 	\centering
 	\begin{subfigure}[t]{0.47\textwidth}
 		\centering
-		\begin{circuitikz}[scale=0.72, transform shape]
-			\draw (0,0) to[american voltage source, l=$E$] (0,4)
-				to[R, l=$R_1$] (3,4)
-				node[circ] (C) {}
-				to[R, l=$R_2$] (6,4)
-				node[ocirc, label=above:$A$] (A) {};
-			\draw (3,4) to[R, l=$R_3$] (3,0)
-				node[circ] (D) {};
-			\draw (6,4) to[R, l=$R_L$] (6,0)
-				node[ocirc, label=below:$B$] {};
-			\draw (0,0) -- (6,0);
-			\node[above] at (3,4.25) {$C$};
-			\node[below] at (3,-0.25) {$D$};
-		\end{circuitikz}
+		\includegraphics[width=\linewidth]{esquema_montaje_1.jpeg}
 		\caption{Montaje 1.}
 		\label{fig:montaje1_esquema}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.47\textwidth}
 		\centering
-		\begin{circuitikz}[scale=0.72, transform shape]
-			\draw (0,0) to[american voltage source, l=$E$] (0,4)
-				-- (7,4);
-			\draw (0,0) -- (7,0)
-				node[ground] at (3.5,0) {};
-			\draw (2,4) to[R, l=$R_1$] (2,2.2)
-				node[ocirc, label=right:$A$] (A) {}
-				to[R, l=$R_2$] (2,0);
-			\draw (5,4) to[R, l=$R_3$] (5,2.2)
-				node[ocirc, label=left:$B$] (B) {}
-				to[R, l=$R_4$] (5,0);
-			\draw (A) to[R, l=$R_L$] (B);
-			\node[below] at (3.5,-0.25) {$T$};
-		\end{circuitikz}
+		\includegraphics[width=\linewidth]{esquema_montaje_2.jpeg}
 		\caption{Montaje 2.}
 		\label{fig:montaje2_esquema}
 	\end{subfigure}
