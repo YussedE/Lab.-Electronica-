@@ -1,5 +1,23 @@
 ﻿\section{Introducción}
 
-El análisis y diseño de sistemas eléctricos complejos requieren a menudo de métodos que reduzcan la complejidad analítica sin perder la precisión en los puntos de interés de la red. En la teoría de circuitos, el teorema de Thévenin se establece como una de las herramientas fundamentales y versátiles, permitiendo transformar cualquier red eléctrica lineal de dos terminales en un circuito equivalente simplificado compuesto por una fuente de tensión en serie con una resistencia equivalente. Esta representación facilita el estudio del comportamiento de una carga conectada a la red, así como el análisis de corrientes, diferencias de potencial y transferencia de potencia, sin necesidad de resolver nuevamente el sistema completo.
+El estudio de señales eléctricas variables en el tiempo es fundamental en electrónica, 
+ya que la mayoría de los circuitos reales trabajan con voltajes variables y no con valores 
+constantes. El osciloscopio es uno de los instrumentos más versátiles para observar y 
+caracterizar este tipo de señales, permitiendo representar gráficamente su comportamiento 
+en función del tiempo.
 
-En este contexto, el propósito del presente experimento es **verificar experimentalmente la validez del teorema de Thévenin en circuitos resistivos de corriente continua**, mediante la determinación del voltaje y la resistencia equivalentes de Thévenin y su comparación con el comportamiento del circuito original al conectar una carga. Para ello, se emplean procedimientos experimentales y analíticos que permiten establecer el circuito equivalente y evaluar el grado de correspondencia entre las magnitudes obtenidas en ambos modelos. De esta manera, se busca comprobar que una red eléctrica lineal puede ser representada adecuadamente mediante su equivalente de Thévenin, identificando además las posibles diferencias asociadas a las incertidumbres y condiciones propias de la medición experimental.
+El osciloscopio permite visualizar directamente magnitudes como la amplitud, el periodo 
+y la forma de una señal eléctrica, y a partir de estos datos determinar de forma indirecta 
+parámetros como la frecuencia, el valor eficaz o el desfase entre dos señales. A diferencia 
+de un multímetro convencional que únicamente entrega un valor numérico instantáneo, el 
+osciloscopio ofrece una representación temporal completa de la señal, lo que lo convierte 
+en una herramienta esencial para el diagnóstico y análisis de circuitos tanto en corriente 
+continua como en corriente alterna. Su uso conjunto con un generador de señales, capaz de 
+producir formas de onda controladas en amplitud y frecuencia, permite además estudiar de 
+manera sistemática la respuesta de circuitos ante distintas condiciones.
+
+En esta práctica se busca familiarizar al estudiante con el manejo del osciloscopio como 
+voltímetro de DC y AC, y como medidor de frecuencia y desfase. Para ello, se analiza un 
+circuito RC alimentado con una señal senoidal de frecuencia variable, determinando 
+experimentalmente la constante de tiempo $\tau$ a partir del desfase entre la señal de 
+entrada y la señal en el capacitor, y comparándola con el valor teórico.
