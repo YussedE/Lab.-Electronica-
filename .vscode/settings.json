@@ -3,6 +3,7 @@
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
+        "**/.jj": true,
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
         "**/c:\\Users\\JUAN\\Desktop\\Mis Proyectos\\Lab.-Electronica-\\Articulo.aux": true,
@@ -56,7 +57,11 @@
         "**/c:\\Users\\JUAN\\Desktop\\proyectos\\LaTeX\\Lab.-Electronica-\\Capitulos\\resultados.aux": true,
         "**/c:\\Users\\JUAN\\Desktop\\proyectos\\LaTeX\\Lab.-Electronica-\\Capitulos\\resultados.log": true,
         "**/c:\\Users\\JUAN\\Desktop\\proyectos\\LaTeX\\Lab.-Electronica-\\Capitulos\\resultados.gz": true,
-        "**/c:\\Users\\JUAN\\Desktop\\proyectos\\LaTeX\\Lab.-Electronica-\\Capitulos\\resultados.out": true
+        "**/c:\\Users\\JUAN\\Desktop\\proyectos\\LaTeX\\Lab.-Electronica-\\Capitulos\\resultados.out": true,
+        "**/c:\\Users\\JUAN\\Downloads\\Moderna.aux": true,
+        "**/c:\\Users\\JUAN\\Downloads\\Moderna.log": true,
+        "**/c:\\Users\\JUAN\\Downloads\\Moderna.gz": true,
+        "**/c:\\Users\\JUAN\\Downloads\\Moderna.out": true
     },
     "latex-workshop.latex.tools": [
         {

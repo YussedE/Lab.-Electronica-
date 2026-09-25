@@ -1,201 +1,139 @@
-\section{Resultados}
+\section{Resultados y discusión}
 
-En esta sección se presentan los resultados obtenidos para los dos montajes analizados experimentalmente. Para cada configuración se determinaron los valores teóricos y experimentales de la resistencia de Thévenin ($R_{th}$), el voltaje de Thévenin ($V_{th}$) y la corriente en la carga ($I_L$). Adicionalmente, a partir de los valores teóricos de $R_{th}$ y $V_{th}$ se obtuvo el equivalente de Norton de cada configuración.
-\vspace{0.4cm}
+\subsection{Osciloscopio como voltímetro de corriente continua (DC)}
 
-Para evaluar la concordancia entre los resultados teóricos y experimentales se calculó el error porcentual mediante
-
-\begin{equation}
-\text{Error porcentual} =
-\left|
-\frac{X_{teo}-X_{exp}}{X_{teo}}
-\right|\times100,
-\label{eq:error}
-\end{equation}
-
-donde $X_{teo}$ corresponde al valor obtenido mediante el modelo teórico y $X_{exp}$ al valor determinado experimentalmente. Esta expresión se aplicó a $R_{th}$, $V_{th}$ e $I_L$. Debido a que no se dispuso de la información correspondiente a la incertidumbre instrumental del multímetro empleado, los resultados experimentales se expresan mediante los valores medidos y su respectivo error porcentual respecto al valor teórico.
-
-\subsection{Montaje 1: circuito con $R_1$, $R_2$ y $R_3$}
-
-Para el primer montaje se realizaron tres ensayos, en los cuales se modificaron la fuente de alimentación y la distribución de las resistencias $R_1$, $R_2$ y $R_3$. En los tres casos se mantuvo constante la resistencia de carga en $R_L=34\ \Omega$. Los valores teóricos se obtuvieron a partir del análisis del circuito equivalente de Thévenin, mientras que los valores experimentales corresponden a las mediciones realizadas con el multímetro.
-\vspace{0.4cm}
-
-Los resultados obtenidos se presentan en la Tabla~\ref{tab:montaje1}.
+En la Tabla \ref{tab:dc} se comparan las lecturas de voltaje DC obtenidas con el multímetro y las obtenidas directamente sobre la pantalla del osciloscopio (a partir de la ganancia vertical y el número de subdivisiones ocupadas por la traza).
 
 \begin{table}[h!]
-\centering
-\caption{Resultados experimentales y teóricos para el Montaje 1.}
-\label{tab:montaje1}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{ccccc|ccc|ccc|ccc|c}
-\toprule
-Ens. & $E$ (V) & $R_1$ ($\Omega$) & $R_2$ ($\Omega$) & $R_3$ ($\Omega$) &
-$R_{th}^{teo}$ ($\Omega$) & $R_{th}^{exp}$ ($\Omega$) & Error (\%) &
-$V_{th}^{teo}$ (V) & $V_{th}^{exp}$ (V) & Error (\%) &
-$I_L^{teo}$ (mA) & $I_L^{exp}$ (mA) & Error (\%) &
-$P_{R_L}$ (mW) \\
-\midrule
-1 & 10 & 101 & 149 & 223 & 218.52 & 220.0 & 0.68 &
-6.883 & 6.87 & 0.18 &
-27.26 & 26.7 & 2.04 & 25.26 \\
-
-2 & 12 & 101 & 223 & 149 & 283.20 & 283.0 & 0.07 &
-7.152 & 7.20 & 0.67 &
-22.55 & 22.2 & 1.54 & 17.29 \\
-
-3 & 15 & 223 & 101 & 149 & 190.32 & 191.1 & 0.41 &
-6.008 & 6.02 & 0.20 &
-26.78 & 26.3 & 1.81 & 24.39 \\
-\bottomrule
-\end{tabular}}
+    \centering
+    \caption{Osciloscopio como voltímetro de DC.}
+    \label{tab:dc}
+    \begin{tabular}{cccccc}
+        \toprule
+        Dato & $V_{DC}$ multímetro (V) & Ganancia (V/div) & N.º subdivisiones & $V_{DC}$ osciloscopio (V) & Error (\%) \\
+        \midrule
+        1 & 0.70 & 0.5 & 7  & 0.70 & 0.00 \\
+        2 & 2.09 & 0.5 & 21 & 2.10 & 0.48 \\
+        3 & 2.68 & 0.5 & 27 & 2.70 & 0.75 \\
+        4 & 3.02 & 0.5 & 30 & 3.00 & 0.66 \\
+        \bottomrule
+    \end{tabular}
 \end{table}
 
-En los tres ensayos del Montaje 1 se observa una diferencia reducida entre los valores teóricos y experimentales de las magnitudes analizadas. Para $R_{th}$, los errores porcentuales obtenidos fueron de $0.68\%$, $0.07\%$ y $0.41\%$ para los ensayos 1, 2 y 3, respectivamente. En el caso de $V_{th}$, los errores fueron de $0.18\%$, $0.67\%$ y $0.20\%$, mientras que para la corriente de carga se obtuvieron errores de $2.04\%$, $1.54\%$ y $1.81\%$.
-\vspace{0.4cm}
+Como se observa, el error relativo entre la lectura del multímetro y la del osciloscopio no supera el 1\% en ninguno de los cuatro datos, lo cual confirma que el osciloscopio, correctamente calibrado y con el conmutador AC-GND-DC en DC, reproduce con buena exactitud una tensión continua. La pequeña discrepancia se explica por la resolución finita de la escala graduada de la pantalla (retículo) frente a la resolución digital del multímetro.
 
-La potencia disipada en la resistencia de carga se calculó a partir de la corriente experimental mediante
+\subsection{Osciloscopio como voltímetro de corriente alterna (AC)}
 
-\begin{equation}
-P_{R_L}=I_{L,exp}^{2}R_L,
-\label{eq:potencia}
-\end{equation}
-
-manteniendo $R_L=34\ \Omega$ para los tres ensayos.
-
-A partir de los valores teóricos de $R_{th}$ y $V_{th}$ se determinó también el equivalente de Norton, utilizando las relaciones
-
-\begin{equation}
-I_N=\frac{V_{th}}{R_{th}},
-\qquad
-R_N=R_{th}.
-\label{eq:norton}
-\end{equation}
-
-Los resultados correspondientes se muestran en la Tabla~\ref{tab:norton1}.
+Para la tensión alterna se midió el voltaje pico a pico $V_{PP}$ sobre la pantalla y se calculó el valor eficaz teórico mediante la ecuación (1), $V_{RMS}=V_{PP}/(2\sqrt{2})$, comparándolo con la lectura directa del multímetro en modo AC (Tabla \ref{tab:ac}).
 
 \begin{table}[h!]
-\centering
-\caption{Equivalente de Norton teórico para el Montaje 1.}
-\label{tab:norton1}
-\begin{tabular}{ccc}
-\toprule
-Ensayo & $I_N$ (mA) & $R_N$ ($\Omega$) \\
-\midrule
-1 & 31.50 & 218.52 \\
-2 & 25.25 & 283.20 \\
-3 & 31.57 & 190.32 \\
-\bottomrule
-\end{tabular}
+    \centering
+    \caption{Osciloscopio como voltímetro de AC.}
+    \label{tab:ac}
+    \begin{tabular}{ccccccc}
+        \toprule
+        Dato & $V_{RMS}$ multímetro (V) & Ganancia (V/div) & N.º subdivisiones & $V_{PP}$ osciloscopio (V) & $V_{RMS}$ teórico (V) & Error (\%) \\
+        \midrule
+        1 & 7.00  & 5 & 20 & 20.0 & 7.07  & 1.01 \\
+        2 & 13.60 & 5 & 39 & 39.0 & 13.79 & 1.37 \\
+        3 & 2.10  & 1 & 30 & 6.0  & 2.12  & 1.01 \\
+        4 & 3.40  & 2 & 25 & 10.0 & 3.54  & 3.83 \\
+        5 & 2.40  & 1 & 34 & 6.8  & 2.40  & 0.17 \\
+        \bottomrule
+    \end{tabular}
 \end{table}
+\vspace{0.4cm}
+Los errores obtenidos, entre 0.17\,\% y 3.83\,\%, corroboran la relación teórica $V_{RMS}=V_{PP}/(2\sqrt{2})$. El mayor error (dato 4) coincide con la ganancia vertical más sensible utilizada (2 V/div), donde una subdivisión mal contada representa un porcentaje más alto del voltaje total, lo que sugiere que la principal fuente de error en este montaje es la resolución de lectura del retículo y no una falla del modelo teórico.
 
-Los valores obtenidos muestran que, para cada configuración, la resistencia de Norton coincide con la resistencia de Thévenin correspondiente, tal como establece la equivalencia entre ambos modelos. La corriente de Norton se obtuvo a partir de la razón entre el voltaje y la resistencia de Thévenin.
+\subsection{Osciloscopio como frecuencímetro}
 
-\subsection{Montaje 2: circuito con $R_1$, $R_2$, $R_3$ y $R_4$}
-
-En el segundo montaje se realizaron nuevamente tres ensayos, manteniendo constante la resistencia de carga en $R_L=34\ \Omega$ y modificando tanto la fuente de alimentación como la distribución de las resistencias $R_1$, $R_2$, $R_3$ y $R_4$. Los resultados teóricos y experimentales obtenidos se presentan en la Tabla~\ref{tab:montaje2}.
+El periodo de la señal se determinó a partir de la escala de tiempo (TIME/DIV) y el número de subdivisiones que ocupa un ciclo completo; con él se calculó la frecuencia experimental $f_{exp}=1/T$, comparándola con la frecuencia fijada en el generador (Tabla \ref{tab:frec}).
 
 \begin{table}[h!]
-\centering
-\caption{Resultados experimentales y teóricos para el Montaje 2.}
-\label{tab:montaje2}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{cccccc|ccc|ccc|ccc|c}
-\toprule
-Ens. & $E$ (V) & $R_1$ ($\Omega$) & $R_2$ ($\Omega$) & $R_3$ ($\Omega$) & $R_4$ ($\Omega$) &
-$R_{th}^{teo}$ ($\Omega$) & $R_{th}^{exp}$ ($\Omega$) & Error (\%) &
-$V_{th}^{teo}$ (V) & $V_{th}^{exp}$ (V) & Error (\%) &
-$I_L^{teo}$ (mA) & $I_L^{exp}$ (mA) & Error (\%) &
-$P_{R_L}$ (mW) \\
-\midrule
-1 & 10 & 101 & 149 & 223 & 272 &
-182.73 & 183.6 & 0.47 &
-0.465 & 0.476 & 2.35 &
-2.146 & 2.10 & 2.13 & 0.157 \\
-
-2 & 12 & 223 & 149 & 101 & 272 &
-162.97 & 163.4 & 0.26 &
-3.944 & 3.91 & 0.87 &
-20.02 & 19.4 & 3.12 & 13.63 \\
-
-3 & 15 & 101 & 223 & 272 & 149 &
-165.78 & 167.8 & 1.22 &
-5.015 & 4.96 & 1.10 &
-25.10 & 24.3 & 3.20 & 21.43 \\
-\bottomrule
-\end{tabular}}
+    \centering
+    \caption{Osciloscopio como frecuencímetro.}
+    \label{tab:frec}
+    \begin{tabular}{ccccccc}
+        \toprule
+        Dato & $f$ teórica (Hz) & Escala de tiempo (ms/div) & N.º subdivisiones & $T$ experimental (ms) & $f$ experimental (Hz) & Error (\%) \\
+        \midrule
+        1 & 60   & 5   & 17 & 17.00 & 58.82   & 2.00 \\
+        2 & 200  & 1   & 25 & 5.00  & 200.00  & 0.00 \\
+        3 & 300  & 0.5 & 34 & 3.40  & 294.12  & 2.00 \\
+        4 & 600  & 0.2 & 42 & 1.68  & 595.24  & 0.80 \\
+        5 & 1000 & 0.1 & 50 & 1.00  & 1000.00 & 0.00 \\
+        \bottomrule
+    \end{tabular}
 \end{table}
 
-Para el Montaje 2, los valores experimentales de $R_{th}$ presentaron errores porcentuales de $0.47\%$, $0.26\%$ y $1.22\%$ en los tres ensayos, respectivamente. Para $V_{th}$ se obtuvieron errores de $2.35\%$, $0.87\%$ y $1.10\%$, mientras que los errores correspondientes a $I_L$ fueron de $2.13\%$, $3.12\%$ y $3.20\%$.
-\vspace{0.5cm}
+El error relativo se mantiene entre 0\% y 2\% en todo el rango de frecuencias ensayado (60 Hz a 1 kHz), lo que valida el uso del osciloscopio como frecuencímetro indirecto a partir de la medida del periodo. Los errores nulos (datos 2 y 5) corresponden a los casos en que el número de subdivisiones ocupadas por el periodo es un valor entero exacto, mientras que los errores de 2\,\% aparecen cuando la traza cae entre dos líneas del retículo y debe aproximarse la lectura.
 
-En el primer ensayo se corrigió el valor de $V_{th}^{teo}$ empleado en el tratamiento de los datos, debido a un error de digitación en la hoja de cálculo. El valor correcto corresponde a $0.465\ \mathrm{V}$, a partir del cual se obtiene el error porcentual de $2.35\%$ indicado en la Tabla~\ref{tab:montaje2}.
-\vspace{0.4cm}
+\subsection{Osciloscopio como medidor de desfase entre dos señales}
 
-El equivalente de Norton para cada configuración del segundo montaje se calculó mediante las mismas relaciones empleadas para el Montaje 1. Los resultados se presentan en la Tabla~\ref{tab:norton2}.
+Para el circuito RC de la Fig. 3 de la guía, con $R = 1.99\ \mathrm{k\Omega}$ y $C = 95.1\ \mathrm{nF}$, el valor teórico de la constante de tiempo es
+
+\[
+\tau_{teo} = RC = (1.99\times10^{3}\ \Omega)(95.1\times10^{-9}\ \mathrm{F}) = 0.1892\ \mathrm{ms}.
+\]
+
+Se varió la frecuencia del generador entre 300 Hz y 600 Hz en pasos de 25 Hz, se midió el desfase experimental $\phi_{exp}=360^\circ\,(m/n)$ (con $m$ el número de subdivisiones entre los cruces por cero de ambas señales y $n$ el número de subdivisiones de un periodo completo) y se comparó con el ángulo teórico $\phi_{teo}=\arctan\!\big(1/(2\pi f R C)\big)$. Los resultados se resumen en la Tabla \ref{tab:desfase}.
 
 \begin{table}[h!]
-\centering
-\caption{Equivalente de Norton teórico para el Montaje 2.}
-\label{tab:norton2}
-\begin{tabular}{ccc}
-\toprule
-Ensayo & $I_N$ (mA) & $R_N$ ($\Omega$) \\
-\midrule
-1 & 2.545 & 182.73 \\
-2 & 24.20 & 162.97 \\
-3 & 30.25 & 165.78 \\
-\bottomrule
-\end{tabular}
+    \centering
+    \caption{Osciloscopio como medidor de desfase (montaje RC).}
+    \label{tab:desfase}
+    \begin{tabular}{cccccccc}
+        \toprule
+        Dato & $f$ (Hz) & $\phi_{teo}$ (°) & $m$ & $n$ & $\phi_{exp}$ (°) & Error (\%) & $T=1/f$ (ms) \\
+        \midrule
+        1  & 300 & 70.37 & 7 & 34 & 74.12 & 5.33 & 3.333 \\
+        2  & 325 & 68.87 & 6 & 31 & 69.68 & 1.17 & 3.077 \\
+        3  & 350 & 67.40 & 5 & 28 & 64.29 & 4.63 & 2.857 \\
+        4  & 375 & 65.97 & 5 & 27 & 66.67 & 1.06 & 2.667 \\
+        5  & 400 & 64.56 & 5 & 27 & 66.67 & 3.26 & 2.500 \\
+        6  & 425 & 63.19 & 4 & 23 & 62.61 & 0.92 & 2.353 \\
+        7  & 450 & 61.85 & 4 & 23 & 62.61 & 1.23 & 2.222 \\
+        8  & 475 & 60.54 & 9 & 53 & 61.13 & 0.98 & 2.105 \\
+        9  & 500 & 59.27 & 8 & 50 & 57.60 & 2.81 & 2.000 \\
+        10 & 525 & 58.02 & 8 & 48 & 60.00 & 3.40 & 1.905 \\
+        11 & 550 & 56.82 & 7 & 45 & 56.00 & 1.44 & 1.818 \\
+        12 & 575 & 55.64 & 7 & 43 & 58.60 & 5.33 & 1.739 \\
+        13 & 600 & 54.49 & 6 & 42 & 51.43 & 5.63 & 1.667 \\
+        \bottomrule
+    \end{tabular}
 \end{table}
 
-Los resultados de ambos montajes permiten comparar directamente las magnitudes obtenidas mediante el modelo de Thévenin con las mediciones realizadas sobre los circuitos físicos. En general, los errores porcentuales obtenidos se mantienen en valores relativamente bajos para las tres magnitudes analizadas, aunque se observan diferencias mayores en la determinación de la corriente de carga, particularmente en los ensayos del Montaje 2. El análisis de estas diferencias y de sus posibles causas se desarrolla posteriormente en la sección de Discusión.
+Con los pares $(T,\tan\phi_{exp})$ de la Tabla \ref{tab:desfase} se construyó la Fig. \ref{fig:desfase}, de acuerdo con la relación teórica $\tan\phi = T/(2\pi\tau)$, que predice una recta que pasa por el origen. El ajuste lineal forzado por el origen entregó una pendiente
 
+\[
+K = (0.877 \pm 0.028)\ \mathrm{ms^{-1}}, \qquad R^{2}=0.988,
+\]
 
-\subsection{Discusión de resultados}
+a partir de la cual se obtuvo la constante de tiempo experimental
 
-Los resultados obtenidos permiten evaluar experimentalmente la validez del teorema de Thévenin para los dos circuitos estudiados. En ambos montajes se observa una concordancia general entre los valores calculados teóricamente y los valores obtenidos mediante las mediciones experimentales, aunque se presentan diferencias entre ambas determinaciones. Estas diferencias se cuantificaron mediante el error porcentual definido en la Ec.~\ref{eq:error}.
+\[
+\tau_{exp} = \frac{1}{2\pi K} = (0.1815 \pm 0.0057)\ \mathrm{ms}.
+\]
+
+Comparando con el valor teórico $\tau_{teo}=0.1892\ \mathrm{ms}$, el error relativo es
+
+\[
+\text{Error}\,(\%) = \frac{|\tau_{teo}-\tau_{exp}|}{\tau_{teo}}\times 100\% = 4.10\%.
+\]
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.75\textwidth]{imagenes/desfase.png}
+    \caption{Tangente del ángulo de desfase experimental $\tan(\phi_{exp})$ en función del periodo $T$ de la señal. Los símbolos (puntos) representan los valores medidos para cada frecuencia entre 300 y 600\,Hz; la línea continua es el ajuste lineal forzado por el origen, con pendiente $K=(0.877\pm0.028)\,\mathrm{ms^{-1}}$ y $R^{2}=0.988$.}
+    \label{fig:desfase}
+\end{figure}
+
+\subsection{Discusión general}
+
+En los cuatro montajes se observa una concordancia satisfactoria entre los valores teóricos y los medidos con el osciloscopio, con errores relativos que en la mayoría de los casos se mantienen por debajo del 5\,\%. Como era de esperarse para un circuito RC pasabajos, tanto $\phi_{teo}$ como $\phi_{exp}$ disminuyen a medida que aumenta la frecuencia (y, equivalentemente, disminuye $T$), lo que confirma cualitativamente el modelo $\tan\phi = T/(2\pi\tau)$ empleado para el ajuste.
 \vspace{0.4cm}
 
-Para el Montaje 1, la resistencia de Thévenin presentó errores porcentuales inferiores al $1\%$ en los tres ensayos, con valores de $0.68\%$, $0.07\%$ y $0.41\%$. Esto indica una alta correspondencia entre la resistencia equivalente calculada a partir del circuito y la resistencia obtenida experimentalmente. El resultado es consistente con el comportamiento esperado, ya que la resistencia de Thévenin depende principalmente de las resistencias utilizadas en el circuito y no de la variación de la fuente de alimentación.
-\vspace{0.4cm}
+La principal fuente de error en los cuatro casos es de tipo instrumental y no un desajuste del modelo: al tratarse de lecturas hechas sobre el retículo de la pantalla (conteo de subdivisiones $n$, $m$ o número de divisiones ocupadas por la señal), el error relativo tiende a ser mayor cuando el número de subdivisiones contadas es pequeño (p. ej. datos 1, 3 y 13 de la Tabla \ref{tab:desfase}, con error entre 4.6\,\% y 5.6\,\%), pues allí una unidad de conteo mal apreciada pesa proporcionalmente más sobre el resultado. A esto se suma el error de sincronismo al fijar la forma de onda en la pantalla y la tolerancia propia de la resistencia y el capacitor utilizados, que afecta directamente el valor de $\tau_{teo}=RC$ tomado como referencia.
+\vspace{0.3cm}
 
-En cuanto al voltaje de Thévenin del mismo montaje, los errores fueron de $0.18\%$, $0.67\%$ y $0.20\%$. Estos valores también son reducidos, por lo que las mediciones realizadas reproducen adecuadamente los valores previstos por el modelo teórico. La pequeña diferencia observada puede estar asociada a que los valores nominales de las resistencias empleadas no necesariamente coinciden exactamente con sus valores reales, además de las condiciones propias de las conexiones del circuito.
-\vspace{0.4cm}
-
-Para la corriente de carga se obtuvieron errores de $2.04\%$, $1.54\%$ y $1.81\%$ en los tres ensayos del Montaje 1. Estos errores son ligeramente superiores a los obtenidos para $R_{th}$ y $V_{th}$. Esto puede explicarse porque la corriente de carga se determina a partir de varias magnitudes del circuito, de acuerdo con
-
-\begin{equation}
-I_L=\frac{V_{th}}{R_{th}+R_L},
-\label{eq:IL_teorica}
-\end{equation}
-
-por lo que las diferencias presentes en el voltaje y en la resistencia equivalente pueden reflejarse directamente en el valor de la corriente.
-\vspace{0.4cm}
-
-En el Montaje 2 se observa un comportamiento similar, aunque los errores obtenidos son ligeramente mayores en algunas de las magnitudes. Para $R_{th}$ se obtuvieron errores de $0.47\%$, $0.26\%$ y $1.22\%$, mientras que para $V_{th}$ fueron de $2.35\%$, $0.87\%$ y $1.10\%$. La resistencia de Thévenin continúa presentando una buena concordancia con el modelo teórico, con todos los errores inferiores al $1.5\%$. El mayor error correspondiente a esta magnitud se presentó en el tercer ensayo.
-\vspace{0.4cm}
-
-En el caso de la corriente de carga del Montaje 2, los errores fueron de $2.13\%$, $3.12\%$ y $3.20\%$. Comparativamente, esta fue la magnitud que presentó las mayores discrepancias entre los resultados teóricos y experimentales. Esto es razonable considerando que la corriente depende simultáneamente de $V_{th}$, $R_{th}$ y $R_L$. Por tanto, pequeñas diferencias en las magnitudes que intervienen en el cálculo pueden producir una diferencia más apreciable en la corriente obtenida.
-\vspace{0.4cm}
-
-Una diferencia importante entre ambos montajes corresponde al valor del voltaje de Thévenin. En el primer montaje, los errores asociados a esta magnitud fueron menores al $1\%$, mientras que en el segundo montaje se alcanzó un error máximo de $2.35\%$. Esto puede relacionarse con la mayor cantidad de resistencias involucradas en el segundo circuito y, por tanto, con una mayor cantidad de elementos cuyos valores reales pueden diferir de sus valores nominales. Además, las mediciones de voltaje pueden verse afectadas por las condiciones de conexión y por las características reales de los componentes utilizados.
-\vspace{0.4cm}
-
-Los equivalentes de Norton obtenidos a partir de los valores teóricos de Thévenin cumplen la relación
-
-\begin{equation}
-R_N=R_{th},
-\qquad
-I_N=\frac{V_{th}}{R_{th}},
-\end{equation}
-
-lo que permite verificar la equivalencia entre ambas representaciones del circuito. En consecuencia, los valores de $R_N$ coinciden con los valores correspondientes de $R_{th}$ para cada ensayo, mientras que la corriente de Norton se obtiene directamente a partir de la relación entre el voltaje y la resistencia de Thévenin.
-\vspace{0.4cm}
-
-La potencia disipada en la resistencia de carga también mostró diferencias entre las configuraciones. Debido a que esta magnitud se calculó a partir de la corriente experimental mediante la Ec.~\ref{eq:potencia}, las variaciones de $I_L$ se reflejan directamente en el valor de la potencia obtenida. Por esta razón, las diferencias observadas en la corriente tienen también una influencia sobre la potencia calculada.
-\vspace{0.4cm}
-
-En términos generales, los resultados experimentales presentan una buena concordancia con el modelo de Thévenin para ambos montajes. Las mayores discrepancias se encontraron en la corriente de carga, especialmente en el Montaje 2, mientras que la resistencia de Thévenin presentó los menores errores relativos. Las diferencias entre los valores teóricos y experimentales pueden atribuirse a factores propios del montaje real, como la tolerancia de las resistencias, las conexiones entre los elementos y las condiciones de medición. Sin embargo, al no disponer de las especificaciones de incertidumbre o exactitud del multímetro empleado, no es posible realizar una estimación cuantitativa de la incertidumbre de las mediciones ni determinar mediante propagación de errores un intervalo de incertidumbre para las magnitudes experimentales. Por esta razón, el análisis de concordancia se limita al error porcentual respecto de los valores teóricos.
-\vspace{0.4cm}
-
-Finalmente, los resultados obtenidos respaldan experimentalmente la aplicación del teorema de Thévenin a los circuitos estudiados, ya que las magnitudes medidas presentan diferencias relativamente pequeñas respecto a las predicciones del modelo. Asimismo, la obtención de los equivalentes de Norton a partir de los parámetros de Thévenin permite comprobar la relación existente entre ambas representaciones de un mismo circuito.
+El error del 4.10\,\% entre $\tau_{teo}$ y $\tau_{exp}$ es consistente con esta acumulación de incertidumbres de lectura y confirma que el osciloscopio, usado como medidor de desfase, permite determinar la constante de tiempo de un circuito RC con una exactitud razonable.
