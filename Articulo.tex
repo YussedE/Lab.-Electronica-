@@ -1,7 +1,7 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage{graphicx}
 \usepackage[table]{xcolor}
-\usepackage{circuitikz}
+\usepackage[siunitx, RPvoltages]{circuitikz}
 \usepackage{amsmath}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
@@ -22,6 +22,7 @@
 \definecolor{algorithmblue}{HTML}{175676}
 \definecolor{algorithmgray}{HTML}{68737D}
 \floatstyle{ruled}
+\usetikzlibrary{arrows.meta}
 \restylefloat{algorithm}
 \captionsetup[algorithm]{labelfont={bf,color=algorithmblue},textfont=it,skip=6pt}
 \algrenewcommand{\algorithmicprocedure}{\textbf{\color{algorithmblue}Procedimiento}}
