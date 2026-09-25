@@ -2,15 +2,15 @@
 
 \subsection{El osciloscopio y sus fundamentos}
 
-El \textbf{osciloscopio} es un instrumento de medida y observación electrónico fundamental para el análisis de señales eléctricas variables en función del tiempo. A diferencia de un \textbf{multímetro} convencional, el cual ofrece un valor numérico estático o promedio, el \textbf{osciloscopio} permite visualizar de forma gráfica la forma de onda completa, facilitando la identificación de parámetros como amplitud, periodo, frecuencia, ruido y distorsión.
+El \textbf{osciloscopio} es un instrumento de medición y observación electrónico fundamental para el análisis de señales eléctricas variables en función del tiempo. A diferencia de un \textbf{multímetro} convencional, el cual ofrece un valor numérico estático o promediado, el osciloscopio permite visualizar de forma gráfica la forma de onda completa, facilitando la identificación de parámetros críticos como la amplitud, el periodo, la frecuencia, el ruido y la distorsión de la señal.
 
-\vspace{0.5cm}
+\vspace{0.3cm}
 
 Existen dos tecnologías básicas de osciloscopios:
 
 \begin{itemize}
-    \item \textbf{Osciloscopios analógicos:} Trabajan con la señal eléctrica analógica continua. La señal es amplificada para desviar un haz de electrones en sentido vertical por las fuerzas de \texttt{Lorentz} $\vec{F} = q(\vec{E} + \vec{v} \times \vec{B})$ dentro de un \textbf{tubo de rayos catódicos (TRC)}, el cual impacta sobre una pantalla fosforescente mediante el efecto \textbf{fotoeléctrico}, excitando los átomos de \ce{P} a un estado más energético y generando una traza luminosa en tiempo real.
-    \item \textbf{Osciloscopios digitales:} Utilizan un \textbf{conversor analógico-digital (ADC)}, como se muestra en la Figura \ref{circuit-ADC}. para muestrar la señal de entrada a alta velocidad, almacenarla en una memoria digital y reconstruirla posteriormente en una pantalla LCD o LED.
+    \item \textbf{Osciloscopios analógicos:} Trabajan directamente con la señal eléctrica analógica continua. La señal es amplificada para desviar un haz de electrones en sentido vertical por la fuerza de \texttt{Lorentz} $\vec{F} = q(\vec{E} + \vec{v} \times \vec{B})$ dentro de un \textbf{tubo de rayos catódicos (TRC)}. Este haz impacta sobre una pantalla fosforada y, mediante el fenómeno de la \textbf{catodoluminiscencia}, excita los átomos de fósforo (P) a un estado más energético, generando una traza luminosa visible en tiempo real.
+    \item \textbf{Osciloscopios digitales:} Utilizan un \textbf{conversor analógico-digital (ADC)}, precedido por un sistema de muestreo y retención (como se ilustra en la Figura \ref{circuit-ADC}), para muestrear la señal de entrada a alta velocidad, almacenarla en una memoria digital y reconstruirla posteriormente en una pantalla LCD o LED.
 \end{itemize}
 
 \begin{figure}[h!]
@@ -18,36 +18,42 @@ Existen dos tecnologías básicas de osciloscopios:
 \begin{circuitikz}[american, line width=0.8pt]
 
   % --- Fuente de señal analógica ---
-  \draw (0,0) to[sinusoidal voltage source, l=$V_{in}$] (0,3);
+  \draw (0,0) to[sinusoidal voltage source, l=$V_{\text{in}}$] (0,3);
 
   % --- Muestreo y retención (Sample & Hold) ---
   \draw (0,3) to[short] (1,3)
-        to[normal open switch, l=$S$] (3,3)
-        to[short, -*] (4,3);
-  \draw (4,3) to[C, l=$C_H$, *-*] (4,0);
-  \draw (0,0) to[short] (4,0) node[ground]{};
+        to[normal open switch, l=$S$] (2.5,3)
+        to[short, -*] (3.5,3);
+  \draw (3.5,3) to[C, l=$C_H$, *-*] (3.5,0);
 
-  % --- Bloque ADC (con 1 pin inferior para el reloj) ---
+  % --- Amplificador Seguidor (Buffer) indispensable ---
+  \draw (3.5,3) to[short] (4.2,3);
+  \node[op amp, anchor=-, scale=0.6] (opamp) at (5,2.8) {};
+  \draw (opamp.+) to[short] (4.2,2.98); 
+  \draw (opamp.out) to[short, -*] (5.5,2.8) |- (opamp.-);
+
+  % --- Bloque ADC ---
   \node[muxdemux, muxdemux def={Lh=4, Rh=4, NL=2, NR=4, NB=1, w=3},
-        anchor=lpin 1] (adc) at (6.5,3) {ADC};
+        anchor=lpin 1] (adc) at (8,2.8) {ADC};
 
-  % Entrada analógica al ADC
-  \draw (4,3) to[short] (adc.lpin 1);
+  % Conexión del Buffer al ADC
+  \draw (5.5,2.8) to[short] (adc.lpin 1);
+  \draw (0,0) to[short] (3.5,0) node[ground]{};
 
   % Tensión de referencia
-  \draw (adc.lpin 2) to[short, -o] ++(-1.2,0) node[left]{$V_{ref}$};
+  \draw (adc.lpin 2) to[short, -o] ++(-1,0) node[left]{$V_{\text{ref}}$};
 
   % Reloj
-  \draw[-{Stealth}] (adc.bpin 1) ++(0,-1) node[below]{CLK} -- (adc.bpin 1);
+  \draw[-{Stealth}] (adc.bpin 1) ++(0,-0.8) node[below]{CLK} -- (adc.bpin 1);
 
   % Salidas digitales (D3 arriba = MSB, D0 abajo = LSB)
   \foreach \i/\lab in {1/D_3, 2/D_2, 3/D_1, 4/D_0}
-    \draw (adc.rpin \i) to[short, -o] ++(1.2,0) node[right]{$\lab$};
+    \draw (adc.rpin \i) to[short, -o] ++(1,0) node[right]{$\lab$};
 
   % Etiquetas descriptivas
-  \node[font=\small\itshape] at (0,-0.8) {Señal analógica};
-  \node[font=\small\itshape] at (2,3.9)  {Muestreo y retención};
-  \node[font=\small\itshape, anchor=north west] at ([yshift=-0.7cm]adc.south east)
+  \node[font=\small\itshape] at (0,-0.6) {Señal analógica};
+  \node[font=\small\itshape] at (2.2,3.9)  {Muestreo y retención};
+  \node[font=\small\itshape, anchor=north west] at ([yshift=-0.5cm]adc.south east)
         {Salida digital (4 bits)};
 
 \end{circuitikz}
@@ -55,10 +61,93 @@ Existen dos tecnologías básicas de osciloscopios:
 \label{circuit-ADC}
 \end{figure}
 
+\subsection{Parámetros de Medición en Corriente Alterna (AC)}
+Cuando se analiza una señal de corriente alterna en un osciloscopio, la magnitud del voltaje no es constante, sino que varía continuamente en el tiempo, formando (por lo general) una onda periódica. Por esta razón, existen distintas formas de cuantificar y expresar el nivel de voltaje de dicha señal:
 
+\vspace{0.3cm}
 
+En la teoría de circuitos de corriente alterna (AC), la generación de energía eléctrica suele producir señales periódicas que oscilan en el tiempo. 
+\begin{itemize}
+      \item Una fuente de voltaje senoidal pura se describe teóricamente mediante la función matemática: $v(t) = V_{p}\sin(\omega t)$
+      \item Donde $V_{p}$ es el voltaje pico que representa la amplitud máxima teórica de la señal eléctrica.
+      \item Físicamente, indica la diferencia de potencial electrostático máxima que alcanza la onda respecto a su nivel de referencia o equilibrio ($0\,\text{V}$), antes de que su magnitud comience a disminuir o a invertir su polaridad.
+\end{itemize}
 
+\subsection{El voltaje RMS}
 
+Debido a que una onda de corriente alterna está constantemente cambiando su valor (pasando por cero y alcanzando picos positivos y negativos), no es útil describirla por un promedio directo, ya que el promedio aritmético de un ciclo senoidal completo es idéntico a cero.
 
+\begin{itemize}
+      \item Para resolver esto se utiliza el valor eficaz, conocido por sus siglas en inglés como \textbf{RMS} (\textit{Root Mean Square} o Raíz Cuadrática Media).
+      \item \textbf{Representación Física:} El voltaje \textbf{RMS} representa el valor equivalente de un voltaje de corriente alterna que produce exactamente el mismo efecto térmico (la misma disipación de potencia en forma de calor) en una resistencia que su equivalente en corriente continua (DC).
+      \item \textbf{Ejemplo teórico:} Si conectamos una estufa eléctrica a una toma de red doméstica de $120\,\text{V}$ RMS, esta entregará la misma energía térmica y se calentará de la misma manera que si la conectáramos a una fuente de corriente continua constante de $120\,\text{V}$.
+\end{itemize}
 
+\section{Definición matemática del valor RMS}
 
+Por definición, el valor eficaz $V_{\text{rms}}$ de cualquier función continua periódica $v(t)$ de periodo $T$ es la raíz cuadrada de la media del cuadrado de dicha función:
+
+\begin{equation}
+      V_{\text{rms}} = \sqrt{\frac{1}{T}\int_{0}^{T}[v(t)]^{2}dt}
+\end{equation}
+
+La deducción matemática del valor RMS ($V_{\text{rms}}$) para una onda senoidal se obtiene mediante el cálculo integral de la función cuadrática media a lo largo del periodo completo. A través de este análisis, se demuestra que el valor eficaz final para una onda senoidal pura responde a la siguiente relación:
+\begin{equation}
+      V_{\text{rms}} = \frac{V_{p}}{\sqrt{2}}
+\end{equation}
+
+\subsection{Análisis Fasorial e Impedancia Compleja en un Circuito RC}
+
+En un circuito alimentado con corriente alterna (AC), la oposición que presentan los componentes pasivos al flujo de corriente se generaliza mediante el concepto de \textbf{Impedancia Compleja} $Z$, la cual se expresa en ohmios ($\Omega$).
+
+\vspace{0.3cm}
+
+La impedancia total es un número complejo compuesto por una parte real (resistencia, $R$) y una parte imaginaria (reactancia, $X$):
+\begin{equation}
+      Z = R + jX
+\end{equation}
+
+Para un circuito RC en serie, compuesto por una resistencia y un condensador de capacitancia $C$:
+
+\begin{enumerate}
+      \item \textbf{Resistencia} ($R$): No introduce desfase temporal entre el voltaje y la corriente. Su impedancia es puramente real: 
+      \begin{equation*}
+            Z_{R} = R
+      \end{equation*}
+      \item \textbf{Condensador} ($C$): Se opone a las variaciones de voltaje almacenando energía en su campo eléctrico. Esta oposición se denomina \textbf{Reactancia Capacitiva} ($X_{C}$) y matemáticamente se expresa como:
+      \begin{equation*}
+            X_{C} = \frac{1}{\omega C} = \frac{1}{2\pi f C}
+      \end{equation*}
+      En el plano complejo, la tensión en el condensador se retrasa $90^\circ$ respecto a la corriente, lo que matemáticamente se representa multiplicando por la unidad imaginaria $-j$:
+      \begin{equation*}
+            Z_{C} = -jX_{C} = \frac{1}{j\omega C}
+      \end{equation*} 
+\end{enumerate}
+
+\subsection{Impedancia Total y Ángulo de Desfase en el Circuito RC}
+
+A partir de las contribuciones individuales de la resistencia y el condensador, la impedancia total $Z$ del circuito RC en serie se expresa en forma binómica como:
+\begin{equation}
+      Z = Z_R + Z_C = R - jX_C = R - j\left(\frac{1}{\omega C}\right)
+\end{equation}
+
+En el plano complejo (diagrama fasorial o triángulo de impedancias), esta expresión representa un vector en el cuarto cuadrante, donde la resistencia ocupa el eje real positivo y la reactancia capacitiva el eje imaginario negativo.
+
+\subsubsection{Magnitud de la Impedancia}
+La oposición total efectiva al paso de la corriente alterna (el módulo del número complejo) se obtiene aplicando el teorema de Pitágoras sobre el triángulo de impedancias:
+\begin{equation}
+      |Z| = \sqrt{R^2 + X_C^2} = \sqrt{R^2 + \left(\frac{1}{2\pi f C}\right)^2}
+\end{equation}
+
+\subsubsection{Deducción del Ángulo de Desfase ($\theta$)}
+El ángulo de desfase $\theta$ representa el retraso angular del voltaje total respecto a la corriente del circuito. Para deducir su valor, se recurre a la relación trigonométrica de la tangente en el triángulo rectángulo formado en el plano complejo:
+\begin{equation}
+      \tan(\theta) = \frac{\text{Cateto Opuesto}}{\text{Cateto Adyacente}} = \frac{-X_C}{R}
+\end{equation}
+
+Despejando el ángulo mediante la función inversa de la arcotangente, se obtiene la ecuación fundamental del desfase:
+\begin{equation}
+      \theta = \arctan\left(\frac{-X_C}{R}\right) = -\arctan\left(\frac{1}{\omega C R}\right)
+\end{equation}
+
+El signo negativo resultante posee un significado físico crítico: confirma matemáticamente que en un circuito puramente capacitivo o RC, **el voltaje se encuentra retrasado** respecto a la corriente (o equivalentemente, la corriente adelanta al voltaje) en un rango angular comprendido entre $-90^\circ < \theta < 0^\circ$.
