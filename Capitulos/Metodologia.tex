@@ -1,103 +1,80 @@
 \section{Metodología Experimental}
 
-\subsection{Procedimiento experimental}
+\subsection{Procedimiento seguido para la toma de datos}
 
-Para verificar experimentalmente el Teorema de Thévenin se trabajó con dos
-configuraciones de circuitos resistivos en corriente continua: el Montaje 1 y
-el Montaje 2. En ambos casos se siguió el mismo procedimiento general.
+La práctica experimental se desarrolló en cuatro etapas, cada una orientada a una función específica del osciloscopio.
 
 \begin{enumerate}
-	\item Se montó el circuito completo en una protoboard, utilizando una
-	fuente de voltaje DC variable de 0--30 V y resistencias de carbón de 1 W.
-	\item Se retiró la resistencia de carga $R_L$ para dejar los terminales
-	$A$ y $B$ en circuito abierto.
-	\item Para determinar $R_{\mathrm{Th}}^{\mathrm{exp}}$, se desconectó la
-	fuente de voltaje $E$ y se reemplazó por un puente conductor. Luego, con
-	el multímetro en función de óhmetro, se midió la resistencia equivalente
-	entre los terminales $A$ y $B$.
-	\item Para determinar $V_{\mathrm{Th}}^{\mathrm{exp}}$, se reconectó la
-	fuente $E$, manteniendo desconectada la carga $R_L$, y se midió con el
-	multímetro, en función de voltímetro, la diferencia de potencial entre
-	$A$ y $B$.
-	\item Para determinar $I_L^{\mathrm{exp}}$, se reconectó la resistencia de
-	carga $R_L$ y se midió con el multímetro, en función de amperímetro, la
-	corriente que circula a través de ella.
-	\item El procedimiento se repitió para tres valores de la fuente:
-	$10$ V, $12$ V y $15$ V, variando en cada ensayo la disposición de las
-	resistencias correspondiente a cada montaje.
-	\item Los valores teóricos de $R_{\mathrm{Th}}$, $V_{\mathrm{Th}}$ e
-	$I_L$ se calcularon aplicando las Leyes de Kirchhoff y el algoritmo de
-	reducción descrito en el Marco teórico. Finalmente, se compararon con los
-	valores medidos mediante el porcentaje de error relativo.
+    \item \textbf{Osciloscopio como voltímetro de corriente continua (CC).} Se conectó el barrido horizontal y se fijó el selector AC-GND-DC en la posición DC. A continuación, se centró la traza sobre la pantalla del osciloscopio y se aplicó al canal 1 una tensión continua variable. Para cada valor, se registró la lectura del multímetro digital y se contó el número de subdivisiones verticales recorridas por la traza, con el fin de calcular el valor experimental del voltaje mediante la expresión
+    \[
+    V_{DC}^{exp} = \frac{nG}{5},
+    \]
+    donde $n$ es el número de divisiones verticales y $G$ la ganancia vertical seleccionada en V/div. Este procedimiento se repitió para cuatro valores distintos de tensión.
+
+    \item \textbf{Osciloscopio como voltímetro de corriente alterna (CA).} Se cambió el selector AC-GND-DC a la posición AC y se aplicó una señal alterna al canal 1. La tensión se midió en paralelo con un voltímetro de CA, cuya lectura eficaz se tomó como referencia. Se ajustaron el tiempo de barrido y el control de sincronismo para obtener una forma de onda estable en pantalla. A partir del número de subdivisiones verticales, se determinó la amplitud pico a pico $V_{PP}$ y se calculó el valor teórico del voltaje eficaz como
+    \[
+    V_{rms}^{teo} = \frac{V_{PP}}{2\sqrt{2}}.
+    \]
+    Este proceso se repitió para cinco valores de tensión alterna distintos.
+
+    \item \textbf{Osciloscopio como frecuencímetro.} Se aplicó al canal 1 una señal sinusoidal procedente del generador de frecuencias y se ajustó el barrido hasta que una oscilación completa quedara visible en la pantalla. Para cada valor de frecuencia, se midió el periodo experimental a partir del número de divisiones horizontales ocupadas por un ciclo completo:
+    \[
+    T_{exp} = \frac{nE}{5},
+    \]
+    donde $n$ es el número de divisiones horizontales y $E$ la escala de tiempo en ms/div. La frecuencia experimental se obtuvo como la inversa del periodo y se comparó con la frecuencia teórica indicada por el generador. Se repitió la medición para cinco frecuencias distintas comprendidas entre 60 Hz y 1000 Hz.
+
+    \item \textbf{Osciloscopio como medidor de desfase.} Se montó un circuito RC con $R = 1{,}99\,\mathrm{k\Omega}$ y $C = 95{,}1\,\mathrm{nF}$, alimentado con una señal senoidal de 10 Vpp. La señal de entrada se conectó al canal 1 y la señal del capacitor al canal 2. Se ajustó el osciloscopio para visualizar dos ondas completas en pantalla y se midieron las subdivisiones horizontales correspondientes al desfase, $m$, y al período completo, $n$. El ángulo de desfase experimental se calculó mediante
+    \[
+    \phi_{exp} = 360^\circ \left(\frac{m}{n}\right).
+    \]
+    La frecuencia de la señal se varió entre 300 Hz y 600 Hz en incrementos de 25 Hz. Para cada valor, se obtuvo el desfase y, posteriormente, el valor experimental de la constante de tiempo $\tau$ mediante una regresión lineal de $\tan(\phi)$ en función del periodo $T$, utilizando la relación
+    \[
+    \tan(\phi) = \omega \tau = \frac{2\pi\tau}{T}.
+    \]
+
 \end{enumerate}
 
-\subsection{Esquemas de los montajes}
+\subsection{Variables medidas directamente}
 
-Los esquemas eléctricos de los circuitos implementados se muestran en la
-Figura~\ref{fig:montajes_experimentales}. En el Montaje 1, $R_1$ y $R_2$
-forman la rama superior, $R_3$ conecta el nodo intermedio con el retorno y
-$R_L$ constituye la carga entre $A$ y $B$. En el Montaje 2, la carga $R_L$
-conecta los puntos medios de dos ramas resistivas: $R_1$--$R_2$ y
-$R_3$--$R_4$.
+Las variables medidas directamente durante la experiencia fueron:
 
-\begin{figure}[htbp]
-	\centering
-	\begin{subfigure}[t]{0.47\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{Montaje1.jpeg}
-		\caption{Montaje 1.}
-		\label{fig:montaje1_esquema}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.47\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{Montaje2.jpeg}
-		\caption{Montaje 2.}
-		\label{fig:montaje2_esquema}
-	\end{subfigure}
-	\caption{Esquemas eléctricos de los montajes experimentales.}
-	\label{fig:montajes_experimentales}
-\end{figure}
+\begin{itemize}
+    \item Tensión de corriente continua y alterna con el multímetro digital.
+    \item Número de subdivisiones verticales y horizontales observadas en la pantalla del osciloscopio.
+    \item Ganancia vertical $G$ (V/div) y escala de tiempo $E$ (ms/div) seleccionadas.
+\end{itemize}
 
-\subsection{Variables y datos del experimento}
+\subsection{Variables obtenidas indirectamente}
 
-Las variables medidas directamente fueron la resistencia de Thévenin
-experimental $R_{\mathrm{Th}}^{\mathrm{exp}}$ (\si{\ohm}), el voltaje de
-Thévenin experimental $V_{\mathrm{Th}}^{\mathrm{exp}}$ (\si{\volt}) y la
-corriente experimental en la carga $I_L^{\mathrm{exp}}$ (\si{\milli\ampere}).
+A partir de las mediciones gráficas y de la relación entre la escala del osciloscopio y la señal estudiada, se obtuvieron las siguientes magnitudes:
 
-De forma indirecta se obtuvieron la resistencia y el voltaje de Thévenin
-teóricos, $R_{\mathrm{Th}}^{\mathrm{teo}}$ y $V_{\mathrm{Th}}^{\mathrm{teo}}$,
-calculados mediante las Leyes de Kirchhoff; la corriente teórica en la carga,
-\begin{equation}
-	I_L=\frac{V_{\mathrm{Th}}}{R_{\mathrm{Th}}+R_L},
-\end{equation}
-y la potencia disipada en la carga,
-\begin{equation}
-	P_L=I_L^2R_L.
-\end{equation}
-También se calculó el porcentaje de error relativo entre cada magnitud teórica
-y experimental.
+\begin{itemize}
+    \item $V_{DC}^{exp}$ y $V_{PP}^{exp}$, a partir de las subdivisiones verticales y la ganancia.
+    \item $V_{rms}^{teo}$, a partir de $V_{PP}$.
+    \item El período y la frecuencia experimental, a partir de la escala de tiempo y el número de divisiones horizontales.
+    \item El ángulo de desfase $\phi_{exp}$ y la constante de tiempo $\tau_{exp}$, mediante la regresión lineal de $\tan(\phi)$ frente a $T$.
+\end{itemize}
 
-Como datos conocidos se consideraron los valores nominales de las resistencias,
-con una tolerancia de fabricación del $5\%$, y el voltaje de la fuente $E$,
-fijado en $10$ V, $12$ V o $15$ V para cada ensayo.
+\subsection{Datos asumidos conocidos}
 
-\subsection{Virtudes, limitaciones y fuentes de error}
+Se consideraron conocidos los siguientes parámetros:
 
-El diseño experimental permite aislar de forma controlada cada parámetro del
-equivalente de Thévenin, midiendo por separado $R_{\mathrm{Th}}$ y
-$V_{\mathrm{Th}}$ antes de conectar la carga. Esto facilita validar el
-teorema paso a paso y relacionar las mediciones con el algoritmo de reducción
-presentado en el Marco teórico.
+\begin{itemize}
+    \item Los valores nominales de los componentes del circuito RC: $R = 1{,}99\,\mathrm{k\Omega}$ y $C = 95{,}1\,\mathrm{nF}$.
+    \item La frecuencia indicada por el generador de señales, que se usó como referencia teórica.
+    \item Los rangos de precisión y resolución de los instrumentos utilizados.
+\end{itemize}
 
-Entre sus limitaciones se encuentra la resistencia interna del multímetro, que
-puede alterar ligeramente las mediciones en los modos de óhmetro y voltímetro,
-especialmente en el Montaje 2, cuya topología es más compleja. Tampoco se
-controló la temperatura ambiente, que puede modificar el valor real de las
-resistencias durante el ensayo.
+\subsection{Limitaciones del diseño experimental}
 
-Las fuentes de error más relevantes fueron la tolerancia de fabricación de las
-resistencias, la resistencia de contacto en la protoboard, los cables y los
-puentes, la resolución y precisión del multímetro en las escalas bajas de
-corriente, y las posibles fluctuaciones del voltaje de la fuente DC.
+El procedimiento experimental permite comparar directamente la lectura gráfica del osciloscopio con instrumentos de referencia, como el multímetro digital y el generador de señales. Esta estrategia facilita la evaluación de la precisión del osciloscopio en distintos regímenes de operación. Sin embargo, la lectura de las subdivisiones en pantalla depende fuertemente de la apreciación visual del operador, lo que introduce subjetividad en las mediciones. Esto resulta especialmente relevante en la determinación del desfase, donde pequeños errores en la lectura de $m$ y $n$ afectan significativamente el valor calculado del ángulo.
+
+\subsection{Fuentes de error más críticas}
+
+Las principales fuentes de error del experimento fueron:
+
+\begin{itemize}
+    \item La resolución visual para contar subdivisiones en la pantalla del osciloscopio, incluida la dificultad para estimar fracciones de división.
+    \item La estabilidad de la sincronización de la señal, que puede impedir fijar una forma de onda completamente estática.
+    \item La tolerancia de los componentes $R$ y $C$, que afecta al valor teórico de $\tau$ calculado.
+\end{itemize}
