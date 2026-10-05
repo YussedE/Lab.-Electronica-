@@ -2,93 +2,124 @@
 
 \subsection{Procedimiento seguido para la toma de datos}
 
-La práctica experimental se desarrolló en cuatro etapas, cada una orientada a una función específica del osciloscopio.
+Antes de armar el circuito, se midieron con el multímetro digital la resistencia
+interna de la fuente, la resistencia propia de la bobina, la inductancia de la
+bobina y la capacitancia del capacitor. Se registraron en la hoja de datos los
+valores obtenidos: $R_{\text{int.fuente}}=50\ \Omega$,
+$R_{\text{bobina}}=2{,}02\ \Omega$, $L=54{,}9\ \text{mH}$ y
+$C=1{,}862\ \mu\text{F}$. La resistencia interna de la fuente se consideró
+como un dato de fábrica del equipo.
 
-\begin{enumerate}
-    \item \textbf{Osciloscopio como voltímetro de corriente continua (CC).} Se conectó el barrido horizontal y se fijó el selector AC-GND-DC en la posición DC. A continuación, se centró la traza sobre la pantalla del osciloscopio y se aplicó al canal 1 una tensión continua variable. Para cada valor, se registró la lectura del multímetro digital y se contó el número de subdivisiones verticales recorridas por la traza, con el fin de calcular el valor experimental del voltaje mediante la expresión
-    \[
-    V_{DC}^{exp} = \frac{nG}{5},
-    \]
-    donde $n$ es el número de divisiones verticales y $G$ la ganancia vertical seleccionada en V/div. Este procedimiento se repitió para cuatro valores distintos de tensión.
+Con los valores medidos de $L$ y $C$ se calculó la frecuencia de resonancia
+teórica del circuito:
+\[
+    f_0 = \frac{1}{2\pi\sqrt{LC}},
+\]
+cuyo valor de referencia fue aproximadamente $498\ \text{Hz}$.
 
-    \item \textbf{Osciloscopio como voltímetro de corriente alterna (CA).} Se cambió el selector AC-GND-DC a la posición AC y se aplicó una señal alterna al canal 1. La tensión se midió en paralelo con un voltímetro de CA, cuya lectura eficaz se tomó como referencia. Se ajustaron el tiempo de barrido y el control de sincronismo para obtener una forma de onda estable en pantalla. A partir del número de subdivisiones verticales, se determinó la amplitud pico a pico $V_{PP}$ y se calculó el valor teórico del voltaje eficaz como
-    \[
-    V_{rms}^{teo} = \frac{V_{PP}}{2\sqrt{2}}.
-    \]
-    Este proceso se repitió para cinco valores de tensión alterna distintos.
+Se armó el circuito RLC serie mostrado en la Fig.~3, conectando en serie el
+generador de señales, un amperímetro, el capacitor $C$, la bobina $L$ y una
+resistencia externa variable $R_{\text{ext}}$. La amplitud de la señal del
+generador se mantuvo constante durante todo el ensayo.
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.62\textwidth]{Oscilador1.jpeg}
-        \caption{Visualización de la señal alterna en el osciloscopio.}
-        \label{fig:oscilador1}
-    \end{figure}
+Para el primer montaje se fijó $R_{\text{ext}}=10\ \Omega$. La resistencia
+total se calculó como
+\[
+    R_{\text{total}} =
+    R_{\text{ext}} + R_{\text{int.fuente}} + R_{\text{bobina}}
+    = 62{,}02\ \Omega.
+\]
+Se varió la frecuencia del generador desde $300\ \text{Hz}$ y se midió la
+corriente eficaz $I_{\text{rms}}$ (mA) con el amperímetro en cada frecuencia.
+Las lecturas se tomaron con mayor separación lejos de la resonancia y con
+incrementos progresivamente menores al aproximarse al máximo de corriente,
+para caracterizar con más detalle la región de resonancia.
 
-    \item \textbf{Osciloscopio como frecuencímetro.} Se aplicó al canal 1 una señal sinusoidal procedente del generador de frecuencias y se ajustó el barrido hasta que una oscilación completa quedara visible en la pantalla. Para cada valor de frecuencia, se midió el periodo experimental a partir del número de divisiones horizontales ocupadas por un ciclo completo:
-    \[
-    T_{exp} = \frac{nE}{5},
-    \]
-    donde $n$ es el número de divisiones horizontales y $E$ la escala de tiempo en ms/div. La frecuencia experimental se obtuvo como la inversa del periodo y se comparó con la frecuencia teórica indicada por el generador. Se repitió la medición para cinco frecuencias distintas comprendidas entre 60 Hz y 1000 Hz.
+El procedimiento se repitió para un segundo montaje con
+$R_{\text{ext}}=50\ \Omega$, para el cual
+$R_{\text{total}}=102{,}0\ \Omega$. Las mediciones de este montaje se
+registraron en la Tabla No.~2.
 
-    \item \textbf{Osciloscopio como medidor de desfase.} Se montó un circuito RC con $R = 1{,}99\,\mathrm{k\Omega}$ y $C = 95{,}1\,\mathrm{nF}$, alimentado con una señal senoidal de 10 Vpp. La señal de entrada se conectó al canal 1 y la señal del capacitor al canal 2. Se ajustó el osciloscopio para visualizar dos ondas completas en pantalla y se midieron las subdivisiones horizontales correspondientes al desfase, $m$, y al período completo, $n$. El ángulo de desfase experimental se calculó mediante
-    \[
-    \phi_{exp} = 360^\circ \left(\frac{m}{n}\right).
-    \]
-    La frecuencia de la señal se varió entre 300 Hz y 600 Hz en incrementos de 25 Hz. Para cada valor, se obtuvo el desfase y, posteriormente, el valor experimental de la constante de tiempo $\tau$ mediante una regresión lineal de $\tan(\phi)$ en función del periodo $T$, utilizando la relación
-    \[
-    \tan(\phi) = \omega \tau = \frac{2\pi\tau}{T}.
-    \]
+Con los datos de ambos montajes se graficó $I_{\text{rms}}$ (mA) en función de
+la frecuencia $f$ (Hz), representando ambas curvas en una misma gráfica. Para
+cada curva se identificó la frecuencia correspondiente a la corriente máxima.
+Cuando el máximo quedó entre dos frecuencias medidas, se estimó su posición
+experimental mediante el punto medio de dichas frecuencias; luego se promediaron
+las estimaciones de ambos montajes para obtener la frecuencia de resonancia
+experimental.
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.62\textwidth]{DesfaseSeñales.jpeg}
-        \caption{Visualización de las señales desfasadas en el osciloscopio.}
-        \label{fig:oscilador2}
-    \end{figure}
+A partir de las mismas mediciones se calculó la impedancia para cada frecuencia
+mediante
+\[
+    Z = \frac{\varepsilon}{I},
+\]
+donde $\varepsilon$ es la amplitud constante de la señal del generador y $I$ es
+la corriente medida. Se graficó $Z$ ($\Omega$) en función de $f$ (Hz) y se
+verificó la presencia de un mínimo en la región de resonancia.
 
-\end{enumerate}
+Finalmente, para cada valor de resistencia se estimó el ancho de banda
+experimental y el factor de calidad utilizando
+\[
+    \Delta f \approx \frac{R_{\text{total}}}{4\pi L},
+    \qquad
+    Q = \frac{f_0}{2\Delta f}.
+\]
+También se calculó la resistencia crítica
+\[
+    R_c = 2\sqrt{\frac{L}{C}},
+\]
+y se comparó cada $R_{\text{total}}$ con $R_c$ para verificar que el circuito
+operara en el régimen de oscilación amortiguada. La frecuencia de resonancia
+experimental se comparó con la teórica mediante el porcentaje de error.
 
-\subsection{Variables medidas directamente}
+\subsection{Variables del experimento}
 
-Las variables medidas directamente durante la experiencia fueron:
-
+\textbf{Variables medidas directamente:}
 \begin{itemize}
-    \item Tensión de corriente continua y alterna con el multímetro digital.
-    \item Número de subdivisiones verticales y horizontales observadas en la pantalla del osciloscopio.
-    \item Ganancia vertical $G$ (V/div) y escala de tiempo $E$ (ms/div) seleccionadas.
+    \item Las resistencias interna de la fuente, propia de la bobina y externa
+    $R_{\text{ext}}$ ($\Omega$), medidas con el multímetro digital.
+    \item La inductancia $L$ (mH) y la capacitancia $C$ ($\mu$F), medidas con el
+    multímetro digital.
+    \item La corriente eficaz $I_{\text{rms}}$ (mA), medida con el amperímetro
+    para cada frecuencia $f$ (Hz indicada en el generador de señales).
 \end{itemize}
 
-\subsection{Variables obtenidas indirectamente}
-
-A partir de las mediciones gráficas y de la relación entre la escala del osciloscopio y la señal estudiada, se obtuvieron las siguientes magnitudes:
-
+\textbf{Variables obtenidas indirectamente:}
 \begin{itemize}
-    \item $V_{DC}^{exp}$ y $V_{PP}^{exp}$, a partir de las subdivisiones verticales y la ganancia.
-    \item $V_{rms}^{teo}$, a partir de $V_{PP}$.
-    \item El período y la frecuencia experimental, a partir de la escala de tiempo y el número de divisiones horizontales.
-    \item El ángulo de desfase $\phi_{exp}$ y la constante de tiempo $\tau_{exp}$, mediante la regresión lineal de $\tan(\phi)$ frente a $T$.
+    \item La frecuencia de resonancia teórica, calculada como
+    $f_0=1/(2\pi\sqrt{LC})$.
+    \item La resistencia total del circuito y la resistencia crítica
+    $R_c=2\sqrt{L/C}$, utilizadas para verificar el régimen de oscilación
+    amortiguada ($R_{\text{total}}<R_c$).
+    \item La impedancia $Z$ ($\Omega$) en función de la frecuencia, calculada a
+    partir de $Z=\varepsilon/I$.
+    \item El ancho de banda $\Delta f$ y el factor de calidad $Q$ para cada
+    resistencia total.
+    \item La frecuencia de resonancia experimental, estimada a partir de las
+    frecuencias que delimitan el máximo de corriente y promediada entre ambos
+    montajes, junto con su porcentaje de error respecto del valor teórico.
 \end{itemize}
 
-\subsection{Datos asumidos conocidos}
+\subsection{Consideraciones y fuentes de error}
 
-Se consideraron conocidos los siguientes parámetros:
+El barrido de frecuencias, con una mayor densidad de puntos cerca de la
+resonancia, permite ubicar con mayor precisión el máximo de corriente y
+construir la curva característica para calcular el ancho de banda y compararla
+con el modelo teórico de impedancia. Sin embargo, la determinación experimental
+de $f_0$ depende de la resolución del generador de señales y de la estabilidad
+de la lectura del amperímetro cerca del pico. En particular, pequeñas
+variaciones de frecuencia pueden producir cambios apreciables en la corriente
+para $R_{\text{ext}}=10\ \Omega$, montaje que presenta menor amortiguamiento y
+mayor factor de calidad.
 
+Las fuentes de error consideradas más relevantes fueron:
 \begin{itemize}
-    \item Los valores nominales de los componentes del circuito RC: $R = 1{,}99\,\mathrm{k\Omega}$ y $C = 95{,}1\,\mathrm{nF}$.
-    \item La frecuencia indicada por el generador de señales, que se usó como referencia teórica.
-    \item Los rangos de precisión y resolución de los instrumentos utilizados.
-\end{itemize}
-
-\subsection{Limitaciones del diseño experimental}
-
-El procedimiento experimental permite comparar directamente la lectura gráfica del osciloscopio con instrumentos de referencia, como el multímetro digital y el generador de señales. Esta estrategia facilita la evaluación de la precisión del osciloscopio en distintos regímenes de operación. Sin embargo, la lectura de las subdivisiones en pantalla depende fuertemente de la apreciación visual del operador, lo que introduce subjetividad en las mediciones. Esto resulta especialmente relevante en la determinación del desfase, donde pequeños errores en la lectura de $m$ y $n$ afectan significativamente el valor calculado del ángulo.
-
-\subsection{Fuentes de error más críticas}
-
-Las principales fuentes de error del experimento fueron:
-
-\begin{itemize}
-    \item La resolución visual para contar subdivisiones en la pantalla del osciloscopio, incluida la dificultad para estimar fracciones de división.
-    \item La estabilidad de la sincronización de la señal, que puede impedir fijar una forma de onda completamente estática.
-    \item La tolerancia de los componentes $R$ y $C$, que afecta al valor teórico de $\tau$ calculado.
+    \item La tolerancia y las variaciones reales de $L$ y $C$ respecto de sus
+    valores nominales, que afectan directamente el valor teórico de $f_0$.
+    \item La resolución del generador de señales al fijar la frecuencia durante
+    el barrido.
+    \item La precisión del amperímetro, especialmente al medir corrientes
+    pequeñas lejos de la resonancia.
+    \item La resistencia de contacto de los cables, la caja de conexiones y la
+    caja de resistencias, que no se incluye en el modelo ideal del circuito.
 \end{itemize}

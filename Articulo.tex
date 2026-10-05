@@ -40,17 +40,6 @@ bottom=2.5cm
 
 \begin{document}
 
-% MÁRGENES SOLO PARA PRIMERA HOJA
-
-\newgeometry{
-left=2.5cm,
-right=2.5cm,
-top=0.5cm,
-bottom=2.5cm
-}
-
-\begin{titlepage}
-
 \begin{center}
 
 % para recortar el logo
@@ -66,11 +55,11 @@ clip
 
 \vspace{-0.1cm}
 
-{\small \textbf{Practica No.03}}
+{\small \textbf{Practica No.04}}
 
 \vspace{0.1cm}
 
-{\LARGE \textbf{Manejo de osciloscopio y generador de señales}}
+{\LARGE \textbf{Circuito RLC en serie resonante}}
 
 \vspace{0.1cm}
 
@@ -94,24 +83,25 @@ clip
 
 \end{center}
 
-\vspace{-1cm}
-
+\vspace{0.4cm}
 
 \begin{abstract}
-Se evaluó el osciloscopio en sus funciones de voltímetro DC, voltímetro AC, 
-frecuencímetro y medidor de desfase, comparando con un multímetro digital y con 
-valores teóricos. Como voltímetro DC los errores fueron de 0\% a 0,7\%; como voltímetro 
-AC, entre 0,2\% y 3,8\%; y como frecuencímetro, entre 0\% y 2,0\%. Además, 
-se determinó la constante de tiempo de un circuito RC ($R = 1{,}99\,\mathrm{k\Omega}$, 
-$C = 95{,}1\,\mathrm{nF}$) mediante el desfase entre señales, obteniendo 
-$\tau_{\mathrm{exp}} = 0{,}181\,\mathrm{ms}$ frente a $\tau_{\mathrm{teo}} = 0{,}189\,\mathrm{ms}$ 
-(error del 4\%, $R^2 = 0{,}988$). Estos resultados confirman que el osciloscopio 
-es un instrumento confiable para la medición de magnitudes eléctricas en el tiempo, tanto en regulación continua como alterna.
+Se analizó experimentalmente el comportamiento de un circuito RLC en serie alimentado 
+con una señal senoidal de amplitud constante, con el objetivo de determinar la frecuencia 
+de resonancia para dos valores de resistencia externa: $10~\Omega$ y $50~\Omega$. Para $R = 10~\Omega$ 
+($R_{\text{total}} = 62{,}02~\Omega$), la corriente máxima registrada fue de 49,20 
+mA a una frecuencia de 486 Hz, con un factor de calidad $Q = 2{,}77$ y un ancho de 
+banda de aproximadamente 89,90 Hz. En cambio, para $R = 50~\Omega$ ($R_{\text{total}} = 102{,}0~\Omega$), 
+la corriente máxima fue de 31,60 mA a 481 Hz, con $Q = 1{,}7$ y $\Delta f \approx 147{,}88$ 
+Hz. Estos resultados muestran que al aumentar la resistencia del circuito, 
+la resonancia se vuelve más ancha y presenta menor amplitud. El promedio de 
+las frecuencias de resonancia experimentales fue de 483,5 Hz, mientras que el valor 
+teórico calculado fue de 497,8 Hz, considerando $f_0 = 1/(2\pi\sqrt{LC})$ con $L = 54{,}9$ mH y 
+$C = 1{,}862~\mu\text{F}$, lo que corresponde a un error del 3\%. Además, se verificó 
+que la impedancia del circuito alcanza un valor mínimo en la frecuencia de resonancia, 
+lo cual coincide con el comportamiento esperado según la teoría.
 
 \end{abstract}
-
-\end{titlepage}
-\restoregeometry
 
 \input{Capitulos/introduccion.tex}
 
