@@ -1,143 +1,157 @@
 ﻿\section{Marco Teórico}
 
-\subsection{El osciloscopio y sus fundamentos}
+\subsection{Circuito RLC serie}
 
-El \textbf{osciloscopio} es un instrumento de medición y observación electrónico fundamental para el análisis de señales eléctricas variables en función del tiempo. A diferencia de un \textbf{multímetro} convencional, el cual ofrece un valor numérico estático o promediado, el osciloscopio permite visualizar de forma gráfica la forma de onda completa, facilitando la identificación de parámetros críticos como la amplitud, el periodo, la frecuencia, el ruido y la distorsión de la señal.
-
-\vspace{0.3cm}
-
-Existen dos tecnologías básicas de osciloscopios:
+Un circuito \textbf{RLC serie} está formado por tres elementos pasivos (es decir, que no pueden generar, amplificar ni controlar de forma activa la energía eléctrica por sí mismos; solo pueden absorberla, almacenarla y liberarla) conectados uno detrás de otro: 
 
 \begin{itemize}
-    \item \textbf{Osciloscopios analógicos:} Trabajan directamente con la señal eléctrica analógica continua. La señal es amplificada para desviar un haz de electrones en sentido vertical por la fuerza de \texttt{Lorentz} $\vec{F} = q(\vec{E} + \vec{v} \times \vec{B})$ dentro de un \textbf{tubo de rayos catódicos (TRC)}. Este haz impacta sobre una pantalla fosforada y, mediante el fenómeno de la \textbf{catodoluminiscencia}, excita los átomos de fósforo (P) a un estado más energético, generando una traza luminosa visible en tiempo real.
-    \item \textbf{Osciloscopios digitales:} Utilizan un \textbf{conversor analógico-digital (ADC)}, precedido por un sistema de muestreo y retención (como se ilustra en la Figura \ref{circuit-ADC}), para muestrear la señal de entrada a alta velocidad, almacenarla en una memoria digital y reconstruirla posteriormente en una pantalla LCD o LED.
+    \item \textbf{R:} Resistencia $R$
+    \item \textbf{L:} Inductancia $L$
+    \item \textbf{C:} Capacitancia $C$
+    \item Una fuente de tensión alterna $v(t)$
 \end{itemize}
 
-\begin{figure}[h!]
-\centering
-\begin{circuitikz}[american, line width=0.8pt]
+Dado que están conectados en serie, existe una caracterización fundamental regida por la conservación de la carga, lo que implica que la corriente es la misma en todos los componentes:
 
-  % --- Fuente de señal analógica ---
-  \draw (0,0) to[sinusoidal voltage source, l=$V_{\text{in}}$] (0,3);
+\begin{equation}
+    i_{R}(t) = i_{L}(t) = i_{C}(t) = i(t)
+\end{equation}
 
-  % --- Muestreo y retención (Sample & Hold) ---
-  \draw (0,3) to[short] (1,3)
-        to[normal open switch, l=$S$] (2.5,3)
-        to[short, -*] (3.5,3);
-  \draw (3.5,3) to[C, l=$C_H$, *-*] (3.5,0);
+Es decir, \textbf{la misma corriente instantánea atraviesa los tres elementos.} Esto es fundamental porque, aunque la corriente sea la misma, el voltaje en cada elemento no está necesariamente en fase con ella \cite{REF_1}.
 
-  % --- Amplificador Seguidor (Buffer) indispensable ---
-  \draw (3.5,3) to[short] (4.2,3);
-  \node[op amp, anchor=-, scale=0.6] (opamp) at (5,2.8) {};
-  \draw (opamp.+) to[short] (4.2,2.98); 
-  \draw (opamp.out) to[short, -*] (5.5,2.8) |- (opamp.-);
-
-  % --- Bloque ADC ---
-  \node[muxdemux, muxdemux def={Lh=4, Rh=4, NL=2, NR=4, NB=1, w=3},
-        anchor=lpin 1] (adc) at (8,2.8) {ADC};
-
-  % Conexión del Buffer al ADC
-  \draw (5.5,2.8) to[short] (adc.lpin 1);
-  \draw (0,0) to[short] (3.5,0) node[ground]{};
-
-  % Tensión de referencia
-  \draw (adc.lpin 2) to[short, -o] ++(-1,0) node[left]{$V_{\text{ref}}$};
-
-  % Reloj
-  \draw[-{Stealth}] (adc.bpin 1) ++(0,-0.8) node[below]{CLK} -- (adc.bpin 1);
-
-  % Salidas digitales (D3 arriba = MSB, D0 abajo = LSB)
-  \foreach \i/\lab in {1/D_3, 2/D_2, 3/D_1, 4/D_0}
-    \draw (adc.rpin \i) to[short, -o] ++(1,0) node[right]{$\lab$};
-
-  % Etiquetas descriptivas
-  \node[font=\small\itshape] at (0,-0.6) {Señal analógica};
-  \node[font=\small\itshape] at (2.2,3.9)  {Muestreo y retención};
-  \node[font=\small\itshape, anchor=north west] at ([yshift=-0.5cm]adc.south east)
-        {Salida digital (4 bits)};
-
-\end{circuitikz}
-\caption{Diagrama de un conversor analógico-digital (ADC) de 4 bits con muestreo y retención.}
-\label{circuit-ADC}
+\begin{figure}[htbp]
+    \centering
+    \begin{circuitikz}[american, scale=1.2, transform shape]
+        % Fuente senoidal a la izquierda, luego R, L, C en serie
+        \draw (0,0) to[sinusoidal voltage source, l=$v_s(t)$, invert] (0,3)
+              to[short, i=$i(t)$] (1.5,3)
+              to[R, l=$R$, v=$v_R$] (4.5,3)
+              to[L, l=$L$, v=$v_L$] (7.5,3)
+              to[C, l=$C$, v=$v_C$] (7.5,0)
+              to[short] (0,0);
+    \end{circuitikz}
+    \caption{Diagrama esquemático de un circuito RLC en serie.}
+    \label{fig:circuit_RLC}
 \end{figure}
 
-\subsection{Parámetros de Medición en Corriente Alterna (AC)}
-Cuando se analiza una señal de corriente alterna en un osciloscopio, la magnitud del voltaje no es constante, sino que varía continuamente en el tiempo, formando (por lo general) una onda periódica. Por esta razón, existen distintas formas de cuantificar y expresar el nivel de voltaje de dicha señal:
-
-\vspace{0.3cm}
-
-En la teoría de circuitos de corriente alterna (AC), la generación de energía eléctrica suele producir señales periódicas que oscilan en el tiempo. 
-\begin{itemize}
-      \item Una fuente de voltaje senoidal pura se describe teóricamente mediante la función matemática: $v(t) = V_{p}\sin(\omega t)$
-      \item Donde $V_{p}$ es el voltaje pico que representa la amplitud máxima teórica de la señal eléctrica.
-      \item Físicamente, indica la diferencia de potencial electrostático máxima que alcanza la onda respecto a su nivel de referencia o equilibrio ($0\,\text{V}$), antes de que su magnitud comience a disminuir o a invertir su polaridad.
-\end{itemize}
-
-\subsection{El voltaje RMS}
-
-Debido a que una onda de corriente alterna está constantemente cambiando su valor (pasando por cero y alcanzando picos positivos y negativos), no es útil describirla por un promedio directo, ya que el promedio aritmético de un ciclo senoidal completo es idéntico a cero.
-
-\begin{itemize}
-      \item Para resolver esto se utiliza el valor eficaz, conocido por sus siglas en inglés como \textbf{RMS} (\textit{Root Mean Square} o Raíz Cuadrática Media).
-      \item \textbf{Representación Física:} El voltaje \textbf{RMS} representa el valor equivalente de un voltaje de corriente alterna que produce exactamente el mismo efecto térmico (la misma disipación de potencia en forma de calor) en una resistencia que su equivalente en corriente continua (DC).
-      \item \textbf{Ejemplo teórico:} Si conectamos una estufa eléctrica a una toma de red doméstica de $120\,\text{V}$ RMS, esta entregará la misma energía térmica y se calentará de la misma manera que si la conectáramos a una fuente de corriente continua constante de $120\,\text{V}$.
-\end{itemize}
-
-\section{Definición matemática del valor RMS}
-
-Por definición, el valor eficaz $V_{\text{rms}}$ de cualquier función continua periódica $v(t)$ de periodo $T$ es la raíz cuadrada de la media del cuadrado de dicha función:
+La fase relativa entre la corriente y la fuerza electromotriz (FEM) no es evidente cuando los tres elementos están presentes. En consecuencia, representamos la corriente mediante la expresión general:
 
 \begin{equation}
-      V_{\text{rms}} = \sqrt{\frac{1}{T}\int_{0}^{T}[v(t)]^{2}dt}
+    i(t) = I_{0}\sin(\omega t - \phi)
 \end{equation}
 
-La deducción matemática del valor RMS ($V_{\text{rms}}$) para una onda senoidal se obtiene mediante el cálculo integral de la función cuadrática media a lo largo del periodo completo. A través de este análisis, se demuestra que el valor eficaz final para una onda senoidal pura responde a la siguiente relación:
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imagenes/CIrcuito_RLC_serie.png}
+    \caption{Desfase entre corriente y voltaje en un circuito RLC serie.}
+    \label{fig:desfase_rlc}
+\end{figure}
+Donde $I_0$ es la amplitud de la corriente y $\phi$ es el \textbf{ángulo de fase} entre la corriente y el voltaje aplicado. Por tanto, el ángulo de fase representa la diferencia de fase entre el voltaje y la corriente en el circuito.
+
+Un diagrama fasorial que incluya $i(t)$, $v_R(t)$, $v_C(t)$ y $v_L(t)$ resulta útil para analizar el comportamiento del circuito. Como se muestra en la Figura \ref{fig:diagrama_fasorial_rlc}, el fasor que representa a $v_R(t)$ apunta en la misma dirección que el fasor correspondiente a $i(t)$, y su amplitud está dada por
+
+$$
+V_R = I_0R.
+$$
+
+El fasor correspondiente a $v_C(t)$ se retrasa $\pi/2$ rad respecto al fasor de $i(t)$ y tiene una amplitud
+
+$$
+V_C = I_0X_C.
+$$
+
+Por otro lado, el fasor que representa a $v_L(t)$ se adelanta $\pi/2$ rad respecto al fasor de $i(t)$ y presenta una amplitud
+
+$$
+V_L = I_0X_L.
+$$
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Imagenes/diagrama_fasorial_rlc.png}
+    \caption{Diagrama fasorial de voltajes y corriente en un circuito RLC en serie. 
+    Fuente: adaptado de OpenStax, \textit{Física Universitaria Volumen 2}, Sección 15.3.}
+    \label{fig:diagrama_fasorial_rlc}
+\end{figure}
+
+\subsection{Comportamiento de cada elemento}
+
+Para entender el circuito \textbf{RLC} completo, primero es necesario comprender el comportamiento individual de cada componente.
+
+\subsubsection{Resistencia}
+
+Para una resistencia, la relación fundamental viene dada por la ley de Ohm:
 \begin{equation}
-      V_{\text{rms}} = \frac{V_{p}}{\sqrt{2}}
+    V_{R} = IR
 \end{equation}
 
-\subsection{Análisis Fasorial e Impedancia Compleja en un Circuito RC}
-
-En un circuito alimentado con corriente alterna (AC), la oposición que presentan los componentes pasivos al flujo de corriente se generaliza mediante el concepto de \textbf{Impedancia Compleja} $Z$, la cual se expresa en ohmios ($\Omega$).
-
-\vspace{0.3cm}
-
-La impedancia total es un número complejo compuesto por una parte real (resistencia, $R$) y una parte imaginaria (reactancia, $X$):
+La tensión y la corriente están en fase. Esto significa que cuando la corriente alcanza su valor máximo, el voltaje también lo hace. Además, la resistencia es el único elemento que \textbf{disipa energía} en forma de calor mediante el efecto Joule:
 \begin{equation}
-      Z = R + jX
+    P_{R} = I_{\text{rms}}^{2}R
 \end{equation}
 
-Para un circuito RC en serie, compuesto por una resistencia y un condensador de capacitancia $C$:
+\subsubsection{Inductor}
 
-\begin{enumerate}
-      \item \textbf{Resistencia} ($R$): No introduce desfase temporal entre el voltaje y la corriente. Su impedancia es puramente real: 
-      \begin{equation*}
-            Z_{R} = R
-      \end{equation*}
-      \item \textbf{Condensador} ($C$): Se opone a las variaciones de voltaje almacenando energía en su campo eléctrico. Esta oposición se denomina \textbf{Reactancia Capacitiva} ($X_{C}$) y matemáticamente se expresa como:
-      \begin{equation*}
-            X_{C} = \frac{1}{\omega C} = \frac{1}{2\pi f C}
-      \end{equation*}
-      En el plano complejo, la tensión en el condensador se retrasa $90^\circ$ respecto a la corriente, lo que matemáticamente se representa multiplicando por la unidad imaginaria $-j$:
-      \begin{equation*}
-            Z_{C} = -jX_{C} = \frac{1}{j\omega C}
-      \end{equation*} 
-\end{enumerate}
-
-\subsection{Impedancia Total y Ángulo de Desfase en el Circuito RC}
-
-A partir de las contribuciones individuales de la resistencia y el condensador, la impedancia total $Z$ del circuito RC en serie se expresa en forma binómica como:
+Un inductor almacena energía en un campo magnético. Su relación tensión-corriente fundamental es:
 \begin{equation}
-      Z = Z_R + Z_C = R - jX_C = R - j\left(\frac{1}{\omega C}\right)
+    \boxed{V_{L} = L\frac{di}{dt}}
 \end{equation}
 
-En el plano complejo (diagrama fasorial o triángulo de impedancias), esta expresión representa un vector en el cuarto cuadrante, donde la resistencia ocupa el eje real positivo y la reactancia capacitiva el eje imaginario negativo.
-
-\subsubsection{Magnitud de la Impedancia}
-La oposición total efectiva al paso de la corriente alterna (el módulo del número complejo) se obtiene aplicando el teorema de Pitágoras sobre el triángulo de impedancias:
+Si la corriente alterna se define como:
 \begin{equation}
-      |Z| = \sqrt{R^2 + X_C^2} = \sqrt{R^2 + \left(\frac{1}{2\pi f C}\right)^2}
+    i(t) = I_{0}\sin(\omega t)
 \end{equation}
 
-\subsubsection{Deducción del Ángulo de Desfase ($\theta$)}
-El ángulo de desfase $\theta$ representa el retraso angular del voltaje total respecto a la corriente del circuito. Para deducir su valor, se recurre a la relación trigonométrica de la tangente en el triángulo rectángulo formado en el plano complejo como se muestra en la ecuación \ref{angulo-desfase}:
+Entonces el voltaje resulta en:
+\begin{equation}
+    V_{L} = V_{L0}\sin(\omega t + 90^{\circ})
+\end{equation}
+
+Por lo tanto, como se observa en la \ref{fig:diagrama_fasorial_rlc}, en un inductor el voltaje adelanta a la corriente en $90^{\circ}$.
+
+La reactancia inductiva se define como:
+\begin{equation}
+    X_{L} = 2\pi f L
+\end{equation}
+
+De este modo, la reactancia inductiva es directamente proporcional a la frecuencia ($X_{L} \propto f$). Es decir, el inductor ofrece una mayor oposición al paso de la corriente a medida que aumenta la frecuencia de la señal.
+
+\subsubsection{Capacitor}
+
+El capacitor almacena energía en un campo eléctrico. Su ecuación fundamental es:
+\begin{equation}
+    \boxed{i = C\frac{dV}{dt}}
+\end{equation}
+
+En este componente ocurre lo contrario que en el inductor: \textbf{la corriente adelanta al voltaje en $90^{\circ}$}.
+
+La reactancia capacitiva se define como:
+\begin{equation}
+    X_{C} = \frac{1}{2\pi f C}
+\end{equation}
+
+Por lo tanto, la reactancia capacitiva es inversamente proporcional a la frecuencia ($X_{C} \propto \frac{1}{f}$). Esto significa que el condensador ofrece cada vez menos oposición al paso de la corriente a medida que aumenta la frecuencia.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

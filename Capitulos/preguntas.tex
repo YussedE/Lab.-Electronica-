@@ -1,181 +1,117 @@
-\section{Preguntas complementarias}
+\section{Preguntas}
 
 \begin{enumerate}
+	\item \begin{enumerate}
+		\item El periodo está dado por: $T = 250 \frac{\mu s}{div} * 4 div = 1000 \mu s$, para hallar la frecuencia se calcula $f = \frac{1}{T} = \frac{1}{1000 \mu s} = 1000 Hz = 1kHz$.
+		\item El voltaje pico está dado por: $V_p = 2 \frac{V}{div} * \frac{1div}{5subdiv} * 12subdiv = 4,8 V$.
+		\item Se puede calcular el valor eficaz con $V_{rms} = \frac{V_p}{\sqrt{2}}$
+		\item El valor medio es 0, ya que para una función cosenoidal en un periodo, el área bajo la curva sobre el eje x se cancela con el área bajo la curva debajo del eje x.
+		\item La función del voltaje sigue la forma del coseno con un amplitud de $4,8V$ calculado anteriormente, entonces $v(t) = 4,8*Cos(\omega*t)$
+	\end{enumerate}
 	
-    \item Primer circuito
-    
-    \begin{circuitikz}
-    	\draw
-    	(0,0) node[left] {A} to [short,*-] (0,0.7)
-    	to [R, l^=$R_1$, a=$4\Omega$] (-3,0.7)
-    	to [battery1, l_=$E_1$, a^=$28V$] (-3,-2.7)
-    	to [short,-] (3,-2.7)
-    	to [battery1, invert, l_=$E_2$, a^=$7V$] (3,0.7)
-    	to [R, l^=$R_2$, a=$1\Omega$] (0,0.7)
-    	(0,-2.7) to [short,-*] (0,-2) node[left] {B}
-    	to [R, l^=$R_L$, a=$2\Omega$] (0,0);
-    \end{circuitikz}
-    
-    \begin{description}
-    	\item[a.] Para calcular la resistencia de Thévenin se considera el circuito de la siguiente manera:
-    	
-    	\begin{circuitikz}
-    		\draw
-    		(0,1.4) node[left] {A} to [short,*-] (0,0.7)
-    		to [short,-] (-3,0.7)
-    		to [R, l^=$R_1$, a=$4\Omega$] (-3,-2.7)
-    		to [short,-] (3,-2.7)
-    		to [R, l^=$R_2$, a=$1\Omega$] (3,0.7)
-    		to [short,-] (0,0.7)
-    		(0,-2.7) to [short,-*] (0,-3.4) node[left] {B};
-    	\end{circuitikz}
-    	
-    	De esta manera, la resistencia $R_{TH}$ se expresa como:
-    	
-    	\[
-    	R_{TH} = \frac{R_1 * R_2}{R_1 + R_2} = \frac{4}{5} \Omega
-    	\]
-    	
-    	\item[b.] Para calcular el voltaje Thévenin se considera el circuito de la siguiente manera:
-    	
-    	\begin{circuitikz}
-    		\draw
-    		(0,1.4) node[left] {A} to [short,*-] (0,0.7)
-    		to [R, l^=$R_1$, a=$4\Omega$] (-3,0.7)
-    		to [battery1, l_=$E_1$, a^=$28V$, i=$I$] (-3,-2.7)
-    		to [short,-] (3,-2.7)
-    		to [battery1, invert, l_=$E_2$, a^=$7V$ ,i=$I$] (3,0.7)
-    		to [R, l^=$R_2$, a=$1\Omega$] (0,0.7)
-    		(0,-2.7) to [short,-*] (0,-3.4) node[left] {B};
-    	\end{circuitikz}
-    	
-    	Por leyes de Kirchoff se obtiene:
-    	
-    	\[
-    	E_1 - R_1*I - R_2*I - E_2 = 0
-    	\]
-    	\[
-    	I = \frac{E_1-E_2}{R_1+R_2} = \frac{21}{5} A
-    	\]
-    	
-    	La caida de potencial en cada una de las resistencias:
-    	
-    	\[
-    	V_1 = I*R_1 = \frac{84}{5} V
-    	\]
-    	\[
-    	V_2 = I*R_2 = \frac{21}{5} V
-    	\]
-    	
-    	La caida de potencial entre A y B es igual a la caida de la resistencia $R_2$ y el voltaje de la fuente $E_2$:
-    	
-    	\[
-    	V_{AB} = V_2 + E_2 = \frac{56}{5} V = V_{TH}
-    	\]
-    	
-    	\item[c.] Para calcular la corriente que pasa por $R_L$:
-    	
-    	\[
-    	I = \frac{V_{TH}}{R_{TH} + R_L} = 4 A
-    	\]
-    	
-    	\item[d.] El circuito equivalente es:
-    	
-    	\begin{circuitikz}
-    		\draw
-    		(0,0) node[left] {A} to [short,*-] (0,0.7)
-    		to [R, l^=$R_{TH}$, a=$\frac{4}{5}\Omega$] (-3,0.7)
-    		to [battery1, l_=$E_{TH}$, a^=$\frac{21}{4}V$] (-3,-2.7)
-    		to [short,-] (0,-2.7)
-    		to [short,-*] (0,-2) node[left] {B}
-    		to [R, l^=$R_L$, a=$2\Omega$] (0,0);
-    	\end{circuitikz}
-    	
-    \end{description}
-    
-    \item Segundo circuto
-    
-    \begin{circuitikz}
-    	\draw
-    	(3,0) node[left] {A} to [short,*-] (3,0.7)
-    	to [R, l^=$R_2$, a=$3K\Omega$] (0,0.7)
-    	to [R, l^=$R_1$, a=$2K\Omega$] (-3,0.7)
-    	to [battery1, l_=$E_1$, a^=$4V$] (-3,-2.7)
-    	to [short,-] (3,-2.7)
-    	to [short,-*] (3,-2) node[left] {B}
-    	to [R, l^=$R_L$, a=$1K\Omega$] (3,0)
-    	(0,-2.7) to [ammeter, l^=$I$, a=$2mA$] (0,0.7);
-    \end{circuitikz}
-    
-    \begin{description}
-    	
-    	\item[b.] Para calcular el voltaje Thévenin se considera el circuito de la siguiente manera:
-    	
-    	\begin{circuitikz}
-    		\draw
-    		(3,0) node[left] {A} to [short,*-] (3,0.7)
-    		to [R, l^=$R_2$, a=$3K\Omega$] (0,0.7)
-    		to [R, l^=$R_1$, a=$2K\Omega$] (-3,0.7)
-    		to [battery1, l_=$E_1$, a^=$4V$] (-3,-2.7)
-    		to [short,-] (3,-2.7)
-    		to [short,-*] (3,-2) node[left] {B}
-    		(0,-2.7) to [ammeter, l^=$I$, a=$2mA$] (0,0.7);
-    	\end{circuitikz}
-    	
-    	Por leyes de Kirchoff se obtiene:
-    	
-    	\[
-    	E_1 - R_1*I + V_{TH} = 0
-    	\]
-    	\[
-    	V_{TH} = R_1*I - E_1 = 16 V
-    	\]
-    		
-    	\item[a.] Para calcular la resistencia de Thévenin se considera el circuito de la siguiente manera:
-    	
-    	\begin{circuitikz}
-    		\draw
-    		(3,0) node[left] {A} to [short,*-] (3,0.7)
-    		to [R, l^=$R_2$, a=$3K\Omega$] (0,0.7)
-    		to [R, l^=$R_1$, a=$2K\Omega$] (-3,0.7)
-    		to [short,-] (-3,-2.7)
-    		to [short,-] (3,-2.7)
-    		to [short,-*] (3,-2) node[left] {B}
-    		(0,-2.7) to [ammeter, l^=$I$, a=$2mA$] (0,0.7);
-    	\end{circuitikz}
-    	
-    	
-    	
-    	La resistencia del amperímetro es:
-    	
-    	\[
-    	R_A = \frac{V_A}{I_A} = \frac{V_{TH}}{I_A} = 8K \Omega
-    	\]
-    	
-    	De esta manera, la resistencia $R_{TH}$ se expresa como:
-    	
-    	\[
-    	R_{TH} = \frac{R_1 * R_A}{R_1 + R_A} + R_2= \frac{23}{5} K\Omega
-    	\]
-    	
-    	\item[c.] Para calcular la corriente que pasa por $R_L$:
-    	
-    	\[
-    	I = \frac{V_{TH}}{R_{TH}+R_L} = \frac{80}{23}mA
-    	\]
-    	
-    	\item[d.] El circuito equivalente es:
-    	
-    	\begin{circuitikz}
-    		\draw
-    		(0,0) node[left] {A} to [short,*-] (0,0.7)
-    		to [R, l^=$R_{TH}$, a=$\frac{23}{5}K\Omega$] (-3,0.7)
-    		to [battery1, l_=$E_{TH}$, a^=$16V$] (-3,-2.7)
-    		to [short,-] (0,-2.7)
-    		to [short,-*] (0,-2) node[left] {B}
-    		to [R, l^=$R_L$, a=$1K\Omega$] (0,0);
-    	\end{circuitikz}
-    	
-    \end{description}
+	\item \begin{enumerate}
+		\item El periodo está dado por: $T = 1 \frac{\mu s}{div} * 4 div = 4 \mu s$, para hallar la frecuencia se calcula $f = \frac{1}{T} = \frac{1}{4 \mu s} = 0,25*10^{6} Hz = 250 kHz$.
+		\item El voltaje pico-pico está dado por: $V_{pp} = 5 \frac{V}{div} * 2 div = 10 V$.
+	\end{enumerate}
+	
+	\item El TRC sirve principalmente para la visualización de imágenes por medio de rayos catódicos apuntados a una pantalla hecha de materiales fluorescentes. por medio de un conjunto de placas de desviación se logra alterar la trayectoria de los electrones y, por lo tanto, cambiar y controlar el lugar en el que se ilumina la pantalla. Esto se puede aplicar para generar imágenes en un osciloscopio o también era usado en antiguos televisores.
+	
+	\item \begin{enumerate}
+    \item
+        \begin{center}
+            \includegraphics[width=0.62\textwidth]{imagenes/imagen1.jpeg}
+            \captionof{figure}{Gráfica de la onda para ganancias de $5\frac{V}{cm}$ y $10\frac{ms}{cm}$.}
+            \label{fig:Grafica1}
+        \end{center}
 
+    \item
+        \begin{center}
+            \includegraphics[width=0.62\textwidth]{imagenes/imagen2.jpeg}
+            \captionof{figure}{Gráfica de la onda para ganancias de $10\frac{V}{cm}$ y $5\frac{ms}{cm}$.}
+            \label{fig:Grafica2}
+        \end{center}
+
+    \item
+        \begin{center}
+            \includegraphics[width=0.62\textwidth]{imagenes/imagen3.jpeg}
+            \captionof{figure}{Gráfica de la onda para ganancias de $5\frac{V}{cm}$ y $5\frac{ms}{cm}$.}
+            \label{fig:Grafica3}
+        \end{center}
+\end{enumerate}
+	
+	\item \begin{enumerate}
+		\item 
+		
+		\begin{proof}
+			
+			Para una señal de corriente alterna senoidal pura, la ecuación temporal del voltaje es:
+			
+			\begin{equation*}
+				v(t) = V_{p}\sin(\omega t)
+			\end{equation*}
+			
+			Donde $V_{p}$ es el voltaje pico, $T$ es el periodo y $\omega = \frac{2\pi}{T}$ es la frecuencia angular. Sustituyendo esto en la definición de $V_{rms}$:
+			
+			\begin{equation*}
+				V_{rms}^{2} = \frac{1}{T}\int_{0}^{T}[V_{p}\sin(\omega t)]^{2} dt = \frac{V_{p}^{2}}{T}\int_{0}^{T} \sin^{2}(\omega t) dt
+			\end{equation*}
+			
+			Aplicando la identidad trigonométrica del ángulo doble:
+			
+			\begin{equation*}
+				\sin^{2}(\theta) = \frac{1 -  \cos(2\theta)}{2}
+			\end{equation*}
+			
+			Sustituyendo $\theta = \omega t$:
+			
+			\begin{equation*}
+				V_{rms}^{2} = \frac{V_{p}^{2}}{T} \int_{0}^{T} \frac{1 - \cos(2\omega t)}{2} dt = \frac{V_{p}^{2}}{2T} \left[\int_{0}^{T}dt - \int_{0}^{T}\cos(2\omega t)dt\right]
+			\end{equation*}
+			
+			Evaluando las integrales:
+			
+			\begin{equation*}
+				\int_{0}^{T} dt = T
+			\end{equation*}
+			
+			\begin{equation*}
+				\int_{0}^{T} \cos(2\omega t) dt = 0
+			\end{equation*}
+			
+			Sustituyendo los valores de las integrales en la ecuación:
+			\begin{equation*}
+				V_{rms}^{2} = \frac{V_{p}^{2}}{2T}(T) = \frac{V_{p}^{2}}{2}
+			\end{equation*}
+			
+			Despejando $V_{rms}$ al aplicar la raíz cuadrada en ambos lados de la ecuación:
+			\begin{equation*}
+				V_{rms} = \frac{V_{p}}{\sqrt{2}}
+			\end{equation*}
+			
+		\end{proof}
+		
+		\item \begin{equation}
+			\tan(\theta) = \frac{\text{Cateto Opuesto}}{\text{Cateto Adyacente}} = \frac{-X_C}{R}
+			\label{angulo-desfase}
+		\end{equation}
+		
+		Despejando el ángulo mediante la función inversa de la arcotangente, se obtiene la ecuación fundamental del desfase:
+		\begin{equation}
+			\theta = \arctan\left(\frac{-X_C}{R}\right) = -\arctan\left(\frac{1}{\omega C R}\right)
+		\end{equation}
+		
+		El signo negativo resultante posee un significado físico crítico: confirma matemáticamente que en un circuito puramente capacitivo o RC, \textbf{el voltaje se encuentra retrasado} respecto a la corriente (o equivalentemente, la corriente adelanta al voltaje) en un rango angular comprendido entre $-90^\circ < \theta < 0^\circ$.
+	\end{enumerate}
+	
+	\item El voltaje rms de una corriente alterna es el valor equivalente que proporciona la misma cantidad de energía en una corriente directa; el voltaje pico es el punto máximo al que llega al voltaje o la amplitud de la función; el voltaje pico a pico abarca desde el punto menor hasta el punto mayor de la función.
+	
+	En una onda senoidal se relacionan así:
+	\[
+	V_{rms} = \frac{V_{pp}}{2\sqrt{2}} = \frac{V_{p}}{\sqrt{2}}
+	\]
+	
+	En una onda senoidal se relacionan así:
+	\[
+	V_{rms} = \frac{V_{pp}}{2} = V_{p}
+	\]
 \end{enumerate}

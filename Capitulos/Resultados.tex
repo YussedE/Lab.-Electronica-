@@ -8,6 +8,7 @@ En la Tabla \ref{tab:dc} se comparan las lecturas de voltaje DC obtenidas con el
     \centering
     \caption{Osciloscopio como voltímetro de DC.}
     \label{tab:dc}
+    \small
     \begin{tabular}{cccccc}
         \toprule
         Dato & $V_{DC}$ multímetro (V) & Ganancia (V/div) & N.º subdivisiones & $V_{DC}$ osciloscopio (V) & Error (\%) \\
@@ -30,6 +31,7 @@ Para la tensión alterna se midió el voltaje pico a pico $V_{PP}$ sobre la pant
     \centering
     \caption{Osciloscopio como voltímetro de AC.}
     \label{tab:ac}
+    \resizebox{\textwidth}{!}{%
     \begin{tabular}{ccccccc}
         \toprule
         Dato & $V_{RMS}$ multímetro (V) & Ganancia (V/div) & N.º subdivisiones & $V_{PP}$ osciloscopio (V) & $V_{RMS}$ teórico (V) & Error (\%) \\
@@ -40,8 +42,10 @@ Para la tensión alterna se midió el voltaje pico a pico $V_{PP}$ sobre la pant
         4 & 3.40  & 2 & 25 & 10.0 & 3.54  & 3.83 \\
         5 & 2.40  & 1 & 34 & 6.8  & 2.40  & 0.17 \\
         \bottomrule
-    \end{tabular}
+    \end{tabular}%
+    }
 \end{table}
+
 \vspace{0.4cm}
 Los errores obtenidos, entre 0.17\,\% y 3.83\,\%, corroboran la relación teórica $V_{RMS}=V_{PP}/(2\sqrt{2})$. El mayor error (dato 4) coincide con la ganancia vertical más sensible utilizada (2 V/div), donde una subdivisión mal contada representa un porcentaje más alto del voltaje total, lo que sugiere que la principal fuente de error en este montaje es la resolución de lectura del retículo y no una falla del modelo teórico.
 
@@ -53,6 +57,7 @@ El periodo de la señal se determinó a partir de la escala de tiempo (TIME/DIV)
     \centering
     \caption{Osciloscopio como frecuencímetro.}
     \label{tab:frec}
+    \resizebox{\textwidth}{!}{%
     \begin{tabular}{ccccccc}
         \toprule
         Dato & $f$ teórica (Hz) & Escala de tiempo (ms/div) & N.º subdivisiones & $T$ experimental (ms) & $f$ experimental (Hz) & Error (\%) \\
@@ -63,7 +68,8 @@ El periodo de la señal se determinó a partir de la escala de tiempo (TIME/DIV)
         4 & 600  & 0.2 & 42 & 1.68  & 595.24  & 0.80 \\
         5 & 1000 & 0.1 & 50 & 1.00  & 1000.00 & 0.00 \\
         \bottomrule
-    \end{tabular}
+    \end{tabular}%
+    }
 \end{table}
 
 El error relativo se mantiene entre 0\% y 2\% en todo el rango de frecuencias ensayado (60 Hz a 1 kHz), lo que valida el uso del osciloscopio como frecuencímetro indirecto a partir de la medida del periodo. Los errores nulos (datos 2 y 5) corresponden a los casos en que el número de subdivisiones ocupadas por el periodo es un valor entero exacto, mientras que los errores de 2\,\% aparecen cuando la traza cae entre dos líneas del retículo y debe aproximarse la lectura.
