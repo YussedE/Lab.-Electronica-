@@ -1,117 +1,190 @@
 \section{Preguntas}
+\begin{enumerate}
+	\item Demostrar la ecuación (3) tiene unidades de $\omega$
+\end{enumerate}
+
+\section{Sulucion}
 
 \begin{enumerate}
-	\item \begin{enumerate}
-		\item El periodo está dado por: $T = 250 \frac{\mu s}{div} * 4 div = 1000 \mu s$, para hallar la frecuencia se calcula $f = \frac{1}{T} = \frac{1}{1000 \mu s} = 1000 Hz = 1kHz$.
-		\item El voltaje pico está dado por: $V_p = 2 \frac{V}{div} * \frac{1div}{5subdiv} * 12subdiv = 4,8 V$.
-		\item Se puede calcular el valor eficaz con $V_{rms} = \frac{V_p}{\sqrt{2}}$
-		\item El valor medio es 0, ya que para una función cosenoidal en un periodo, el área bajo la curva sobre el eje x se cancela con el área bajo la curva debajo del eje x.
-		\item La función del voltaje sigue la forma del coseno con un amplitud de $4,8V$ calculado anteriormente, entonces $v(t) = 4,8*Cos(\omega*t)$
-	\end{enumerate}
-	
-	\item \begin{enumerate}
-		\item El periodo está dado por: $T = 1 \frac{\mu s}{div} * 4 div = 4 \mu s$, para hallar la frecuencia se calcula $f = \frac{1}{T} = \frac{1}{4 \mu s} = 0,25*10^{6} Hz = 250 kHz$.
-		\item El voltaje pico-pico está dado por: $V_{pp} = 5 \frac{V}{div} * 2 div = 10 V$.
-	\end{enumerate}
-	
-	\item El TRC sirve principalmente para la visualización de imágenes por medio de rayos catódicos apuntados a una pantalla hecha de materiales fluorescentes. por medio de un conjunto de placas de desviación se logra alterar la trayectoria de los electrones y, por lo tanto, cambiar y controlar el lugar en el que se ilumina la pantalla. Esto se puede aplicar para generar imágenes en un osciloscopio o también era usado en antiguos televisores.
-	
-	\item \begin{enumerate}
-    \item
-        \begin{center}
-            \includegraphics[width=0.62\textwidth]{imagenes/imagen1.jpeg}
-            \captionof{figure}{Gráfica de la onda para ganancias de $5\frac{V}{cm}$ y $10\frac{ms}{cm}$.}
-            \label{fig:Grafica1}
-        \end{center}
+	\item Para demostrar dimensionalmente que la fórmula de la resistencia crítica $R_c = 2\sqrt{\frac{L}{C}}$ tiene unidades de Ohms ($\Omega$), partimos de las definiciones fundamentales del Sistema Internacional (SI):
 
-    \item
-        \begin{center}
-            \includegraphics[width=0.62\textwidth]{imagenes/imagen2.jpeg}
-            \captionof{figure}{Gráfica de la onda para ganancias de $10\frac{V}{cm}$ y $5\frac{ms}{cm}$.}
-            \label{fig:Grafica2}
-        \end{center}
+\begin{align*}
+[\text{Volt}] &= \frac{\text{kg} \cdot \text{m}^2}{\text{A} \cdot \text{s}^3} \\
+[\Omega] &= \frac{[\text{Volt}]}{[\text{A}]} = \frac{\text{kg} \cdot \text{m}^2}{\text{A}^2 \cdot \text{s}^3}
+\end{align*}
 
-    \item
-        \begin{center}
-            \includegraphics[width=0.62\textwidth]{imagenes/imagen3.jpeg}
-            \captionof{figure}{Gráfica de la onda para ganancias de $5\frac{V}{cm}$ y $5\frac{ms}{cm}$.}
-            \label{fig:Grafica3}
-        \end{center}
+\subsection*{Análisis dimensional de la inductancia ($L$)}
+A partir de la ley de inducción de Faraday ($V = L \frac{di}{dt}$):
+\begin{align*}
+[L] &= \frac{[V] \cdot [\text{s}]}{[\text{A}]} \\
+[L] &= \frac{\left(\frac{\text{kg} \cdot \text{m}^2}{\text{A} \cdot \text{s}^3}\right) \cdot \text{s}}{\text{A}} = \frac{\text{kg} \cdot \text{m}^2}{\text{A}^2 \cdot \text{s}^2} \\
+[L] &= \left(\frac{\text{kg} \cdot \text{m}^2}{\text{A}^2 \cdot \text{s}^3}\right) \cdot \text{s} = \Omega \cdot \text{s}
+\end{align*}
+
+\subsection*{Análisis dimensional de la capacitancia ($C$)}
+A partir de la definición de corriente en un condensador ($I = C \frac{dV}{dt}$):
+\begin{align*}
+[C] &= \frac{[\text{A}] \cdot [\text{s}]}{[V]} \\
+[C] &= \frac{\text{A} \cdot \text{s}}{\frac{\text{kg} \cdot \text{m}^2}{\text{A} \cdot \text{s}^3}} = \frac{\text{A}^2 \cdot \text{s}^4}{\text{kg} \cdot \text{m}^2} \\
+[C] &= \frac{\text{s}}{\left(\frac{\text{kg} \cdot \text{m}^2}{\text{A}^2 \cdot \text{s}^3}\right)} = \frac{\text{s}}{\Omega}
+\end{align*}
+
+\subsection*{Sustitución y simplificación del cociente}
+Sustituyendo las dimensiones de $L$ y $C$ en la expresión interna:
+\begin{align*}
+\left[ \frac{L}{C} \right] &= \frac{\Omega \cdot \text{s}}{\frac{\text{s}}{\Omega}} = (\Omega \cdot \text{s}) \cdot \left( \frac{\Omega}{\text{s}} \right) = \Omega^2
+\end{align*}
+
+\subsection*{Aplicación de la raíz cuadrada}
+Dado que el factor numérico $2$ es adimensional:
+\begin{align*}
+[R_c] &= \left[ 2\sqrt{\frac{L}{C}} \right] = \sqrt{\Omega^2} = \Omega
+\end{align*}
+
+Por lo tanto, queda demostrado formalmente que la resistencia crítica posee unidades de Ohms ($\Omega$).
+\item Para demostrar la ecuación (4) correspondiente al ancho de la curva de resonancia, partimos de la expresión de la corriente en estado estacionario en función de la frecuencia angular $\omega$ (Ecuación 3A):
+
+\begin{equation}
+I(\omega) = \frac{\mathcal{E}}{\left[ R^2 + \left(\frac{L}{\omega}\right)^2 (\omega^2 - \omega_{\text{res}}^2)^2 \right]^{1/2}}
+\end{equation}
+
+\subsection*{Condición de potencia a la mitad del máximo (FWHM)}
+La potencia promedio transferida al circuito es proporcional a $I^2$. Los puntos de ancho a la mitad de la potencia máxima ocurren cuando la corriente decae a $I_{\max}/\sqrt{2}$, lo que implica que el término reactivo iguala a la resistencia:
+
+\begin{equation}
+\left(\frac{L}{\omega}\right)^2 (\omega^2 - \omega_{\text{res}}^2)^2 = R^2
+\end{equation}
+
+Tomando la raíz cuadrada positiva:
+
+\begin{equation}
+\frac{L}{\omega} (\omega^2 - \omega_{\text{res}}^2) = R
+\end{equation}
+
+\subsection*{Aproximación cerca de la resonancia}
+Factorizando la diferencia de cuadrados y evaluando en la vecindad de la resonancia ($\omega \approx \omega_{\text{res}}$):
+
+\begin{equation}
+\frac{L}{\omega_{\text{res}}} (\omega - \omega_{\text{res}}) (\omega + \omega_{\text{res}}) = R
+\end{equation}
+
+Dado que $\omega + \omega_{\text{res}} \approx 2\omega_{\text{res}}$:
+
+\begin{equation}
+\frac{L}{\omega_{\text{res}}} (\omega - \omega_{\text{res}}) (2\omega_{\text{res}}) = R
+\end{equation}
+
+\begin{equation}
+2L (\omega - \omega_{\text{res}}) = R
+\end{equation}
+
+\subsection*{Ancho de la curva de resonancia ($\Delta\omega$)}
+Despejando el semi-ancho de la curva $\Delta\omega = \omega - \omega_{\text{res}}$:
+
+\begin{equation}
+\Delta\omega \approx \frac{R}{2L}
+\end{equation}
+
+\subsection*{Conversión a frecuencia ordinaria ($\Delta f$)}
+Sabemos que la relación entre la frecuencia angular y la frecuencia ordinaria es $\omega = 2\pi f$, por lo que el ancho en frecuencia es:
+
+\begin{equation}
+\Delta f = \frac{\Delta\omega}{2\pi} \approx \frac{R}{2L \cdot 2\pi} = \frac{R}{4\pi L}
+\end{equation}
+
+Por lo tanto, quedan demostradas las expresiones de la ecuación (4):
+\begin{equation}
+\Delta\omega \approx \frac{R}{2L}, \quad \Delta f \approx \frac{R}{4\pi L}
+\end{equation}
+	\item Para determinar el valor de la capacitancia para el cual la corriente es máxima, se analiza la condición de resonancia en un circuito RLC serie alimentado por una fuente de voltaje sinusoidal.
+
+\begin{center}
+\begin{circuitikz}
+    \draw (0,0) to[sV, l=$V_{\text{rms}}$] (0,3)
+          to[R, l=$R$] (3,3)
+          to[L, l=$L$] (6,3)
+          to[C, l=$C$] (9,3)
+          to[short] (9,0)
+          to[short] (0,0);
+\end{circuitikz}
+\end{center}
+
+La corriente en estado estacionario en un circuito RLC está dada por:
+\begin{equation}
+I = \frac{V_{\text{rms}}}{Z}
+\end{equation}
+
+Donde la impedancia total $Z$ es:
+\begin{equation}
+Z = \sqrt{R^2 + \left(\omega L - \frac{1}{\omega C}\right)^2}
+\end{equation}
+
+La corriente alcanza su valor máximo cuando la impedancia total es mínima. Esto ocurre en la condición de resonancia, donde la reactancia inductiva se iguala a la reactancia capacitiva:
+\begin{equation}
+\omega L = \frac{1}{\omega C}
+\end{equation}
+
+Despejando la capacitancia $C$ de la ecuación de resonancia:
+\begin{equation}
+C = \frac{1}{\omega^2 L}
+\end{equation}
+
+Sustituyendo los valores proporcionados ($\omega = 5000 \, \text{rad/s}$ y $L = 20 \, \text{mH} = 20 \times 10^{-3} \, \text{H}$):
+\begin{equation}
+C = \frac{1}{(5000 \, \text{rad/s})^2 (20 \times 10^{-3} \, \text{H})}
+\end{equation}
+
+Resolviendo el denominador:
+\begin{equation}
+C = \frac{1}{(2.5 \times 10^7) (20 \times 10^{-3})} \, \text{F} = \frac{1}{500,000} \, \text{F}
+\end{equation}
+
+Obteniendo el valor final en microfaradios:
+\begin{equation}
+C = 2 \times 10^{-6} \, \text{F} = 2 \, \mu\text{F}
+\end{equation}
+	\item Para resolver el problema, analizamos el circuito RLC serie alimentado por una fuente de voltaje sinusoidal.
+
+\begin{center}
+\begin{circuitikz}
+    \draw (0,0) to[sV, l=$V_{\text{max}}$] (0,3)
+          to[R, l=$R$] (3,3)
+          to[L, l=$L$] (6,3)
+          to[C, l=$C$] (9,3)
+          to[short] (9,0)
+          to[short] (0,0);
+\end{circuitikz}
+\end{center}
+
+\subsection*{Frecuencia de resonancia ($f_0$)}
+
+La frecuencia angular de resonancia $\omega_0$ en un circuito RLC se define como:
+\begin{equation}
+\omega_0 = \frac{1}{\sqrt{LC}}
+\end{equation}
+
+Sustituyendo los valores dados ($L = 20 \, \text{mH} = 20 \times 10^{-3} \, \text{H}$ y $C = 1 \, \mu\text{F} = 1 \times 10^{-6} \, \text{F}$):
+\begin{equation}
+\omega_0 = \frac{1}{\sqrt{(20 \times 10^{-3} \, \text{H})(1 \times 10^{-6} \, \text{F})}} = \frac{1}{\sqrt{2 \times 10^{-8}}} \approx 7071.07 \, \text{rad/s}
+\end{equation}
+
+La frecuencia de resonancia $f_0$ en Hertz se obtiene dividiendo entre $2\pi$:
+\begin{equation}
+f_0 = \frac{\omega_0}{2\pi} = \frac{7071.07 \, \text{rad/s}}{2\pi} \approx 1125.39 \, \text{Hz}
+\end{equation}
+
+\subsection*{Corriente eficaz en resonancia ($I_{\text{rms}}$)}
+
+En la condición de resonancia, la impedancia total del circuito se reduce únicamente a la resistencia ($Z = R$), ya que las reactancias se anulan.
+
+Primero, calculamos el voltaje eficaz ($V_{\text{rms}}$) a partir del voltaje máximo ($V_{\text{max}} = 150 \, \text{V}$):
+\begin{equation}
+V_{\text{rms}} = \frac{V_{\text{max}}}{\sqrt{2}} = \frac{150 \, \text{V}}{\sqrt{2}} \approx 106.07 \, \text{V}
+\end{equation}
+
+Aplicando la ley de Ohm con $R = 100 \, \Omega$, determinamos la corriente eficaz en resonancia:
+\begin{equation}
+I_{\text{rms}} = \frac{V_{\text{rms}}}{R} = \frac{106.07 \, \text{V}}{100 \, \Omega} \approx 1.06 \, \text{A}
+\end{equation}
 \end{enumerate}
-	
-	\item \begin{enumerate}
-		\item 
-		
-		\begin{proof}
-			
-			Para una señal de corriente alterna senoidal pura, la ecuación temporal del voltaje es:
-			
-			\begin{equation*}
-				v(t) = V_{p}\sin(\omega t)
-			\end{equation*}
-			
-			Donde $V_{p}$ es el voltaje pico, $T$ es el periodo y $\omega = \frac{2\pi}{T}$ es la frecuencia angular. Sustituyendo esto en la definición de $V_{rms}$:
-			
-			\begin{equation*}
-				V_{rms}^{2} = \frac{1}{T}\int_{0}^{T}[V_{p}\sin(\omega t)]^{2} dt = \frac{V_{p}^{2}}{T}\int_{0}^{T} \sin^{2}(\omega t) dt
-			\end{equation*}
-			
-			Aplicando la identidad trigonométrica del ángulo doble:
-			
-			\begin{equation*}
-				\sin^{2}(\theta) = \frac{1 -  \cos(2\theta)}{2}
-			\end{equation*}
-			
-			Sustituyendo $\theta = \omega t$:
-			
-			\begin{equation*}
-				V_{rms}^{2} = \frac{V_{p}^{2}}{T} \int_{0}^{T} \frac{1 - \cos(2\omega t)}{2} dt = \frac{V_{p}^{2}}{2T} \left[\int_{0}^{T}dt - \int_{0}^{T}\cos(2\omega t)dt\right]
-			\end{equation*}
-			
-			Evaluando las integrales:
-			
-			\begin{equation*}
-				\int_{0}^{T} dt = T
-			\end{equation*}
-			
-			\begin{equation*}
-				\int_{0}^{T} \cos(2\omega t) dt = 0
-			\end{equation*}
-			
-			Sustituyendo los valores de las integrales en la ecuación:
-			\begin{equation*}
-				V_{rms}^{2} = \frac{V_{p}^{2}}{2T}(T) = \frac{V_{p}^{2}}{2}
-			\end{equation*}
-			
-			Despejando $V_{rms}$ al aplicar la raíz cuadrada en ambos lados de la ecuación:
-			\begin{equation*}
-				V_{rms} = \frac{V_{p}}{\sqrt{2}}
-			\end{equation*}
-			
-		\end{proof}
-		
-		\item \begin{equation}
-			\tan(\theta) = \frac{\text{Cateto Opuesto}}{\text{Cateto Adyacente}} = \frac{-X_C}{R}
-			\label{angulo-desfase}
-		\end{equation}
-		
-		Despejando el ángulo mediante la función inversa de la arcotangente, se obtiene la ecuación fundamental del desfase:
-		\begin{equation}
-			\theta = \arctan\left(\frac{-X_C}{R}\right) = -\arctan\left(\frac{1}{\omega C R}\right)
-		\end{equation}
-		
-		El signo negativo resultante posee un significado físico crítico: confirma matemáticamente que en un circuito puramente capacitivo o RC, \textbf{el voltaje se encuentra retrasado} respecto a la corriente (o equivalentemente, la corriente adelanta al voltaje) en un rango angular comprendido entre $-90^\circ < \theta < 0^\circ$.
-	\end{enumerate}
-	
-	\item El voltaje rms de una corriente alterna es el valor equivalente que proporciona la misma cantidad de energía en una corriente directa; el voltaje pico es el punto máximo al que llega al voltaje o la amplitud de la función; el voltaje pico a pico abarca desde el punto menor hasta el punto mayor de la función.
-	
-	En una onda senoidal se relacionan así:
-	\[
-	V_{rms} = \frac{V_{pp}}{2\sqrt{2}} = \frac{V_{p}}{\sqrt{2}}
-	\]
-	
-	En una onda senoidal se relacionan así:
-	\[
-	V_{rms} = \frac{V_{pp}}{2} = V_{p}
-	\]
-\end{enumerate}
+
