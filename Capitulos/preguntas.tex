@@ -1,117 +1,18 @@
 \section{Preguntas}
 
 \begin{enumerate}
-	\item \begin{enumerate}
-		\item El periodo está dado por: $T = 250 \frac{\mu s}{div} * 4 div = 1000 \mu s$, para hallar la frecuencia se calcula $f = \frac{1}{T} = \frac{1}{1000 \mu s} = 1000 Hz = 1kHz$.
-		\item El voltaje pico está dado por: $V_p = 2 \frac{V}{div} * \frac{1div}{5subdiv} * 12subdiv = 4,8 V$.
-		\item Se puede calcular el valor eficaz con $V_{rms} = \frac{V_p}{\sqrt{2}}$
-		\item El valor medio es 0, ya que para una función cosenoidal en un periodo, el área bajo la curva sobre el eje x se cancela con el área bajo la curva debajo del eje x.
-		\item La función del voltaje sigue la forma del coseno con un amplitud de $4,8V$ calculado anteriormente, entonces $v(t) = 4,8*Cos(\omega*t)$
-	\end{enumerate}
+	\item
 	
-	\item \begin{enumerate}
-		\item El periodo está dado por: $T = 1 \frac{\mu s}{div} * 4 div = 4 \mu s$, para hallar la frecuencia se calcula $f = \frac{1}{T} = \frac{1}{4 \mu s} = 0,25*10^{6} Hz = 250 kHz$.
-		\item El voltaje pico-pico está dado por: $V_{pp} = 5 \frac{V}{div} * 2 div = 10 V$.
-	\end{enumerate}
+	\item
 	
-	\item El TRC sirve principalmente para la visualización de imágenes por medio de rayos catódicos apuntados a una pantalla hecha de materiales fluorescentes. por medio de un conjunto de placas de desviación se logra alterar la trayectoria de los electrones y, por lo tanto, cambiar y controlar el lugar en el que se ilumina la pantalla. Esto se puede aplicar para generar imágenes en un osciloscopio o también era usado en antiguos televisores.
+	\item
 	
-	\item \begin{enumerate}
+	\item
+	
     \item
-        \begin{center}
-            \includegraphics[width=0.62\textwidth]{imagenes/imagen1.jpeg}
-            \captionof{figure}{Gráfica de la onda para ganancias de $5\frac{V}{cm}$ y $10\frac{ms}{cm}$.}
-            \label{fig:Grafica1}
-        \end{center}
+    
+    \item
 
     \item
-        \begin{center}
-            \includegraphics[width=0.62\textwidth]{imagenes/imagen2.jpeg}
-            \captionof{figure}{Gráfica de la onda para ganancias de $10\frac{V}{cm}$ y $5\frac{ms}{cm}$.}
-            \label{fig:Grafica2}
-        \end{center}
 
-    \item
-        \begin{center}
-            \includegraphics[width=0.62\textwidth]{imagenes/imagen3.jpeg}
-            \captionof{figure}{Gráfica de la onda para ganancias de $5\frac{V}{cm}$ y $5\frac{ms}{cm}$.}
-            \label{fig:Grafica3}
-        \end{center}
-\end{enumerate}
-	
-	\item \begin{enumerate}
-		\item 
-		
-		\begin{proof}
-			
-			Para una señal de corriente alterna senoidal pura, la ecuación temporal del voltaje es:
-			
-			\begin{equation*}
-				v(t) = V_{p}\sin(\omega t)
-			\end{equation*}
-			
-			Donde $V_{p}$ es el voltaje pico, $T$ es el periodo y $\omega = \frac{2\pi}{T}$ es la frecuencia angular. Sustituyendo esto en la definición de $V_{rms}$:
-			
-			\begin{equation*}
-				V_{rms}^{2} = \frac{1}{T}\int_{0}^{T}[V_{p}\sin(\omega t)]^{2} dt = \frac{V_{p}^{2}}{T}\int_{0}^{T} \sin^{2}(\omega t) dt
-			\end{equation*}
-			
-			Aplicando la identidad trigonométrica del ángulo doble:
-			
-			\begin{equation*}
-				\sin^{2}(\theta) = \frac{1 -  \cos(2\theta)}{2}
-			\end{equation*}
-			
-			Sustituyendo $\theta = \omega t$:
-			
-			\begin{equation*}
-				V_{rms}^{2} = \frac{V_{p}^{2}}{T} \int_{0}^{T} \frac{1 - \cos(2\omega t)}{2} dt = \frac{V_{p}^{2}}{2T} \left[\int_{0}^{T}dt - \int_{0}^{T}\cos(2\omega t)dt\right]
-			\end{equation*}
-			
-			Evaluando las integrales:
-			
-			\begin{equation*}
-				\int_{0}^{T} dt = T
-			\end{equation*}
-			
-			\begin{equation*}
-				\int_{0}^{T} \cos(2\omega t) dt = 0
-			\end{equation*}
-			
-			Sustituyendo los valores de las integrales en la ecuación:
-			\begin{equation*}
-				V_{rms}^{2} = \frac{V_{p}^{2}}{2T}(T) = \frac{V_{p}^{2}}{2}
-			\end{equation*}
-			
-			Despejando $V_{rms}$ al aplicar la raíz cuadrada en ambos lados de la ecuación:
-			\begin{equation*}
-				V_{rms} = \frac{V_{p}}{\sqrt{2}}
-			\end{equation*}
-			
-		\end{proof}
-		
-		\item \begin{equation}
-			\tan(\theta) = \frac{\text{Cateto Opuesto}}{\text{Cateto Adyacente}} = \frac{-X_C}{R}
-			\label{angulo-desfase}
-		\end{equation}
-		
-		Despejando el ángulo mediante la función inversa de la arcotangente, se obtiene la ecuación fundamental del desfase:
-		\begin{equation}
-			\theta = \arctan\left(\frac{-X_C}{R}\right) = -\arctan\left(\frac{1}{\omega C R}\right)
-		\end{equation}
-		
-		El signo negativo resultante posee un significado físico crítico: confirma matemáticamente que en un circuito puramente capacitivo o RC, \textbf{el voltaje se encuentra retrasado} respecto a la corriente (o equivalentemente, la corriente adelanta al voltaje) en un rango angular comprendido entre $-90^\circ < \theta < 0^\circ$.
-	\end{enumerate}
-	
-	\item El voltaje rms de una corriente alterna es el valor equivalente que proporciona la misma cantidad de energía en una corriente directa; el voltaje pico es el punto máximo al que llega al voltaje o la amplitud de la función; el voltaje pico a pico abarca desde el punto menor hasta el punto mayor de la función.
-	
-	En una onda senoidal se relacionan así:
-	\[
-	V_{rms} = \frac{V_{pp}}{2\sqrt{2}} = \frac{V_{p}}{\sqrt{2}}
-	\]
-	
-	En una onda senoidal se relacionan así:
-	\[
-	V_{rms} = \frac{V_{pp}}{2} = V_{p}
-	\]
 \end{enumerate}
