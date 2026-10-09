@@ -1,145 +1,274 @@
 \section{Resultados y discusión}
 
-\subsection{Osciloscopio como voltímetro de corriente continua (DC)}
+\subsection{Parámetros iniciales del circuito}
 
-En la Tabla \ref{tab:dc} se comparan las lecturas de voltaje DC obtenidas con el multímetro y las obtenidas directamente sobre la pantalla del osciloscopio (a partir de la ganancia vertical y el número de subdivisiones ocupadas por la traza).
+Para estudiar la resonancia del circuito RLC serie se midieron los valores de la resistencia de la bobina, la inductancia y la capacitancia. También se tuvo en cuenta la resistencia interna del generador, indicada en la guía de laboratorio como $50\,\Omega$. Los valores registrados en la hoja de cálculo se presentan en la Tabla~\ref{tab:parametros}.
 
-\begin{table}[h!]
+\begin{table}[htbp]
     \centering
-    \caption{Osciloscopio como voltímetro de DC.}
-    \label{tab:dc}
-    \small
-    \begin{tabular}{cccccc}
+    \caption{Parámetros iniciales del circuito RLC serie.}
+    \label{tab:parametros}
+    \begin{tabular}{lcc}
         \toprule
-        Dato & $V_{DC}$ multímetro (V) & Ganancia (V/div) & N.º subdivisiones & $V_{DC}$ osciloscopio (V) & Error (\%) \\
+        Magnitud & Símbolo & Valor experimental \\
         \midrule
-        1 & 0.70 & 0.5 & 7  & 0.70 & 0.00 \\
-        2 & 2.09 & 0.5 & 21 & 2.10 & 0.48 \\
-        3 & 2.68 & 0.5 & 27 & 2.70 & 0.75 \\
-        4 & 3.02 & 0.5 & 30 & 3.00 & 0.66 \\
+        Resistencia interna de la fuente & $R_{\mathrm{int}}$ & $50\,\Omega$ \\
+        Resistencia de la bobina & $R_L$ & $2.02\,\Omega$ \\
+        Inductancia de la bobina & $L$ & $54.9\,\mathrm{mH}$ \\
+        Capacitancia & $C$ & $1.862\,\mu\mathrm{F}$ \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-Como se observa, el error relativo entre la lectura del multímetro y la del osciloscopio no supera el 1\% en ninguno de los cuatro datos, lo cual confirma que el osciloscopio, correctamente calibrado y con el conmutador AC-GND-DC en DC, reproduce con buena exactitud una tensión continua. La pequeña discrepancia se explica por la resolución finita de la escala graduada de la pantalla (retículo) frente a la resolución digital del multímetro.
+La frecuencia de resonancia teórica se calculó a partir de la inductancia y la capacitancia del circuito mediante la expresión
 
-\subsection{Osciloscopio como voltímetro de corriente alterna (AC)}
+\begin{equation}
+    f_{\mathrm{res}} =
+    \frac{1}{2\pi\sqrt{LC}}.
+    \label{eq:fres_teorica}
+\end{equation}
 
-Para la tensión alterna se midió el voltaje pico a pico $V_{PP}$ sobre la pantalla y se calculó el valor eficaz teórico mediante la ecuación (1), $V_{RMS}=V_{PP}/(2\sqrt{2})$, comparándolo con la lectura directa del multímetro en modo AC (Tabla \ref{tab:ac}).
+Sustituyendo los valores experimentales medidos,
 
-\begin{table}[h!]
-    \centering
-    \caption{Osciloscopio como voltímetro de AC.}
-    \label{tab:ac}
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{ccccccc}
-        \toprule
-        Dato & $V_{RMS}$ multímetro (V) & Ganancia (V/div) & N.º subdivisiones & $V_{PP}$ osciloscopio (V) & $V_{RMS}$ teórico (V) & Error (\%) \\
-        \midrule
-        1 & 7.00  & 5 & 20 & 20.0 & 7.07  & 1.01 \\
-        2 & 13.60 & 5 & 39 & 39.0 & 13.79 & 1.37 \\
-        3 & 2.10  & 1 & 30 & 6.0  & 2.12  & 1.01 \\
-        4 & 3.40  & 2 & 25 & 10.0 & 3.54  & 3.83 \\
-        5 & 2.40  & 1 & 34 & 6.8  & 2.40  & 0.17 \\
-        \bottomrule
-    \end{tabular}%
-    }
+\begin{equation}
+    f_{\mathrm{res}} =
+    \frac{1}{2\pi
+    \sqrt{(54.9\times10^{-3})
+    (1.862\times10^{-6})}},
+\end{equation}
+
+se obtuvo la frecuencia de resonancia teórica
+
+\begin{equation}
+    \boxed{f_{\mathrm{res}} \approx 497.79\,\mathrm{Hz}}.
+\end{equation}
+
+Este valor se utilizó como referencia para analizar las frecuencias a las que se registraron las corrientes máximas en las dos configuraciones de resistencia externa.
+
+\subsection{Comportamiento de la corriente eficaz en función de la frecuencia}
+
+Se mantuvo constante la amplitud de la señal de entrada y se modificó su frecuencia, registrando la corriente eficaz para dos valores de resistencia externa: $10\,\Omega$ y $50\,\Omega$. Para cada configuración, la resistencia total considerada en el circuito corresponde a la suma de la resistencia externa, la resistencia interna de la fuente y la resistencia de la bobina:
+
+\begin{equation}
+    R_{\mathrm{total}} =
+    R_{\mathrm{ext}} + R_{\mathrm{int}} + R_L.
+    \label{eq:rtotal}
+\end{equation}
+
+Por tanto, para la primera configuración se obtuvo
+
+\begin{equation}
+    R_{\mathrm{total,1}} =
+    10 + 50 + 2.02 = 62.02\,\Omega,
+\end{equation}
+
+mientras que para la segunda configuración,
+
+\begin{equation}
+    R_{\mathrm{total,2}} =
+    50 + 50 + 2.02 = 102.02\,\Omega.
+\end{equation}
+
+Las mediciones de frecuencia y corriente eficaz para ambas configuraciones se presentan en las Tablas~\ref{tab:datos_10} y \ref{tab:datos_50}. Se conservaron los valores registrados en la hoja de cálculo.
+
+% =========================================================
+% TABLA 1: Rext = 10 ohmios (12 filas por columna)
+% =========================================================
+
+\begin{table}[htbp]
+\centering
+\caption{Frecuencia y corriente eficaz para $R_{\mathrm{ext}}=10\,\Omega$.}
+\label{tab:datos_10}
+\scriptsize
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{rr rr rr}
+\toprule
+\multicolumn{2}{c}{Datos 1} & \multicolumn{2}{c}{Datos 2} & \multicolumn{2}{c}{Datos 3} \\
+\cmidrule(lr){1-2} \cmidrule(lr){3-4} \cmidrule(lr){5-6}
+$f$ (Hz) & $I_{\mathrm{RMS}}$ (mA) & $f$ (Hz) & $I_{\mathrm{RMS}}$ (mA) & $f$ (Hz) & $I_{\mathrm{RMS}}$ (mA) \\
+\midrule
+300 & 18.34 & 486 & 49.20 & 600 & 34.62 \\
+320 & 20.84 & 488 & 49.20 & 620 & 31.94 \\
+340 & 23.71 & 490 & 49.20 & 640 & 29.57 \\
+360 & 27.03 & 492 & 49.20 & 660 & 27.50 \\
+380 & 30.84 & 494 & 49.20 & 680 & 25.68 \\
+400 & 35.07 & 496 & 49.10 & 700 & 24.08 \\
+420 & 39.58 & 498 & 49.00 & 720 & 22.68 \\
+440 & 43.80 & 500 & 48.90 & 740 & 21.42 \\
+460 & 47.30 & 520 & 47.00 & 760 & 20.30 \\
+480 & 49.10 & 540 & 44.10 & 780 & 19.31 \\
+482 & 49.10 & 560 & 40.80 & 800 & 18.41 \\
+484 & 49.20 & 580 & 37.62 & 820 & 17.59 \\
+\bottomrule
+\end{tabular}
 \end{table}
 
+
+% =========================================================
+% TABLA 2: Rext = 50 ohmios (16 filas por columna)
+% =========================================================
+
+\begin{table}[htbp]
+\centering
+\caption{Frecuencia y corriente eficaz para $R_{\mathrm{ext}}=50\,\Omega$.}
+\label{tab:datos_50}
+\scriptsize
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{rr rr rr}
+\toprule
+\multicolumn{2}{c}{Datos 1} & \multicolumn{2}{c}{Datos 2} & \multicolumn{2}{c}{Datos 3} \\
+\cmidrule(lr){1-2} \cmidrule(lr){3-4} \cmidrule(lr){5-6}
+$f$ (Hz) & $I_{\mathrm{RMS}}$ (mA) & $f$ (Hz) & $I_{\mathrm{RMS}}$ (mA) & $f$ (Hz) & $I_{\mathrm{RMS}}$ (mA) \\
+\midrule
+200 & 9.41  & 484 & 31.59 & 660 & 22.84 \\
+220 & 10.66 & 486 & 31.60 & 680 & 21.76 \\
+240 & 12.01 & 488 & 31.60 & 700 & 20.75 \\
+260 & 13.47 & 490 & 31.60 & 720 & 19.83 \\
+280 & 15.05 & 492 & 31.59 & 740 & 18.96 \\
+300 & 16.76 & 494 & 31.58 & 760 & 18.17 \\
+320 & 18.61 & 496 & 31.56 & 780 & 17.44 \\
+340 & 20.57 & 498 & 31.54 & 800 & 16.77 \\
+360 & 22.62 & 500 & 31.50 & 820 & 16.14 \\
+380 & 24.70 & 520 & 30.99 & 840 & 15.55 \\
+400 & 26.73 & 540 & 30.11 & 860 & 15.01 \\
+420 & 28.56 & 560 & 29.01 & 880 & 14.52 \\
+440 & 30.05 & 580 & 27.76 & 900 & 14.05 \\
+460 & 31.09 & 600 & 26.48 & 920 & 13.61 \\
+480 & 31.56 & 620 & 25.22 &     &       \\
+482 & 31.57 & 640 & 24.00 &     &       \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+La variación de la corriente eficaz con la frecuencia se representa en la Figura~\ref{fig:resonancia}. En esta gráfica se deben incluir las dos series de mediciones, diferenciando cada curva según la resistencia externa utilizada.
 \vspace{0.4cm}
-Los errores obtenidos, entre 0.17\,\% y 3.83\,\%, corroboran la relación teórica $V_{RMS}=V_{PP}/(2\sqrt{2})$. El mayor error (dato 4) coincide con la ganancia vertical más sensible utilizada (2 V/div), donde una subdivisión mal contada representa un porcentaje más alto del voltaje total, lo que sugiere que la principal fuente de error en este montaje es la resolución de lectura del retículo y no una falla del modelo teórico.
 
-\subsection{Osciloscopio como frecuencímetro}
-
-El periodo de la señal se determinó a partir de la escala de tiempo (TIME/DIV) y el número de subdivisiones que ocupa un ciclo completo; con él se calculó la frecuencia experimental $f_{exp}=1/T$, comparándola con la frecuencia fijada en el generador (Tabla \ref{tab:frec}).
-
-\begin{table}[h!]
+\begin{figure}[H]
     \centering
-    \caption{Osciloscopio como frecuencímetro.}
-    \label{tab:frec}
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{ccccccc}
-        \toprule
-        Dato & $f$ teórica (Hz) & Escala de tiempo (ms/div) & N.º subdivisiones & $T$ experimental (ms) & $f$ experimental (Hz) & Error (\%) \\
-        \midrule
-        1 & 60   & 5   & 17 & 17.00 & 58.82   & 2.00 \\
-        2 & 200  & 1   & 25 & 5.00  & 200.00  & 0.00 \\
-        3 & 300  & 0.5 & 34 & 3.40  & 294.12  & 2.00 \\
-        4 & 600  & 0.2 & 42 & 1.68  & 595.24  & 0.80 \\
-        5 & 1000 & 0.1 & 50 & 1.00  & 1000.00 & 0.00 \\
-        \bottomrule
-    \end{tabular}%
-    }
-\end{table}
-
-El error relativo se mantiene entre 0\% y 2\% en todo el rango de frecuencias ensayado (60 Hz a 1 kHz), lo que valida el uso del osciloscopio como frecuencímetro indirecto a partir de la medida del periodo. Los errores nulos (datos 2 y 5) corresponden a los casos en que el número de subdivisiones ocupadas por el periodo es un valor entero exacto, mientras que los errores de 2\,\% aparecen cuando la traza cae entre dos líneas del retículo y debe aproximarse la lectura.
-
-\subsection{Osciloscopio como medidor de desfase entre dos señales}
-
-Para el circuito RC de la Fig. 3 de la guía, con $R = 1.99\ \mathrm{k\Omega}$ y $C = 95.1\ \mathrm{nF}$, el valor teórico de la constante de tiempo es
-
-\[
-\tau_{teo} = RC = (1.99\times10^{3}\ \Omega)(95.1\times10^{-9}\ \mathrm{F}) = 0.1892\ \mathrm{ms}.
-\]
-
-Se varió la frecuencia del generador entre 300 Hz y 600 Hz en pasos de 25 Hz, se midió el desfase experimental $\phi_{exp}=360^\circ\,(m/n)$ (con $m$ el número de subdivisiones entre los cruces por cero de ambas señales y $n$ el número de subdivisiones de un periodo completo) y se comparó con el ángulo teórico $\phi_{teo}=\arctan\!\big(1/(2\pi f R C)\big)$. Los resultados se resumen en la Tabla \ref{tab:desfase}.
-
-\begin{table}[h!]
-    \centering
-    \caption{Osciloscopio como medidor de desfase (montaje RC).}
-    \label{tab:desfase}
-    \begin{tabular}{cccccccc}
-        \toprule
-        Dato & $f$ (Hz) & $\phi_{teo}$ (°) & $m$ & $n$ & $\phi_{exp}$ (°) & Error (\%) & $T=1/f$ (ms) \\
-        \midrule
-        1  & 300 & 70.37 & 7 & 34 & 74.12 & 5.33 & 3.333 \\
-        2  & 325 & 68.87 & 6 & 31 & 69.68 & 1.17 & 3.077 \\
-        3  & 350 & 67.40 & 5 & 28 & 64.29 & 4.63 & 2.857 \\
-        4  & 375 & 65.97 & 5 & 27 & 66.67 & 1.06 & 2.667 \\
-        5  & 400 & 64.56 & 5 & 27 & 66.67 & 3.26 & 2.500 \\
-        6  & 425 & 63.19 & 4 & 23 & 62.61 & 0.92 & 2.353 \\
-        7  & 450 & 61.85 & 4 & 23 & 62.61 & 1.23 & 2.222 \\
-        8  & 475 & 60.54 & 9 & 53 & 61.13 & 0.98 & 2.105 \\
-        9  & 500 & 59.27 & 8 & 50 & 57.60 & 2.81 & 2.000 \\
-        10 & 525 & 58.02 & 8 & 48 & 60.00 & 3.40 & 1.905 \\
-        11 & 550 & 56.82 & 7 & 45 & 56.00 & 1.44 & 1.818 \\
-        12 & 575 & 55.64 & 7 & 43 & 58.60 & 5.33 & 1.739 \\
-        13 & 600 & 54.49 & 6 & 42 & 51.43 & 5.63 & 1.667 \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-
-Con los pares $(T,\tan\phi_{exp})$ de la Tabla \ref{tab:desfase} se construyó la Fig. \ref{fig:desfase}, de acuerdo con la relación teórica $\tan\phi = T/(2\pi\tau)$, que predice una recta que pasa por el origen. El ajuste lineal forzado por el origen entregó una pendiente
-
-\[
-K = (0.877 \pm 0.028)\ \mathrm{ms^{-1}}, \qquad R^{2}=0.988,
-\]
-
-a partir de la cual se obtuvo la constante de tiempo experimental
-
-\[
-\tau_{exp} = \frac{1}{2\pi K} = (0.1815 \pm 0.0057)\ \mathrm{ms}.
-\]
-
-Comparando con el valor teórico $\tau_{teo}=0.1892\ \mathrm{ms}$, el error relativo es
-
-\[
-\text{Error}\,(\%) = \frac{|\tau_{teo}-\tau_{exp}|}{\tau_{teo}}\times 100\% = 4.10\%.
-\]
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.75\textwidth]{imagenes/desfase.png}
-    \caption{Tangente del ángulo de desfase experimental $\tan(\phi_{exp})$ en función del periodo $T$ de la señal. Los símbolos (puntos) representan los valores medidos para cada frecuencia entre 300 y 600\,Hz; la línea continua es el ajuste lineal forzado por el origen, con pendiente $K=(0.877\pm0.028)\,\mathrm{ms^{-1}}$ y $R^{2}=0.988$.}
-    \label{fig:desfase}
+    \includegraphics[width=0.90\linewidth]{imagenes/Graficaresonancia.png}
+    \caption{Corriente eficaz en función de la frecuencia para el circuito RLC serie con resistencias externas de $10\,\Omega$ y $50\,\Omega$. Las curvas corresponden a las mediciones experimentales de ambas configuraciones.}
+    \label{fig:resonancia}
 \end{figure}
+
+En ambas configuraciones se observa que la corriente aumenta a medida que la frecuencia se aproxima a la región de resonancia. Después de alcanzar su valor máximo, la corriente disminuye conforme la frecuencia continúa aumentando. Este comportamiento concuerda cualitativamente con el modelo de un circuito RLC serie alimentado por una fuente de corriente alterna de amplitud constante.
+\vspace{0.4cm}
+
+La impedancia del circuito está dada por
+
+\begin{equation}
+    |Z| =
+    \sqrt{R_{\mathrm{total}}^2+
+    \left(2\pi fL-\frac{1}{2\pi fC}\right)^2}.
+    \label{eq:impedancia}
+\end{equation}
+
+Cuando la reactancia inductiva y la reactancia capacitiva se igualan, sus contribuciones se cancelan y la impedancia alcanza su valor mínimo, determinado por la resistencia total del circuito. En estas condiciones, la corriente eficaz alcanza su valor máximo para una amplitud de tensión constante.
+\vspace{0.4cm}
+
+Los valores máximos registrados fueron aproximadamente $49.2\,\mathrm{mA}$ para $R_{\mathrm{ext}}=10\,\Omega$ y $31.6\,\mathrm{mA}$ para $R_{\mathrm{ext}}=50\,\Omega$. La corriente máxima es menor en la segunda configuración, lo cual concuerda con el aumento de la resistencia total de $62.02\,\Omega$ a $102.02\,\Omega$. Una resistencia mayor limita la corriente que circula por el circuito, incluso cerca de la resonancia.
+
+\subsection{Frecuencia de resonancia experimental}
+
+Debido a que varias mediciones consecutivas presentan el mismo valor máximo de corriente, la frecuencia de resonancia experimental no queda definida por un único punto de la tabla. Para evitar atribuir una precisión excesiva a los datos, se puede tomar el centro del intervalo en el que se observa la corriente máxima.
+
+Para $R_{\mathrm{ext}}=10\,\Omega$, la corriente máxima registrada de $49.2\,\mathrm{mA}$ aparece entre $484$ y $494\,\mathrm{Hz}$. El punto medio de este intervalo es
+
+\begin{equation}
+    f_{\mathrm{res,1}} \approx
+    \frac{484+494}{2}
+    = 489\,\mathrm{Hz}.
+\end{equation}
+
+Para $R_{\mathrm{ext}}=50\,\Omega$, el máximo registrado de $31.6\,\mathrm{mA}$ aparece entre $486$ y $490\,\mathrm{Hz}$. Por tanto,
+
+\begin{equation}
+    f_{\mathrm{res,2}} \approx
+    \frac{486+490}{2}
+    = 488\,\mathrm{Hz}.
+\end{equation}
+
+El promedio de ambas estimaciones es
+
+\begin{equation}
+    f_{\mathrm{res,exp}} =
+    \frac{489+488}{2}
+    = 488.5\,\mathrm{Hz}.
+\end{equation}
+
+El error relativo respecto a la frecuencia teórica se calculó mediante
+
+\begin{equation}
+    \text{Error relativo} =
+    \left|
+    \frac{f_{\mathrm{res,teo}}-f_{\mathrm{res,exp}}}
+    {f_{\mathrm{res,teo}}}
+    \right|\times 100\%.
+\end{equation}
+
+Al sustituir los valores obtenidos,
+
+\begin{equation}
+    \text{Error relativo} =
+    \left|
+    \frac{497.79-488.5}{497.79}
+    \right|\times 100\%
+    \approx 1.87\%.
+\end{equation}
+
+De acuerdo con este procedimiento, la frecuencia de resonancia experimental presenta una diferencia aproximada del $1.87\%$ respecto al valor teórico. La diferencia es pequeña en comparación con la frecuencia de resonancia calculada; no obstante, debe tenerse en cuenta que el máximo de corriente se distribuye en varios puntos consecutivos, por lo que la estimación experimental depende de la resolución con la que se tomó la frecuencia alrededor del máximo.
+
+\subsection{Impedancia y ancho de banda}
+
+A partir de la ecuación~\ref{eq:impedancia}, la impedancia puede representarse en función de la frecuencia utilizando los valores medidos de $R$, $L$ y $C$. La gráfica correspondiente se puede incluir en la Figura~\ref{fig:impedancia}, siempre que se haya elaborado como parte del análisis de la práctica.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.90\linewidth]{imagenes/impedanciavsfrecuencia.png}
+    \caption{Impedancia teórica del circuito RLC serie en función de la frecuencia para los parámetros medidos.}
+    \label{fig:impedancia}
+\end{figure}
+
+La guía propone estimar el ancho de banda mediante la expresión
+
+\begin{equation}
+    \Delta f \approx
+    \frac{R_{\mathrm{total}}}{4\pi L}.
+    \label{eq:ancho_banda}
+\end{equation}
+
+Para la primera configuración, con una resistencia total de $62.02\,\Omega$, se obtiene
+
+\begin{equation}
+    \Delta f_1 \approx
+    \frac{62.02}{4\pi(54.9\times10^{-3})}
+    \approx 89.90\,\mathrm{Hz}.
+\end{equation}
+
+Para la segunda configuración, con una resistencia total de $102.02\,\Omega$, se obtiene
+
+\begin{equation}
+    \Delta f_2 \approx
+    \frac{102.02}{4\pi(54.9\times10^{-3})}
+    \approx 147.88\,\mathrm{Hz}.
+\end{equation}
+
+Estos valores corresponden a estimaciones teóricas obtenidas a partir de la expresión de la guía. El ancho de banda experimental debe determinarse a partir de la gráfica y de la definición utilizada para identificar sus frecuencias límite; por ello, no se considera medido directamente con los datos tabulados aquí.
+vspace{0.4cm}
+
+La hoja de cálculo también permite estimar el factor de calidad mediante la relación indicada en la guía,
+
+\begin{equation}
+    Q \approx \frac{f_{\mathrm{res}}}{2\Delta f}.
+\end{equation}
+
+Usando la frecuencia de resonancia teórica y los anchos de banda calculados, se obtienen aproximadamente $Q_1=2.77$ y $Q_2=1.68$. La reducción del factor de calidad al aumentar la resistencia total es coherente con una resonancia menos pronunciada y una curva de corriente más ancha.
 
 \subsection{Discusión general}
 
-En los cuatro montajes se observa una concordancia satisfactoria entre los valores teóricos y los medidos con el osciloscopio, con errores relativos que en la mayoría de los casos se mantienen por debajo del 5\,\%. Como era de esperarse para un circuito RC pasabajos, tanto $\phi_{teo}$ como $\phi_{exp}$ disminuyen a medida que aumenta la frecuencia (y, equivalentemente, disminuye $T$), lo que confirma cualitativamente el modelo $\tan\phi = T/(2\pi\tau)$ empleado para el ajuste.
+Los datos experimentales muestran el comportamiento característico de un circuito RLC serie resonante: la corriente eficaz alcanza una región de máximo cerca de la frecuencia para la cual las reactancias inductiva y capacitiva se compensan. La frecuencia de resonancia teórica calculada a partir de los valores medidos de inductancia y capacitancia fue de aproximadamente $497.79\,\mathrm{Hz}$, mientras que la estimación experimental basada en el centro de los intervalos de corriente máxima fue de $488.5\,\mathrm{Hz}$. La diferencia relativa entre ambos valores fue de aproximadamente $1.87\%$.
 \vspace{0.4cm}
 
-La principal fuente de error en los cuatro casos es de tipo instrumental y no un desajuste del modelo: al tratarse de lecturas hechas sobre el retículo de la pantalla (conteo de subdivisiones $n$, $m$ o número de divisiones ocupadas por la señal), el error relativo tiende a ser mayor cuando el número de subdivisiones contadas es pequeño (p. ej. datos 1, 3 y 13 de la Tabla \ref{tab:desfase}, con error entre 4.6\,\% y 5.6\,\%), pues allí una unidad de conteo mal apreciada pesa proporcionalmente más sobre el resultado. A esto se suma el error de sincronismo al fijar la forma de onda en la pantalla y la tolerancia propia de la resistencia y el capacitor utilizados, que afecta directamente el valor de $\tau_{teo}=RC$ tomado como referencia.
-\vspace{0.3cm}
+También se observó que el aumento de la resistencia externa reduce la corriente máxima, de aproximadamente $49.2\,\mathrm{mA}$ a $31.6\,\mathrm{mA}$. Esto es consistente con la dependencia de la corriente respecto a la impedancia total del circuito. Asimismo, el ancho de banda teórico calculado para la resistencia total mayor fue superior al correspondiente a la resistencia menor, en concordancia con la relación indicada en la guía.
+\vspace{0.4cm}
 
-El error del 4.10\,\% entre $\tau_{teo}$ y $\tau_{exp}$ es consistente con esta acumulación de incertidumbres de lectura y confirma que el osciloscopio, usado como medidor de desfase, permite determinar la constante de tiempo de un circuito RC con una exactitud razonable.
+Las diferencias entre los resultados teóricos y experimentales pueden estar relacionadas con la resolución de las mediciones de frecuencia y corriente, la precisión de los instrumentos y la incertidumbre asociada a los valores de inductancia y capacitancia. En particular, la repetición del valor máximo de corriente en varias frecuencias consecutivas impide identificar la resonancia experimental con la precisión de un único valor de frecuencia. Por ello, la frecuencia experimental reportada debe interpretarse como una estimación basada en los datos disponibles
