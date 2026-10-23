@@ -2,140 +2,120 @@
 
 \subsection{Procedimiento seguido para la toma de datos}
 
-Antes de armar el circuito, se midieron con el multímetro digital la resistencia
-interna de la fuente, la resistencia propia de la bobina, la inductancia de la
-bobina y la capacitancia del capacitor. Se registraron en la hoja de datos los
-valores obtenidos: $R_{\text{int.fuente}}=50\ \Omega$,
-$R_{\text{bobina}}=2{,}02\ \Omega$, $L=54{,}9\ \text{mH}$ y
-$C=1{,}862\ \mu\text{F}$. La resistencia interna de la fuente se consideró
-como un dato de fábrica del equipo.
+\begin{enumerate}
+    \item \textbf{Identificación de los diodos:} se identificaron el diodo de
+    silicio (1N5406) y el de germanio, y se reconocieron el ánodo (A) y el
+    cátodo (K) mediante la marca del cuerpo del diodo (banda del lado del
+    cátodo).
 
-Con los valores medidos de $L$ y $C$ se calculó la frecuencia de resonancia
-teórica del circuito:
-\[
-    f_0 = \frac{1}{2\pi\sqrt{LC}},
-\]
-cuyo valor de referencia fue aproximadamente $498\ \text{Hz}$.
+    \item \textbf{Observación del funcionamiento:} se armó el circuito de la
+    Fig.~1A (polarización directa) con el diodo de Si en serie con una bombilla
+    de 12 V. Se aumentó el voltaje de la fuente y se registraron el voltaje de
+    la fuente $E$, el del diodo $V_D$ y el de la bombilla $V_B$ para
+    $E=3{,}0$ V, $7{,}5$ V y $10{,}0$ V. Se verificó la segunda regla de
+    Kirchhoff comparando $E$ con $V_D+V_B$ y calculando el porcentaje de error.
+    Luego se invirtió el diodo (Fig.~1B, polarización inversa) y se repitió el
+    procedimiento. Todo se repitió con el diodo de germanio.
 
-Se armó el circuito RLC serie mostrado en la Fig.~3, conectando en serie el
-generador de señales, un amperímetro, el capacitor $C$, la bobina $L$ y una
-resistencia externa variable $R_{\text{ext}}$. La amplitud de la señal del
-generador se mantuvo constante durante todo el ensayo. Figure~\ref{fig:montaje-visual} and Figure~\ref{fig:montaje-ensamble} show the
-general layout of the experimental setup and the assembled circuit,
-respectively.
+    \item \textbf{Curva característica en polarización directa:} se armó el
+    circuito de la Fig.~2 con el diodo de Si, una resistencia de $100\ \Omega$
+    en serie (que limita la corriente para proteger el diodo) y un
+    potenciómetro. Se fijó la fuente en $2{,}5$ V y se varió el potenciómetro,
+    midiendo en cada punto la corriente $I$ (mA) con el amperímetro y la
+    diferencia de potencial $V$ (V) en el diodo con el voltímetro.
+
+    \item \textbf{Curva característica en polarización inversa:} se armó el
+    circuito de la Fig.~3, con el cátodo hacia el polo positivo de la fuente y
+    un picoamperímetro en serie para medir las corrientes inversas, que son del
+    orden de nA o $\mu$A. Se varió el voltaje de la fuente (0--30 V) y se
+    registraron $V$ e $I$. No se requiere resistencia en serie porque la
+    corriente inversa es muy pequeña.
+
+    \item \textbf{Diodo de germanio:} se repitieron los pasos 3 y 4 con el
+    diodo de Ge.
+
+    \item \textbf{Medición de corrientes (segunda aproximación):} con $E=10$ V
+    y $R=100\ \Omega$, se midió la corriente experimental en polarización
+    directa y en inversa para compararla con el valor teórico
+    \[
+        i_{\text{teo}}=\frac{E-V_D}{R},
+    \]
+    con $V_D=0{,}7$ V, y con $i_{\text{teo}}=0$ en inversa.
+
+    \item Se midió la temperatura ambiente ($^\circ$C), se convirtió a kelvin
+    ($T_K=T_C+273$) y se calculó $V_T=T_K/11600$. Con los datos de ambas
+    polarizaciones se graficó $I$ vs.\ $V$ en una misma gráfica para cada diodo
+    y se comparó con la ecuación
+    \[
+        I=I_S\left(e^{V/\eta V_T}-1\right).
+    \]
+\end{enumerate}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.95\textwidth]{visual.jpeg}
-    \caption{Vista general de los instrumentos y del montaje experimental.}
-    \label{fig:montaje-visual}
+    \includegraphics[width=0.9\textwidth]{Armado1.jpeg}
+    \caption{Montaje experimental para la medición de las características
+    del diodo.}
+    \label{fig:armado1}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[height=0.55\textheight,keepaspectratio]{Ensamble.jpeg}
-    \caption{Detalle del circuito RLC ensamblado para las mediciones.}
-    \label{fig:montaje-ensamble}
+    \includegraphics[width=0.9\textwidth]{Armado2.jpeg}
+    \caption{Montaje experimental}
+    \label{fig:armado2}
 \end{figure}
 
-Para el primer montaje se fijó $R_{\text{ext}}=10\ \Omega$. La resistencia
-total se calculó como
-\[
-    R_{\text{total}} =
-    R_{\text{ext}} + R_{\text{int.fuente}} + R_{\text{bobina}}
-    = 62{,}02\ \Omega.
-\]
-Se varió la frecuencia del generador desde $300\ \text{Hz}$ y se midió la
-corriente eficaz $I_{\text{rms}}$ (mA) con el amperímetro en cada frecuencia.
-Las lecturas se tomaron con mayor separación lejos de la resonancia y con
-incrementos progresivamente menores al aproximarse al máximo de corriente,
-para caracterizar con más detalle la región de resonancia.
+\subsection{Variables medidas directamente}
 
-El procedimiento se repitió para un segundo montaje con
-$R_{\text{ext}}=50\ \Omega$, para el cual
-$R_{\text{total}}=102{,}0\ \Omega$. Las mediciones de este montaje se
-registraron en la Tabla No.~2.
-
-Con los datos de ambos montajes se graficó $I_{\text{rms}}$ (mA) en función de
-la frecuencia $f$ (Hz), representando ambas curvas en una misma gráfica. Para
-cada curva se identificó la frecuencia correspondiente a la corriente máxima.
-Cuando el máximo quedó entre dos frecuencias medidas, se estimó su posición
-experimental mediante el punto medio de dichas frecuencias; luego se promediaron
-las estimaciones de ambos montajes para obtener la frecuencia de resonancia
-experimental.
-
-A partir de las mismas mediciones se calculó la impedancia para cada frecuencia
-mediante
-\[
-    Z = \frac{\varepsilon}{I},
-\]
-donde $\varepsilon$ es la amplitud constante de la señal del generador y $I$ es
-la corriente medida. Se graficó $Z$ ($\Omega$) en función de $f$ (Hz) y se
-verificó la presencia de un mínimo en la región de resonancia.
-
-Finalmente, para cada valor de resistencia se estimó el ancho de banda
-experimental y el factor de calidad utilizando
-\[
-    \Delta f \approx \frac{R_{\text{total}}}{4\pi L},
-    \qquad
-    Q = \frac{f_0}{2\Delta f}.
-\]
-También se calculó la resistencia crítica
-\[
-    R_c = 2\sqrt{\frac{L}{C}},
-\]
-y se comparó cada $R_{\text{total}}$ con $R_c$ para verificar que el circuito
-operara en el régimen de oscilación amortiguada. La frecuencia de resonancia
-experimental se comparó con la teórica mediante el porcentaje de error.
-
-\subsection{Variables del experimento}
-
-\textbf{Variables medidas directamente:}
 \begin{itemize}
-    \item Las resistencias interna de la fuente, propia de la bobina y externa
-    $R_{\text{ext}}$ ($\Omega$), medidas con el multímetro digital.
-    \item La inductancia $L$ (mH) y la capacitancia $C$ ($\mu$F), medidas con el
-    multímetro digital.
-    \item La corriente eficaz $I_{\text{rms}}$ (mA), medida con el amperímetro
-    para cada frecuencia $f$ (Hz indicada en el generador de señales).
+    \item Voltaje de la fuente $E$, del diodo $V_D$ y de la bombilla $V_B$
+    (V), con el voltímetro digital.
+    \item Corriente directa $I$ (mA), con el amperímetro digital en la escala
+    de 200 mA.
+    \item Corriente inversa (nA o $\mu$A), con el picoamperímetro.
+    \item Temperatura ambiente ($^\circ$C).
 \end{itemize}
 
-\textbf{Variables obtenidas indirectamente:}
+\subsection{Variables obtenidas indirectamente}
+
 \begin{itemize}
-    \item La frecuencia de resonancia teórica, calculada como
-    $f_0=1/(2\pi\sqrt{LC})$.
-    \item La resistencia total del circuito y la resistencia crítica
-    $R_c=2\sqrt{L/C}$, utilizadas para verificar el régimen de oscilación
-    amortiguada ($R_{\text{total}}<R_c$).
-    \item La impedancia $Z$ ($\Omega$) en función de la frecuencia, calculada a
-    partir de $Z=\varepsilon/I$.
-    \item El ancho de banda $\Delta f$ y el factor de calidad $Q$ para cada
-    resistencia total.
-    \item La frecuencia de resonancia experimental, estimada a partir de las
-    frecuencias que delimitan el máximo de corriente y promediada entre ambos
-    montajes, junto con su porcentaje de error respecto del valor teórico.
+    \item Suma $V_D+V_B$ y su porcentaje de error respecto a $E$ (verificación
+    de la segunda regla de Kirchhoff).
+    \item Corriente teórica $i_{\text{teo}}=(E-V_D)/R$ y su porcentaje de
+    error respecto a la experimental.
+    \item Temperatura en kelvin y voltaje térmico $V_T=T_K/11600$.
+    \item Corriente de saturación inversa $I_S$ y factor de idealidad $\eta$,
+    a partir del ajuste de la curva a la ecuación del diodo.
 \end{itemize}
 
-\subsection{Consideraciones y fuentes de error}
+\subsection{Datos asumidos conocidos}
 
-El barrido de frecuencias, con una mayor densidad de puntos cerca de la
-resonancia, permite ubicar con mayor precisión el máximo de corriente y
-construir la curva característica para calcular el ancho de banda y compararla
-con el modelo teórico de impedancia. Sin embargo, la determinación experimental
-de $f_0$ depende de la resolución del generador de señales y de la estabilidad
-de la lectura del amperímetro cerca del pico. En particular, pequeñas
-variaciones de frecuencia pueden producir cambios apreciables en la corriente
-para $R_{\text{ext}}=10\ \Omega$, montaje que presenta menor amortiguamiento y
-mayor factor de calidad.
-
-Las fuentes de error consideradas más relevantes fueron:
 \begin{itemize}
-    \item La tolerancia y las variaciones reales de $L$ y $C$ respecto de sus
-    valores nominales, que afectan directamente el valor teórico de $f_0$.
-    \item La resolución del generador de señales al fijar la frecuencia durante
-    el barrido.
-    \item La precisión del amperímetro, especialmente al medir corrientes
-    pequeñas lejos de la resonancia.
-    \item La resistencia de contacto de los cables, la caja de conexiones y la
-    caja de resistencias, que no se incluye en el modelo ideal del circuito.
+    \item Valor nominal de la resistencia en serie ($100\ \Omega$).
+    \item Voltaje de barrera de 0,7 V para el silicio (segunda aproximación).
+    \item $\eta=2$ para las primeras décimas de voltio y $\eta=1$ para valores
+    grandes en el silicio, y $\eta=1$ en el germanio, según la guía.
+\end{itemize}
+
+\subsection{Virtudes y limitaciones del diseño experimental}
+
+El diseño permite estudiar el diodo en ambas polarizaciones con instrumentos
+de bajo costo, y el uso del picoamperímetro hace medibles las corrientes
+inversas, que un multímetro común no detectaría. También permite contrastar
+directamente los dos materiales con el mismo procedimiento. Como limitaciones,
+el voltaje del diodo en polarización directa varía muy rápido cerca de la zona
+de conducción, por lo que el potenciómetro debe ajustarse con cuidado para
+tomar suficientes puntos. Además, las corrientes inversas son muy pequeñas y
+sensibles al ruido y a la temperatura.
+
+\subsection{Fuentes de error más críticas}
+
+\begin{itemize}
+    \item Resolución del potenciómetro, que limita la cantidad de puntos cerca
+    del codo de la curva.
+    \item Precisión de los multímetros y del picoamperímetro, especialmente
+    en las escalas más bajas.
+    \item Calentamiento del diodo y de la resistencia al circular corrientes
+    altas, que modifica sus características durante la medición.
 \end{itemize}
