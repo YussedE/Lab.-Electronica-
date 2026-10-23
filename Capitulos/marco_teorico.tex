@@ -1,383 +1,288 @@
 ﻿\section{Marco Teórico}
 
-\subsection{Circuito RLC serie}
+\subsection{Conductores eléctricos}
 
-Un circuito \textbf{RLC serie} está formado por tres elementos pasivos (es decir, que no pueden generar, amplificar ni controlar de forma activa la energía eléctrica por sí mismos; solo pueden absorberla, almacenarla y liberarla) conectados uno detrás de otro: 
+Son materiales que ofrecen poca resistencia al movimiento de la carga eléctrica. Sus \textbf{átomos} se caracterizan por tener pocos electrones en su \textbf{capa de valencia}, por lo que no se necesita mucha energía para que estos salten de un átomo a otro.
+
+También se considera conductor eléctrico a cualquier cuerpo formado por \textbf{materia eléctricamente conductora}. Se distinguen dos tipos principales de conductores:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images.png}
+    \caption{Representación del electrón de valencia en un átomo conductor.}
+    \label{fig:atomo_valencia}
+\end{figure}
 
 \begin{itemize}
-    \item \textbf{R:} Resistencia $R$
-    \item \textbf{L:} Inductancia $L$
-    \item \textbf{C:} Capacitancia $C$
-    \item Una fuente de tensión alterna $v(t)$
+    \item \textbf{Conductor Homogéneo:} Son aquellos materiales o cables eléctricos cuya conductividad y composición son uniformes en todos sus puntos.
+    \item \textbf{Conductor Combinado:} (O conductor bimetálico/compuesto) Son aquellos fabricados mediante la combinación de dos materiales diferentes (por ejemplo, aluminio y acero, o cobre y acero) para aprovechar las propiedades mecánicas de uno y las eléctricas del otro.
 \end{itemize}
 
-Dado que están conectados en serie, existe una caracterización fundamental regida por la conservación de la carga, lo que implica que la corriente es la misma en todos los componentes:
-
-\begin{equation}
-    i_{R}(t) = i_{L}(t) = i_{C}(t) = i(t)
-\end{equation}
-
-Es decir, \textbf{la misma corriente instantánea atraviesa los tres elementos.} Esto es fundamental porque, aunque la corriente sea la misma, el voltaje en cada elemento no está necesariamente en fase con ella \cite{REF_1}.
-
-\begin{figure}[htbp]
+\begin{table}[h]
     \centering
-    \begin{circuitikz}[american, scale=1.2, transform shape]
-        % Fuente senoidal a la izquierda, luego R, L, C en serie
-        \draw (0,0) to[sinusoidal voltage source, l=$v_s(t)$, invert] (0,3)
-              to[short, i=$i(t)$] (1.5,3)
-              to[R, l=$R$, v=$v_R$] (4.5,3)
-              to[L, l=$L$, v=$v_L$] (7.5,3)
-              to[C, l=$C$, v=$v_C$] (7.5,0)
-              to[short] (0,0);
-    \end{circuitikz}
-    \caption{Diagrama esquemático de un circuito RLC en serie.}
-    \label{fig:circuit_RLC}
-\end{figure}
-
-La fase relativa entre la corriente y la fuerza electromotriz (FEM) no es evidente cuando los tres elementos están presentes. En consecuencia, representamos la corriente mediante la expresión general:
-
-\begin{equation}
-    i(t) = I_{0}\sin(\omega t - \phi)
-\end{equation}
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.8\textwidth]{imagenes/CIrcuito_RLC_serie.png}
-    \caption{Desfase entre corriente y voltaje en un circuito RLC serie.}
-    \label{fig:desfase_rlc}
-\end{figure}
-Donde $I_0$ es la amplitud de la corriente y $\phi$ es el \textbf{ángulo de fase} entre la corriente y el voltaje aplicado. Por tanto, el ángulo de fase representa la diferencia de fase entre el voltaje y la corriente en el circuito.
-
-Un diagrama fasorial que incluya $i(t)$, $v_R(t)$, $v_C(t)$ y $v_L(t)$ resulta útil para analizar el comportamiento del circuito. Como se muestra en la Figura \ref{fig:diagrama_fasorial_rlc}, el fasor que representa a $v_R(t)$ apunta en la misma dirección que el fasor correspondiente a $i(t)$, y su amplitud está dada por
-
-$$
-V_R = I_0R.
-$$
-
-El fasor correspondiente a $v_C(t)$ se retrasa $\pi/2$ rad respecto al fasor de $i(t)$ y tiene una amplitud
-
-$$
-V_C = I_0X_C.
-$$
-
-Por otro lado, el fasor que representa a $v_L(t)$ se adelanta $\pi/2$ rad respecto al fasor de $i(t)$ y presenta una amplitud
-
-$$
-V_L = I_0X_L.
-$$
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.7\textwidth]{Imagenes/diagrama_fasorial_rlc.png}
-    \caption{Diagrama fasorial de voltajes y corriente en un circuito RLC en serie. 
-    Fuente: adaptado de OpenStax, \textit{Física Universitaria Volumen 2}, Sección 15.3.}
-    \label{fig:diagrama_fasorial_rlc}
-\end{figure}
-
-\subsection{Comportamiento de cada elemento}
-
-Para entender el circuito \textbf{RLC} completo, primero es necesario comprender el comportamiento individual de cada componente.
-
-\subsubsection{Resistencia}
-
-Para una resistencia, la relación fundamental viene dada por la ley de Ohm:
-\begin{equation}
-    V_{R} = IR
-\end{equation}
-
-La tensión y la corriente están en fase. Esto significa que cuando la corriente alcanza su valor máximo, el voltaje también lo hace. Además, la resistencia es el único elemento que \textbf{disipa energía} en forma de calor mediante el efecto Joule:
-\begin{equation}
-    P_{R} = I_{\text{rms}}^{2}R
-\end{equation}
-
-\subsubsection{Inductor}
-
-Un inductor almacena energía en un campo magnético. Su relación tensión-corriente fundamental es:
-\begin{equation}
-    \boxed{V_{L} = L\frac{di}{dt}}
-\end{equation}
-
-Si la corriente alterna se define como:
-\begin{equation}
-    i(t) = I_{0}\sin(\omega t)
-\end{equation}
-
-Entonces el voltaje resulta en:
-\begin{equation}
-    V_{L} = V_{L0}\sin(\omega t + 90^{\circ})
-\end{equation}
-
-Por lo tanto, como se observa en la \ref{fig:diagrama_fasorial_rlc}, en un inductor el voltaje adelanta a la corriente en $90^{\circ}$.
-
-La reactancia inductiva se define como:
-\begin{equation}
-    X_{L} = 2\pi f L
-\end{equation}
-
-De este modo, la reactancia inductiva es directamente proporcional a la frecuencia ($X_{L} \propto f$). Es decir, el inductor ofrece una mayor oposición al paso de la corriente a medida que aumenta la frecuencia de la señal.
-
-\subsubsection{Capacitor}
-
-El capacitor almacena energía en un campo eléctrico. Su ecuación fundamental es:
-\begin{equation}
-    \boxed{i = C\frac{dV}{dt}}
-\end{equation}
-
-En este componente ocurre lo contrario que en el inductor: \textbf{la corriente adelanta al voltaje en $90^{\circ}$}.
-
-La reactancia capacitiva se define como:
-\begin{equation}
-    X_{C} = \frac{1}{2\pi f C}
-\end{equation}
-
-Por lo tanto, la reactancia capacitiva es inversamente proporcional a la frecuencia ($X_{C} \propto \frac{1}{f}$). Esto significa que el condensador ofrece cada vez menos oposición al paso de la corriente a medida que aumenta la frecuencia.
-
-\subsection{Idea Fundamental Circuito RLC}
-
-Podemos definir la reactancia neta: 
-
-\begin{equation}
-   \boxed{ 
-   X = X_{L} - X_{C}
-   }
-\end{equation}
-
-Es decir: 
-
-\begin{equation}
-    \boxed{
-        X = \omega L - \frac{1}{\omega C}
-    }
-\end{equation}
-
-Donde tenemos tres casos posibles. 
-
-\begin{enumerate}
-    \item \textbf{Caso 1:} $X_{L} < X_{C}$ El circuito se comporta predominantemente como capacitivo $X < 0$ la corriente adelanta al voltaje.
-    \item \textbf{Caso 2:} $X_{L} > X_{C}$ El circuito se comporta predominantemente como inductivo $X > 0$ la corriente se retrasa respecto al voltaje.
-    \item \textbf{Caso 3:} $ X_{L} = X_{C}$ X Condiciones de resonancia $ X = 0$ 
-\end{enumerate}
-
-\subsection{Impedancia en un circuito RLC serie}
-
-En un circuito de corriente alterna, la oposición al paso de la corriente no depende únicamente de la resistencia eléctrica, sino también de la presencia de elementos inductivos y capacitivos. Por esta razón, se introduce la impedancia, una magnitud que describe la oposición total que presenta el circuito al paso de la corriente alterna y que tiene en cuenta tanto la amplitud como la diferencia de fase entre la tensión y la corriente.
-
-Para un circuito RLC serie, la magnitud de la impedancia está dada por
-
-\begin{equation}
-    \boxed{
-        Z = \sqrt{R^2 + \left(\omega L - \frac{1}{\omega C}\right)^2}
-    }
-    \label{eq:impedancia_rlc}
-\end{equation}
-
-donde $R$ es la resistencia total del circuito, $L$ la inductancia, $C$ la capacitancia y $\omega$ la frecuencia angular de la señal aplicada. Las reactancias inductiva y capacitiva se definen, respectivamente, como
-
-\begin{equation}
-    X_L = \omega L,
-    \qquad
-    X_C = \frac{1}{\omega C}.
-\end{equation}
-
-Por tanto, la impedancia también puede expresarse como
-
-\begin{equation}
-    \boxed{
-        Z = \sqrt{R^2 + (X_L-X_C)^2}
-    }
-\end{equation}
-
-La impedancia no se obtiene mediante la suma directa de la resistencia y las dos reactancias, es decir, $Z \neq R+X_L+X_C$. Esto se debe a que la resistencia y las reactancias representan contribuciones eléctricas con relaciones de fase diferentes. En el análisis fasorial, la resistencia corresponde a la componente real de la impedancia, mientras que la diferencia entre las reactancias inductiva y capacitiva constituye su componente imaginaria. En consecuencia, la magnitud de la impedancia se obtiene mediante la combinación geométrica de ambas componentes.
-
-Aplicando la ley de Ohm en corriente alterna, la corriente eficaz del circuito se relaciona con la tensión eficaz de la fuente mediante
-
-\begin{equation}
-    \boxed{
-        I_{\mathrm{rms}} = \frac{V_{\mathrm{rms}}}{Z}
-    }
-    \label{eq:ley_ohm_rlc}
-\end{equation}
-
-De esta expresión se deduce que, para una tensión eficaz constante, un aumento de la impedancia produce una disminución de la corriente eficaz. Por el contrario, cuando la impedancia disminuye, la corriente aumenta. Este comportamiento permite comprender por qué la corriente alcanza un valor máximo en la condición de resonancia de un circuito RLC serie ideal.
-
-\subsection{Ángulo de fase y frecuencia de resonancia}
-
-En un circuito RLC serie, la tensión de la fuente y la corriente pueden presentar una diferencia de fase debido a la presencia de la inductancia y la capacitancia. Esta diferencia se describe mediante el ángulo de fase $\phi$, que puede determinarse a partir del diagrama fasorial del circuito, como se muestra en la Figura~\ref{fig:diagrama_fasorial_rlc}. Su relación con los parámetros eléctricos está dada por
-
-\begin{equation}
-    \boxed{
-        \tan(\phi) = \frac{X_L-X_C}{R}
-    }
-    \label{eq:angulo_fase_rlc}
-\end{equation}
-
-De manera equivalente, el ángulo de fase puede expresarse como
-
-\begin{equation}
-    \phi = \arctan\left(\frac{X_L-X_C}{R}\right).
-\end{equation}
-
-Cuando $X_L>X_C$, predomina el comportamiento inductivo y la corriente se retrasa respecto a la tensión. En cambio, cuando $X_C>X_L$, predomina el comportamiento capacitivo y la corriente se adelanta respecto a la tensión.
-
-La resonancia eléctrica en un circuito RLC serie ocurre cuando las reactancias inductiva y capacitiva tienen la misma magnitud:
-
-\begin{equation}
-    X_L=X_C.
-\end{equation}
-
-Al sustituir las expresiones de ambas reactancias, se obtiene
-
-\begin{equation}
-    \omega L = \frac{1}{\omega C}.
-\end{equation}
-
-Despejando la frecuencia angular, resulta
-
-\begin{equation}
-    \boxed{
-        \omega_0 = \frac{1}{\sqrt{LC}}
-    }
-    \label{eq:frecuencia_angular_resonancia}
-\end{equation}
-
-Dado que la frecuencia angular se relaciona con la frecuencia mediante $\omega_0=2\pi f_0$, la frecuencia de resonancia teórica está dada por
-
-\begin{equation}
-    \boxed{
-        f_0 = \frac{1}{2\pi\sqrt{LC}}
-    }
-    \label{eq:frecuencia_resonancia}
-\end{equation}
-
-En la condición de resonancia, las contribuciones inductiva y capacitiva se cancelan en la impedancia. Por consiguiente, para un circuito RLC serie ideal, la impedancia alcanza su valor mínimo, $Z=R$, y el ángulo de fase es nulo, $\phi=0$. En estas condiciones, la tensión de la fuente y la corriente están en fase y, si la tensión eficaz permanece constante, la corriente eficaz alcanza su valor máximo.
-
-\subsection{Intercambio de energía en el circuito RLC}
-
-El comportamiento resonante también puede interpretarse a partir del almacenamiento y la transferencia de energía entre el campo eléctrico del capacitor y el campo magnético del inductor. La energía almacenada en un capacitor de capacitancia $C$, cuando la diferencia de potencial entre sus terminales es $V_C$, está dada por
-
-\begin{equation}
-    \boxed{
-        U_C = \frac{1}{2}CV_C^2
-    }
-    \label{eq:energia_capacitor}
-\end{equation}
-
-Por su parte, la energía almacenada en un inductor de inductancia $L$, cuando circula una corriente $i_L$, es
-
-\begin{equation}
-    \boxed{
-        U_L = \frac{1}{2}Li_L^2
-    }
-    \label{eq:energia_inductor}
-\end{equation}
-
-En un circuito LC ideal, la energía puede intercambiarse periódicamente entre el capacitor y el inductor: el capacitor almacena energía en su campo eléctrico y, durante la descarga, la corriente genera un campo magnético en el inductor. Posteriormente, la energía magnética puede contribuir a recargar el capacitor con polaridad opuesta, repitiéndose el proceso.
-
-En un circuito RLC real, parte de la energía se disipa en forma de calor debido a la resistencia eléctrica. Por ello, el intercambio de energía entre los elementos reactivos no es completamente conservativo. Cuando existe una fuente alterna, esta suministra energía al circuito y puede compensar la energía disipada, manteniendo las oscilaciones eléctricas. La respuesta del circuito depende de la frecuencia de excitación y alcanza su condición de resonancia cuando se igualan las magnitudes de las reactancias inductiva y capacitiva.
-
-\subsection{Analogía mecánica del circuito RLC}
-
-El comportamiento de un circuito RLC serie puede compararse con el de un sistema mecánico formado por una masa, un resorte y un amortiguador. Esta analogía permite interpretar la resonancia eléctrica mediante conceptos conocidos de oscilaciones mecánicas.
-
-\begin{table}[htbp]
-    \centering
-    \caption{Analogía entre un circuito RLC serie y un sistema masa-resorte-amortiguador.}
-    \label{tab:analogia_mecanica}
-    \begin{tabular}{|l|l|}
+    \caption{Resistividad de los conductores más comunes a $20\,^{\circ}\text{C}$}
+    \label{tab:conductores}
+    \begin{tabular}{|l|c|c|}
         \hline
-        \textbf{Sistema mecánico} & \textbf{Circuito RLC serie} \\ \hline
-        Masa $m$ & Inductancia $L$ \\ \hline
-        Constante elástica $k$ & Inverso de la capacitancia $1/C$ \\ \hline
-        Amortiguamiento viscoso $b$ & Resistencia $R$ \\ \hline
-        Fuerza externa & Tensión de la fuente $V(t)$ \\ \hline
-        Velocidad $v(t)$ & Corriente $i(t)$ \\ \hline
-        Desplazamiento $x(t)$ & Carga eléctrica $q(t)$ \\ \hline
-        Frecuencia natural $\sqrt{k/m}$ & Frecuencia angular $1/\sqrt{LC}$ \\ \hline
+        \textbf{Material} & \textbf{Símbolo} & \textbf{Resistividad ($\times 10^{-8} \ \Omega \cdot \text{m}$)} \\ \hline
+        Plata    & Ag & 1.64  \\ \hline
+        Cobre    & Cu & 1.72  \\ \hline
+        Oro      & Au & 2.45  \\ \hline
+        Aluminio & Al & 2.82  \\ \hline
+        Hierro   & Fe & 8.90  \\ \hline
+        Estaño   & Sn & 11.50 \\ \hline
+        Grafito  & C  & 60.00 \\ \hline
     \end{tabular}
 \end{table}
 
-En esta correspondencia, la inductancia representa la inercia del sistema, ya que se opone a los cambios de corriente, mientras que el capacitor se comporta de manera análoga al resorte, pues su tensión depende de la carga almacenada. La resistencia representa el amortiguamiento mecánico, dado que disipa energía y limita la amplitud de la respuesta. Finalmente, la fuente de tensión desempeña un papel análogo al de una fuerza externa que excita el sistema.
+\subsection{Aislantes eléctricos}
+
+Son materiales que presentan una gran resistencia al movimiento de la carga eléctrica, impidiendo el flujo libre de los electrones. Sus \textbf{átomos} se caracterizan por tener sus \textbf{capas de valencia} completas o casi llenas, lo que genera una fuerza de atracción nuclear muy intensa sobre los electrones, requiriendo niveles extremadamente altos de energía para moverlos.
+
+También se conocen como dieléctricos y son fundamentales para la seguridad y confinamiento de la corriente. Se distinguen dos categorías según su origen y aplicación:
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{aislante_atomo.png}
+    \caption{Estructura atómica de un aislante con su capa de valencia completa, impidiendo el flujo de electrones.}
+    \label{fig:atomo_aislante}
+\end{figure}
+
+
+\begin{itemize}
+    \item \textbf{Aislantes Sólidos:} Son materiales compactos de alta rigidez dieléctrica que se utilizan para recubrir o soportar físicamente las estructuras conductoras (por ejemplo, el vidrio, la cerámica o polímeros como el PVC).
+    \item \textbf{Aislantes Líquidos o Gaseosos:} Son fluidos utilizados en aplicaciones industriales de alta potencia, como transformadores, para aislar y disipar calor de forma simultánea (por ejemplo, el aceite mineral o el gas hexafluoruro de azufre).
+\end{itemize}
+
+\begin{table}[h]
+    \centering
+    \caption{Resistividad de los aislantes más comunes a $20\,^{\circ}\text{C}$}
+    \label{tab:aislantes}
+    \begin{tabular}{|l|c|c|}
+        \hline
+        \textbf{Material} & \textbf{Fórmula / Tipo} & \textbf{Resistividad ($\Omega \cdot \text{m}$)} \\ \hline
+        Agua destilada & H$_2$O & $2 \times 10^{5}$ \\ \hline
+        Vidrio         & SiO$_2$ (base) & $10^{10} - 10^{14}$ \\ \hline
+        Goma dura      & Polímero & $10^{13}$ \\ \hline
+        Azufre         & S & $10^{15}$ \\ \hline
+        Teflón         & (C$_2$F$_4$)$_n$ & $10^{22} - 10^{24}$ \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsection{Semiconductores eléctricos}
+
+Son materiales que poseen propiedades eléctricas intermedias entre los conductores y los aislantes. Sus \textbf{átomos} se caracterizan por tener exactamente cuatro electrones en su \textbf{capa de valencia}. Bajo condiciones normales actúan como aislantes, pero al recibir energía externa (calor, luz o un voltaje aplicado) o mediante el proceso de dopado, sus electrones pueden saltar con relativa facilidad a la banda de conducción.
+
+El Silicio es el elemento semiconductor más utilizado en la industria electrónica para la fabricación de diodos, transistores y circuitos integrados. Dependiendo de su pureza y tratamiento, se clasifican en dos tipos principales:
+
+\begin{itemize}
+    \item \textbf{Semiconductores Intrínsecos:} Son aquellos materiales que se encuentran en un estado puro, sin ningún tipo de impurezas en su estructura cristalina (como el silicio o germanio puros a temperatura ambiente).
+    \item \textbf{Semiconductores Extrínsecos:} Son aquellos que han sido modificados mediante la introducción deliberada de átomos de otros elementos (proceso de dopado) para alterar drásticamente su conductividad, dividiéndose en tipo P (aceptadores de electrones) y tipo N (donadores de electrones).
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{silicio_atomo.png}
+    \caption{Representación del modelo atómico del Silicio (Si) destacando sus cuatro electrones de valencia.}
+    \label{fig:atomo_silicio}
+\end{figure}
+
+\begin{table}[h]
+    \centering
+    \caption{Resistividad de los semiconductores más comunes a $20\,^{\circ}\text{C}$}
+    \label{tab:semiconductores}
+    \begin{tabular}{|l|c|c|}
+        \hline
+        \textbf{Material} & \textbf{Símbolo} & \textbf{Resistividad ($\Omega \cdot \text{m}$)} \\ \hline
+        Germanio & Ge & 0.46 \\ \hline
+        Silicio  & Si & $2.3 \times 10^{3}$ \\ \hline
+    \end{tabular}
+\end{table}
+
+
+\subsection{Semiconductores Intrínsecos y Equilibrio Térmico}
+Un semiconductor intrínseco define a un material semiconductor en su estado de máxima pureza química, libre de defectos estructurales o impurezas intencionadas en su red cristalina. A la temperatura del cero absoluto ($0\text{ K}$), el material se comporta como un aislante perfecto debido a que todos los electrones de valencia se encuentran confinados en los enlaces covalentes que configuran la estructura del cristal.
+
+Al incrementarse la temperatura ambiente ($T > 0\text{ K}$), la agitación térmica aporta la energía mínima necesaria para romper una fracción de estos enlaces covalentes. Este fenómeno físico provoca que un electrón adquiera la energía suficiente para superar la banda prohibida o \textit{bandgap} ($E_g$) y transite hacia la banda de conducción, transformándose en un electrón libre. Simultáneamente, la ausencia del electrón en el enlace covalente original genera una vacante con carga positiva neta en la banda de valencia, denominada mecánicamente como \textit{hueco}.
+
+Este mecanismo se conoce como generación térmica de pares electrón-hueco. Dado que cada electrón libre genera de manera unívoca un hueco, en condiciones de equilibrio térmico se establece que la densidad de electrones libres ($n$) es estrictamente igual a la densidad de huecos ($p$), e igual a la concentración intrínseca del portador ($n_i$):
+
+\begin{equation}
+n = p = n_i
+\end{equation}
+
+La concentración intrínseca es una propiedad intrínseca del material dependiente de la temperatura y de la magnitud de su banda prohibida, gobernada por la siguiente relación matemática:
+
+\begin{equation}
+n_i^2 = N_c N_v \exp\left(-\frac{E_g}{k_B T}\right)
+\end{equation}
+
+Donde $N_c$ y $N_v$ representan las densidades efectivas de estados en las bandas de conducción y valencia respectivamente, $k_B$ es la constante de Boltzmann y $T$ es la temperatura absoluta en Kelvin.
+
+\subsection{Semiconductores Extrínsecos: El Proceso de Dopaje}
+Debido a que la conductividad eléctrica de un semiconductor intrínseco es extremadamente baja a temperatura ambiente para aplicaciones prácticas, se recurre al proceso de dopaje. Este consiste en la introducción controlada de átomos de impurezas en la red cristalina para alterar deliberadamente las concentraciones de portadores de carga, dando origen a los semiconductores extrínsecos.
+
+\subsubsection{Semiconductores Tipo N (Negativo)}
+Se obtienen mediante la introducción de impurezas pentavalentes, es decir, átomos pertenecientes al Grupo V de la tabla periódica (tales como el Fósforo, $\text{P}$, o el Arsénico, $\text{As}$) en una matriz de silicio tetravalente. Al sustituir un átomo de silicio, la impureza emplea cuatro de sus electrones de valencia para consolidar los enlaces covalentes con los átomos adyacentes. El quinto electrón queda libre de enlace y requiere una energía de ionización muy baja para situarse en la banda de conducción.
+
+A estas impurezas se les denomina \textit{átomos donadores}. En consecuencia, en un semiconductor Tipo N, los \textbf{electrones libres} constituyen los portadores mayoritarios ($n \gg p$), mientras que los huecos pasan a ser los portadores minoritarios.
+
+\subsubsection{Semiconductores Tipo P (Positivo)}
+Se producen mediante la adición de impurezas trivalentes del Grupo III de la tabla periódica (como el Boro, $\text{B}$, o el Galio, $\text{Ga}$). Al insertarse en la estructura del silicio, el átomo dopante dispone únicamente de tres electrones, dejando uno de los cuatro enlaces covalentes vecino incompleto. Esta deficiencia electrónica genera un nivel de energía vacío estable que actúa como un \textit{hueco} capaz de aceptar un electrón de la banda de valencia.
+
+Estas impurezas reciben el nombre de \textit{átomos aceptores}. Por consiguiente, en un semiconductor Tipo P, los \textbf{huecos} representan los portadores mayoritarios ($p \gg n$), mientras que los electrones libres actúan como portadores minoritarios.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.75\textwidth]{imagenes/diagrama_masa_resorte.png}
-    \caption{Representación esquemática de un sistema mecánico masa-resorte-amortiguador.}
-    \label{fig:masa_resorte}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{dopaje_n.png}
+        \caption{Dopaje Tipo N: Átomo pentavalente (Fósforo) aportando un electrón libre a la red.}
+        \label{fig:dopaje_n}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{dopaje_p.png}
+        \caption{Dopaje Tipo P: Átomo trivalente (Boro) generando un hueco en la red covalente.}
+        \label{fig:dopaje_p}
+    \end{subfigure}
+    \caption{Representación bidimensional de la estructura cristalina del silicio modificado mediante dopaje extrínseco.}
+    \label{fig:dopajes_extrinsecos}
 \end{figure}
 
-\subsection{Factor de calidad}
+\subsection{La Unión P-N y la Región de Agotamiento}
+Cuando un cristal semiconductor Tipo P se une de manera atómica con un cristal Tipo N, se genera una interfaz crítica conocida como unión P-N. Debido al abrupto gradiente de concentración en la frontera, los electrones libres de la región N difunden hacia la región P, mientras que los huecos de la región P difunden hacia la región N. Este desplazamiento macroscópico de cargas provoca la combinación inmediata de electrones y huecos en las proximidades de la interfaz, proceso denominado \textit{recombinación}.
 
-El factor de calidad \(Q\) es un parámetro adimensional que permite caracterizar la selectividad de un circuito resonante y cuantificar la relación entre la energía almacenada y la energía disipada durante su funcionamiento. De acuerdo con la interpretación energética, se define como la razón entre la energía total almacenada en el sistema y la energía perdida por ciclo, multiplicada por \(2\pi\):
+Como consecuencia directa de la recombinación en la frontera:
+\begin{itemize}
+    \item Los átomos donadores en el lado N pierden su electrón libre y se transforman en \textbf{iones positivos fijos}.
+    \item Los átomos aceptores en el lado P capturan un electrón y se transforman en \textbf{iones negativos fijos}.
+\end{itemize}
 
-\begin{equation}
-    Q = 2\pi \frac{E}{\Delta E},
-    \label{eq:Q_energia}
-\end{equation}
+Esta transferencia espacial de carga despoja a la interfaz de sus portadores móviles, instaurando una zona desprovista de conducción denominada \textbf{región de agotamiento} (o región de carga espacial). Los iones fijos e inmóviles remanentes en esta zona inducen un campo eléctrico interno direccionado desde el lado N hacia el lado P. Este campo eléctrico genera una barrera de potencial invisible (aproximadamente $0.7\text{ V}$ para el silicio) que se opone de forma idónea a una mayor difusión de portadores mayoritarios, estableciendo un estado de equilibrio dinámico.
 
-donde \(E\) representa la energía almacenada y \(\Delta E\) corresponde a la energía disipada durante un ciclo. En un circuito RLC serie, la resistencia es responsable de las pérdidas de energía por efecto Joule, mientras que el inductor y el capacitor permiten almacenar e intercambiar energía mediante sus campos magnético y eléctrico, respectivamente \cite{REF_2}.
+\subsection{Regímenes de Polarización de la Unión P-N}
+El comportamiento eléctrico de la unión P-N se modifica drásticamente mediante la aplicación de una diferencia de potencial externa ($V_a$):
 
-Para un circuito RLC serie idealizado, alimentado por una fuente sinusoidal, el factor de calidad puede expresarse en función de la frecuencia angular de resonancia \(\omega_0\), la inductancia \(L\) y la resistencia total \(R\) como
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\textwidth]{region_agotamiento.png}
+    \caption{Diagrama esquemático de la unión P-N en equilibrio térmico, destacando la formación de la región de agotamiento poblada por iones fijos y el campo eléctrico interno resultante.}
+    \label{fig:region_agotamiento}
+\end{figure}
 
-\begin{equation}
-    Q = \frac{\omega_0 L}{R}.
-    \label{eq:Q_RLC}
-\end{equation}
 
-Puesto que la frecuencia angular de resonancia está relacionada con la inductancia y la capacitancia mediante
+\subsubsection{Polarización Directa}
+Ocurre al conectar el terminal positivo de una fuente externa a la región P y el terminal negativo a la región N ($V_a > 0$). El campo eléctrico externo se opone directamente al campo eléctrico interno de la unión. Esto reduce el ancho de la región de agotamiento y disminuye notablemente la barrera de potencial. Cuando el voltaje externo supera el potencial de barrera, los portadores mayoritarios adquieren la energía cinética suficiente para cruzar la unión en masa, permitiendo un flujo de corriente eléctrica de carácter exponencial.
 
-\begin{equation}
-    \omega_0 = \frac{1}{\sqrt{LC}},
-    \label{eq:omega_res_Q}
-\end{equation}
+\subsubsection{Polarización Inversa}
+Se presenta al conectar el terminal positivo de la fuente a la región N y el terminal negativo a la región P ($V_a < 0$). En este régimen, el campo eléctrico externo se alinea vectorialmente con el campo interno, atrayendo a los portadores mayoritarios hacia los extremos del dispositivo. Como resultado, la región de agotamiento se ensancha significativamente y la barrera de potencial aumenta de forma drástica, bloqueando el paso de los portadores mayoritarios.
 
-el factor de calidad también puede escribirse como
+La corriente total en este estado no es estrictamente cero; se manifiesta una corriente de magnitud minúscula (del orden de los nanoamperios) denominada \textit{corriente de saturación inversa} o corriente de fuga ($I_0$). Esta corriente se debe exclusivamente al arrastre de los portadores minoritarios a través de la unión, generados térmicamente en el material.
 
-\begin{equation}
-    Q = \frac{1}{R}\sqrt{\frac{L}{C}}.
-    \label{eq:Q_LC}
-\end{equation}
+\subsection{El Diodo Zener y el Fenómeno de Ruptura Inversa}
+Si el voltaje en polarización inversa se incrementa más allá de un límite crítico específico, conocido como voltaje de ruptura ($V_Z$), el campo eléctrico en la región de agotamiento alcanza una intensidad crítica capaz de arrancar electrones directamente de los enlaces covalentes (efecto Zener) o de acelerar electrones minoritarios con suficiente energía para ionizar otros átomos por impacto en cadena (efecto avalancha).
 
-En estas expresiones, \(R\) corresponde a la resistencia total efectiva del circuito, incluyendo las contribuciones resistivas relevantes de sus componentes y de la fuente. Por tanto, no debe confundirse necesariamente con la resistencia externa conectada durante el experimento.
+A diferencia de un diodo convencional de la unión P-N, el cual sufre una destrucción térmica irreversible bajo estas condiciones, el \textbf{diodo Zener} se fabrica con perfiles de dopaje altamente concentrados para operar de forma segura y continua dentro de esta región de ruptura inversa. Al alcanzar el potencial $V_Z$, la corriente inversa se incrementa de forma abrupta mientras que la caída de tensión en los terminales del dispositivo permanece prácticamente constante. Esta propiedad fundamental convierte al diodo Zener en el componente idóneo para aplicaciones de regulación de tensión y protección contra sobrevoltajes en sistemas electrónicos.
 
-Físicamente, un valor elevado de \(Q\) indica que las pérdidas de energía son relativamente pequeñas y que la respuesta del circuito está concentrada en un intervalo estrecho de frecuencias alrededor de la resonancia. Por el contrario, un valor reducido de \(Q\) corresponde a una respuesta resonante más amplia y menos selectiva. De acuerdo con la ecuación \eqref{eq:Q_RLC}, para valores constantes de \(L\) y \(C\), el factor de calidad disminuye al aumentar la resistencia total del circuito.
 
-El factor de calidad también puede relacionarse con el ancho de banda de la respuesta resonante. Si \(f_0\) es la frecuencia de resonancia y \(f_L\) y \(f_H\) son, respectivamente, las frecuencias inferior y superior de media potencia, el ancho de banda se define como
+\subsection{La Corriente de Saturación Inversa ($I_0$)}
+Como se estableció previamente, cuando una unión P-N se somete a un régimen de polarización inversa, el flujo de portadores mayoritarios queda bloqueado por el incremento de la barrera de potencial. No obstante, se manifiesta una corriente eléctrica residual de magnitud infinitesimal denominada \textit{corriente de saturación inversa} o corriente de fuga ($I_0$).
 
-\begin{equation}
-    \Delta f_{\mathrm{BW}} = f_H-f_L.
-    \label{eq:ancho_banda}
-\end{equation}
-
-Para un circuito RLC serie idealizado, el ancho de banda expresado en hertz está dado por
+Esta corriente es de naturaleza puramente térmica y es conducida exclusivamente por los portadores minoritarios (electrones libres en la región P y huecos en la región N) que son arrastrados a través de la región de agotamiento por el campo eléctrico aplicado. La relación matemática que gobierna la corriente total ($I$) en un diodo a lo largo de todos sus regímenes operativos viene descrita por la ecuación ideal de diodo de Shockley:
 
 \begin{equation}
-    \Delta f_{\mathrm{BW}} = \frac{R}{2\pi L}.
-    \label{eq:BW_RLC}
+I = I_0 \left( \exp\left(\frac{q V_a}{n k_B T}\right) - 1 \right)
 \end{equation}
 
-En consecuencia, el factor de calidad puede expresarse como la razón entre la frecuencia de resonancia y el ancho de banda:
+Donde $V_a$ representa el voltaje neto aplicado a los terminales del componente, $q$ es la carga elemental del electrón ($1.602 \times 10^{-19}\text{ C}$), $k_B$ representa la constante de Boltzmann, $T$ es la temperatura absoluta en Kelvin y $n$ define el factor de idealidad del semiconductor (cuyo valor oscila típicamente entre $1$ y $2$ dependiendo del material y del nivel de dopaje). Cuando el diodo está polarizado en inversa ($V_a < 0$), el término exponencial decrece exponencialmente hacia cero, haciendo que la corriente total se estabilice en el valor constante e inverso de $-I_0$.
 
-\begin{equation}
-    Q = \frac{f_0}{\Delta f_{\mathrm{BW}}}.
-    \label{eq:Q_BW}
-\end{equation}
+\subsection{Modelos de Aproximación Eléctrica del Diodo}
+Con la finalidad de simplificar el análisis y modelado matemático de los diodos de unión P-N en el diseño de circuitos prácticos, la curva característica exponencial real se simplifica mediante aproximaciones lineales por tramos.
 
-Las frecuencias \(f_L\) y \(f_H\) corresponden a los puntos en los cuales la potencia disipada en la resistencia es la mitad de su valor máximo. Debido a que la potencia es proporcional al cuadrado de la corriente eficaz, en dichos puntos se cumple
+\subsubsection{Primera Aproximación: Modelo del Diodo Ideal}
+La primera aproximación asume que el diodo se comporta de forma ideal, comportándose como un interruptor perfecto sin pérdidas de energía ni caídas de tensión internas:
+\begin{itemize}
+    \item \textbf{Polarización Directa ($V_a \geq 0$):} El componente actúa como un cortocircuito (interruptor cerrado), presentando una resistencia interna nula y una caída de voltaje de exactamente $0\text{ V}$.
+    \item \textbf{Polarización Inversa ($V_a < 0$):} El componente actúa como un circuito abierto (interruptor abierto), exhibiendo una resistencia infinita y permitiendo una corriente de fuga estrictamente igual a $0\text{ A}$.
+\end{itemize}
 
-\begin{equation}
-    I_{\mathrm{rms}} = \frac{I_{\mathrm{rms,max}}}{\sqrt{2}}.
-    \label{eq:media_potencia}
-\end{equation}
+La \ref{fig:primera_aproximacion} ilustra los circuitos equivalentes correspondientes a este modelo ideal elemental.
 
-Esta relación permite determinar experimentalmente el ancho de banda a partir de la curva de corriente eficaz en función de la frecuencia. En particular, un circuito con mayor factor de calidad presenta una curva de resonancia más estrecha, mientras que un circuito con menor factor de calidad presenta una curva más ancha.
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \begin{circuitikz}[scale=0.8]
+            \draw (0,0) to[battery2, l=$E$] (0,2)
+                  (0,2) to[short] (1,2)
+                  (1,2) to[short, -*] (1.5,2)
+                  (2,2) to[short, *-] (2.5,2)
+                  (2.5,2) to[R, l=$R$] (2.5,0)
+                  (2.5,0) -- (0,0);
+            \node[above] at (1.75,2) {Ideal};
+            \draw[red, thick] (1.5,2) -- (2,2); % Interruptor cerrado
+        \end{circuitikz}
+        \caption{Equivalente en Polarización Directa.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \begin{circuitikz}[scale=0.8]
+            \draw (0,0) to[battery2, l=$E$] (0,2)
+                  (0,2) to[short] (1,2)
+                  (1,2) to[short, -*] (1.5,2)
+                  (2.2,2.3) to[short, *-] (2.5,2) % Interruptor abierto
+                  (2.5,2) to[R, l=$R$] (2.5,0)
+                  (2.5,0) -- (0,0);
+            \node[above] at (1.75,2) {Ideal};
+        \end{circuitikz}
+        \caption{Equivalente en Polarización Inversa.}
+    \end{subfigure}
+    \caption{Modelos de circuito equivalentes para la primera aproximación (diodo ideal).}
+    \label{fig:primera_aproximacion}
+\end{figure}
 
-En la práctica del circuito RLC serie resonante, la comparación de las curvas obtenidas para diferentes valores de resistencia permite estudiar experimentalmente esta dependencia. Al aumentar la resistencia total, la corriente máxima disminuye y el ancho de banda aumenta, de acuerdo con las ecuaciones \eqref{eq:Q_RLC} y \eqref{eq:BW_RLC}. Por tanto, el factor de calidad constituye una magnitud útil para relacionar las pérdidas resistivas del circuito con la selectividad de su respuesta en frecuencia \cite{REF_2}.
+\subsubsection{Segunda Aproximación: Modelo de Caída de Tensión Constante}
+La segunda aproximación añade realismo al análisis al incorporar la existencia de la barrera de potencial intrínseca engendrada en la región de agotamiento (el potencial de contacto incorporado). Para silicio cristalino, este umbral se estipula de forma estándar en $0.7\text{ V}$.
+\begin{itemize}
+    \item \textbf{Polarización Directa ($V_a \geq 0.7\text{ V}$):} El diodo entra en régimen de conducción activa una vez que el potencial externo supera el umbral. Se modela matemáticamente como una \textbf{fuente de voltaje continua fija de $0.7\text{ V}$} opuesta a la fuente principal del lazo, en serie con un interruptor ideal cerrado.
+    \item \textbf{Polarización Inversa ($V_a < 0.7\text{ V}$):} Si el voltaje de la malla no logra vencer la barrera de energía, el diodo permanece apagado y se modela idénticamente como un circuito abierto (interruptor abierto).
+\end{itemize}
 
+Los circuitos eléctricos equivalentes de este modelo se exponen en la \ref{fig:segunda_aproximacion}.
 
-
-
-
-
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \begin{circuitikz}[scale=0.8]
+            \draw (0,0) to[battery2, l=$E$] (0,2)
+                  (0,2) to[battery2, l=$0.7\text{ V}$] (1.5,2) % Fuente de 0.7V
+                  (1.5,2) to[short] (2.5,2)
+                  (2.5,2) to[R, l=$R$] (2.5,0)
+                  (2.5,0) -- (0,0);
+        \end{circuitikz}
+        \caption{Equivalente en Polarización Directa.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \begin{circuitikz}[scale=0.8]
+            \draw (0,0) to[battery2, l=$E$] (0,2)
+                  (0,2) to[short] (1,2)
+                  (1,2) to[short, -*] (1.5,2)
+                  (2.2,2.3) to[short, *-] (2.5,2) % Interruptor abierto
+                  (2.5,2) to[R, l=$R$] (2.5,0)
+                  (2.5,0) -- (0,0);
+        \end{circuitikz}
+        \caption{Equivalente en Polarización Inversa.}
+    \end{subfigure}
+    \caption{Modelos de circuito equivalentes para la segunda aproximación (barrera de potencial).}
+    \label{fig:segunda_aproximacion}
+\end{figure}
 
 
 
