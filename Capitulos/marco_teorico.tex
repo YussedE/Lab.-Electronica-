@@ -74,7 +74,7 @@ También se conocen como dieléctricos y son fundamentales para la seguridad y c
 
 Son materiales que poseen propiedades eléctricas intermedias entre los conductores y los aislantes. Sus \textbf{átomos} se caracterizan por tener exactamente cuatro electrones en su \textbf{capa de valencia}. Bajo condiciones normales actúan como aislantes, pero al recibir energía externa (calor, luz o un voltaje aplicado) o mediante el proceso de dopado, sus electrones pueden saltar con relativa facilidad a la banda de conducción.
 
-El Silicio es el elemento semiconductor más utilizado en la industria electrónica para la fabricación de diodos, transistores y circuitos integrados. Dependiendo de su pureza y tratamiento, se clasifican en dos tipos principales:
+El Silicio es el elemento semiconductor más utilizado en la industria electrónica para la fabricación de diodos, transistores y circuitos integrados. Dependiendo de su pureza y tratamiento, se clasifican en dos tipos principales \cite{REF_3}:
 
 \begin{itemize}
     \item \textbf{Semiconductores Intrínsecos:} Son aquellos materiales que se encuentran en un estado puro, sin ningún tipo de impurezas en su estructura cristalina (como el silicio o germanio puros a temperatura ambiente).
@@ -112,7 +112,7 @@ Este mecanismo se conoce como generación térmica de pares electrón-hueco. Dad
 n = p = n_i
 \end{equation}
 
-La concentración intrínseca es una propiedad intrínseca del material dependiente de la temperatura y de la magnitud de su banda prohibida, gobernada por la siguiente relación matemática:
+La concentración intrínseca es una propiedad del material dependiente de la temperatura y de la magnitud de su banda prohibida, gobernada por la siguiente relación matemática \cite{REF_3}:
 
 \begin{equation}
 n_i^2 = N_c N_v \exp\left(-\frac{E_g}{k_B T}\right)
@@ -161,10 +161,10 @@ Como consecuencia directa de la recombinación en la frontera:
     \item Los átomos aceptores en el lado P capturan un electrón y se transforman en \textbf{iones negativos fijos}.
 \end{itemize}
 
-Esta transferencia espacial de carga despoja a la interfaz de sus portadores móviles, instaurando una zona desprovista de conducción denominada \textbf{región de agotamiento} (o región de carga espacial). Los iones fijos e inmóviles remanentes en esta zona inducen un campo eléctrico interno direccionado desde el lado N hacia el lado P. Este campo eléctrico genera una barrera de potencial invisible (aproximadamente $0.7\text{ V}$ para el silicio) que se opone de forma idónea a una mayor difusión de portadores mayoritarios, estableciendo un estado de equilibrio dinámico.
+Esta transferencia espacial de carga despoja a la interfaz de sus portadores móviles, instaurando una zona desprovista de conducción denominada \textbf{región de agotamiento} (o región de carga espacial). Los iones fijos e inmóviles remanentes en esta zona inducen un campo eléctrico interno direccionado desde el lado N hacia el lado P. Este campo eléctrico genera una barrera de potencial que se opone a una mayor difusión de portadores mayoritarios, estableciendo un estado de equilibrio dinámico \cite{REF_2,REF_3}.
 
 \subsection{Regímenes de Polarización de la Unión P-N}
-El comportamiento eléctrico de la unión P-N se modifica drásticamente mediante la aplicación de una diferencia de potencial externa ($V_a$):
+El comportamiento eléctrico de la unión P-N se modifica mediante la aplicación de una diferencia de potencial externa ($V_a$) \cite{REF_2}:
 
 \begin{figure}[htbp]
     \centering
@@ -185,13 +185,13 @@ La corriente total en este estado no es estrictamente cero; se manifiesta una co
 \subsection{El Diodo Zener y el Fenómeno de Ruptura Inversa}
 Si el voltaje en polarización inversa se incrementa más allá de un límite crítico específico, conocido como voltaje de ruptura ($V_Z$), el campo eléctrico en la región de agotamiento alcanza una intensidad crítica capaz de arrancar electrones directamente de los enlaces covalentes (efecto Zener) o de acelerar electrones minoritarios con suficiente energía para ionizar otros átomos por impacto en cadena (efecto avalancha).
 
-A diferencia de un diodo convencional de la unión P-N, el cual sufre una destrucción térmica irreversible bajo estas condiciones, el \textbf{diodo Zener} se fabrica con perfiles de dopaje altamente concentrados para operar de forma segura y continua dentro de esta región de ruptura inversa. Al alcanzar el potencial $V_Z$, la corriente inversa se incrementa de forma abrupta mientras que la caída de tensión en los terminales del dispositivo permanece prácticamente constante. Esta propiedad fundamental convierte al diodo Zener en el componente idóneo para aplicaciones de regulación de tensión y protección contra sobrevoltajes en sistemas electrónicos.
+A diferencia de un diodo convencional de la unión P-N, el \textbf{diodo Zener} se fabrica con perfiles de dopaje adecuados para operar dentro de la región de ruptura inversa. Al alcanzar el potencial $V_Z$, la corriente inversa se incrementa de forma abrupta mientras que la caída de tensión en los terminales del dispositivo permanece prácticamente constante. Esta propiedad permite utilizarlo en circuitos de regulación y protección contra sobrevoltajes \cite{REF_2}.
 
 
 \subsection{La Corriente de Saturación Inversa ($I_0$)}
 Como se estableció previamente, cuando una unión P-N se somete a un régimen de polarización inversa, el flujo de portadores mayoritarios queda bloqueado por el incremento de la barrera de potencial. No obstante, se manifiesta una corriente eléctrica residual de magnitud infinitesimal denominada \textit{corriente de saturación inversa} o corriente de fuga ($I_0$).
 
-Esta corriente es de naturaleza puramente térmica y es conducida exclusivamente por los portadores minoritarios (electrones libres en la región P y huecos en la región N) que son arrastrados a través de la región de agotamiento por el campo eléctrico aplicado. La relación matemática que gobierna la corriente total ($I$) en un diodo a lo largo de todos sus regímenes operativos viene descrita por la ecuación ideal de diodo de Shockley:
+Esta corriente es de naturaleza puramente térmica y es conducida exclusivamente por los portadores minoritarios (electrones libres en la región P y huecos en la región N) que son arrastrados a través de la región de agotamiento por el campo eléctrico aplicado. La relación matemática que gobierna la corriente total ($I$) en un diodo a lo largo de sus regímenes de operación se describe mediante la ecuación ideal de Shockley \cite{REF_3,REF_4}:
 
 \begin{equation}
 I = I_0 \left( \exp\left(\frac{q V_a}{n k_B T}\right) - 1 \right)
@@ -200,7 +200,7 @@ I = I_0 \left( \exp\left(\frac{q V_a}{n k_B T}\right) - 1 \right)
 Donde $V_a$ representa el voltaje neto aplicado a los terminales del componente, $q$ es la carga elemental del electrón ($1.602 \times 10^{-19}\text{ C}$), $k_B$ representa la constante de Boltzmann, $T$ es la temperatura absoluta en Kelvin y $n$ define el factor de idealidad del semiconductor (cuyo valor oscila típicamente entre $1$ y $2$ dependiendo del material y del nivel de dopaje). Cuando el diodo está polarizado en inversa ($V_a < 0$), el término exponencial decrece exponencialmente hacia cero, haciendo que la corriente total se estabilice en el valor constante e inverso de $-I_0$.
 
 \subsection{Modelos de Aproximación Eléctrica del Diodo}
-Con la finalidad de simplificar el análisis y modelado matemático de los diodos de unión P-N en el diseño de circuitos prácticos, la curva característica exponencial real se simplifica mediante aproximaciones lineales por tramos.
+Con la finalidad de simplificar el análisis y modelado matemático de los diodos de unión P-N en el diseño de circuitos prácticos, la curva característica exponencial real se simplifica mediante aproximaciones lineales por tramos \cite{REF_2,REF_5}.
 
 \subsubsection{Primera Aproximación: Modelo del Diodo Ideal}
 La primera aproximación asume que el diodo se comporta de forma ideal, comportándose como un interruptor perfecto sin pérdidas de energía ni caídas de tensión internas:
@@ -283,7 +283,6 @@ Los circuitos eléctricos equivalentes de este modelo se exponen en la \ref{fig:
     \caption{Modelos de circuito equivalentes para la segunda aproximación (barrera de potencial).}
     \label{fig:segunda_aproximacion}
 \end{figure}
-
 
 
 

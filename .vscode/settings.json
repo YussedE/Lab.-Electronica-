@@ -72,16 +72,26 @@
                 "-halt-on-error",
                 "%DOC%"
             ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
         }
     ],
     "latex-workshop.latex.recipes": [
         {
-            "name": "pdflatex",
+            "name": "pdflatex + bibtex",
             "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
                 "pdflatex"
             ]
         }
     ],
-    "latex-workshop.latex.recipe.default": "pdflatex",
+    "latex-workshop.latex.recipe.default": "pdflatex + bibtex",
     "latex-workshop.latex.build.forceRecipeUsage": true
 }
