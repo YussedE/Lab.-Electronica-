@@ -2,120 +2,149 @@
 
 \subsection{Procedimiento seguido para la toma de datos}
 
+Cada circuito se resolvió teóricamente antes de armarlo, usando la segunda
+aproximación del diodo: una caída constante de $0{,}7$ V para el silicio y
+$0{,}3$ V para el germanio. Luego se montó en la caja de conexiones y se
+midieron las magnitudes experimentales.
+
 \begin{enumerate}
-    \item \textbf{Identificación de los diodos:} se identificaron el diodo de
-    silicio (1N5406) y el de germanio, y se reconocieron el ánodo (A) y el
-    cátodo (K) mediante la marca del cuerpo del diodo (banda del lado del
-    cátodo).
+    \item \textbf{Preparación:} se midieron con el multímetro digital las
+    resistencias de carbón utilizadas: $R=472\ \Omega$ para los circuitos 1,
+    2 y 3; y $R_1=472\ \Omega$ y $R_2=269\ \Omega$ para el circuito 4. La
+    fuente de voltaje regulada se ajustó al valor requerido en cada ensayo.
 
-    \item \textbf{Observación del funcionamiento:} se armó el circuito de la
-    Fig.~1A (polarización directa) con el diodo de Si en serie con una bombilla
-    de 12 V. Se aumentó el voltaje de la fuente y se registraron el voltaje de
-    la fuente $E$, el del diodo $V_D$ y el de la bombilla $V_B$ para
-    $E=3{,}0$ V, $7{,}5$ V y $10{,}0$ V. Se verificó la segunda regla de
-    Kirchhoff comparando $E$ con $V_D+V_B$ y calculando el porcentaje de error.
-    Luego se invirtió el diodo (Fig.~1B, polarización inversa) y se repitió el
-    procedimiento. Todo se repitió con el diodo de germanio.
+    \item \textbf{Circuito 1 (diodo de Si en serie con una resistencia):}
+    con $E=9{,}0$ V se midieron $V_D$, $V_R$ e $I$ en polarización directa.
+    Luego se invirtió el diodo y se repitieron las mediciones en polarización
+    inversa. Finalmente, en polarización directa, se fijó $E=0{,}4$ V, un
+    valor menor que el voltaje umbral, para verificar que el diodo no
+    condujera.
 
-    \item \textbf{Curva característica en polarización directa:} se armó el
-    circuito de la Fig.~2 con el diodo de Si, una resistencia de $100\ \Omega$
-    en serie (que limita la corriente para proteger el diodo) y un
-    potenciómetro. Se fijó la fuente en $2{,}5$ V y se varió el potenciómetro,
-    midiendo en cada punto la corriente $I$ (mA) con el amperímetro y la
-    diferencia de potencial $V$ (V) en el diodo con el voltímetro.
+    \item \textbf{Circuito 2 (diodos de Si y Ge en serie con una resistencia):}
+    con $E=9{,}0$ V se midieron $V_{D,Si}$, $V_{D,Ge}$, $V_0$ e $I$ con ambos
+    diodos en polarización directa. Después se invirtió el diodo de germanio y
+    se repitieron las mediciones.
 
-    \item \textbf{Curva característica en polarización inversa:} se armó el
-    circuito de la Fig.~3, con el cátodo hacia el polo positivo de la fuente y
-    un picoamperímetro en serie para medir las corrientes inversas, que son del
-    orden de nA o $\mu$A. Se varió el voltaje de la fuente (0--30 V) y se
-    registraron $V$ e $I$. No se requiere resistencia en serie porque la
-    corriente inversa es muy pequeña.
+    \item \textbf{Circuito 3 (diodos de Si y Ge en paralelo, en serie con una
+    resistencia):} con $E=9{,}0$ V se midieron $V_{D,Si}$, $V_{D,Ge}$, $I$ y
+    $V_R$ con ambos diodos conectados. Luego se retiró el diodo de germanio y
+    se repitieron las mediciones; por último, se retiró el de silicio y se
+    midió de nuevo.
 
-    \item \textbf{Diodo de germanio:} se repitieron los pasos 3 y 4 con el
-    diodo de Ge.
+    \item \textbf{Circuito 4 (dos diodos de Si y dos resistencias):} con
+    $E=15{,}0$ V se midieron $V_{D1}$, $V_{D2}$, $I_1$, $V_2$, $I_2$ e
+    $I_{D2}$.
 
-    \item \textbf{Medición de corrientes (segunda aproximación):} con $E=10$ V
-    y $R=100\ \Omega$, se midió la corriente experimental en polarización
-    directa y en inversa para compararla con el valor teórico
-    \[
-        i_{\text{teo}}=\frac{E-V_D}{R},
-    \]
-    con $V_D=0{,}7$ V, y con $i_{\text{teo}}=0$ en inversa.
-
-    \item Se midió la temperatura ambiente ($^\circ$C), se convirtió a kelvin
-    ($T_K=T_C+273$) y se calculó $V_T=T_K/11600$. Con los datos de ambas
-    polarizaciones se graficó $I$ vs.\ $V$ en una misma gráfica para cada diodo
-    y se comparó con la ecuación
-    \[
-        I=I_S\left(e^{V/\eta V_T}-1\right).
-    \]
+    \item \textbf{Comparación:} para cada magnitud se calculó el error
+    relativo porcentual respecto al valor teórico y se analizó la validez de
+    la segunda aproximación.
 \end{enumerate}
+
+\paragraph{Descripción de los elementos del montaje.}
+Cada circuito se armó con una fuente de voltaje DC regulada (0--30 V), una
+caja de conexiones con puentes, resistencias de carbón, diodos de silicio
+(1N5406) y un diodo de germanio. Se utilizó un multímetro digital como
+voltímetro en escala DC y como amperímetro en la escala de 200 mA, conectado
+en serie para medir corriente.
+
+En las Figuras~\ref{fig:montaje-circuito} y~\ref{fig:procedimiento-medicion}
+se muestran, respectivamente, el montaje del circuito y el procedimiento
+experimental de medición.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{Armado1.jpeg}
-    \caption{Montaje experimental para la medición de las características
-    del diodo.}
-    \label{fig:armado1}
+    \includegraphics[width=0.9\textwidth]{Circuito.jpeg}
+    \caption{Montaje del circuito en la caja de conexiones.}
+    \label{fig:montaje-circuito}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{Armado2.jpeg}
-    \caption{Montaje experimental}
-    \label{fig:armado2}
+    \includegraphics[width=0.55\textwidth,height=0.65\textheight,keepaspectratio]{Procedimiento.jpeg}
+    \caption{Procedimiento experimental de medición con la fuente regulada y el multímetro digital.}
+    \label{fig:procedimiento-medicion}
 \end{figure}
 
 \subsection{Variables medidas directamente}
 
 \begin{itemize}
-    \item Voltaje de la fuente $E$, del diodo $V_D$ y de la bombilla $V_B$
-    (V), con el voltímetro digital.
-    \item Corriente directa $I$ (mA), con el amperímetro digital en la escala
-    de 200 mA.
-    \item Corriente inversa (nA o $\mu$A), con el picoamperímetro.
-    \item Temperatura ambiente ($^\circ$C).
+    \item Voltajes en los diodos ($V_D$, $V_{D1}$, $V_{D2}$), en las
+    resistencias ($V_R$, $V_0$, $V_2$) y de salida, en voltios, medidos con
+    el multímetro digital.
+    \item Corrientes ($I$, $I_1$, $I_2$, $I_{D2}$), en mA, medidas con el
+    multímetro digital como amperímetro.
+    \item Valores reales de las resistencias utilizadas ($R$, $R_1$, $R_2$),
+    en $\Omega$, medidos con el multímetro digital.
 \end{itemize}
 
 \subsection{Variables obtenidas indirectamente}
 
 \begin{itemize}
-    \item Suma $V_D+V_B$ y su porcentaje de error respecto a $E$ (verificación
-    de la segunda regla de Kirchhoff).
-    \item Corriente teórica $i_{\text{teo}}=(E-V_D)/R$ y su porcentaje de
-    error respecto a la experimental.
-    \item Temperatura en kelvin y voltaje térmico $V_T=T_K/11600$.
-    \item Corriente de saturación inversa $I_S$ y factor de idealidad $\eta$,
-    a partir del ajuste de la curva a la ecuación del diodo.
+    \item Valores teóricos de cada circuito. Para los circuitos 1 a 3 se
+    calcularon, según la configuración, mediante
+    \[
+        I=\frac{E-\sum V_D}{R},
+        \qquad
+        V_R=IR.
+    \]
+    Para el circuito 4 se utilizaron
+    \[
+        I_1=\frac{V_{D2}}{R_1},
+        \qquad
+        V_2=E-V_{D1}-V_{D2},
+        \qquad
+        I_2=\frac{V_2}{R_2},
+        \qquad
+        I_{D2}=I_2-I_1.
+    \]
+    \item Error relativo porcentual de cada magnitud cuyo valor teórico sea
+    distinto de cero:
+    \[
+        \%E=
+        \frac{\left|X_{\text{teo}}-X_{\text{exp}}\right|}
+        {\left|X_{\text{teo}}\right|}\times 100.
+    \]
+    Cuando el valor teórico es cero, el error relativo porcentual no está
+    definido y se compara la diferencia absoluta entre los valores.
 \end{itemize}
 
 \subsection{Datos asumidos conocidos}
 
 \begin{itemize}
-    \item Valor nominal de la resistencia en serie ($100\ \Omega$).
-    \item Voltaje de barrera de 0,7 V para el silicio (segunda aproximación).
-    \item $\eta=2$ para las primeras décimas de voltio y $\eta=1$ para valores
-    grandes en el silicio, y $\eta=1$ en el germanio, según la guía.
+    \item Voltaje de conducción de la segunda aproximación:
+    $V_T=0{,}7$ V para el silicio y $V_T=0{,}3$ V para el germanio.
+    \item Corriente nula en polarización inversa o cuando el diodo está por
+    debajo de su voltaje umbral.
+    \item Voltaje de la fuente igual al valor nominal ajustado en cada ensayo
+    (9{,}0 V, 0{,}4 V y 15{,}0 V).
 \end{itemize}
 
 \subsection{Virtudes y limitaciones del diseño experimental}
 
-El diseño permite estudiar el diodo en ambas polarizaciones con instrumentos
-de bajo costo, y el uso del picoamperímetro hace medibles las corrientes
-inversas, que un multímetro común no detectaría. También permite contrastar
-directamente los dos materiales con el mismo procedimiento. Como limitaciones,
-el voltaje del diodo en polarización directa varía muy rápido cerca de la zona
-de conducción, por lo que el potenciómetro debe ajustarse con cuidado para
-tomar suficientes puntos. Además, las corrientes inversas son muy pequeñas y
-sensibles al ruido y a la temperatura.
+El diseño permite contrastar directamente la solución teórica de cada
+circuito con las mediciones. Se emplean circuitos sencillos y se varía su
+configuración (serie, paralelo y polarización directa e inversa) para evaluar
+el alcance del modelo. Como limitación, la segunda aproximación supone una
+caída de voltaje constante e ignora la resistencia interna del diodo, aunque
+el voltaje real varía con la corriente y la temperatura. Además, la escala
+de 200 mA del amperímetro no permite detectar corrientes inversas muy
+pequeñas, por lo que estas pueden registrarse como nulas.
 
 \subsection{Fuentes de error más críticas}
 
 \begin{itemize}
-    \item Resolución del potenciómetro, que limita la cantidad de puntos cerca
-    del codo de la curva.
-    \item Precisión de los multímetros y del picoamperímetro, especialmente
-    en las escalas más bajas.
-    \item Calentamiento del diodo y de la resistencia al circular corrientes
-    altas, que modifica sus características durante la medición.
+    \item \textbf{Errores en la toma de datos por parte de los
+    experimentadores:} lectura del display antes de que la medida se
+    estabilizara, selección de una escala poco adecuada para corrientes
+    pequeñas, conexiones inadecuadas en la caja de conexiones y errores de
+    registro de los valores. Se consideran la fuente de error más crítica
+    del experimento.
+    \item Diferencia entre el voltaje ajustado en la fuente y el realmente
+    aplicado. Por ejemplo, en polarización inversa del circuito 1 se midió
+    $V_D=9{,}14$ V con la fuente ajustada en 9{,}0 V.
+    \item Resistencia interna del multímetro al usarlo como amperímetro, que
+    modifica ligeramente la corriente del circuito.
+    \item Resistencia de contacto en cables, puentes y caja de conexiones.
+    \item Error del modelo: la caída real de los diodos difiere de los
+    valores constantes de 0{,}7 V y 0{,}3 V.
 \end{itemize}
