@@ -1,279 +1,525 @@
-\section{Resultados y discusión de resultados}
+\section{Resultados}
 
-\subsection{Observación del funcionamiento de los diodos}
+Para el análisis de los circuitos se empleó el modelo de segunda aproximación del diodo semiconductor. En este modelo se considera una caída de tensión aproximada de \(0.7\,V\) para los diodos de silicio y de \(0.3\,V\) para los diodos de germanio cuando se encuentran polarizados directamente. A partir de estas consideraciones se determinaron los valores teóricos de las magnitudes solicitadas en la guía y se compararon con las mediciones experimentales.
 
-En la primera parte de la práctica se analizaron los diodos de silicio y germanio bajo condiciones de polarización directa e inversa. Para ello, se registraron el voltaje de la fuente, la caída de tensión en el diodo y el voltaje en la resistencia. Con estas magnitudes se verificó la relación entre las tensiones del circuito mediante la ley de voltajes de Kirchhoff.
+\vspace{0.3cm}
 
-El porcentaje de error se calculó comparando el voltaje de la fuente con la suma de las caídas de tensión medidas en los elementos del circuito, de acuerdo con la expresión:
+Las resistencias utilizadas en los diferentes montajes fueron las siguientes:
+
+\begin{itemize}
+    \item Circuito 1: \(R=472\,\Omega\).
+    \item Circuito 2: \(R=472\,\Omega\).
+    \item Circuito 3: \(R=472\,\Omega\).
+    \item Circuito 4: \(R_1=472\,\Omega\) y \(R_2=269\,\Omega\).
+\end{itemize}
+
+\vspace{0.3cm}
+
+El porcentaje de error relativo se calculó mediante la expresión:
 
 \[
-\%\text{ error}
-=
-\frac{\left|E-(V_D+V_B)\right|}{E}\times 100,
+\text{Error relativo} =
+\left|\frac{X_{\text{teórico}}-X_{\text{experimental}}}
+{X_{\text{teórico}}}\right|\times 100
 \]
 
-donde \(E\) corresponde al voltaje de la fuente, \(V_D\) al voltaje en el diodo y \(V_B\) al voltaje en la resistencia.
+\vspace{0.3cm}
+
+Cuando el valor teórico de una magnitud es igual a cero, el porcentaje de error relativo no se encuentra definido. Por esta razón, en dichos casos se indica mediante un guion en las tablas.
+
+\subsection{Circuito 1: Diodo de silicio}
+
+Para el primer circuito se utilizó un diodo de silicio conectado en serie con una resistencia de \(472\,\Omega\). Se analizaron tres condiciones de funcionamiento: polarización directa con una fuente de \(9\,V\), polarización inversa con la misma fuente y polarización directa con una fuente de \(0.4\,V\).
+
+\vspace{0.3cm}
+
+De acuerdo con el modelo de segunda aproximación, cuando el diodo se encuentra polarizado directamente y la tensión aplicada supera el valor umbral de \(0.7\,V\), permite el paso de corriente. En cambio, cuando se encuentra polarizado inversamente o la tensión aplicada es inferior a dicho valor, se considera que no conduce.
+
+\vspace{0.3cm}
+
+\textbf{Cálculos teóricos}
+
+Para la polarización directa con una fuente de \(9\,V\), la corriente se obtiene aplicando la ley de Ohm:
+
+\[
+I_D=\frac{E-V_D}{R}
+\]
+
+Sustituyendo los valores correspondientes:
+
+\[
+I_D=\frac{9-0.7}{472}
+\]
+
+\[
+\boxed{I_D=17.585\,\text{mA}}
+\]
+
+La tensión en la resistencia se determina mediante:
+
+\[
+V_R=I_D R
+\]
+
+\[
+V_R=(0.017585)(472)
+\]
+
+\[
+\boxed{V_R=8.3\,V}
+\]
+
+Para la polarización inversa, el diodo se encuentra en estado de bloqueo, por lo que:
+
+\[
+\boxed{I_D=0\,\text{mA}}
+\]
+
+En consecuencia, toda la tensión de la fuente aparece en el diodo:
+
+\[
+\boxed{V_D=9\,V \qquad V_R=0\,V}
+\]
+
+Finalmente, para la polarización directa con una fuente de \(0.4\,V\), la tensión aplicada es inferior a la tensión umbral del diodo de silicio. Por tanto, este permanece en estado de corte:
+
+\[
+\boxed{I_D=0\,\text{mA}}
+\]
+
+\[
+\boxed{V_D=0.4\,V \qquad V_R=0\,V}
+\]
+
+\vspace{0.3cm}
+
+En las Tablas \ref{tab:c1_teoricos} y \ref{tab:c1_experimentales} se presentan los valores teóricos y experimentales de la caída de tensión en el diodo (\(V_D\)), la corriente (\(I_D\)) y la tensión en la resistencia (\(V_R\)).
 
 \begin{table}[H]
 \centering
-\caption{Voltajes medidos para el diodo de silicio en polarización directa e inversa.}
-\label{tab:observacion_silicio}
-\small
-\begin{tabular}{cccccc}
-\toprule
-Polarización & \(E\) (V) & \(V_D\) (V) & \(V_B\) (V) &
-\(V_D+V_B\) (V) & Error (\%) \\
-\midrule
-Directa & 3.00  & 0.74 & 2.25 & 2.99 & 0.333 \\
-Directa & 7.50  & 0.76 & 6.68 & 7.44 & 0.800 \\
-Directa & 10.00 & 0.76 & 9.14 & 9.90 & 1.000 \\
-Inversa & 3.00  & 2.97 & 0.00 & 2.97 & 1.000 \\
-Inversa & 7.50  & 7.50 & 0.00 & 7.50 & 0.000 \\
-Inversa & 10.00 & 9.98 & 0.00 & 9.98 & 0.200 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\vspace{0.3cm}
-
-\begin{table}[H]
-\centering
-\caption{Voltajes medidos para el diodo de germanio en polarización directa e inversa.}
-\label{tab:observacion_germanio}
-\small
-\begin{tabular}{cccccc}
-\toprule
-Polarización & \(E\) (V) & \(V_D\) (V) & \(V_B\) (V) &
-\(V_D+V_B\) (V) & Error (\%) \\
-\midrule
-Directa & 3.00  & 0.37 & 2.63 & 3.00 & 0.000 \\
-Directa & 7.50  & 0.40 & 7.08 & 7.48 & 0.267 \\
-Directa & 10.00 & 0.41 & 9.58 & 9.99 & 0.100 \\
-Inversa & 3.00  & 3.00 & 0.00 & 3.00 & 0.000 \\
-Inversa & 7.50  & 7.50 & 0.00 & 7.50 & 0.000 \\
-Inversa & 10.00 & 9.99 & 0.00 & 9.99 & 0.100 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\vspace{0.3cm}
-
-Los resultados muestran que, en polarización directa, la caída de tensión en el diodo de silicio se mantuvo aproximadamente entre \(0.74\) y \(0.76\ \text{V}\), mientras que para el diodo de germanio estuvo entre \(0.37\) y \(0.41\ \text{V}\). Esta diferencia concuerda con el comportamiento característico de ambos materiales: el diodo de germanio presenta una tensión directa menor que el de silicio.
-
-\vspace{0.3cm}
-
-En polarización inversa, la mayor parte del voltaje de la fuente se midió en el diodo, mientras que el voltaje en la resistencia fue registrado como cero. Sin embargo, estos datos corresponden a mediciones de voltaje y no permiten determinar cuantitativamente la corriente inversa, ya que no se registraron valores de corriente para esta condición.
-
-\vspace{0.3cm}
-
-Los porcentajes de error calculados son bajos: el máximo para el diodo de silicio fue del \(1.00\%\), mientras que para el de germanio fue del \(0.267\%\). Estas diferencias pequeñas indican una concordancia razonable con la ley de voltajes de Kirchhoff. Los errores pueden asociarse con la resolución de los instrumentos, las variaciones de las lecturas y las tolerancias de los componentes empleados.
-
-\subsection{Medición de la corriente del diodo de silicio}
-
-Para analizar la corriente del diodo de silicio se empleó una resistencia de \(472\ \Omega\). A partir de la ley de Ohm, la corriente teórica se calculó mediante la diferencia entre el voltaje de la fuente y la caída de tensión en el diodo:
-
-\[
-I_{\mathrm{teo}}=\frac{E-V_D}{R}.
-\]
-
-Para una fuente de \(10\ \text{V}\) y una caída de tensión aproximada de \(0.7\ \text{V}\), se obtiene:
-
-\[
-I_{\mathrm{teo}}
-=
-\frac{10\ \text{V}-0.7\ \text{V}}
-{472\ \Omega}
-=
-0.01970\ \text{A}.
-\]
-
-Por tanto, la corriente teórica es aproximadamente:
-
-\[
-I_{\mathrm{teo}}=19.70\ \text{mA}.
-\]
-
-En la plantilla se registró una corriente experimental de \(19.07\ \text{mA}\). Para comparar ambos valores se calculó el error relativo mediante:
-
-\[
-\%\text{ error}
-=
-\frac{\left|I_{\mathrm{teo}}-I_{\mathrm{exp}}\right|}
-{I_{\mathrm{teo}}}\times100.
-\]
-
-Sustituyendo los valores registrados:
-
-\[
-\%\text{ error}
-=
-\frac{|19.70-19.07|}{19.70}\times100
-\approx 3.20\%.
-\]
-
-\vspace{0.3cm}
-
-La diferencia entre la corriente teórica y la experimental es de aproximadamente \(0.63\ \text{mA}\), lo que representa un error relativo del \(3.20\%\). La concordancia entre ambos resultados es razonable y respalda la aplicación de la ley de Ohm para estimar la corriente del circuito. La diferencia observada puede deberse a que la caída de tensión real del diodo no es exactamente \(0.7\ \text{V}\), así como a las tolerancias de la resistencia y a la incertidumbre asociada con los instrumentos de medición.
-
-\vspace{0.3cm}
-
-Es importante señalar que la corriente calculada depende del voltaje real en el diodo y del valor de la resistencia utilizada. Por ello, el valor de \(19.70\ \text{mA}\) corresponde al cálculo con una caída de tensión aproximada de \(0.7\ \text{V}\), mientras que el valor experimental representa la lectura obtenida durante la práctica.
-
-% =========================================================
-% CARACTERIZACIÓN DEL DIODO DE SILICIO
-% =========================================================
-
-\subsection{Curva característica del diodo de silicio}
-
-Para estudiar el comportamiento del diodo de silicio en polarización directa, se registraron diferentes valores de voltaje y corriente. Los datos experimentales se organizaron en la Tabla~\ref{tab:datos_silicio}, a partir de la cual se construyó la curva característica corriente-voltaje presentada en la Figura~\ref{fig:curva_silicio}.
-
-\vspace{0.2cm}
-
-\begin{table}[H]
-\centering
-\caption{Datos experimentales de la caracterización del diodo de silicio.}
-\label{tab:datos_silicio}
+\caption{Valores teóricos del circuito 1.}
+\label{tab:c1_teoricos}
 \scriptsize
-\setlength{\tabcolsep}{5pt}
-\renewcommand{\arraystretch}{1.12}
-\begin{tabular}{ccc|ccc|ccc|ccc}
-\toprule
-\multicolumn{3}{c|}{Grupo 1} &
-\multicolumn{3}{c|}{Grupo 2} &
-\multicolumn{3}{c|}{Grupo 3} &
-\multicolumn{3}{c}{Grupo 4} \\
-\midrule
-No. & \(V_D\) (V) & \(I_D\) (mA) &
-No. & \(V_D\) (V) & \(I_D\) (mA) &
-No. & \(V_D\) (V) & \(I_D\) (mA) &
-No. & \(V_D\) (V) & \(I_D\) (mA) \\
-\midrule
-1  & 0.253 & 0.0002 & 8  & 0.456 & 0.0920 & 15 & 0.533 & 0.6770 & 22 & 0.601 & 3.3210 \\
-2  & 0.275 & 0.0004 & 9  & 0.477 & 0.1655 & 16 & 0.545 & 0.8900 & 23 & 0.646 & 9.2400 \\
-3  & 0.333 & 0.0021 & 10 & 0.485 & 0.2020 & 17 & 0.558 & 1.2000 & 24 & 0.657 & 12.4800 \\
-4  & 0.369 & 0.0062 & 11 & 0.493 & 0.2544 & 18 & 0.562 & 1.3180 & 25 & 0.666 & 14.8200 \\
-5  & 0.407 & 0.0203 & 12 & 0.503 & 0.3250 & 19 & 0.573 & 1.7090 & 26 & 0.672 & 17.0400 \\
-6  & 0.422 & 0.0319 & 13 & 0.515 & 0.4440 & 20 & 0.579 & 1.9790 & 27 & 0.685 & 23.4000 \\
-7  & 0.437 & 0.0506 & 14 & 0.521 & 0.5100 & 21 & 0.589 & 2.4940 & 28 & 0.690 & 26.4600 \\
-\bottomrule
+\begin{tabular}{c c c c c}
+\hline
+\textbf{Polarización} & \(E\) (V) & \(V_D\) (V) &
+\(I_D\) (mA) & \(V_R\) (V) \\
+\hline
+Directa & 9.0 & 0.700 & 17.585 & 8.300 \\
+Inversa & 9.0 & 9.000 & 0.000 & 0.000 \\
+Directa & 0.4 & 0.400 & 0.000 & 0.000 \\
+\hline
 \end{tabular}
 \end{table}
-
-\vspace{0.3cm}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.82\linewidth]{imagenes/silicio.png}
-    \caption{Curva característica corriente-voltaje del diodo de silicio en polarización directa.}
-    \label{fig:curva_silicio}
-\end{figure}
-
-\vspace{0.3cm}
-
-Los datos muestran que, para voltajes directos pequeños, la corriente del diodo es muy baja. Por ejemplo, para \(V_D=0.253\ \text{V}\), la corriente registrada fue de \(0.0002\ \text{mA}\). A medida que aumenta el voltaje, la corriente crece progresivamente hasta alcanzar \(26.46\ \text{mA}\) para un voltaje de \(0.690\ \text{V}\).
-
-\vspace{0.3cm}
-
-Este comportamiento evidencia la relación no lineal entre la corriente y el voltaje en el diodo. Cuando el voltaje directo aumenta, la corriente comienza a incrementarse con mayor rapidez, de modo que pequeños cambios en la tensión producen variaciones importantes en la corriente. Por esta razón, el diodo no se comporta como una resistencia óhmica constante.
-
-\vspace{0.3cm}
-
-El comportamiento observado puede describirse cualitativamente mediante la ecuación de Shockley \cite{REF_4}:
-
-\[
-I_D=I_S\left(
-e^{\frac{V_D}{\eta V_T}}-1
-\right),
-\]
-
-donde \(I_D\) es la corriente del diodo, \(I_S\) la corriente de saturación inversa, \(V_D\) el voltaje aplicado, \(\eta\) el factor de idealidad y \(V_T\) el voltaje térmico.
-
-\vspace{0.3cm}
-
-Durante la práctica se registró una temperatura ambiente de \(20.5\,^\circ\text{C}\), equivalente aproximadamente a \(293.5\ \text{K}\). Con este valor, el voltaje térmico se estima como:
-
-\[
-V_T=\frac{T}{11600}
-=\frac{293.5}{11600}
-\approx 0.0253\ \text{V}.
-\]
-
-\vspace{0.3cm}
-
-La ecuación de Shockley permite interpretar la tendencia general de la curva. No obstante, en este análisis se utiliza como modelo cualitativo, ya que no se realizó un ajuste de los datos experimentales para determinar los parámetros \(I_S\) y \(\eta\).
-
-
-% =========================================================
-% CARACTERIZACIÓN DEL DIODO DE GERMANIO
-% =========================================================
-
-\subsection{Curva característica del diodo de germanio}
-
-De manera similar, se registraron los valores de voltaje y corriente del diodo de germanio en polarización directa. Los resultados se presentan en la Tabla~\ref{tab:datos_germanio}, mientras que la curva característica obtenida a partir de estas mediciones se muestra en la Figura~\ref{fig:curva_germanio}.
-
-\vspace{0.2cm}
 
 \begin{table}[H]
 \centering
-\caption{Datos experimentales de la caracterización del diodo de germanio.}
-\label{tab:datos_germanio}
+\caption{Valores experimentales del circuito 1.}
+\label{tab:c1_experimentales}
 \scriptsize
-\setlength{\tabcolsep}{5pt}
-\renewcommand{\arraystretch}{1.12}
-\begin{tabular}{ccc|ccc|ccc|ccc}
-\toprule
-\multicolumn{3}{c|}{Grupo 1} &
-\multicolumn{3}{c|}{Grupo 2} &
-\multicolumn{3}{c|}{Grupo 3} &
-\multicolumn{3}{c}{Grupo 4} \\
-\midrule
-No. & \(V_D\) (V) & \(I_D\) (mA) &
-No. & \(V_D\) (V) & \(I_D\) (mA) &
-No. & \(V_D\) (V) & \(I_D\) (mA) &
-No. & \(V_D\) (V) & \(I_D\) (mA) \\
-\midrule
-1  & 0.109 & 0.3200 & 6  & 0.158 & 1.2580 & 11 & 0.201 & 3.3630 & 16 & 0.259 & 11.5400 \\
-2  & 0.124 & 0.4900 & 7  & 0.167 & 1.5260 & 12 & 0.208 & 3.9350 & 17 & 0.275 & 15.6800 \\
-3  & 0.131 & 0.6100 & 8  & 0.173 & 1.7690 & 13 & 0.227 & 5.8600 & 18 & 0.280 & 17.5600 \\
-4  & 0.145 & 0.8680 & 9  & 0.187 & 2.4090 & 14 & 0.235 & 7.0000 & 19 & 0.290 & 21.1500 \\
-5  & 0.153 & 1.0640 & 10 & 0.194 & 2.8490 & 15 & 0.245 & 8.5500 & 20 & 0.297 & 24.2200 \\
-\bottomrule
+\begin{tabular}{c c c c c c c}
+\hline
+\textbf{Polarización} & \(E\) (V) &
+\(V_D\) (V) & \textbf{Error (\%)} &
+\(I_D\) (mA) & \textbf{Error (\%)} &
+\(V_R\) (V) \\
+\hline
+Directa & 9.0 & 0.700 & 0.000 & 17.600 & 0.087 & 8.400 \\
+Inversa & 9.0 & 9.140 & 1.556 & 0.000 & -- & 0.000 \\
+Directa & 0.4 & 0.375 & 6.250 & 0.000 & -- & 0.000 \\
+\hline
 \end{tabular}
 \end{table}
 
-\vspace{0.3cm}
+\noindent
+Los errores relativos de la tensión en la resistencia fueron de \(1.205\%\) para la primera configuración y no están definidos para las dos configuraciones restantes, debido a que el valor teórico es cero.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.82\linewidth]{imagenes/germanio.png}
-    \caption{Curva característica corriente-voltaje del diodo de germanio en polarización directa.}
-    \label{fig:curva_germanio}
-\end{figure}
+\subsection{Circuito 2: Diodos de silicio y germanio en serie}
+
+En el segundo circuito se conectaron en serie un diodo de silicio y uno de germanio, junto con una resistencia de \(472\,\Omega\). Se estudiaron dos configuraciones: inicialmente, ambos diodos se polarizaron directamente y, posteriormente, se invirtió la polaridad del diodo de germanio.
 
 \vspace{0.3cm}
 
-La curva presenta un incremento pronunciado de la corriente conforme aumenta el voltaje aplicado. En las mediciones realizadas, la corriente pasó de \(0.32\ \text{mA}\) para un voltaje de \(0.109\ \text{V}\) a \(24.22\ \text{mA}\) cuando el voltaje alcanzó \(0.297\ \text{V}\). Esta tendencia es consistente con el comportamiento no lineal esperado para un diodo semiconductor en polarización directa.
+Para la primera configuración, ambos diodos se encuentran en conducción. Por tanto, la corriente del circuito se determina considerando las caídas de tensión aproximadas de \(0.7\,V\) para el diodo de silicio y \(0.3\,V\) para el de germanio. En la segunda configuración, el diodo de germanio se encuentra polarizado inversamente, por lo que el modelo predice que la corriente del circuito debe ser nula.
 
 \vspace{0.3cm}
 
-Al comparar los datos de ambos diodos, se observa que el de germanio alcanza corrientes elevadas con voltajes directos menores que los del diodo de silicio. En las mediciones obtenidas, el diodo de germanio alcanzó \(24.22\ \text{mA}\) a \(0.297\ \text{V}\), mientras que el de silicio alcanzó \(23.40\ \text{mA}\) a \(0.685\ \text{V}\). Esta diferencia ilustra la menor caída de tensión directa característica del germanio.
+\textbf{Cálculos teóricos}
+
+Cuando ambos diodos están polarizados directamente, la corriente se obtiene mediante:
+
+\[
+I_D=\frac{E-V_{D,\text{Si}}-V_{D,\text{Ge}}}{R}
+\]
+
+Sustituyendo los valores:
+
+\[
+I_D=\frac{9-0.7-0.3}{472}
+\]
+
+\[
+\boxed{I_D=16.949\,\text{mA}}
+\]
+
+La tensión en la resistencia se calcula mediante:
+
+\[
+V_R=I_D R
+\]
+
+\[
+V_R=(0.016949)(472)
+\]
+
+\[
+\boxed{V_R=8.0\,V}
+\]
+
+Cuando el diodo de germanio se encuentra polarizado inversamente, el circuito permanece en estado de bloqueo. Por tanto:
+
+\[
+\boxed{I_D=0\,\text{mA}}
+\]
+
+\[
+\boxed{V_R=0\,V}
+\]
 
 \vspace{0.3cm}
 
-La ecuación de Shockley también permite describir cualitativamente la tendencia de la curva del diodo de germanio. Sin embargo, como no se realizó un ajuste de los datos experimentales al modelo, la comparación se limita al comportamiento general observado.
+Las Tablas \ref{tab:c2_teoricos} y \ref{tab:c2_experimentales} presentan los valores teóricos y experimentales de las caídas de tensión en los diodos, la corriente del circuito y la tensión de salida.
 
-\subsection{Discusión general de los resultados}
+\begin{table}[H]
+\centering
+\caption{Valores teóricos del circuito 2.}
+\label{tab:c2_teoricos}
+\scriptsize
+\begin{tabular}{c c c c c c}
+\hline
+\textbf{Configuración} & \(E\) (V) &
+\(V_{D,\text{Si}}\) (V) &
+\(V_{D,\text{Ge}}\) (V) &
+\(I_D\) (mA) & \(V_R\) (V) \\
+\hline
+Diodos directos & 9.0 & 0.700 & 0.300 & 16.949 & 8.000 \\
+Ge invertido & 9.0 & -- & -- & 0.000 & 0.000 \\
+\hline
+\end{tabular}
+\end{table}
 
-Los resultados obtenidos durante la práctica permitieron analizar el comportamiento eléctrico de los diodos semiconductores y comprobar experimentalmente algunas de sus características principales. En las mediciones de polarización directa se observó que el diodo de silicio presentó una caída de tensión aproximada entre \(0.74\) y \(0.76\ \text{V}\), mientras que para el diodo de germanio se obtuvieron valores entre \(0.37\) y \(0.41\ \text{V}\). Esta diferencia concuerda con el comportamiento esperado para ambos materiales, ya que el germanio requiere una menor tensión directa para conducir una corriente apreciable.
+\begin{table}[H]
+\centering
+\caption{Valores experimentales del circuito 2.}
+\label{tab:c2_experimentales}
+\scriptsize
+\begin{tabular}{c c c c c c c c}
+\hline
+\textbf{Configuración} & \(E\) (V) &
+\(V_{D,\text{Si}}\) (V) &
+\(V_{D,\text{Ge}}\) (V) &
+\(V_0\) (V) & \textbf{Error (\%)} &
+\(I_D\) (mA) & \textbf{Error (\%)} \\
+\hline
+Diodos directos & 9.0 & 0.668 & 0.264 & 8.120 & 1.500 & 16.770 & 1.057 \\
+Ge invertido & 9.0 & 0.409 & 8.720 & 0.012 & -- & 0.026 & -- \\
+\hline
+\end{tabular}
+\end{table}
+
+\noindent
+Para la configuración con ambos diodos en conducción, el error relativo de la caída de tensión fue de \(4.571\%\) para el diodo de silicio y de \(12.000\%\) para el de germanio. En la configuración con el diodo de germanio invertido, el error relativo de la corriente y de la tensión de salida no se encuentra definido, debido a que sus valores teóricos son iguales a cero.
+
+\subsection{Circuito 3: Configuración en paralelo}
+
+En el tercer circuito se analizaron diferentes configuraciones de los diodos en paralelo, utilizando una resistencia de \(472\,\Omega\). Se realizaron tres ensayos: con los diodos de silicio y germanio conectados simultáneamente, únicamente con el diodo de silicio y únicamente con el diodo de germanio.
 
 \vspace{0.3cm}
 
-Las curvas características corriente-voltaje mostraron una relación no lineal entre estas magnitudes. En ambos diodos, la corriente aumentó progresivamente con el voltaje aplicado, hasta experimentar incrementos más pronunciados en la región de conducción. Este comportamiento se aprecia especialmente al comparar los valores máximos registrados: el diodo de silicio alcanzó una corriente de \(26.46\ \text{mA}\) a \(0.690\ \text{V}\), mientras que el de germanio llegó a \(24.22\ \text{mA}\) a \(0.297\ \text{V}\). Por tanto, las mediciones ilustran la diferencia entre ambos materiales y permiten reconocer que la corriente de un diodo no aumenta de manera proporcional al voltaje, como ocurriría en un elemento óhmico ideal.
+Para la conexión simultánea de ambos diodos, se considera que el diodo de germanio presenta una tensión umbral inferior a la del silicio, por lo que conduce a una tensión aproximada de \(0.3\,V\). Al estar conectados en paralelo, ambos diodos presentan la misma diferencia de potencial en sus terminales. Para el ensayo con únicamente el diodo de silicio, se considera una caída de tensión de \(0.7\,V\).
 
 \vspace{0.3cm}
 
-Por otra parte, la comparación de los voltajes medidos en los circuitos permitió verificar de manera aproximada la ley de voltajes de Kirchhoff \cite{REF_1}. Los porcentajes de error calculados fueron pequeños, con valores máximos de \(1.00\ \%\) para el diodo de silicio y \(0.267\ \%\) para el de germanio. Asimismo, al estudiar la corriente del diodo de silicio con una resistencia de \(472\ \Omega\), se obtuvo una corriente teórica de \(19.70\ \text{mA}\), frente a una corriente experimental de \(19.07\ \text{mA}\), correspondiente a un error relativo aproximado del \(3.20\ \%\). Estas diferencias pueden atribuirse a las tolerancias de los componentes, la resolución de los instrumentos de medición y las variaciones de la caída de tensión real del diodo respecto al valor aproximado utilizado en el cálculo.
+\textbf{Cálculos teóricos}
+
+Para la configuración con ambos diodos conectados, la corriente se determina utilizando la caída de tensión de \(0.3\,V\):
+
+\[
+I=\frac{E-V_D}{R}
+\]
+
+\[
+I=\frac{9-0.3}{472}
+\]
+
+\[
+\boxed{I=18.432\,\text{mA}}
+\]
+
+La tensión en la resistencia se obtiene mediante:
+
+\[
+V_R=IR
+\]
+
+\[
+V_R=(0.018432)(472)
+\]
+
+\[
+\boxed{V_R=8.7\,V}
+\]
+
+Cuando se retira el diodo de germanio, permanece únicamente el diodo de silicio, cuya caída de tensión se aproxima a \(0.7\,V\). Por tanto:
+
+\[
+I=\frac{9-0.7}{472}
+\]
+
+\[
+\boxed{I=17.585\,\text{mA}}
+\]
+
+La tensión en la resistencia es:
+
+\[
+V_R=(0.017585)(472)
+\]
+
+\[
+\boxed{V_R=8.3\,V}
+\]
+
+Adicionalmente, para el ensayo realizado únicamente con el diodo de germanio, se obtiene:
+
+\[
+I=\frac{9-0.3}{472}
+\]
+
+\[
+\boxed{I=18.432\,\text{mA}}
+\]
+
+\[
+V_R=(0.018432)(472)
+\]
+
+\[
+\boxed{V_R=8.7\,V}
+\]
 
 \vspace{0.3cm}
 
-En conjunto, los resultados presentan una concordancia razonable con el comportamiento teórico de los diodos semiconductores. La menor caída de tensión directa del germanio, el crecimiento no lineal de la corriente y la proximidad entre los valores teóricos y experimentales respaldan los principios estudiados durante la práctica. De esta manera, el análisis experimental permitió relacionar las mediciones eléctricas con las características de funcionamiento de los diodos y comprender la importancia de considerar tanto las propiedades del material semiconductor como las condiciones del circuito.
+Las Tablas \ref{tab:c3_teoricos} y \ref{tab:c3_experimentales} presentan los resultados obtenidos. Se conserva el ensayo con únicamente el diodo de germanio como una medición adicional a las configuraciones indicadas en la hoja de datos.
+
+\begin{table}[H]
+\centering
+\caption{Valores teóricos del circuito 3.}
+\label{tab:c3_teoricos}
+\scriptsize
+\begin{tabular}{c c c c c c}
+\hline
+\textbf{Configuración} & \(E\) (V) &
+\(V_{D,\text{Si}}\) (V) &
+\(V_{D,\text{Ge}}\) (V) &
+\(I\) (mA) & \(V_R\) (V) \\
+\hline
+Ambos diodos & 9.0 & 0.300 & 0.300 & 18.432 & 8.700 \\
+Solo Si & 9.0 & 0.700 & -- & 17.585 & 8.300 \\
+Solo Ge (adicional) & 9.0 & -- & 0.300 & 18.432 & 8.700 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Valores experimentales del circuito 3.}
+\label{tab:c3_experimentales}
+\scriptsize
+\begin{tabular}{c c c c c c c c}
+\hline
+\textbf{Configuración} & \(E\) (V) &
+\(V_{D,\text{Si}}\) (V) &
+\(V_{D,\text{Ge}}\) (V) &
+\(I\) (mA) & \textbf{Error (\%)} &
+\(V_R\) (V) & \textbf{Error (\%)} \\
+\hline
+Ambos diodos & 9.0 & 0.286 & 0.286 & 18.350 & 0.446 & 8.710 & 0.115 \\
+Solo Si & 9.0 & 0.670 & -- & 17.360 & 1.279 & 8.290 & 0.120 \\
+Solo Ge (adicional) & 9.0 & -- & 0.282 & 18.200 & 1.259 & 8.670 & 0.345 \\
+\hline
+\end{tabular}
+\end{table}
+
+\noindent
+Para la configuración con ambos diodos conectados, las caídas de tensión experimentales fueron de \(0.286\,V\), con una diferencia de \(4.667\%\) respecto al valor teórico de \(0.300\,V\). En las configuraciones individuales, los errores relativos de las caídas de tensión fueron de \(4.286\%\) para el diodo de silicio y de \(6.000\%\) para el de germanio.
+
+\subsection{Circuito 4: Configuración con dos resistencias}
+
+En el cuarto circuito se estudió una configuración con dos resistencias y dos diodos de silicio. Para este montaje se utilizaron \(R_1=472\,\Omega\) y \(R_2=269\,\Omega\). La guía solicita determinar las corrientes \(I_1\) e \(I_2\), la tensión \(V_2\) y la corriente \(I_{D2}\). Además, se conservaron las mediciones de las caídas de tensión en los diodos para complementar el análisis del circuito.
+
+\vspace{0.3cm}
+
+\textbf{Cálculos teóricos}
+
+De acuerdo con el modelo de segunda aproximación, ambos diodos de silicio presentan una caída de tensión aproximada de \(0.7\,V\).
+
+La corriente \(I_1\) se determina mediante la tensión en el diodo \(D_2\) y la resistencia \(R_1\):
+
+\[
+I_1=\frac{V_{D2}}{R_1}
+\]
+
+Sustituyendo los valores:
+
+\[
+I_1=\frac{0.7}{472}
+\]
+
+\[
+\boxed{I_1=1.483\,\text{mA}}
+\]
+
+La tensión \(V_2\) se obtiene aplicando la ley de voltajes de Kirchhoff:
+
+\[
+V_2=E-V_{D1}-V_{D2}
+\]
+
+\[
+V_2=15-0.7-0.7
+\]
+
+\[
+\boxed{V_2=13.6\,V}
+\]
+
+La corriente \(I_2\) se calcula mediante la ley de Ohm:
+
+\[
+I_2=\frac{V_2}{R_2}
+\]
+
+\[
+I_2=\frac{13.6}{269}
+\]
+
+\[
+\boxed{I_2=50.558\,\text{mA}}
+\]
+
+Finalmente, la corriente que circula por el diodo \(D_2\) se obtiene mediante la diferencia entre las corrientes de las ramas:
+
+\[
+I_{D2}=I_2-I_1
+\]
+
+\[
+I_{D2}=50.558-1.483
+\]
+
+\[
+\boxed{I_{D2}=49.075\,\text{mA}}
+\]
+
+\vspace{0.3cm}
+
+En las Tablas \ref{tab:c4_teoricos} y \ref{tab:c4_experimentales} se presentan los valores teóricos y experimentales de las magnitudes solicitadas.
+
+\begin{table}[H]
+\centering
+\caption{Valores teóricos del circuito 4.}
+\label{tab:c4_teoricos}
+\scriptsize
+\begin{tabular}{c c c c c c c}
+\hline
+\(E\) (V) & \(V_{D1}\) (V) & \(V_{D2}\) (V) &
+\(I_1\) (mA) & \(V_2\) (V) &
+\(I_2\) (mA) & \(I_{D2}\) (mA) \\
+\hline
+15.0 & 0.700 & 0.700 & 1.483 & 13.600 & 50.558 & 49.075 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Valores experimentales del circuito 4.}
+\label{tab:c4_experimentales}
+\scriptsize
+\begin{tabular}{c c c c c c c c c c c}
+\hline
+\(E\) (V) &
+\(V_{D1}\) (V) & \(V_{D2}\) (V) &
+\(I_1\) (mA) & \textbf{Error (\%)} &
+\(V_2\) (V) & \textbf{Error (\%)} &
+\(I_2\) (mA) & \textbf{Error (\%)} &
+\(I_{D2}\) (mA) & \textbf{Error (\%)} \\
+\hline
+15.0 & 0.709 & 0.701 & 1.490 & 0.469 &
+13.480 & 0.882 & 49.100 & 2.883 &
+46.900 & 4.431 \\
+\hline
+\end{tabular}
+\end{table}
+
+\noindent
+Las caídas de tensión experimentales en los diodos presentaron errores relativos de \(1.286\%\) para \(V_{D1}\) y \(0.143\%\) para \(V_{D2}\).
+
+\section{Discusión de resultados}
+
+\subsection{Circuito 1: Diodo de silicio}
+
+En el primer circuito se observó que el comportamiento del diodo de silicio depende de la polaridad y de la magnitud de la tensión aplicada. Para la configuración en polarización directa con una fuente de \(9\,V\), la caída de tensión experimental en el diodo fue de \(0.700\,V\), coincidiendo con el valor establecido por el modelo de segunda aproximación. De igual manera, la corriente experimental fue de \(17.600\,mA\), frente a un valor teórico de \(17.585\,mA\), lo que representa un error relativo de apenas \(0.087\%\). La tensión en la resistencia presentó un error de \(1.205\%\), por lo que se evidencia una buena correspondencia entre los resultados experimentales y los valores calculados.
+
+\vspace{0.3cm}
+
+En la configuración de polarización inversa, la corriente medida fue nula y la tensión se concentró prácticamente en el diodo, lo que concuerda con el comportamiento esperado para un diodo que no conduce en esta condición. La diferencia entre la tensión teórica de \(9.000\,V\) y la experimental de \(9.140\,V\) corresponde a un error de \(1.556\%\).
+
+\vspace{0.3cm}
+
+Finalmente, al aplicar una tensión directa de \(0.4\,V\), inferior a la tensión umbral considerada para el diodo de silicio, se obtuvo una corriente nula. La caída de tensión experimental en el diodo fue de \(0.375\,V\), cercana a la tensión aplicada. Este resultado es consistente con el modelo utilizado, que predice que el diodo permanece en estado de corte cuando la tensión aplicada no alcanza el valor de conducción aproximado de \(0.7\,V\).
+
+\subsection{Circuito 2: Diodos de silicio y germanio en serie}
+
+En el segundo circuito, cuando ambos diodos se encontraban polarizados directamente, se obtuvo una caída de tensión experimental de \(0.668\,V\) en el diodo de silicio y de \(0.264\,V\) en el de germanio. Estos valores se aproximan a las caídas de tensión consideradas en el modelo de segunda aproximación, de \(0.7\,V\) y \(0.3\,V\), respectivamente. Aunque el diodo de germanio presentó el mayor error relativo, con un \(12.000\%\), la corriente del circuito mostró una diferencia reducida respecto al valor teórico, con un error de \(1.057\%\). La tensión de salida también presentó una diferencia pequeña, correspondiente a un error del \(1.500\%\).
+
+\vspace{0.3cm}
+
+Al invertir la polaridad del diodo de germanio, el modelo teórico predice que el circuito deja de conducir, debido a que uno de los diodos se encuentra polarizado inversamente. En la medición se obtuvo una corriente de \(0.026\,mA\), un valor considerablemente menor que el registrado cuando ambos diodos estaban en conducción. Asimismo, la tensión de salida medida fue de \(0.012\,V\), próxima al valor teórico de cero.
+
+\vspace{0.3cm}
+
+La pequeña corriente registrada en esta última configuración puede asociarse a las limitaciones propias de la medición y a las corrientes residuales que pueden presentarse en un circuito real. Por tanto, aunque el resultado experimental no fue exactamente cero, sí se observa una reducción considerable de la corriente, coherente con el estado de bloqueo previsto por el modelo.
+
+\subsection{Circuito 3: Configuración en paralelo}
+
+En el tercer circuito se compararon tres configuraciones: ambos diodos conectados en paralelo, únicamente el diodo de silicio y únicamente el diodo de germanio. Para la conexión simultánea, las caídas de tensión experimentales en ambos diodos fueron de \(0.286\,V\), mientras que el valor teórico registrado fue de \(0.300\,V\). En ambos casos se obtuvo un error relativo de \(4.667\%\). La corriente experimental fue de \(18.350\,mA\), con un error de \(0.446\%\), mientras que la tensión en la resistencia presentó una diferencia de apenas \(0.115\%\) respecto al valor teórico.
+
+\vspace{0.3cm}
+
+Cuando se mantuvo únicamente el diodo de silicio, se obtuvo una caída de tensión experimental de \(0.670\,V\), cercana al valor teórico de \(0.700\,V\). La corriente presentó un error de \(1.279\%\), mientras que la tensión en la resistencia tuvo un error de \(0.120\%\). Por otro lado, cuando se utilizó únicamente el diodo de germanio, la caída de tensión experimental fue de \(0.282\,V\), frente al valor teórico de \(0.300\,V\), con un error relativo de \(6.000\%\). En esta última configuración, la corriente presentó un error de \(1.259\%\) y la tensión en la resistencia un error de \(0.345\%\).
+
+\vspace{0.3cm}
+
+En general, las tres configuraciones presentaron diferencias reducidas entre los valores teóricos y experimentales de la corriente y la tensión en la resistencia. Las diferencias observadas en las caídas de tensión de los diodos reflejan que los valores de \(0.7\,V\) y \(0.3\,V\) son aproximaciones del comportamiento real y no valores constantes exactos para todas las condiciones de operación.
+
+\subsection{Circuito 4: Configuración con dos resistencias}
+
+Para el cuarto circuito, las caídas de tensión experimentales en los diodos fueron de \(0.709\,V\) y \(0.701\,V\), con errores relativos de \(1.286\%\) y \(0.143\%\), respectivamente. Estos resultados muestran una buena correspondencia con la caída de tensión de \(0.7\,V\) asumida para los diodos de silicio en el modelo de segunda aproximación.
+
+\vspace{0.3cm}
+
+En cuanto a las magnitudes solicitadas para el circuito, la corriente \(I_1\) presentó un error de \(0.469\%\), mientras que la tensión \(V_2\) tuvo una diferencia de \(0.882\%\) respecto al valor teórico. Para las corrientes \(I_2\) e \(I_{D2}\), los errores fueron de \(2.883\%\) y \(4.431\%\), respectivamente. Aunque estas últimas diferencias fueron mayores que las obtenidas para las demás magnitudes, los resultados experimentales mantienen una correspondencia razonable con los valores calculados.
+
+\vspace{0.3cm}
+
+Las diferencias entre los resultados teóricos y experimentales pueden atribuirse a factores propios del montaje, como las tolerancias de las resistencias, las variaciones de las características eléctricas de los diodos y la precisión de los instrumentos de medición. Además, el modelo de segunda aproximación considera una caída de tensión constante durante la conducción, mientras que en un componente real esta puede variar según la corriente y las condiciones de funcionamiento.
+
+\subsection{Análisis general}
+
+Al comparar los resultados de los cuatro circuitos, se observa que el modelo de segunda aproximación permite describir adecuadamente el comportamiento general de los diodos semiconductores en las configuraciones estudiadas. En la mayoría de las magnitudes calculadas se obtuvieron diferencias relativas pequeñas entre los valores teóricos y experimentales, lo que indica que la aproximación utilizada resulta adecuada para analizar circuitos de corriente continua en los que se requiere determinar los estados de conducción y bloqueo de los diodos.
+
+\vspace{0.3cm}
+
+Sin embargo, los resultados también muestran que las caídas de tensión reales no son exactamente iguales a los valores aproximados de \(0.7\,V\) para el silicio y \(0.3\,V\) para el germanio. Esta diferencia se hace más evidente en algunas mediciones del segundo y tercer circuito. Por consiguiente, aunque el modelo facilita el análisis teórico y permite obtener resultados cercanos a los experimentales, no representa de manera exacta todas las características de los componentes reales.
