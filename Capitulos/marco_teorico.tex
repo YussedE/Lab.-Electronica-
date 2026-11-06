@@ -1,127 +1,27 @@
 ﻿\section{Marco Teórico}
 
-\subsection{Conductores eléctricos}
+\subsection{Semiconductores de silicio y germanio}
 
-Son materiales que ofrecen poca resistencia al movimiento de la carga eléctrica. Sus \textbf{átomos} se caracterizan por tener pocos electrones en su \textbf{capa de valencia}, por lo que no se necesita mucha energía para que estos salten de un átomo a otro.
+El silicio (\ce{Si}) y el germanio (\ce{Ge}) son materiales semiconductores cuyas propiedades eléctricas permiten controlar la conducción de corriente mediante procesos como el dopaje y la variación de la temperatura. Desde el punto de vista de la física del estado sólido, sus propiedades electrónicas se describen mediante una estructura de bandas de energía, en la que la banda de valencia y la banda de conducción están separadas por una región de energías prohibidas denominada banda prohibida.
 
-También se considera conductor eléctrico a cualquier cuerpo formado por \textbf{materia eléctricamente conductora}. Se distinguen dos tipos principales de conductores:
+Cuando un electrón adquiere suficiente energía para pasar de la banda de valencia a la banda de conducción, deja un estado desocupado en la banda de valencia denominado \textbf{hueco}. Este puede interpretarse como un portador de carga efectiva positiva, cuyo movimiento colectivo contribuye a la conducción eléctrica. Por tanto, tanto los electrones como los huecos participan en el transporte de carga en los semiconductores.
 
-\begin{figure}[h]
+\subsubsection{Silicio monocristalino}
+
+El silicio es uno de los materiales fundamentales en la fabricación de dispositivos electrónicos debido a sus propiedades semiconductoras, su disponibilidad y la posibilidad de controlar sus características eléctricas mediante el dopaje. Constituye aproximadamente el \(25.8\%\) de la masa de la corteza terrestre y se encuentra principalmente formando compuestos, como la sílice y los silicatos, en lugar de presentarse en estado elemental.
+
+En estado sólido, el silicio cristalino presenta una estructura covalente de tipo diamante, como se muestra en la figura \ref{fig:silicio_cristal}. En esta estructura, cada átomo de silicio está enlazado covalentemente con cuatro átomos vecinos mediante sus electrones de valencia. La disposición periódica de estos enlaces da lugar a una red cristalina tridimensional estable.
+
+A temperaturas bajas, los electrones de valencia permanecen mayoritariamente ligados a los enlaces covalentes. Sin embargo, al aumentar la temperatura, algunos electrones pueden adquirir suficiente energía para pasar a la banda de conducción, dejando huecos en la banda de valencia. De esta manera se generan pares electrón-hueco que contribuyen a la conductividad eléctrica del material.
+
+La estructura cristalina también permite incorporar átomos de impurezas de manera controlada, modificando la concentración de portadores de carga. Este proceso, denominado dopaje, permite obtener semiconductores tipo N, en los que predominan los electrones como portadores mayoritarios, y tipo P, en los que predominan los huecos. La formación de estas dos regiones constituye la base física de la unión PN utilizada en los diodos semiconductores.
+
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\textwidth]{images.png}
-    \caption{Representación del electrón de valencia en un átomo conductor.}
-    \label{fig:atomo_valencia}
+    \includegraphics[width=0.6\textwidth]{silicio_cristal.jpg}
+    \caption{Representación de la estructura cristalina tipo diamante del silicio.}
+    \label{fig:silicio_cristal}
 \end{figure}
-
-\begin{itemize}
-    \item \textbf{Conductor Homogéneo:} Son aquellos materiales o cables eléctricos cuya conductividad y composición son uniformes en todos sus puntos.
-    \item \textbf{Conductor Combinado:} (O conductor bimetálico/compuesto) Son aquellos fabricados mediante la combinación de dos materiales diferentes (por ejemplo, aluminio y acero, o cobre y acero) para aprovechar las propiedades mecánicas de uno y las eléctricas del otro.
-\end{itemize}
-
-\begin{table}[h]
-    \centering
-    \caption{Resistividad de los conductores más comunes a $20\,^{\circ}\text{C}$}
-    \label{tab:conductores}
-    \begin{tabular}{|l|c|c|}
-        \hline
-        \textbf{Material} & \textbf{Símbolo} & \textbf{Resistividad ($\times 10^{-8} \ \Omega \cdot \text{m}$)} \\ \hline
-        Plata    & Ag & 1.64  \\ \hline
-        Cobre    & Cu & 1.72  \\ \hline
-        Oro      & Au & 2.45  \\ \hline
-        Aluminio & Al & 2.82  \\ \hline
-        Hierro   & Fe & 8.90  \\ \hline
-        Estaño   & Sn & 11.50 \\ \hline
-        Grafito  & C  & 60.00 \\ \hline
-    \end{tabular}
-\end{table}
-
-\subsection{Aislantes eléctricos}
-
-Son materiales que presentan una gran resistencia al movimiento de la carga eléctrica, impidiendo el flujo libre de los electrones. Sus \textbf{átomos} se caracterizan por tener sus \textbf{capas de valencia} completas o casi llenas, lo que genera una fuerza de atracción nuclear muy intensa sobre los electrones, requiriendo niveles extremadamente altos de energía para moverlos.
-
-También se conocen como dieléctricos y son fundamentales para la seguridad y confinamiento de la corriente. Se distinguen dos categorías según su origen y aplicación:
-
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.5\textwidth]{aislante_atomo.png}
-    \caption{Estructura atómica de un aislante con su capa de valencia completa, impidiendo el flujo de electrones.}
-    \label{fig:atomo_aislante}
-\end{figure}
-
-
-\begin{itemize}
-    \item \textbf{Aislantes Sólidos:} Son materiales compactos de alta rigidez dieléctrica que se utilizan para recubrir o soportar físicamente las estructuras conductoras (por ejemplo, el vidrio, la cerámica o polímeros como el PVC).
-    \item \textbf{Aislantes Líquidos o Gaseosos:} Son fluidos utilizados en aplicaciones industriales de alta potencia, como transformadores, para aislar y disipar calor de forma simultánea (por ejemplo, el aceite mineral o el gas hexafluoruro de azufre).
-\end{itemize}
-
-\begin{table}[h]
-    \centering
-    \caption{Resistividad de los aislantes más comunes a $20\,^{\circ}\text{C}$}
-    \label{tab:aislantes}
-    \begin{tabular}{|l|c|c|}
-        \hline
-        \textbf{Material} & \textbf{Fórmula / Tipo} & \textbf{Resistividad ($\Omega \cdot \text{m}$)} \\ \hline
-        Agua destilada & H$_2$O & $2 \times 10^{5}$ \\ \hline
-        Vidrio         & SiO$_2$ (base) & $10^{10} - 10^{14}$ \\ \hline
-        Goma dura      & Polímero & $10^{13}$ \\ \hline
-        Azufre         & S & $10^{15}$ \\ \hline
-        Teflón         & (C$_2$F$_4$)$_n$ & $10^{22} - 10^{24}$ \\ \hline
-    \end{tabular}
-\end{table}
-
-\subsection{Semiconductores eléctricos}
-
-Son materiales que poseen propiedades eléctricas intermedias entre los conductores y los aislantes. Sus \textbf{átomos} se caracterizan por tener exactamente cuatro electrones en su \textbf{capa de valencia}. Bajo condiciones normales actúan como aislantes, pero al recibir energía externa (calor, luz o un voltaje aplicado) o mediante el proceso de dopado, sus electrones pueden saltar con relativa facilidad a la banda de conducción.
-
-El Silicio es el elemento semiconductor más utilizado en la industria electrónica para la fabricación de diodos, transistores y circuitos integrados. Dependiendo de su pureza y tratamiento, se clasifican en dos tipos principales \cite{REF_3}:
-
-\begin{itemize}
-    \item \textbf{Semiconductores Intrínsecos:} Son aquellos materiales que se encuentran en un estado puro, sin ningún tipo de impurezas en su estructura cristalina (como el silicio o germanio puros a temperatura ambiente).
-    \item \textbf{Semiconductores Extrínsecos:} Son aquellos que han sido modificados mediante la introducción deliberada de átomos de otros elementos (proceso de dopado) para alterar drásticamente su conductividad, dividiéndose en tipo P (aceptadores de electrones) y tipo N (donadores de electrones).
-\end{itemize}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.45\textwidth]{silicio_atomo.png}
-    \caption{Representación del modelo atómico del Silicio (Si) destacando sus cuatro electrones de valencia.}
-    \label{fig:atomo_silicio}
-\end{figure}
-
-\begin{table}[h]
-    \centering
-    \caption{Resistividad de los semiconductores más comunes a $20\,^{\circ}\text{C}$}
-    \label{tab:semiconductores}
-    \begin{tabular}{|l|c|c|}
-        \hline
-        \textbf{Material} & \textbf{Símbolo} & \textbf{Resistividad ($\Omega \cdot \text{m}$)} \\ \hline
-        Germanio & Ge & 0.46 \\ \hline
-        Silicio  & Si & $2.3 \times 10^{3}$ \\ \hline
-    \end{tabular}
-\end{table}
-
-
-\subsection{Semiconductores Intrínsecos y Equilibrio Térmico}
-Un semiconductor intrínseco define a un material semiconductor en su estado de máxima pureza química, libre de defectos estructurales o impurezas intencionadas en su red cristalina. A la temperatura del cero absoluto ($0\text{ K}$), el material se comporta como un aislante perfecto debido a que todos los electrones de valencia se encuentran confinados en los enlaces covalentes que configuran la estructura del cristal.
-
-Al incrementarse la temperatura ambiente ($T > 0\text{ K}$), la agitación térmica aporta la energía mínima necesaria para romper una fracción de estos enlaces covalentes. Este fenómeno físico provoca que un electrón adquiera la energía suficiente para superar la banda prohibida o \textit{bandgap} ($E_g$) y transite hacia la banda de conducción, transformándose en un electrón libre. Simultáneamente, la ausencia del electrón en el enlace covalente original genera una vacante con carga positiva neta en la banda de valencia, denominada mecánicamente como \textit{hueco}.
-
-Este mecanismo se conoce como generación térmica de pares electrón-hueco. Dado que cada electrón libre genera de manera unívoca un hueco, en condiciones de equilibrio térmico se establece que la densidad de electrones libres ($n$) es estrictamente igual a la densidad de huecos ($p$), e igual a la concentración intrínseca del portador ($n_i$):
-
-\begin{equation}
-n = p = n_i
-\end{equation}
-
-La concentración intrínseca es una propiedad del material dependiente de la temperatura y de la magnitud de su banda prohibida, gobernada por la siguiente relación matemática \cite{REF_3}:
-
-\begin{equation}
-n_i^2 = N_c N_v \exp\left(-\frac{E_g}{k_B T}\right)
-\end{equation}
-
-Donde $N_c$ y $N_v$ representan las densidades efectivas de estados en las bandas de conducción y valencia respectivamente, $k_B$ es la constante de Boltzmann y $T$ es la temperatura absoluta en Kelvin.
-
-\subsection{Semiconductores Extrínsecos: El Proceso de Dopaje}
-Debido a que la conductividad eléctrica de un semiconductor intrínseco es extremadamente baja a temperatura ambiente para aplicaciones prácticas, se recurre al proceso de dopaje. Este consiste en la introducción controlada de átomos de impurezas en la red cristalina para alterar deliberadamente las concentraciones de portadores de carga, dando origen a los semiconductores extrínsecos.
 
 \subsubsection{Semiconductores Tipo N (Negativo)}
 Se obtienen mediante la introducción de impurezas pentavalentes, es decir, átomos pertenecientes al Grupo V de la tabla periódica (tales como el Fósforo, $\text{P}$, o el Arsénico, $\text{As}$) en una matriz de silicio tetravalente. Al sustituir un átomo de silicio, la impureza emplea cuatro de sus electrones de valencia para consolidar los enlaces covalentes con los átomos adyacentes. El quinto electrón queda libre de enlace y requiere una energía de ionización muy baja para situarse en la banda de conducción.
@@ -173,7 +73,6 @@ El comportamiento eléctrico de la unión P-N se modifica mediante la aplicació
     \label{fig:region_agotamiento}
 \end{figure}
 
-
 \subsubsection{Polarización Directa}
 Ocurre al conectar el terminal positivo de una fuente externa a la región P y el terminal negativo a la región N ($V_a > 0$). El campo eléctrico externo se opone directamente al campo eléctrico interno de la unión. Esto reduce el ancho de la región de agotamiento y disminuye notablemente la barrera de potencial. Cuando el voltaje externo supera el potencial de barrera, los portadores mayoritarios adquieren la energía cinética suficiente para cruzar la unión en masa, permitiendo un flujo de corriente eléctrica de carácter exponencial.
 
@@ -182,13 +81,7 @@ Se presenta al conectar el terminal positivo de la fuente a la región N y el te
 
 La corriente total en este estado no es estrictamente cero; se manifiesta una corriente de magnitud minúscula (del orden de los nanoamperios) denominada \textit{corriente de saturación inversa} o corriente de fuga ($I_0$). Esta corriente se debe exclusivamente al arrastre de los portadores minoritarios a través de la unión, generados térmicamente en el material.
 
-\subsection{El Diodo Zener y el Fenómeno de Ruptura Inversa}
-Si el voltaje en polarización inversa se incrementa más allá de un límite crítico específico, conocido como voltaje de ruptura ($V_Z$), el campo eléctrico en la región de agotamiento alcanza una intensidad crítica capaz de arrancar electrones directamente de los enlaces covalentes (efecto Zener) o de acelerar electrones minoritarios con suficiente energía para ionizar otros átomos por impacto en cadena (efecto avalancha).
-
-A diferencia de un diodo convencional de la unión P-N, el \textbf{diodo Zener} se fabrica con perfiles de dopaje adecuados para operar dentro de la región de ruptura inversa. Al alcanzar el potencial $V_Z$, la corriente inversa se incrementa de forma abrupta mientras que la caída de tensión en los terminales del dispositivo permanece prácticamente constante. Esta propiedad permite utilizarlo en circuitos de regulación y protección contra sobrevoltajes \cite{REF_2}.
-
-
-\subsection{La Corriente de Saturación Inversa ($I_0$)}
+\subsection{La Corriente de Saturación Inversa ($I_0$))Ecuacion de Shockey}
 Como se estableció previamente, cuando una unión P-N se somete a un régimen de polarización inversa, el flujo de portadores mayoritarios queda bloqueado por el incremento de la barrera de potencial. No obstante, se manifiesta una corriente eléctrica residual de magnitud infinitesimal denominada \textit{corriente de saturación inversa} o corriente de fuga ($I_0$).
 
 Esta corriente es de naturaleza puramente térmica y es conducida exclusivamente por los portadores minoritarios (electrones libres en la región P y huecos en la región N) que son arrastrados a través de la región de agotamiento por el campo eléctrico aplicado. La relación matemática que gobierna la corriente total ($I$) en un diodo a lo largo de sus regímenes de operación se describe mediante la ecuación ideal de Shockley \cite{REF_3,REF_4}:
@@ -200,8 +93,8 @@ I = I_0 \left( \exp\left(\frac{q V_a}{n k_B T}\right) - 1 \right)
 Donde $V_a$ representa el voltaje neto aplicado a los terminales del componente, $q$ es la carga elemental del electrón ($1.602 \times 10^{-19}\text{ C}$), $k_B$ representa la constante de Boltzmann, $T$ es la temperatura absoluta en Kelvin y $n$ define el factor de idealidad del semiconductor (cuyo valor oscila típicamente entre $1$ y $2$ dependiendo del material y del nivel de dopaje). Cuando el diodo está polarizado en inversa ($V_a < 0$), el término exponencial decrece exponencialmente hacia cero, haciendo que la corriente total se estabilice en el valor constante e inverso de $-I_0$.
 
 \subsection{Modelos de Aproximación Eléctrica del Diodo}
-Con la finalidad de simplificar el análisis y modelado matemático de los diodos de unión P-N en el diseño de circuitos prácticos, la curva característica exponencial real se simplifica mediante aproximaciones lineales por tramos \cite{REF_2,REF_5}.
 
+Con la finalidad de simplificar el análisis y modelado matemático de los diodos de unión P-N en el diseño de circuitos prácticos, la curva característica exponencial real se simplifica mediante aproximaciones lineales por tramos \cite{REF_2,REF_5}.
 \subsubsection{Primera Aproximación: Modelo del Diodo Ideal}
 La primera aproximación asume que el diodo se comporta de forma ideal, comportándose como un interruptor perfecto sin pérdidas de energía ni caídas de tensión internas:
 \begin{itemize}
@@ -246,13 +139,16 @@ La \ref{fig:primera_aproximacion} ilustra los circuitos equivalentes correspondi
 \end{figure}
 
 \subsubsection{Segunda Aproximación: Modelo de Caída de Tensión Constante}
-La segunda aproximación añade realismo al análisis al incorporar la existencia de la barrera de potencial intrínseca engendrada en la región de agotamiento (el potencial de contacto incorporado). Para silicio cristalino, este umbral se estipula de forma estándar en $0.7\text{ V}$.
+
+La segunda aproximación incorpora la tensión umbral del diodo, permitiendo representar de manera más realista su comportamiento en polarización directa. Para un diodo de silicio, se considera una caída de tensión constante de aproximadamente $0.7\text{ V}$ cuando conduce. En polarización inversa, el diodo se modela como un circuito abierto.
+
 \begin{itemize}
-    \item \textbf{Polarización Directa ($V_a \geq 0.7\text{ V}$):} El diodo entra en régimen de conducción activa una vez que el potencial externo supera el umbral. Se modela matemáticamente como una \textbf{fuente de voltaje continua fija de $0.7\text{ V}$} opuesta a la fuente principal del lazo, en serie con un interruptor ideal cerrado.
-    \item \textbf{Polarización Inversa ($V_a < 0.7\text{ V}$):} Si el voltaje de la malla no logra vencer la barrera de energía, el diodo permanece apagado y se modela idénticamente como un circuito abierto (interruptor abierto).
+    \item \textbf{Polarización Directa ($V_D \geq V_\gamma$):} El diodo se representa mediante una fuente de tensión constante $V_\gamma \approx 0.7\text{ V}$ en serie con un interruptor ideal cerrado. Esta fuente representa la caída de tensión directa del diodo de silicio.
+
+    \item \textbf{Polarización Inversa:} El diodo se comporta como un circuito abierto, por lo que la corriente que circula a través de él se considera nula en este modelo.
 \end{itemize}
 
-Los circuitos eléctricos equivalentes de este modelo se exponen en la \ref{fig:segunda_aproximacion}.
+La figura \ref{fig:segunda_aproximacion} ilustra los circuitos equivalentes correspondientes a la segunda aproximación del diodo semiconductor.
 
 \begin{figure}[htbp]
     \centering
@@ -260,32 +156,72 @@ Los circuitos eléctricos equivalentes de este modelo se exponen en la \ref{fig:
         \centering
         \begin{circuitikz}[scale=0.8]
             \draw (0,0) to[battery2, l=$E$] (0,2)
-                  (0,2) to[battery2, l=$0.7\text{ V}$] (1.5,2) % Fuente de 0.7V
-                  (1.5,2) to[short] (2.5,2)
-                  (2.5,2) to[R, l=$R$] (2.5,0)
-                  (2.5,0) -- (0,0);
+                  (0,2) to[battery2, l_=$V_\gamma$] (1.5,2)
+                  (1.5,2) to[short] (2,2)
+                  (2,2) to[R, l=$R$] (2,0)
+                  (2,0) -- (0,0);
+            \node[above] at (1.7,2.25) {$V_\gamma=0.7\text{ V}$};
         \end{circuitikz}
-        \caption{Equivalente en Polarización Directa.}
+        \caption{Equivalente en polarización directa.}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
         \begin{circuitikz}[scale=0.8]
             \draw (0,0) to[battery2, l=$E$] (0,2)
-                  (0,2) to[short] (1,2)
-                  (1,2) to[short, -*] (1.5,2)
-                  (2.2,2.3) to[short, *-] (2.5,2) % Interruptor abierto
-                  (2.5,2) to[R, l=$R$] (2.5,0)
-                  (2.5,0) -- (0,0);
+                  (0,2) to[short] (0.8,2)
+                  (0.8,2) to[spst, l=$\text{abierto}$] (1.8,2)
+                  (1.8,2) to[R, l=$R$] (1.8,0)
+                  (1.8,0) -- (0,0);
         \end{circuitikz}
-        \caption{Equivalente en Polarización Inversa.}
+        \caption{Equivalente en polarización inversa.}
     \end{subfigure}
-    \caption{Modelos de circuito equivalentes para la segunda aproximación (barrera de potencial).}
+    \caption{Modelos de circuito equivalentes para la segunda aproximación del diodo semiconductor.}
     \label{fig:segunda_aproximacion}
 \end{figure}
 
+\subsubsection{Tercera Aproximación: Modelo Lineal por Tramos}
 
+La tercera aproximación incorpora, además de la tensión umbral, una resistencia dinámica $r_d$ en serie con el diodo. Esta resistencia permite aproximar la variación de la tensión directa con respecto a la corriente, proporcionando un modelo más preciso que la segunda aproximación.
 
+\begin{itemize}
+    \item \textbf{Polarización Directa ($V_D \geq V_\gamma$):} El diodo se representa mediante una fuente de tensión constante $V_\gamma \approx 0.7\text{ V}$ en serie con una resistencia $r_d$ y un interruptor ideal cerrado. La tensión del diodo se aproxima mediante $V_D \approx V_\gamma + I_Dr_d$.
+
+    \item \textbf{Polarización Inversa:} Mientras no se alcance la tensión de ruptura, el diodo se modela como un circuito abierto, por lo que su corriente se considera nula.
+\end{itemize}
+
+La figura \ref{fig:tercera_aproximacion} muestra los circuitos equivalentes correspondientes a la tercera aproximación del diodo semiconductor.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \begin{circuitikz}[scale=0.8]
+            \draw (0,0) to[battery2, l=$E$] (0,2)
+                  (0,2) to[battery2, l_=$V_\gamma$] (1.3,2)
+                  (1.3,2) to[R, l=$r_d$] (2.3,2)
+                  (2.3,2) to[short] (2.8,2)
+                  (2.8,2) to[R, l=$R$] (2.8,0)
+                  (2.8,0) -- (0,0);
+            \node[above] at (2,3) {$V_\gamma=0.7\text{ V}$};
+        \end{circuitikz}
+        \caption{Equivalente en polarización directa.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \begin{circuitikz}[scale=0.8]
+            \draw (0,0) to[battery2, l=$E$] (0,2)
+                  (0,2) to[short] (0.8,2)
+                  (0.8,2) to[spst, l=$\text{abierto}$] (1.8,2)
+                  (1.8,2) to[R, l=$R$] (1.8,0)
+                  (1.8,0) -- (0,0);
+        \end{circuitikz}
+        \caption{Equivalente en polarización inversa.}
+    \end{subfigure}
+    \caption{Modelos de circuito equivalentes para la tercera aproximación del diodo semiconductor.}
+    \label{fig:tercera_aproximacion}
+\end{figure}
 
 
 
