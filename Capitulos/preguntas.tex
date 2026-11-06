@@ -1,131 +1,213 @@
 \section{Problemas}
 
 \begin{enumerate}
-	\item Usando la ecuación Shockley:
-	
-		\[
-		I = I_S (e^{\frac{V_D}{V_T}}-1)
-		\]
-		\[
-		V_D = V_T * ln(\frac{I}{I_S}+1)
-		\]
-		
-		Como el primer diodo está en polarización inversa, se toma $I=I_S$:
-		
-		\[
-		V_1 = V_T * ln(2) = \frac{18+273.15}{11600} * ln 2 = 0.017V
-		\]
-		
-		Aplicando la segunda ley de Kirchoff:
-		
-		\[
-		5V-V_1-V_2 = 0
-		\]
-		\[
-		V_2 = V_1-5V = 0.017V-5V = -4.98
-		\]
-		
-	\item Usando la segunda aproximación del diodo se tiene que el diodo 1 se reemplaza por una caida de potencial por estar en polarización directa y el diodo 2 por un interruptor abierto:
-	
-		\begin{center}
-			\begin{circuitikz}
-				\draw
-				(0,0) to [R, *-*, l={$R=2.2k\Omega$}, i_=$I$] (4,0)
-				to [short] (4,1.5)
-				to [battery1, l_=$D_1$, v={$-0.7V$}, invert] (6.5,1.5)
-				to [short] (6.5,-1.5)
-				to [short] (5.75,-1.5)
-				to [short, *-*, l=$D_2$] (5,-2)
-				
-				(5,-1.5) to [short] (4,-1.5)
-				to [short] (4,0)
-				
-				(6.5,0) to [short, *-*] (8,0)
-				
-				(0,0) node[anchor=north]{$E_1=20V$}
-				(4,0) node[anchor=west]{$a$}
-				(6.5,0) node[anchor=east]{$b$}
-				(8,0) node[anchor=north]{$E_2=-4V$};
-			\end{circuitikz}
-		\end{center}
-		
-		El voltaje en el punto inicial es de $E_1 = 20V$ y en el punto final es $E_2 = -4V$, por lo que hubo una caida de voltaje de $24V$ entre estos puntos, de la cual $0.7V$ son debidos al diodo, por lo que entre el punto inicial y el nodo $a$ hay una caida de $23.3V$, que es el voltaje en la resistencia.
-		
-		Usando ley de Ohm:
-		
-		\[
-		I = \frac{V}{R} = \frac{23.3V}{2200 \Omega} = 10.59 mA
-		\]
-		
-	\item 
-		\begin{description}
-		\item[a.] 
-		
-		Para el primer circuito, hay un voltaje de 0,7V en el diodo de silicio por lo que $V_{o1} = 11.3V$, además, la corriente del circuito está dada por:
-		
-		\[
-		I = \frac{12V - 0.7V - 0.3V}{4.7K\Omega} = 2.34 mA
-		\]
-		
-		En la resistencia:
-		
-		\[
-		V_R = 2.34mA * 4.7k\Omega = 11V
-		\]
-		
-		Por lo que $V_{o2} = V_{o1} - V_R = 0.3V$
-		
-		\item[b.]
-		
-		Para el segundo circuito, la corriente se calcula con:
-		
-		\[
-		I = \frac{10V - 0.7V - 0,3V}{1.2k\Omega + 3.3k\Omega} = 2mA
-		\]
-		
-		Para la resistencia de $3.3k\Omega$:
-		
-		\[
-		V = 3.3k\Omega * 2mA = 6.6V
-		\]
-		
-		Por lo tanto, $V_{o2} = -6.6V$
-		
-		Para la resistencia de $1.2k\Omega$:
-		
-		\[
-		V = 1.2k\Omega * 2mA = 2.4V
-		\]
-		
-		Por lo tanto, $V_{o2} = -2.4V$
-		
-		\end{description}
-		
-	\item \begin{description}
-		\item[a.] 
-		
-		La corriente en el circuito está dada por:
-		
-		\[
-		I = \frac{20V - 0.7V}{4.7k\Omega} = 4.1mA
-		\]
-		
-		La corriente se divide de igual manera para los dos diodos en paralelo, ya que ambos son de silicio y tienen polarización directa, entonces $I_D = I/2 = 2.05mA$
-		
-		$V_o$ se calcula después de la caida de potencial de los diodos, por lo tanto $V_o = 19.3V$.
-		
-		\item[b.]
-		
-		La corriente en el circuito está dada por:
-		
-		\[
-		I = \frac{20V - 0.7V}{2.2k\Omega} = 8.77mA
-		\]
-		
-		La corriente solo pasa por un diodo porque es el único en polarización directa.
-		
-		$V_o$ se calcula después de la caida de potencial del diodo, entonces $V_o = 14.3V$.
-		
-	\end{description}
-\end{enumerate}
+    \item \textbf{Dos diodos de silicio en oposición.} Se conectan dos diodos
+    de silicio en serie y en sentidos opuestos a una fuente de $5\,\text{V}$.
+    A $18\,^\circ\text{C}$, determine las magnitudes de $V_1$ y $V_2$ con la
+    ecuación de Shockley. Use $n=2$ y
+    \[
+        I=I_S\left(\exp\left(\frac{V_D}{nV_T}\right)-1\right),
+        \qquad
+        V_T=\frac{T}{11600}.
+    \]
 
+    \begin{center}
+    \begin{circuitikz}[scale=0.85,transform shape]
+        \draw (0,0) to[battery1,l_=$5\,\text{V}$] (4,0)
+              -- (4,2)
+              to[D,l=$D_2$] (2,2)
+              to[D,invert,l=$D_1$] (0,2)
+              -- (0,0);
+        \node[above] at (0,2) {$V_1$};
+        \node[above] at (3,2) {$V_2$};
+        \node[below] at (0,0) {$-$};
+        \node[below] at (4,0) {$+$};
+    \end{circuitikz}
+    \end{center}
+
+    La fuente polariza directamente a $D_2$ e inversamente a $D_1$. Como
+    $D_1$ está en inversa y la tensión inversa es mucho mayor que el voltaje
+    térmico, su corriente tiene una magnitud aproximadamente igual a $I_S$.
+    La misma corriente circula por $D_2$. Primero se calcula el voltaje
+    térmico:
+    \[
+        T=18+273.15=291.15\,\text{K},
+        \qquad
+        V_T=\frac{291.15}{11600}=0.0251\,\text{V}.
+    \]
+    Para $D_2$, $I/I_S\simeq 1$, por lo que
+    \[
+        1=\exp\left(\frac{V_2}{2V_T}\right)-1
+        \quad\Longrightarrow\quad
+        V_2=2V_T\ln(2)=0.0348\,\text{V}.
+    \]
+    Aplicando la ley de voltajes de Kirchhoff, $V_1+V_2=5\,\text{V}$:
+    \[
+        V_1=5-0.0348=4.965\,\text{V}.
+    \]
+    Por tanto, $V_1\simeq4.965\,\text{V}$ y $V_2\simeq0.035\,\text{V}$.
+
+    \item \textbf{Diodos en oposición entre dos potenciales.} Determine la
+    corriente $I$ usando la segunda aproximación. El diodo $D_1$ conduce y
+    $D_2$ queda en corte.
+
+    \begin{center}
+    \begin{circuitikz}[scale=0.85,transform shape]
+        \draw (0,1) node[left] {$E_1=20\,\text{V}$}
+              to[R,l=$2.2\,\text{k}\Omega$,i>^=$I$] (2,1)
+              -- (2,2)
+              to[D,l=$D_1$] (4,2)
+              -- (4,1)
+              node[right] {$E_2=-4\,\text{V}$};
+        \draw (2,1) -- (2,0)
+              to[D,invert,l_=$D_2$] (4,0)
+              -- (4,1);
+        \node[circ] at (2,1) {};
+        \node[circ] at (4,1) {};
+    \end{circuitikz}
+    \end{center}
+
+    La diferencia de potencial entre los extremos del circuito es
+    $20-(-4)=24\,\text{V}$. La caída en el diodo de silicio encendido es
+    aproximadamente $0.7\,\text{V}$; por tanto, la resistencia tiene
+    $24-0.7=23.3\,\text{V}$:
+    \[
+        I=\frac{20-(-4)-0.7}{2.2\,\text{k}\Omega}
+        =10.59\,\text{mA}\simeq10.6\,\text{mA}.
+    \]
+    El valor de $10.8\,\text{mA}$ indicado en la guía no coincide con los
+    datos del circuito y la caída de $0.7\,\text{V}$; el cálculo da
+    aproximadamente $10.6\,\text{mA}$.
+
+    \item \textbf{Voltajes de nodo en dos configuraciones.}
+    \begin{description}
+        \item[a)] El diodo de silicio conduce desde la fuente y el diodo de
+        germanio conduce hacia tierra. Se piden $V_{o1}$ y $V_{o2}$.
+
+        \begin{center}
+        \begin{circuitikz}[scale=0.85,transform shape]
+            \draw (0,2) node[left] {$+12\,\text{V}$}
+                  to[D,l=$\text{Si}$] (2,2)
+                  -- (2,2) node[above] {$V_{o1}$}
+                  -- (3,2)
+                  to[R,l=$4.7\,\text{k}\Omega$] (5,2)
+                  -- (5,2) node[above] {$V_{o2}$}
+                  -- (5,1)
+                  to[D,l_=$\text{Ge}$] (5,-1)
+                  -- (0,-1) node[below] {$0\,\text{V}$}
+                  -- (0,2);
+            \node[circ] at (2,2) {};
+            \node[circ] at (5,2) {};
+        \end{circuitikz}
+        \end{center}
+
+        En el modelo de segunda aproximación, $V_{o1}=12-0.7=11.3\,\text{V}$.
+        El diodo de germanio conectado a tierra fija $V_{o2}\simeq0.3\,\text{V}$.
+        Como comprobación, la corriente por la resistencia es
+        \[
+            I=\frac{V_{o1}-V_{o2}}{4.7\,\text{k}\Omega}
+            =\frac{11.3-0.3}{4.7\,\text{k}\Omega}
+            =2.34\,\text{mA}.
+        \]
+        Así, $V_{o1}=11.3\,\text{V}$ y $V_{o2}=0.3\,\text{V}$.
+
+        \item[b)] Determine $V_{o1}$ y $V_{o2}$ para la configuración con una
+        fuente de $-10\,\text{V}$, diodos de germanio y silicio en serie, y
+        resistencias de $1.2\,\text{k}\Omega$ y $3.3\,\text{k}\Omega$.
+
+        \begin{center}
+        \begin{circuitikz}[scale=0.85,transform shape]
+            \draw (0,2) node[left] {$-10\,\text{V}$}
+                  to[D,invert,l=$\text{Ge}$] (1.5,2)
+                  to[D,invert,l=$\text{Si}$] (3,2)
+                  -- (3,2) node[above] {$V_{o1}$}
+                  to[R,l=$1.2\,\text{k}\Omega$] (5,2)
+                  -- (5,2) node[above] {$V_{o2}$}
+                  to[R,l=$3.3\,\text{k}\Omega$] (5,0)
+                  -- (5,0) node[below] {$0\,\text{V}$};
+        \end{circuitikz}
+        \end{center}
+
+        La corriente circula desde tierra hacia la fuente de $-10\,\text{V}$.
+        Las caídas directas de los diodos suman $0.3+0.7=1.0\,\text{V}$; la
+        caída restante, $9.0\,\text{V}$, aparece en las dos resistencias:
+        \[
+            I=\frac{10-1.0}{(1.2+3.3)\,\text{k}\Omega}
+            =2.00\,\text{mA}.
+        \]
+        Desde tierra, la caída en la resistencia de $3.3\,\text{k}\Omega$
+        da $V_{o2}=-(2.00\,\text{mA})(3.3\,\text{k}\Omega)=-6.6\,\text{V}$.
+        La caída adicional en la resistencia de $1.2\,\text{k}\Omega$ es
+        $2.4\,\text{V}$, por lo que $V_{o1}=-6.6-2.4=-9.0\,\text{V}$.
+        Por tanto, $V_{o1}=-9.0\,\text{V}$ y $V_{o2}=-6.6\,\text{V}$.
+    \end{description}
+
+    \item \textbf{Diodos en paralelo.} Determine el voltaje de salida $V_o$
+    y la corriente indicada $I_D$ en cada configuración.
+    \begin{description}
+        \item[a)] Dos diodos de silicio idénticos están conectados en paralelo
+        y polarizados directamente por una fuente de $20\,\text{V}$.
+
+        \begin{center}
+        \begin{circuitikz}[scale=0.85,transform shape]
+            \draw (0,2) node[left] {$+20\,\text{V}$} -- (1,2)
+                  to[D,l=$D_1$] (3,2)
+                  -- (4,2) -- (4,1)
+                  (1,2) -- (1,0.5)
+                  to[D,l=$D_2$] (3,0.5)
+                  -- (4,0.5) -- (4,1)
+                  (4,1) node[right] {$V_o$}
+                  to[R,l=$4.7\,\text{k}\Omega$] (4,-1)
+                  -- (0,-1) node[left] {$0\,\text{V}$}
+                  -- (0,2);
+            \node[circ] at (4,1) {};
+            \draw[-{Stealth}] (1.5,2.4) -- (2.5,2.4)
+                  node[midway,above] {$I_D$};
+        \end{circuitikz}
+        \end{center}
+
+        La caída directa es $0.7\,\text{V}$, así que
+        \[
+            V_o=20-0.7=19.3\,\text{V},
+            \qquad
+            I_{\mathrm{total}}=\frac{19.3}{4.7\,\text{k}\Omega}
+            =4.11\,\text{mA}.
+        \]
+        Si los dos diodos se consideran idénticos y comparten la corriente
+        por igual, la corriente por cada uno es
+        $I_D=I_{\mathrm{total}}/2=2.05\,\text{mA}$. En un montaje real, el
+        reparto puede no ser exactamente igual por diferencias entre los
+        diodos.
+
+        \item[b)] Dos diodos de silicio en oposición están conectados entre
+        una fuente de $15\,\text{V}$ y la salida, con una resistencia entre
+        esta y una fuente de $-5\,\text{V}$.
+
+        \begin{center}
+        \begin{circuitikz}[scale=0.85,transform shape]
+            \draw (0,2) node[left] {$+15\,\text{V}$} -- (1,2)
+                  -- (1.5,2)
+                  to[D,invert,l=$D_1$] (1.5,0)
+                  -- (4,0) node[right] {$V_o$}
+                  (1,2) -- (4,2)
+                  to[D] (4,0)
+                  (4,0) to[R,l=$2.2\,\text{k}\Omega$] (4,-2)
+                  node[left] {$-5\,\text{V}$};
+            \node[circ] at (1,2) {};
+            \node[circ] at (4,0) {};
+            \node[left] at (4,1) {$D_2$};
+            \draw[-{Stealth}] (4.8,1.7) -- (4.8,0.5)
+                  node[midway,right] {$I_D$};
+        \end{circuitikz}
+        \end{center}
+
+        $D_2$ conduce y $D_1$ queda en corte. Por ello,
+        \[
+            V_o=15-0.7=14.3\,\text{V},
+            \qquad
+            I_D=\frac{V_o-(-5)}{2.2\,\text{k}\Omega}
+            =\frac{19.3}{2.2\,\text{k}\Omega}
+            =8.77\,\text{mA}\simeq8.8\,\text{mA}.
+        \]
+    \end{description}
+\end{enumerate}
