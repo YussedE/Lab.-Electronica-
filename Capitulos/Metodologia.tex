@@ -2,149 +2,223 @@
 
 \subsection{Procedimiento seguido para la toma de datos}
 
-Cada circuito se resolvió teóricamente antes de armarlo, usando la segunda
-aproximación del diodo: una caída constante de $0{,}7$ V para el silicio y
-$0{,}3$ V para el germanio. Luego se montó en la caja de conexiones y se
-midieron las magnitudes experimentales.
+Cada rectificador se resolvió teóricamente con la segunda aproximación del
+diodo ($V_T = 0{,}7$ V) y luego se armó en la caja de conexiones para medir
+los valores experimentales.
 
 \begin{enumerate}
-    \item \textbf{Preparación:} se midieron con el multímetro digital las
-    resistencias de carbón utilizadas: $R=472\ \Omega$ para los circuitos 1,
-    2 y 3; y $R_1=472\ \Omega$ y $R_2=269\ \Omega$ para el circuito 4. La
-    fuente de voltaje regulada se ajustó al valor requerido en cada ensayo.
+    \item \textbf{Preparación:} se midieron con el multímetro digital la
+    resistencia de carga ($R \approx 0{,}983$ k$\Omega$) y la capacitancia
+    del filtro ($C \approx 1003\ \mu$F; $1000\ \mu$F en el puente). Se
+    calculó la constante de tiempo $\tau = RC \approx 0{,}99$ s, para
+    verificar la condición $\tau \gg 1/f$ del filtro.
 
-    \item \textbf{Circuito 1 (diodo de Si en serie con una resistencia):}
-    con $E=9{,}0$ V se midieron $V_D$, $V_R$ e $I$ en polarización directa.
-    Luego se invirtió el diodo y se repitieron las mediciones en polarización
-    inversa. Finalmente, en polarización directa, se fijó $E=0{,}4$ V, un
-    valor menor que el voltaje umbral, para verificar que el diodo no
-    condujera.
+    \item \textbf{Montaje 1, rectificador de media onda:} se armó el circuito
+    de la Fig.~2 con un diodo de silicio en serie con $R$, alimentado por el
+    secundario del transformador reductor conectado a la red (60 Hz). Se
+    midió con el multímetro en AC el voltaje rms del secundario y se
+    observaron en el osciloscopio las formas de onda de entrada (punto i) y
+    de salida (punto o). Se midieron $V_{DC}$ e $I_{DC}$ sin filtro y luego
+    con el capacitor conectado en paralelo con $R$, respetando su polaridad.
+    Se registraron las capturas del osciloscopio anotando la ganancia
+    vertical y el barrido horizontal.
 
-    \item \textbf{Circuito 2 (diodos de Si y Ge en serie con una resistencia):}
-    con $E=9{,}0$ V se midieron $V_{D,Si}$, $V_{D,Ge}$, $V_0$ e $I$ con ambos
-    diodos en polarización directa. Después se invirtió el diodo de germanio y
-    se repitieron las mediciones.
+    \item \textbf{Montaje 2, rectificador de onda completa con dos diodos:}
+    se armó el circuito de la Fig.~3 con el secundario con derivación central
+    y dos diodos de silicio. Se observaron las señales de entrada (punto a)
+    y salida (punto m), y se midieron $V_{DC}$ e $I_{DC}$ sin filtro y con
+    filtro capacitivo.
 
-    \item \textbf{Circuito 3 (diodos de Si y Ge en paralelo, en serie con una
-    resistencia):} con $E=9{,}0$ V se midieron $V_{D,Si}$, $V_{D,Ge}$, $I$ y
-    $V_R$ con ambos diodos conectados. Luego se retiró el diodo de germanio y
-    se repitieron las mediciones; por último, se retiró el de silicio y se
-    midió de nuevo.
+    \item \textbf{Montaje 3, rectificador en puente con cuatro diodos:} se
+    armó el circuito de la Fig.~4 con los cuatro diodos y el secundario sin
+    derivación central. Se repitieron las observaciones y mediciones del
+    montaje anterior, sin filtro y con filtro.
 
-    \item \textbf{Circuito 4 (dos diodos de Si y dos resistencias):} con
-    $E=15{,}0$ V se midieron $V_{D1}$, $V_{D2}$, $I_1$, $V_2$, $I_2$ e
-    $I_{D2}$.
-
-    \item \textbf{Comparación:} para cada magnitud se calculó el error
-    relativo porcentual respecto al valor teórico y se analizó la validez de
-    la segunda aproximación.
+    \item \textbf{Análisis:} para cada montaje se compararon los valores
+    teóricos y experimentales calculando el error relativo porcentual y se
+    comparó el efecto del filtro sobre la forma de onda de salida.
 \end{enumerate}
 
+\paragraph{Registro del osciloscopio para media onda.}
+La Fig.~\ref{fig:senal-media-onda} muestra la señal senoidal de entrada
+(traza amarilla) y la salida del rectificador (traza azul). La entrada tiene
+una amplitud aproximada de $20$ V pico a pico, equivalente a $10$ V de pico,
+en concordancia con el valor teórico de aproximadamente $10{,}06$ V. La
+salida sigue el semiciclo positivo y permanece cerca del nivel de referencia
+durante el negativo, como corresponde a la rectificación de media onda; su
+máximo queda ligeramente por debajo del de entrada por la caída del diodo.
+
+Ambos canales están configurados a $5$ V/div y la base de tiempo es de
+$5$ ms/div. Un período ocupa aproximadamente $3{,}3$ divisiones
+($16{,}5$ ms), correspondiente a una frecuencia cercana a $60$ Hz. El menú
+de CH2 indica acoplamiento DC, límite de banda de 20 MHz desactivado y sonda
+1X; también aparece la opción de filtro digital. El indicador
+``CH1$\sim$'' parece señalar acoplamiento AC para CH1, por lo que conviene
+verificarlo: si los canales usan acoplamientos distintos, sus niveles de
+referencia podrían no ser directamente comparables.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{señaluno.jpeg}
+    \caption{Señales de entrada (amarilla) y salida (azul) del rectificador
+    de media onda observadas en el osciloscopio.}
+    \label{fig:senal-media-onda}
+\end{figure}
+
+\paragraph{Registro del osciloscopio con filtro capacitivo.}
+La Fig.~\ref{fig:senal-filtro-media-onda} muestra la entrada senoidal
+(traza amarilla) y la salida con el capacitor conectado en paralelo con la
+carga (traza azul). La entrada conserva una amplitud aproximada de $20$ V
+pico a pico ($10$ V de pico) y un período cercano a $16$ ms. A diferencia
+de la captura sin filtro, la salida se mantiene casi constante por encima de
+la referencia y presenta un rizado pequeño: el capacitor se carga cerca de
+los máximos positivos, cuando conduce el diodo, y se descarga lentamente a
+través de la resistencia durante el resto del ciclo. El nivel DC observado,
+aproximadamente entre $9$ y $10$ V, concuerda con la estimación
+$V_P - 0{,}7$ V. El leve achatamiento de la entrada alrededor de los picos
+podría estar asociado a los pulsos de corriente de recarga del capacitor.
+
+Con $R \approx 0{,}983$ k$\Omega$, $C \approx 1003\ \mu$F y una salida de
+aproximadamente $9{,}36$ V, el modelo de media onda estima
+$I_{DC} \approx 9{,}5$ mA y un rizado
+$v_r \approx I_{DC}/(60C) \approx 0{,}16$ V. A $5$ V/div este valor ocupa
+unas $0{,}03$ divisiones y debería verse muy pequeño; si el rizado de la
+captura parece mayor, podría deberse a diferencias en el capacitor o en las
+condiciones del ensayo. La salida también parece elevarse ligeramente entre
+picos, lo que podría indicar que el capacitor aún se estaba cargando al
+tomar la imagen. Todas estas lecturas son aproximadas por el ángulo y la
+iluminación de la fotografía; conviene esperar a que la señal se estabilice
+y confirmar los valores de $R$ y $C$.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{señaldos.jpeg}
+    \caption{Señales de entrada (amarilla) y salida filtrada (azul) del
+    rectificador de media onda.}
+    \label{fig:senal-filtro-media-onda}
+\end{figure}
+
+\paragraph{Registro adicional del rizado de media onda.}
+La Fig.~\ref{fig:senal-rizado-media-onda} muestra únicamente la salida
+(CH2); la señal de entrada no está visible, aunque el indicador superior
+parece mostrar que el disparo está configurado con CH1 y un nivel de
+$200$ mV. La escala vertical de CH2 es de $1$ V/div y la base de tiempo es
+de $5$ ms/div. La salida presenta un rizado aproximadamente en diente de
+sierra: el capacitor se recarga rápidamente cuando conduce el diodo cerca
+del máximo de entrada y se descarga más lentamente por la resistencia
+durante el intervalo restante. El período ocupa cerca de $3{,}4$ divisiones
+($17$ ms), equivalente a unos $60$ Hz, como se espera para el rizado de un
+rectificador de media onda alimentado a esa frecuencia.
+
+La lectura visual del rizado es de aproximadamente $1{,}4$ V pico a pico.
+El nivel DC parece estar entre $4$ y $5$ V respecto al indicador de cero,
+pero esta estimación es incierta por el ángulo y la iluminación de la foto.
+El rizado observado es mayor que las estimaciones teóricas reportadas para
+los datos de esta práctica ($0{,}158$--$0{,}327$ V con
+$C \approx 1003\ \mu$F). Por tanto, conviene verificar qué capacitor y qué
+carga se usaron en esta captura antes de atribuir la diferencia: las
+lecturas podrían ser compatibles con una capacitancia de decenas de
+microfaradios, pero no confirman por sí solas el uso de un capacitor de
+$100\ \mu$F. Si se confirma que se utilizó ese valor, deben actualizarse la
+descripción del montaje y los resultados correspondientes. Las lecturas de
+esta fotografía son aproximadas.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{señaltres.jpeg}
+    \caption{Rizado de la salida filtrada del rectificador de media onda
+    observado en CH2.}
+    \label{fig:senal-rizado-media-onda}
+\end{figure}
+
 \paragraph{Descripción de los elementos del montaje.}
-Cada circuito se armó con una fuente de voltaje DC regulada (0--30 V), una
-caja de conexiones con puentes, resistencias de carbón, diodos de silicio
-(1N5406) y un diodo de germanio. Se utilizó un multímetro digital como
-voltímetro en escala DC y como amperímetro en la escala de 200 mA, conectado
-en serie para medir corriente.
-
-En las Figuras~\ref{fig:montaje-circuito} y~\ref{fig:procedimiento-medicion}
-se muestran, respectivamente, el montaje del circuito y el procedimiento
-experimental de medición.
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{Circuito.jpeg}
-    \caption{Montaje del circuito en la caja de conexiones.}
-    \label{fig:montaje-circuito}
-\end{figure}
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.55\textwidth,height=0.65\textheight,keepaspectratio]{Procedimiento.jpeg}
-    \caption{Procedimiento experimental de medición con la fuente regulada y el multímetro digital.}
-    \label{fig:procedimiento-medicion}
-\end{figure}
+Cada circuito se armó con un transformador reductor de aislamiento con
+derivación central (12 V y 6 V), diodos de silicio, una resistencia de
+carbón de $\approx 1$ k$\Omega$ y un capacitor electrolítico de
+$\approx 1000\ \mu$F como filtro. Para las mediciones se usó un multímetro
+digital en escalas AC y DC y un osciloscopio de dos canales con sus puntas.
 
 \subsection{Variables medidas directamente}
 
 \begin{itemize}
-    \item Voltajes en los diodos ($V_D$, $V_{D1}$, $V_{D2}$), en las
-    resistencias ($V_R$, $V_0$, $V_2$) y de salida, en voltios, medidos con
-    el multímetro digital.
-    \item Corrientes ($I$, $I_1$, $I_2$, $I_{D2}$), en mA, medidas con el
-    multímetro digital como amperímetro.
-    \item Valores reales de las resistencias utilizadas ($R$, $R_1$, $R_2$),
-    en $\Omega$, medidos con el multímetro digital.
+    \item Voltaje rms del secundario del transformador ($V_{rms}$), en V,
+    medido con el multímetro en AC.
+    \item Voltaje DC de salida ($V_{DC}$), en V, medido con el multímetro en
+    DC.
+    \item Corriente DC de salida ($I_{DC}$), en mA, medida con el multímetro
+    como amperímetro.
+    \item Valores reales de $R$ y $C$, medidos con el multímetro.
+    \item Formas de onda de entrada y salida, registradas con las escalas de
+    volt/div y tiempo/div del osciloscopio.
 \end{itemize}
 
 \subsection{Variables obtenidas indirectamente}
 
 \begin{itemize}
-    \item Valores teóricos de cada circuito. Para los circuitos 1 a 3 se
-    calcularon, según la configuración, mediante
+    \item Voltaje pico: $V_P = \sqrt{2}\,V_{rms}$.
+    \item $V_{DC}$ teórico sin filtro:
     \[
-        I=\frac{E-\sum V_D}{R},
-        \qquad
-        V_R=IR.
+        \begin{aligned}
+            \text{media onda:}\quad
+            &V_{DC} = \frac{V_P - V_T}{\pi},\\
+            \text{onda completa con dos diodos:}\quad
+            &V_{DC} = 2\,\frac{V'_P - V_T}{\pi},
+            \qquad V'_P = \frac{V_P}{2},\\
+            \text{puente:}\quad
+            &V_{DC} = 2\,\frac{V_P - 2V_T}{\pi}.
+        \end{aligned}
     \]
-    Para el circuito 4 se utilizaron
+    \item $V_{DC}$ teórico con filtro: $V_P - 0{,}7$ V para media onda,
+    $V'_P - 0{,}7$ V para dos diodos y $V_P - 2(0{,}7)$ V para el puente.
+    \item Corriente teórica: $I_{DC} = V_{DC}/R$.
+    \item Voltaje de rizo teórico:
     \[
-        I_1=\frac{V_{D2}}{R_1},
-        \qquad
-        V_2=E-V_{D1}-V_{D2},
-        \qquad
-        I_2=\frac{V_2}{R_2},
-        \qquad
-        I_{D2}=I_2-I_1.
+        v_r = \frac{I_{DC}}{fC},
     \]
-    \item Error relativo porcentual de cada magnitud cuyo valor teórico sea
-    distinto de cero:
+    donde $f$ es la frecuencia de la señal rectificada (60 Hz en media onda
+    y 120 Hz en onda completa).
+    \item Error relativo porcentual:
     \[
-        \%E=
-        \frac{\left|X_{\text{teo}}-X_{\text{exp}}\right|}
-        {\left|X_{\text{teo}}\right|}\times 100.
+        \%E =
+        \frac{|X_{\text{teo}} - X_{\text{exp}}|}{X_{\text{teo}}}
+        \times 100.
     \]
-    Cuando el valor teórico es cero, el error relativo porcentual no está
-    definido y se compara la diferencia absoluta entre los valores.
 \end{itemize}
 
 \subsection{Datos asumidos conocidos}
 
 \begin{itemize}
-    \item Voltaje de conducción de la segunda aproximación:
-    $V_T=0{,}7$ V para el silicio y $V_T=0{,}3$ V para el germanio.
-    \item Corriente nula en polarización inversa o cuando el diodo está por
-    debajo de su voltaje umbral.
-    \item Voltaje de la fuente igual al valor nominal ajustado en cada ensayo
-    (9{,}0 V, 0{,}4 V y 15{,}0 V).
+    \item Voltaje de conducción de los diodos de silicio:
+    $V_T = 0{,}7$ V (segunda aproximación).
+    \item Frecuencia de la red: 60 Hz.
+    \item Valores de $R$ y $C$ medidos previamente.
+    \item Transformador con relación de transformación constante, usando el
+    voltaje del secundario medido.
 \end{itemize}
 
 \subsection{Virtudes y limitaciones del diseño experimental}
 
-El diseño permite contrastar directamente la solución teórica de cada
-circuito con las mediciones. Se emplean circuitos sencillos y se varía su
-configuración (serie, paralelo y polarización directa e inversa) para evaluar
-el alcance del modelo. Como limitación, la segunda aproximación supone una
-caída de voltaje constante e ignora la resistencia interna del diodo, aunque
-el voltaje real varía con la corriente y la temperatura. Además, la escala
-de 200 mA del amperímetro no permite detectar corrientes inversas muy
-pequeñas, por lo que estas pueden registrarse como nulas.
+El osciloscopio permite ver directamente cómo se pierde o se aprovecha cada
+semiciclo en cada rectificador, y comparar con el multímetro el valor DC y
+el efecto del filtro con un mismo procedimiento. Como limitaciones, la
+segunda aproximación supone una caída constante de 0,7 V e ignora la
+resistencia interna de los diodos. Además, el voltaje real del transformador
+depende de la carga y de la red, y la capacitancia nominal de un electrolítico
+tiene una tolerancia alta.
 
 \subsection{Fuentes de error más críticas}
 
 \begin{itemize}
     \item \textbf{Errores en la toma de datos por parte de los
-    experimentadores:} lectura del display antes de que la medida se
-    estabilizara, selección de una escala poco adecuada para corrientes
-    pequeñas, conexiones inadecuadas en la caja de conexiones y errores de
-    registro de los valores. Se consideran la fuente de error más crítica
-    del experimento.
-    \item Diferencia entre el voltaje ajustado en la fuente y el realmente
-    aplicado. Por ejemplo, en polarización inversa del circuito 1 se midió
-    $V_D=9{,}14$ V con la fuente ajustada en 9{,}0 V.
-    \item Resistencia interna del multímetro al usarlo como amperímetro, que
-    modifica ligeramente la corriente del circuito.
-    \item Resistencia de contacto en cables, puentes y caja de conexiones.
+    experimentadores:} lectura de las escalas del osciloscopio y de los
+    displays antes de que se estabilicen, selección inadecuada de escalas del
+    multímetro, conexiones inadecuadas y errores de registro.
+    \item Variaciones en el voltaje de la red y caída de tensión interna del
+    transformador al conectar la carga, que alteran el $V_P$ respecto al
+    calculado con el $V_{rms}$ medido.
+    \item Tolerancia del capacitor electrolítico y resistencia de contacto
+    en cables y cajas de conexiones.
     \item Error del modelo: la caída real de los diodos difiere de los
-    valores constantes de 0{,}7 V y 0{,}3 V.
+    0,7 V asumidos, y el multímetro en AC asume una señal sinusoidal.
+
 \end{itemize}
